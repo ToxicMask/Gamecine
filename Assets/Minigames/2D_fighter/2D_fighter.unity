@@ -276,21 +276,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5371544175750904133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6969438214596322282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e99d68b4636ec141952c259e7108828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_dir: {x: 0, y: 0}
-  anim_control: {fileID: 0}
-  char_control: {fileID: 0}
 --- !u!143 &5642386529075013759
 CharacterController:
   m_ObjectHideFlags: 0
@@ -320,8 +305,10 @@ GameObject:
   - component: {fileID: 8406716488731284993}
   - component: {fileID: 6969438214596322283}
   - component: {fileID: 3225305327842434196}
+  - component: {fileID: 6969438214596322286}
+  - component: {fileID: 6969438214596322285}
+  - component: {fileID: 6969438214596322284}
   - component: {fileID: 5642386529075013759}
-  - component: {fileID: 5371544175750904133}
   m_Layer: 0
   m_Name: Player_Fighter
   m_TagString: Player
@@ -348,6 +335,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6969438214596322284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969438214596322282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9748267aa271db64e87455a4a430bf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6969438214596322283}
+--- !u!114 &6969438214596322285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969438214596322282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ec683a41e2d3148b1712644abb5335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6969438214596322283}
+  characterController: {fileID: 5642386529075013759}
+  walkSpeed: 0.6
+--- !u!114 &6969438214596322286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969438214596322282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e63015210747f4eb2a8bdb89f474b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8406716488731284993
 Transform:
   m_ObjectHideFlags: 0
