@@ -20,9 +20,8 @@ namespace Sidescroller.Control
         void Update()
         {
             ProcessInput();
-
         }
-
+        
         private void ProcessInput()
         {
            if (Input.GetAxis("Horizontal")!= 0)

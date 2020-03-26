@@ -14,7 +14,7 @@ namespace Sidescroller.Movement
         [SerializeField] float walkSpeed = .6f;
         void Start()
         {
-           var  animator = GetComponent<Animator>();
+           var animator = GetComponent<Animator>();
            var characterController = GetComponent<CharacterController>();
         }
 
@@ -24,6 +24,7 @@ namespace Sidescroller.Movement
             TurnCharacter(direction);
             Vector2 linearVelocity = movementDirection * walkSpeed;
             characterController.Move(linearVelocity * Time.deltaTime);
+
         }
 
         private void TurnCharacter(float direction)//vira a sprite prum lado ou pro outro
