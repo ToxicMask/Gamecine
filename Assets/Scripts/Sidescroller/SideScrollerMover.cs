@@ -9,13 +9,13 @@ namespace Sidescroller.Movement
     public class SideScrollerMover : MonoBehaviour
     {
         Vector2 movementDirection = new Vector2();
-        [SerializeField] Animator animator;
-        [SerializeField] CharacterController characterController;
+        Animator animator;
+        CharacterController characterController;
         [SerializeField] float walkSpeed = .6f;
         void Start()
         {
-           var animator = GetComponent<Animator>();
-           var characterController = GetComponent<CharacterController>();
+           animator = GetComponent<Animator>();
+           characterController = GetComponent<CharacterController>();
         }
 
         public void Walk(float direction)

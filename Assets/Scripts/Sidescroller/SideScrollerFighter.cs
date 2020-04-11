@@ -6,8 +6,12 @@ namespace Sidescroller.Fighting
 
     public class SideScrollerFighter : MonoBehaviour
     {
-        [SerializeField] Animator animator;
+        Animator animator;
 
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
         public void AttackBasic()
         {
                 animator.SetTrigger("Attack");
