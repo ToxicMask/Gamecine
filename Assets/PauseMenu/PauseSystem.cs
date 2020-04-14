@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseSystem : MonoBehaviour
 {
 
-    // Public Static var
-    public static bool gameIsPaused = false;
+    // Public Static var --> Acessible to get; private to set
+    public static bool gameIsPaused; // { get { return gameIsPaused; } private set { gameIsPaused = value; } }
 
-    // Pause Menu
+    // Pause UI
+    public GameObject pauseButtom;
     public GameObject pauseMenuUI;
 
     // Main Menu ID
@@ -17,6 +18,10 @@ public class PauseSystem : MonoBehaviour
 
     private void Start()
     {
+        // Show Buttom
+        if (pauseButtom != null)
+            pauseButtom.SetActive(true);
+
         // Hide Menu
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
@@ -47,6 +52,10 @@ public class PauseSystem : MonoBehaviour
         gameIsPaused = true;
         Time.timeScale = 0f;
 
+        // Buttom
+        if (pauseButtom != null)
+            pauseButtom.SetActive(false);
+
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(true);
     }
@@ -58,6 +67,11 @@ public class PauseSystem : MonoBehaviour
         gameIsPaused = false;
         Time.timeScale = 1f;
 
+        // Buttom
+        if (pauseButtom != null)
+            pauseButtom.SetActive(true);
+
+        // Menu
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
     }

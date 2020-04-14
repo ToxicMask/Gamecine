@@ -681,6 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befc69301a56ec443bce5069a4785f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseButtom: {fileID: 2098535482}
   pauseMenuUI: {fileID: 88671207}
   quitToSceneID: Main Menu
 --- !u!1 &1383001580
