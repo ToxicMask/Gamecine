@@ -8,7 +8,7 @@ namespace PauseTest
     {
 
         [SerializeField] bool rotate = false;
-        [SerializeField] float rotationSpeed = 2.0f;
+        [SerializeField] float rotationSpeed = 64.0f;
 
         // Start is called before the first frame update
         void Start()
@@ -21,7 +21,7 @@ namespace PauseTest
         {
             if (rotate)
             {
-                transform.Rotate(Vector3.forward * rotationSpeed);
+                transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
             }
 
         }
