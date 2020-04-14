@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseSystem : MonoBehaviour
 {
@@ -10,6 +11,20 @@ public class PauseSystem : MonoBehaviour
 
     // Pause Menu
     public GameObject pauseMenuUI;
+
+    // Main Menu ID
+    [SerializeField] string quitToSceneID = "";
+
+    private void Start()
+    {
+        // Hide Menu
+        if (pauseMenuUI != null)
+            pauseMenuUI.SetActive(false);
+
+        // Set quit to main scene if empty
+        if (quitToSceneID == "")
+            quitToSceneID = "Main Menu";
+    }
 
     public void TogglePause()
     {
@@ -45,5 +60,13 @@ public class PauseSystem : MonoBehaviour
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
+    }
+
+
+    // Change to Main Menu
+
+    public void Quit()
+    {
+        SceneManager.LoadScene(quitToSceneID);
     }
 }
