@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1695325121424287540}
   - component: {fileID: 4139549889115106471}
   m_Layer: 0
-  m_Name: Augusto Matraga
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,6 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9748267aa271db64e87455a4a430bf78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenAttacks: 2
+  attackRange: 0.4
+  attackDamage: 1
 --- !u!143 &4139549889115106471
 CharacterController:
   m_ObjectHideFlags: 0
