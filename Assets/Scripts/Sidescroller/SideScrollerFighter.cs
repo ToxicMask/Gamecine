@@ -36,18 +36,14 @@ namespace Sidescroller.Fighting
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange);//todo mudar pra box quando tiver as sprites certas
             foreach (Collider2D collider in enemiesToDamage) 
             { 
-                if (collider.GetComponent<SideScrollerAIController>() != null)
+                if (collider.GetComponent<Health>() != null)
                 {
-                    DealDamage(collider);
+                    collider.GetComponent<Health>().TakeDamage(attackDamage);
                 }
 
             }
         }
 
-        private void DealDamage(Collider2D collider)
-        {
-            print("I dealt damage to this object: " + collider.name);//todo de fato dar dano
-        }
 
         private void OnDrawGizmosSelected()
         {

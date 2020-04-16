@@ -7,9 +7,10 @@ using Sidescroller.Fighting;
 
 namespace Sidescroller.Control
 {
-
+  
     public class SideScrollerController : MonoBehaviour
     {
+        [SerializeField][Range(1,2)] int playerNumber = 1;
         // Start is called before the first frame update
         void Start()
         {
@@ -19,18 +20,32 @@ namespace Sidescroller.Control
         // Update is called once per frame
         void Update()
         {
-            ProcessInput();
+            ProcessInput(playerNumber);
         }
         
-        private void ProcessInput()
+        private void ProcessInput(int player)
         {
-           if (Input.GetAxis("Horizontal")!= 0)
+            if (player == 1)
             {
-                GetComponent<SideScrollerMover>().Walk(Input.GetAxis("Horizontal"));
+                if (Input.GetAxis("Horizontal") != 0)
+                {
+                    GetComponent<SideScrollerMover>().Walk(Input.GetAxis("Horizontal"));
+                }
+                if (Input.GetButtonDown("Action Primary"))
+                {
+                    GetComponent<SideScrollerFighter>().AttackBasic();
+                }
             }
-           if (Input.GetButtonDown("Action Primary"))
+            if (player == 2)
             {
-                GetComponent<SideScrollerFighter>().AttackBasic();
+                if (Input.GetAxis("Horizontal") != 0)
+                {
+                    GetComponent<SideScrollerMover>().Walk(Input.GetAxis("Horizontal"));
+                }
+                if (Input.GetButtonDown("Action Primary"))
+                {
+                    GetComponent<SideScrollerFighter>().AttackBasic();
+                }
             }
         }
     } }

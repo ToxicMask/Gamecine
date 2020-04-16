@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4660002591678208978}
   - component: {fileID: 4660002591678208977}
   - component: {fileID: 4660002591678208976}
-  - component: {fileID: 4660002591678208979}
+  - component: {fileID: 6086218651137387640}
   m_Layer: 0
   m_Name: Saco de pancada
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 3.7}
   m_EdgeRadius: 0
---- !u!114 &4660002591678208979
+--- !u!114 &6086218651137387640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4660002591678208983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af4083f67bb6de4db0a8f65af59be70, type: 3}
+  m_Script: {fileID: 11500000, guid: ccd865cf414284c469fe7eb0f6f96501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
