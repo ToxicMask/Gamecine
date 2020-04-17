@@ -27,14 +27,29 @@ namespace Sidescroller.Control
         // Update is called once per frame
         void Update()
         {
+            // Return if game is pause
+            if (PauseSystem.gameIsPaused) return;
+
             ProcessInput(playerNumber);
         }
         
-        private void ProcessInput(int playerID)
+        private void ProcessInput(int playerID = -1)
         {
 
-            //
-            string playerTag = playerID.ToString();
+            // Tag to get Input Axis
+            string playerTag;
+
+            if (playerID == -1)
+            {
+                // Set to Generic Singleplayer 
+                playerTag = "";
+            }
+            else
+            {
+                // Local Multiplayer
+                // Player TAG
+                playerTag = playerID.ToString();
+            }
 
             if (Input.GetAxis("Horizontal" + playerTag) != 0)
             {

@@ -28,6 +28,11 @@ public class PauseSystem : MonoBehaviour
         if (quitToSceneID == "") quitToSceneID = "Main Menu";
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel")) TogglePause(); // ESC --> Pause Game
+    }
+
     public void TogglePause()
     {
         if (!gameIsPaused)
