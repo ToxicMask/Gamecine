@@ -19,16 +19,13 @@ public class PauseSystem : MonoBehaviour
     private void Start()
     {
         // Show Buttom
-        if (pauseButtom != null)
-            pauseButtom.SetActive(true);
+        if (pauseButtom != null) pauseButtom.SetActive(true);
 
         // Hide Menu
-        if (pauseMenuUI != null)
-            pauseMenuUI.SetActive(false);
+        if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
 
         // Set quit to main scene if empty
-        if (quitToSceneID == "")
-            quitToSceneID = "Main Menu";
+        if (quitToSceneID == "") quitToSceneID = "Main Menu";
     }
 
     public void TogglePause()

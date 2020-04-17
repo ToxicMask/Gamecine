@@ -11,10 +11,17 @@ namespace Sidescroller.Control
     public class SideScrollerController : MonoBehaviour
     {
         [SerializeField][Range(1,2)] int playerNumber = 1;
+
+        // Components
+        SideScrollerMover moverScript;
+        SideScrollerFighter fighterScript;
+
         // Start is called before the first frame update
         void Start()
         {
-
+            // Auto Get
+            moverScript = GetComponent<SideScrollerMover>();
+            fighterScript = GetComponent<SideScrollerFighter>();
         }
 
         // Update is called once per frame
@@ -23,29 +30,20 @@ namespace Sidescroller.Control
             ProcessInput(playerNumber);
         }
         
-        private void ProcessInput(int player)
+        private void ProcessInput(int playerID)
         {
-            if (player == 1)
+
+            //
+            string playerTag = playerID.ToString();
+
+            if (Input.GetAxis("Horizontal" + playerTag) != 0)
             {
-                if (Input.GetAxis("Horizontal") != 0)
-                {
-                    GetComponent<SideScrollerMover>().Walk(Input.GetAxis("Horizontal"));
-                }
-                if (Input.GetButtonDown("Action Primary"))
-                {
-                    GetComponent<SideScrollerFighter>().AttackBasic();
-                }
+                moverScript.Walk(Input.GetAxis("Horizontal" + playerTag));
             }
-            if (player == 2)
+            if (Input.GetButtonDown("Action Primary" + playerTag))
             {
-                if (Input.GetAxis("Horizontal") != 0)
-                {
-                    GetComponent<SideScrollerMover>().Walk(Input.GetAxis("Horizontal"));
-                }
-                if (Input.GetButtonDown("Action Primary"))
-                {
-                    GetComponent<SideScrollerFighter>().AttackBasic();
-                }
+                fighterScript.AttackBasic();
             }
+
         }
     } }
