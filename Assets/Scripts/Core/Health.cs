@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Sidescroller.Fighting;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] float maxHealth = 10;
     public float currentHealth;
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
     }
@@ -29,5 +30,7 @@ public class Health : MonoBehaviour
     void Die()
     {
         print(this.name + " died");
+        this.GetComponent<SideScrollerFighter>().ChangeState(FighterState.Dead);
+        this.GetComponent<Collider2D>().enabled = false;
     }
 }

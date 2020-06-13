@@ -29,6 +29,7 @@ namespace Sidescroller.Control
         {
             // Return if game is pause
             if (PauseSystem.gameIsPaused) return;
+            if (fighterScript.currentState == FighterState.Dead) return;
 
             ProcessInput(playerNumber);
         }
@@ -58,6 +59,10 @@ namespace Sidescroller.Control
             if (Input.GetButtonDown("Action Primary" + playerTag))
             {
                 fighterScript.AttackBasic();
+            }
+            if (Input.GetButtonDown("Action Secondary" + playerTag))
+            {
+                fighterScript.Block();
             }
 
         }

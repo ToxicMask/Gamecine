@@ -1,0 +1,1085 @@
+fileFormatVersion: 2
+guid: 1e9f2f9ade7e57d42b9994838e9987c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4735374450761719216
+    second: Joaozinho BemBem_0
+  - first:
+      213: 2517111111903064300
+    second: Joaozinho BemBem_1
+  - first:
+      213: 8036468167214266816
+    second: Joaozinho BemBem_2
+  - first:
+      213: -2645399140521878707
+    second: Joaozinho BemBem_3
+  - first:
+      213: 4582430608298174104
+    second: Joaozinho BemBem_4
+  - first:
+      213: 3508068469466301855
+    second: Joaozinho BemBem_5
+  - first:
+      213: 4262699868681723039
+    second: Joaozinho BemBem_6
+  - first:
+      213: -5504680980664109471
+    second: Joaozinho BemBem_7
+  - first:
+      213: -3137865265502645178
+    second: Joaozinho BemBem_8
+  - first:
+      213: 7415630964027089215
+    second: Joaozinho BemBem_9
+  - first:
+      213: 3714663330507325975
+    second: Joaozinho BemBem_10
+  - first:
+      213: 7276378791932680957
+    second: Joaozinho BemBem_11
+  - first:
+      213: 580874894670356945
+    second: Joaozinho BemBem_12
+  - first:
+      213: -8498979159146977230
+    second: Joaozinho BemBem_13
+  - first:
+      213: -2440907626881122583
+    second: Joaozinho BemBem_14
+  - first:
+      213: 8674701242042463376
+    second: Joaozinho BemBem_15
+  - first:
+      213: 1298436977981734057
+    second: Joaozinho BemBem_16
+  - first:
+      213: 1679681267623439138
+    second: Joaozinho BemBem_17
+  - first:
+      213: 1523055747184855576
+    second: Joaozinho BemBem_18
+  - first:
+      213: 2727159793361429055
+    second: Joaozinho BemBem_19
+  - first:
+      213: -3653919732204626691
+    second: Joaozinho BemBem_20
+  - first:
+      213: 2718128167066000302
+    second: Joaozinho BemBem_21
+  - first:
+      213: 7404893820503375375
+    second: Joaozinho BemBem_22
+  - first:
+      213: 8086708839543989390
+    second: Joaozinho BemBem_23
+  - first:
+      213: -6938017042415376566
+    second: Joaozinho BemBem_24
+  - first:
+      213: 5867144342732132886
+    second: Joaozinho BemBem_25
+  - first:
+      213: 3528083192366752982
+    second: Joaozinho BemBem_26
+  - first:
+      213: 42429283049629797
+    second: Joaozinho BemBem_27
+  - first:
+      213: 5527206742283648379
+    second: Joaozinho BemBem_28
+  - first:
+      213: -7516720566839768497
+    second: Joaozinho BemBem_29
+  - first:
+      213: -2097476728784435637
+    second: Joaozinho BemBem_30
+  - first:
+      213: -3010701339206841388
+    second: Joaozinho BemBem_31
+  - first:
+      213: -7127401111237733179
+    second: Joaozinho BemBem_32
+  - first:
+      213: 7930634904881385576
+    second: Joaozinho BemBem_33
+  - first:
+      213: -9045042186344230586
+    second: Joaozinho BemBem_34
+  - first:
+      213: -8462774107614221844
+    second: Joaozinho BemBem_35
+  - first:
+      213: 6277386895037537593
+    second: Joaozinho BemBem_36
+  - first:
+      213: 7461267836055035257
+    second: Joaozinho BemBem_37
+  - first:
+      213: 3353466898535214509
+    second: Joaozinho BemBem_38
+  - first:
+      213: -2068794738317860817
+    second: Joaozinho BemBem_39
+  - first:
+      213: -982311683598457430
+    second: Joaozinho BemBem_40
+  - first:
+      213: 7686389343975412368
+    second: Joaozinho BemBem_41
+  - first:
+      213: -3544378724320712314
+    second: Joaozinho BemBem_42
+  - first:
+      213: 7377237939651716741
+    second: Joaozinho BemBem_43
+  - first:
+      213: -5755604423694212097
+    second: Joaozinho BemBem_44
+  - first:
+      213: 8845564068302158156
+    second: Joaozinho BemBem_45
+  - first:
+      213: 7046840386359964511
+    second: Joaozinho BemBem_46
+  - first:
+      213: -3192969335524473574
+    second: Joaozinho BemBem_47
+  - first:
+      213: -4441158411461990399
+    second: Joaozinho BemBem_48
+  - first:
+      213: -1433214421315872154
+    second: Joaozinho BemBem_49
+  - first:
+      213: -3863614035819109869
+    second: Joaozinho BemBem_50
+  - first:
+      213: 4393082325888047710
+    second: Joaozinho BemBem_51
+  - first:
+      213: -635368002396017022
+    second: Joaozinho BemBem_52
+  - first:
+      213: 7462597556033026269
+    second: Joaozinho BemBem_53
+  - first:
+      213: -82245039795983626
+    second: Joaozinho BemBem_54
+  - first:
+      213: 3194374101153816851
+    second: Joaozinho BemBem_55
+  - first:
+      213: -3268821626162284205
+    second: Joaozinho BemBem_56
+  - first:
+      213: -1538203130400252736
+    second: Joaozinho BemBem_57
+  - first:
+      213: -8166049679850593892
+    second: Joaozinho BemBem_58
+  - first:
+      213: -147065498077968016
+    second: Joaozinho BemBem_59
+  - first:
+      213: 852747608717929469
+    second: Joaozinho BemBem_60
+  - first:
+      213: 840639355403710788
+    second: Joaozinho BemBem_61
+  - first:
+      213: 6411019463544592889
+    second: Joaozinho BemBem_62
+  - first:
+      213: -5341508661305915611
+    second: Joaozinho BemBem_63
+  - first:
+      213: -7858013402898884413
+    second: Joaozinho BemBem_64
+  - first:
+      213: 5202848747327262585
+    second: Joaozinho BemBem_65
+  - first:
+      213: 5668562690886346465
+    second: Joaozinho BemBem_66
+  - first:
+      213: -5700961187428576454
+    second: Joaozinho BemBem_67
+  - first:
+      213: -2518747370244853649
+    second: Joaozinho BemBem_68
+  - first:
+      213: 5696262741099830428
+    second: Joaozinho BemBem_69
+  - first:
+      213: -4384196823451504617
+    second: Joaozinho BemBem_70
+  - first:
+      213: -8615067591798364276
+    second: Joaozinho BemBem_71
+  - first:
+      213: 6679361050410666212
+    second: Joaozinho BemBem_72
+  - first:
+      213: -4714428886264981127
+    second: Joaozinho BemBem_73
+  - first:
+      213: -140378926333191590
+    second: Joaozinho BemBem_74
+  - first:
+      213: -2087073845253102647
+    second: Joaozinho BemBem_75
+  - first:
+      213: 4629975340961018062
+    second: Joaozinho BemBem_76
+  - first:
+      213: 3970907312337632617
+    second: Joaozinho BemBem_77
+  - first:
+      213: -5358199949986959118
+    second: Joaozinho BemBem_78
+  - first:
+      213: -8518043613489719125
+    second: Joaozinho BemBem_79
+  - first:
+      213: 5338453495133859288
+    second: Joaozinho BemBem_80
+  - first:
+      213: -4300589300354351385
+    second: Joaozinho BemBem_81
+  - first:
+      213: -7126572299383879934
+    second: Joaozinho BemBem_82
+  - first:
+      213: 8114995080832288538
+    second: Joaozinho BemBem_83
+  - first:
+      213: -6690131023665713684
+    second: Joaozinho BemBem_84
+  - first:
+      213: 8790063923937665375
+    second: Joaozinho BemBem_85
+  - first:
+      213: -8339400425814013354
+    second: Joaozinho BemBem_86
+  - first:
+      213: 4495481168572617798
+    second: Joaozinho BemBem_87
+  - first:
+      213: -529999165228343804
+    second: Joaozinho BemBem_88
+  - first:
+      213: 6962144327270660074
+    second: Joaozinho BemBem_89
+  - first:
+      213: -4078447632299288089
+    second: Joaozinho BemBem_90
+  - first:
+      213: 6999686879603876449
+    second: Joaozinho BemBem_91
+  - first:
+      213: -6142111817237847530
+    second: Joaozinho BemBem_92
+  - first:
+      213: -7063957678041607436
+    second: Joaozinho BemBem_93
+  - first:
+      213: -1651687483081890215
+    second: Joaozinho BemBem_94
+  - first:
+      213: -4048053911382549441
+    second: Joaozinho BemBem_95
+  - first:
+      213: -1459495947948805250
+    second: Joaozinho BemBem_96
+  - first:
+      213: -4874570947983869713
+    second: Joaozinho BemBem_97
+  - first:
+      213: 6022959237504947017
+    second: Joaozinho BemBem_98
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Joaozinho BemBem_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05223efa602984eb0800000000000000
+      internalID: -4735374450761719216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 660
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0bb2558339ee220800000000000000
+      internalID: 2517111111903064300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_2
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 660
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c97a831835478f60800000000000000
+      internalID: 8036468167214266816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_3
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 660
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4bd1146f77a94bd0800000000000000
+      internalID: -2645399140521878707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_4
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 660
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8966d770c50189f30800000000000000
+      internalID: 4582430608298174104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95894abfa92fa030800000000000000
+      internalID: 3508068469466301855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_6
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 550
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9cd0e022f6282b30800000000000000
+      internalID: 4262699868681723039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_7
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 550
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166baa920d17b93b0800000000000000
+      internalID: -5504680980664109471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_8
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 550
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6449da88a201474d0800000000000000
+      internalID: -3137865265502645178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_9
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 550
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31e834721d99e660800000000000000
+      internalID: 7415630964027089215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7120f033e922d8330800000000000000
+      internalID: 3714663330507325975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_11
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 440
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa555895f3eaf460800000000000000
+      internalID: 7276378791932680957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_12
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 440
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1e4cb93aeaf0800800000000000000
+      internalID: 580874894670356945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_13
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 440
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238a899fb7f8d0a80800000000000000
+      internalID: -8498979159146977230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_14
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 440
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee75322277202ed0800000000000000
+      internalID: -2440907626881122583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094b490b1dab26870800000000000000
+      internalID: 8674701242042463376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_16
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 330
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac35d35d89f40210800000000000000
+      internalID: 1298436977981734057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_17
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 330
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ba29ca63d6f4710800000000000000
+      internalID: 1679681267623439138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_18
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 330
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a0210f12bf22510800000000000000
+      internalID: 1523055747184855576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_19
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 330
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3229090261d8d520800000000000000
+      internalID: 2727159793361429055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc1724ec5baa4dc0800000000000000
+      internalID: -3653919732204626691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_21
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 220
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabd3fbaa2bb8b520800000000000000
+      internalID: 2718128167066000302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_22
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 220
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0eb69a62b773c660800000000000000
+      internalID: 7404893820503375375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_23
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 220
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84e70728d2c93070800000000000000
+      internalID: 8086708839543989390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_24
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 220
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47a935524637bf90800000000000000
+      internalID: -6938017042415376566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 612dd7ab1b84c6150800000000000000
+      internalID: 5867144342732132886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_26
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 110
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4eb0b88f446f030800000000000000
+      internalID: 3528083192366752982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_27
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 110
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5686f38453db69000800000000000000
+      internalID: 42429283049629797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_28
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 110
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7df5f96f3594bc40800000000000000
+      internalID: 5527206742283648379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_29
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 110
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a84a1487e3fa790800000000000000
+      internalID: -7516720566839768497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46c720370444e2e0800000000000000
+      internalID: -2097476728784435637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joaozinho BemBem_31
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 154
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db88c75517d736d0800000000000000
+      internalID: -3010701339206841388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

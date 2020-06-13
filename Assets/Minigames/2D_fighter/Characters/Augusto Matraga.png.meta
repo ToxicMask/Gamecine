@@ -1,0 +1,932 @@
+fileFormatVersion: 2
+guid: 039b8de07112ea144a83bc2a583672d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2990701465309846898
+    second: Augusto Matraga_0
+  - first:
+      213: 7109493513399207184
+    second: Augusto Matraga_1
+  - first:
+      213: -75917091414377657
+    second: Augusto Matraga_2
+  - first:
+      213: -3487192263794452901
+    second: Augusto Matraga_3
+  - first:
+      213: 8855431181871993040
+    second: Augusto Matraga_4
+  - first:
+      213: -930758434505518979
+    second: Augusto Matraga_5
+  - first:
+      213: -2322160376468262403
+    second: Augusto Matraga_6
+  - first:
+      213: -429852705540495110
+    second: Augusto Matraga_7
+  - first:
+      213: -6646049990937228957
+    second: Augusto Matraga_8
+  - first:
+      213: -6518617104355337799
+    second: Augusto Matraga_9
+  - first:
+      213: -1502412256831599410
+    second: Augusto Matraga_10
+  - first:
+      213: -3860595469423810960
+    second: Augusto Matraga_11
+  - first:
+      213: 321044502617584259
+    second: Augusto Matraga_12
+  - first:
+      213: 1962045576449273623
+    second: Augusto Matraga_13
+  - first:
+      213: -2577235618010144686
+    second: Augusto Matraga_14
+  - first:
+      213: 1391710178404981253
+    second: Augusto Matraga_15
+  - first:
+      213: 738397540018936103
+    second: Augusto Matraga_16
+  - first:
+      213: -3214036307061892422
+    second: Augusto Matraga_17
+  - first:
+      213: -6376486332868451838
+    second: Augusto Matraga_18
+  - first:
+      213: 1266180821395309505
+    second: Augusto Matraga_19
+  - first:
+      213: -8245689561278359342
+    second: Augusto Matraga_20
+  - first:
+      213: 1598299254669638383
+    second: Augusto Matraga_21
+  - first:
+      213: 4804597938407688427
+    second: Augusto Matraga_22
+  - first:
+      213: -488185195501407012
+    second: Augusto Matraga_23
+  - first:
+      213: -1522711980629575702
+    second: Augusto Matraga_24
+  - first:
+      213: -7949984198026706136
+    second: Augusto Matraga_25
+  - first:
+      213: -387865408730921798
+    second: Augusto Matraga_26
+  - first:
+      213: -7536685401717262889
+    second: Augusto Matraga_27
+  - first:
+      213: -5177450715888930462
+    second: Augusto Matraga_28
+  - first:
+      213: 4316965964688564040
+    second: Augusto Matraga_29
+  - first:
+      213: 8963306744429407357
+    second: Augusto Matraga_30
+  - first:
+      213: 5789290624569941042
+    second: Augusto Matraga_31
+  - first:
+      213: 4506215553935740332
+    second: Augusto Matraga_32
+  - first:
+      213: 747399960831798766
+    second: Augusto Matraga_33
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Augusto Matraga_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d9805232b118920800000000000000
+      internalID: 2990701465309846898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 660
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0158a17ceaef9a260800000000000000
+      internalID: 7109493513399207184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 660
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b7dddbec942fef0800000000000000
+      internalID: -75917091414377657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 660
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b569a0dac110b9fc0800000000000000
+      internalID: -3487192263794452901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 660
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0d568edbfc4ea70800000000000000
+      internalID: 8855431181871993040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70999b92284513f0800000000000000
+      internalID: -930758434505518979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 550
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df13f11e07706cfd0800000000000000
+      internalID: -2322160376468262403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 550
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8a484ed3bd80af0800000000000000
+      internalID: -429852705540495110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_8
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 550
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369c2badebc74c3a0800000000000000
+      internalID: -6646049990937228957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 550
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b95d1cd7483985a0800000000000000
+      internalID: -6518617104355337799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc0c55330c562be0800000000000000
+      internalID: -1502412256831599410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_11
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 440
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076e287ffd86c6ac0800000000000000
+      internalID: -3860595469423810960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_12
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 440
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382fc9f2644947400800000000000000
+      internalID: 321044502617584259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_13
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 440
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fa2617e069a3b10800000000000000
+      internalID: 1962045576449273623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 440
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25065063cd1db3cd0800000000000000
+      internalID: -2577235618010144686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50adf1e9809505310800000000000000
+      internalID: 1391710178404981253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_16
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 330
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729d9d386a05f3a00800000000000000
+      internalID: 738397540018936103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 330
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba1e56e1037563d0800000000000000
+      internalID: -3214036307061892422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_18
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 330
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2022e3ed67b2287a0800000000000000
+      internalID: -6376486332868451838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_19
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 330
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c30ea0afb0629110800000000000000
+      internalID: 1266180821395309505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d85bd3180d619d80800000000000000
+      internalID: -8245689561278359342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_21
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 220
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feafa5734bc4e2610800000000000000
+      internalID: 1598299254669638383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_22
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 220
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be84d5f7e5c5da240800000000000000
+      internalID: 4804597938407688427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_23
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 220
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd4b885b62e9939f0800000000000000
+      internalID: -488185195501407012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_24
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 220
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7b753758d3edae0800000000000000
+      internalID: -1522711980629575702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82346a22e7bfba190800000000000000
+      internalID: -7949984198026706136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_26
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 110
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab48eeb37760e9af0800000000000000
+      internalID: -387865408730921798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_27
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 110
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d535c6ee80586790800000000000000
+      internalID: -7536685401717262889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_28
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 110
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 261395551000628b0800000000000000
+      internalID: -5177450715888930462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_29
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 110
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f96b03ca1f8eb30800000000000000
+      internalID: 4316965964688564040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ce3929eff046c70800000000000000
+      internalID: 8963306744429407357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_31
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c9dfa6621b75050800000000000000
+      internalID: 5789290624569941042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_32
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad0eaddb2b498e30800000000000000
+      internalID: 4506215553935740332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Augusto Matraga_33
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed2582fd4c4f5a00800000000000000
+      internalID: 747399960831798766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
