@@ -6,6 +6,7 @@ namespace Sidescroller.Fighting
         Idle,
         Attacking,
         Blocking,
+        Damaged,
         Dead,
         Dying,
         Dodging,
@@ -23,7 +24,6 @@ namespace Sidescroller.Fighting
         [SerializeField] float attackDamage = 1f;
 
         public Transform attackPos;
-
 
 
 
@@ -47,12 +47,19 @@ namespace Sidescroller.Fighting
             animator.SetTrigger("Block");
         }
 
+        public void Damaged()
+        {
+            currentState = FighterState.Damaged;
+            animator.SetTrigger("Damage");
+        }
+
+        /*
         public void Dodge()
         {
             currentState = FighterState.Dodging;
             animator.SetTrigger("Dodge");
             
-        }
+        }*/
 
         public void Death()
         {
@@ -65,7 +72,6 @@ namespace Sidescroller.Fighting
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-
             
         }
 

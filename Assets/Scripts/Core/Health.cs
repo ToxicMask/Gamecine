@@ -19,10 +19,23 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        // Death Transition
         if (currentHealth - damage <= 0) { Die(); }
-        else
+
+        // Damage Transition (If not Damaged or Dead)
+        else 
         {
+
+            SideScrollerFighter scrollerFighter = this.GetComponent<SideScrollerFighter>();
+
+            FighterState state = scrollerFighter.currentState;
+
+            // Do Damage if is dead or Damaged
+            if ((state == FighterState.Dead || state == FighterState.Dying || state == FighterState.Damaged)) return;
+
+            // Process Damage
             currentHealth -= damage;
+            scrollerFighter.Damaged();
             print(this.name + " took damage");
             print(currentHealth);
         }

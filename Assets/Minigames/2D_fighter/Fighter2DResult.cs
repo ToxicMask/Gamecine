@@ -7,8 +7,8 @@ using Sidescroller.Fighting;
 public class Fighter2DResult : MonoBehaviour
 {
 
-    [SerializeField] SideScrollerFighter Fighter1;
-    [SerializeField] SideScrollerFighter Fighter2;
+    [SerializeField] SideScrollerFighter Fighter1 = null;
+    [SerializeField] SideScrollerFighter Fighter2 = null;
 
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class Fighter2DResult : MonoBehaviour
 
         if (Fighter2.currentState == FighterState.Dead)
         {
-            Debug.LogAssertion("Victory PLAYER 1");
+            //Debug.LogAssertion("Victory PLAYER 1");
 
             Invoke("ToMainMenu", 2.5f);
         }
