@@ -16,6 +16,12 @@ namespace Sidescroller.Movement
            animator = GetComponent<Animator>();
         }
 
+        public void Stand()
+        {
+            this.GetComponent<Animator>().SetFloat("Walk", 0);
+        }
+
+
         public void Walk(float direction)
         {
 
@@ -24,6 +30,8 @@ namespace Sidescroller.Movement
             movementDirection.x = direction;
             Vector2 linearVelocity = movementDirection * walkSpeed;
             this.transform.Translate(linearVelocity * Time.deltaTime);
+
+            this.GetComponent<Animator>().SetFloat("Walk", direction);
 
         }
 

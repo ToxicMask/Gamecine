@@ -58,10 +58,19 @@ namespace Sidescroller.Control
                 playerTag = playerID.ToString();
             }
 
+
+            // Walk
             if (Input.GetAxis("Horizontal" + playerTag) != 0)
             {
                 moverScript.Walk(Input.GetAxis("Horizontal" + playerTag));
             }
+
+            // Stand Still
+            else
+            {
+                moverScript.Stand();
+            }
+
             if (Input.GetButtonDown("Action Primary" + playerTag))
             {
                 fighterScript.AttackBasic();
