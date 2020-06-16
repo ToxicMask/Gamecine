@@ -18,6 +18,9 @@ namespace Sidescroller.Movement
 
         public void Walk(float direction)
         {
+
+            Debug.Log(gameObject.name + "Moved 1!");
+
             movementDirection.x = direction;
             Vector2 linearVelocity = movementDirection * walkSpeed;
             this.transform.Translate(linearVelocity * Time.deltaTime);

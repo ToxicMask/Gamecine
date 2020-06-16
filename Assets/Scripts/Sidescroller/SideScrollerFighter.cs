@@ -7,7 +7,8 @@ namespace Sidescroller.Fighting
         Attacking,
         Blocking,
         Dead,
-        Dodging
+        Dying,
+        Dodging,
     }
     public class SideScrollerFighter : MonoBehaviour
     {
@@ -30,6 +31,7 @@ namespace Sidescroller.Fighting
         {
             animator = GetComponent<Animator>();
         }
+
         public void AttackBasic()
         {
             if (timeSinceLastAttack < timeBetweenAttacks) { return; }
@@ -50,6 +52,14 @@ namespace Sidescroller.Fighting
             currentState = FighterState.Dodging;
             animator.SetTrigger("Dodge");
             
+        }
+
+        public void Death()
+        {
+            // Dying State ==> Death Animation
+            currentState = FighterState.Dying;
+            animator.SetTrigger("Death");
+
         }
 
         private void Update()

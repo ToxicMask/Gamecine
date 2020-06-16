@@ -29,7 +29,13 @@ namespace Sidescroller.Control
         {
             // Return if game is pause
             if (PauseSystem.gameIsPaused) return;
-            if (fighterScript.currentState == FighterState.Dead) return;
+
+            // Return if Character is Acting
+            if (fighterScript.currentState == FighterState.Blocking|| fighterScript.currentState == FighterState.Attacking) return;
+
+            // Return if Character is Dead
+            if (fighterScript.currentState == FighterState.Dead || fighterScript.currentState == FighterState.Dying) return;
+
 
             ProcessInput(playerNumber);
         }

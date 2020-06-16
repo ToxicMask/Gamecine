@@ -49,7 +49,7 @@ Animator:
   m_GameObject: {fileID: 1695325121424287538}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec12666657e7b7445a52e66a76a7fddb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6c7089a0c1b92a14881edfc4bde21a5e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -795075323835421247, guid: f5acdc0b0d45881419a2c2e548f131ec,
+  m_Sprite: {fileID: -7180521403826953987, guid: 4949de28cf593db449e9b14a3c73b9be,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -148,11 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 0.6
   attackRange: 0.31
   attackDamage: 1
-  characterHeight: 1
-  attackHeightOffset: 0
   attackPos: {fileID: 7902700957065620090}
 --- !u!114 &1179197817
 MonoBehaviour:
@@ -202,8 +200,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.35}
-  m_Size: {x: 0.32, y: 0.77}
+  m_Offset: {x: 0, y: 0.75}
+  m_Size: {x: 0.5, y: 1.5}
   m_Direction: 0
 --- !u!1 &1754936473117973859
 GameObject:
