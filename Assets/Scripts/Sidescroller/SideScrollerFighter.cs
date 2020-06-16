@@ -21,9 +21,6 @@ namespace Sidescroller.Fighting
         [SerializeField] float attackRange = .3f;
         [SerializeField] float attackDamage = 1f;
 
-        [SerializeField] float characterHeight = 1f;
-        [SerializeField] float attackHeightOffset = 0;
-
         public Transform attackPos;
 
 
