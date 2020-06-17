@@ -43,7 +43,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a7ae183cee9dba346b082ada78da7407, type: 2}
+  m_Motion: {fileID: 7400000, guid: ef199e6beaf85ff48afac4e0a7252716, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -56,8 +56,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Fighter_Idle
-  m_Speed: 1
+  m_Name: BemBem Idle
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7151677013170331680}
@@ -73,7 +73,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e6657f48fdae2b5479faf1627b71ec76, type: 2}
+  m_Motion: {fileID: 7400000, guid: 80c0e2c52291809499cd6e03a934cefc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -133,7 +133,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Fighter_Attack
+  m_Name: BemBem Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -147,7 +147,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3d122cfb8e8b36343af891f54b9c1768, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2c9572a5b33bb784aa6001142c7fe08e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -176,7 +176,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d7a695e4d1ef2004b9e5261bb1669ed4, type: 2}
+  m_Motion: {fileID: 7400000, guid: c151034f942a4734e9c6587f904eefaa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -236,7 +236,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Block
+  m_Name: BemBem Block
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -250,7 +250,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5f6624451d02e9d469279a00748ad1dc, type: 2}
+  m_Motion: {fileID: 7400000, guid: 11990ff18da02bf49aa7f422d8f76a24, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -377,7 +377,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 46bb34e2a86895143bbd551a60a7abab, type: 2}
+  m_Motion: {fileID: 7400000, guid: daf086dabc423bc4882475f2acb61d89, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -389,7 +389,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 2D Fighter Matraga
+  m_Name: 2D Fighter BemBem
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
@@ -458,7 +458,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0cc9a8e70cf9e9d4f97024afe32044de, type: 2}
+  m_Motion: {fileID: 7400000, guid: e2f1cb30d80387341a6f62682caa6586, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -648,8 +648,8 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.4
-  m_TransitionOffset: 0
+  m_TransitionDuration: 0.39999998
+  m_TransitionOffset: 0.7064648
   m_ExitTime: 1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
@@ -701,7 +701,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e2a015a24a397c646a726253b0f83e2f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 79d5d1a1c0b825841aa1af623d2d5f2c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

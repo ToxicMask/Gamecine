@@ -27,7 +27,7 @@ public class Fighter2DResult : MonoBehaviour
     {
         if (Fighter1.currentState == FighterState.Dead)
         {
-            Debug.LogAssertion("Victory PLAYER 2");
+            //Debug.LogAssertion("Victory PLAYER 2");
 
             Invoke("ResetLevel", 2.5f);
         }

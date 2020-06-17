@@ -72,7 +72,6 @@ namespace Sidescroller.Fighting
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-            
         }
 
         private void AttackBasicHit()
@@ -97,6 +96,8 @@ namespace Sidescroller.Fighting
                 }
             }
         }
+
+
         public void ChangeState(FighterState newState) //usado em eventos nos finais das animações pra retornar ao estado de idle;
         {
             currentState = newState;
