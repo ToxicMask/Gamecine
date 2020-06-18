@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 018bc097d5c6f17478974b3c29c6b8d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5320524706986105545
+    second: vida- JBB_0
+  - first:
+      213: -6221208301995474700
+    second: vida- JBB_1
+  - first:
+      213: -1699960998716922137
+    second: vida- JBB_2
+  - first:
+      213: -1917471692797559617
+    second: vida- JBB_3
+  - first:
+      213: -8346370833294500755
+    second: vida- JBB_4
+  - first:
+      213: 3147628074824914626
+    second: vida- JBB_5
+  - first:
+      213: 8365091680940264168
+    second: vida- JBB_6
+  - first:
+      213: 904038576523253206
+    second: vida- JBB_7
+  - first:
+      213: 8820942411900860063
+    second: vida- JBB_8
+  - first:
+      213: -2023794529947769392
+    second: vida- JBB_9
+  - first:
+      213: 3227689302567166500
+    second: vida- JBB_10
+  - first:
+      213: 6815517727587300524
+    second: vida- JBB_11
+  - first:
+      213: -3330822312474123383
+    second: vida- JBB_12
+  - first:
+      213: 2765062829890592071
+    second: vida- JBB_13
+  - first:
+      213: 2720247270568973417
+    second: vida- JBB_14
+  - first:
+      213: 1548404025687599614
+    second: vida- JBB_15
+  - first:
+      213: 5288649828971586865
+    second: vida- JBB_16
+  - first:
+      213: 7297754710005008717
+    second: vida- JBB_17
+  - first:
+      213: 1730350443008189602
+    second: vida- JBB_18
+  - first:
+      213: 4391837484183598777
+    second: vida- JBB_19
+  - first:
+      213: -3013760557262238681
+    second: vida- JBB_20
+  - first:
+      213: -6183998870024111802
+    second: vida- JBB_1
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vida- JBB_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 398
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7356765e7f2b926b0800000000000000
+      internalID: -5320524706986105545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vida- JBB_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 13
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 649bbccbac50e2aa0800000000000000
+      internalID: -6183998870024111802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

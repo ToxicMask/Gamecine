@@ -7,12 +7,17 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
+    public PlayerHealthBar playerBar;
+
     [SerializeField] float maxHealth = 10;
     public float currentHealth;
 
     void Awake()
     {
         currentHealth = maxHealth;
+
+        // Update player Bar
+        if (playerBar != null) playerBar.SetHealth((int)currentHealth);
     }
 
     void Update(){}
@@ -36,13 +41,20 @@ public class Health : MonoBehaviour
             // Process Damage
             currentHealth -= damage;
             scrollerFighter.Damaged();
+
+            // Display Damage // Update UI
+            if (playerBar != null) playerBar.SetHealth((int)currentHealth);
+
+
             print(this.name + " took damage");
             print(currentHealth);
         }
     }
     void Die()
     {
-        print(this.name + " died");
+        // Display Damage // Update UI
+        if (playerBar != null) playerBar.SetHealth(0);
+
         //this.GetComponent<SideScrollerFighter>().ChangeState(FighterState.Dead);
         this.GetComponent<SideScrollerFighter>().Death();
         this.GetComponent<Collider2D>().enabled = false;

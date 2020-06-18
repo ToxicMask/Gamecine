@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: 9f413a3518c4b6b408bedc679d4da46c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1476486128492460872
+    second: vida- AM_0
+  - first:
+      213: 2267228489290823271
+    second: vida- AM_1
+  - first:
+      213: 5652007779633307687
+    second: vida- AM_Fill
+  - first:
+      213: 6922639119733248759
+    second: vida- AM_Back
+  - first:
+      213: -3619353658971578228
+    second: vida- AM_4
+  - first:
+      213: -3454944869368965316
+    second: vida- AM_5
+  - first:
+      213: -3863079573215405597
+    second: vida- AM_6
+  - first:
+      213: -5692116312659634034
+    second: vida- AM_7
+  - first:
+      213: 6438062352266632146
+    second: vida- AM_8
+  - first:
+      213: -5617721775080410822
+    second: vida- AM_9
+  - first:
+      213: 273188542835884678
+    second: vida- AM_10
+  - first:
+      213: 4039922555353678568
+    second: vida- AM_11
+  - first:
+      213: -9210215097283441483
+    second: vida- AM_12
+  - first:
+      213: -1549307179157398302
+    second: vida- AM_13
+  - first:
+      213: 5787182919656047028
+    second: vida- AM_14
+  - first:
+      213: 4895929294744168247
+    second: vida- AM_15
+  - first:
+      213: -1537939807764380879
+    second: vida- AM_16
+  - first:
+      213: 555437344774090294
+    second: vida- AM_17
+  - first:
+      213: 4091937939158635364
+    second: vida- AM_18
+  - first:
+      213: 323071125978545626
+    second: vida- AM_19
+  - first:
+      213: -7510406677308427193
+    second: vida- AM_20
+  - first:
+      213: -5998757748781057881
+    second: vida- AM_1
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vida- AM_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 397
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b44a6b50b7728be0800000000000000
+      internalID: -1476486128492460872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vida- AM_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 12
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8784a3c9120cca0800000000000000
+      internalID: -5998757748781057881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vida- AM_Fill
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 402
+        width: 108
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720a9c44127ff6e40800000000000000
+      internalID: 5652007779633307687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vida- AM_Back
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 17
+        width: 108
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f25ce70a97221060800000000000000
+      internalID: 6922639119733248759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
