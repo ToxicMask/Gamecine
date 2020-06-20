@@ -83,6 +83,7 @@ public class PauseSystem : MonoBehaviour
 
     public void Quit()
     {
+        Resume();
         SceneManager.LoadScene(quitToSceneID);
     }
 }

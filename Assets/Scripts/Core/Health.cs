@@ -45,11 +45,12 @@ public class Health : MonoBehaviour
             // Display Damage // Update UI
             if (playerBar != null) playerBar.SetHealth((int)currentHealth);
 
-
-            print(this.name + " took damage");
-            print(currentHealth);
+            // Debug PRINTS
+            //print(this.name + " took damage");
+            //print(currentHealth);
         }
     }
+
     void Die()
     {
         // Display Damage // Update UI

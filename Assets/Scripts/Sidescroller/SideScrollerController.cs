@@ -27,6 +27,7 @@ namespace Sidescroller.Control
         // Update is called once per frame
         void Update()
         {
+
             // Return if game is pause
             if (PauseSystem.gameIsPaused) return;
 
@@ -68,7 +69,7 @@ namespace Sidescroller.Control
             // Stand Still
             else
             {
-                moverScript.Stand();
+                SetCharacterToStandStill();
             }
 
             if (Input.GetButtonDown("Action Primary" + playerTag))
@@ -80,5 +81,17 @@ namespace Sidescroller.Control
                 fighterScript.Block();
             }
 
+        }
+
+        public void SetCharacterToStandStill()
+        {
+            if (moverScript != null)
+            {
+                moverScript.Stand();
+            }
+            else
+            {
+                //Debug.Log("Cant find moverScript");
+            }
         }
     } }
