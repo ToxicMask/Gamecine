@@ -4,182 +4,288 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sidescroller.Fighting;
 using Sidescroller.Control;
+using Sidescroller.Canvas;
 
-public enum MinigameState
+
+namespace Sidescroller.StateMachine
 {
-    Intro,
-    IntroTransiction,
-    Gameplay,
-    EndTransiction,
-    End
-}
-
-
-public class Fighter2DMinigameStateMachine : MonoBehaviour
-{
-
-    MinigameState currentState;
-
-    [SerializeField] SideScrollerFighter fighter1 = null;
-    [SerializeField] SideScrollerFighter fighter2 = null;
-
-    [SerializeField] Camera introCamera = null;
-    [SerializeField] Camera gameCamera = null;
-
-    // Awake is called before the first frame update
-    void Start()
+    public enum MinigameState
     {
-        // Config Game Scene
-
-        if (!CheckPublicVariables()) return;
-
-        currentState = MinigameState.Intro;
-
-        // Deactivate Player Controllers
-        ConfigFighterControllers( false );
-
-        // Config Cameras
-        ConfigSceneCamera();
+        Intro,
+        Gameplay,
+        End
     }
 
-    // Check Current Minigamestate
-    void Update()
-    {
-        CheckCurrentMinigameState();
-    }
 
-    bool CheckPublicVariables()
+    public class Fighter2DMinigameStateMachine : MonoBehaviour
     {
-        // End Function
-        if (fighter1 == null || fighter2 == null)
+
+        #region Class Variables
+
+        MinigameState currentState;
+
+        [SerializeField] SideScrollerFighter fighter1 = null;
+        [SerializeField] SideScrollerFighter fighter2 = null;
+
+        [SerializeField] IntroControl introControl = null;
+        [SerializeField] GameplayCanvasControl gameControl = null;
+        [SerializeField] EndingControl endControl = null;
+        
+
+
+        #endregion
+
+        #region Unity Methods
+
+        void Start()
         {
-            Debug.LogAssertion("No Fighters Selected !!!");
-            return false;
+            /////////////////////////
+            /// Config Game Scene ///
+            /////////////////////////
+
+            // Check SerializeField variables
+            if (!PublicVariablesAvailable()) return;
+
+            // Start Intro Sequence
+            StartIntroSequence();
         }
 
-        if (introCamera == null || gameCamera == null)
+        // Check Current Minigamestate
+        void Update()
         {
-            Debug.LogAssertion("No Cameras Selected !!!");
-            return false;
+            /// Check Methods realise Action Methods acording to the current State///
+
+            // Check State for Conditions And Variables
+            CheckCurrentMinigameState();
+
+            // Check For Player Input acording to current State
+            CheckCurrentInput();
         }
 
-        //Dont end Function
-        return true;
-    }
+        #endregion
 
-    void ConfigFighterControllers( bool controllersEnabled )
-    {
-        // Get Controller Components
+        #region Meta Methods
 
-        SideScrollerController controller1 = fighter1.GetComponent<SideScrollerController>();
-        SideScrollerController controller2 = fighter2.GetComponent<SideScrollerController>();
-
-
-        if (controller1 == null || controller2 == null)
+        // Check Public Defined Variables to Reassure the Right Assigment
+        bool PublicVariablesAvailable()
         {
-            Debug.LogAssertion(" No Controlers Found ");
-            return;
+            // End Function
+            if (fighter1 == null || fighter2 == null)
+            {
+                Debug.LogAssertion("No Fighters Selected !!!");
+                return false;
+            }
+
+            if (introControl == null || gameControl == null)
+            {
+                Debug.LogAssertion("No Canvas Selected !!!");
+                return false;
+            }
+
+            //Dont end Function
+            return true;
         }
 
-        // Deactivate Players for Intro Sequence (bool)
+        #endregion
 
-        controller1.enabled = controllersEnabled;
-        controller2.enabled = controllersEnabled;
+        #region Action Methods 
 
-        // Set Fighters to Stand Still
-        controller1.SetCharacterToStandStill();
-        controller2.SetCharacterToStandStill();
-    }
-
-    // Change Camera acording to Minigame State
-    void ConfigSceneCamera()
-    {
-        switch ( currentState )
+        void ConfigFighterControllers(bool controllersEnabled)
         {
-            case (MinigameState.Intro):
-                introCamera.enabled = true;
-                gameCamera.enabled = false;
-                break;
+            // Get Controller Components
 
-            case (MinigameState.Gameplay):
-                introCamera.enabled = false;
-                gameCamera.enabled = true;
-                break;
+            SideScrollerController controller1 = fighter1.GetComponent<SideScrollerController>();
+            SideScrollerController controller2 = fighter2.GetComponent<SideScrollerController>();
+
+
+            if (controller1 == null || controller2 == null)
+            {
+                Debug.LogAssertion(" No Controlers Found ");
+                return;
+            }
+
+            // Deactivate Players for Intro Sequence (bool)
+
+            controller1.enabled = controllersEnabled;
+            controller2.enabled = controllersEnabled;
+
+            // Set Fighters to Stand Still
+            controller1.SetCharacterToStandStill();
+            controller2.SetCharacterToStandStill();
         }
-    }
 
-    public void ChangeCurrentMinigameState(MinigameState newState)
-    {
-        currentState = newState;
-    }
-
-    void CheckCurrentMinigameState()
-    {
-        // Check Current game state
-        switch (currentState)
+        void ChangeCanvas(MinigameState to, int victorID = -1)
         {
+            switch (to)
+            {
+                case (MinigameState.Intro):
 
-            case (MinigameState.Intro):
-                if (Input.GetButtonDown("Submit"))
-                {
-                    //Debug.Log("GAME START");
+                    // Deactivate
+                    gameControl.StopGameplay();
+                    endControl.StopEnd();
 
-                    // Activate Player Controllers
-                    ConfigFighterControllers(true);
+                    // Activate
+                    introControl.PlayIntro();
 
-                    // Change State
-                    currentState = MinigameState.Gameplay;
+                    break;
 
-                    ConfigSceneCamera();
-                }
+                case (MinigameState.Gameplay):
 
-                break;
+                    // Deactivate
+                    introControl.StopIntro();
+                    endControl.StopEnd();
 
-            case (MinigameState.Gameplay):
+                    // Activate
+                    gameControl.StartGameplay();
 
-                CheckForDefeatedFighter();
-                break;
+                    break;
 
-            case (MinigameState.End):
-                if (Input.GetButtonDown("Submit"))
-                {
-                    Debug.Log("GAME END");
-                }
+                case (MinigameState.End):
 
-                break;
+                    // Deactivate
+                    introControl.StopIntro();
+                    gameControl.StopGameplay();
+
+                    // Activate
+                    endControl.StartEnding (victorID);
+
+                    break;
+            }
         }
-    }
 
-    void CheckForDefeatedFighter()
-    {
-        if (fighter1.currentState == FighterState.Dying)
+        void ChangeCurrentMinigameState(MinigameState newState)
         {
-            //Debug.LogAssertion("Victory PLAYER 2");
-            currentState = MinigameState.End;
+            currentState = newState;
+        }
+
+        void ChangeToMainMenuScene()
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        void ResetCurrentLevel()
+        {
+            SceneManager.LoadScene("2D_Fighter");
+        }
+
+        #endregion
+
+        #region Check Methods
+
+        int CheckForDefeatedFighter() /// -1: No Victor ; 1: Player 1 win ; 2: Player 2 win ///
+        {
+            if (fighter1.currentState == FighterState.Dying)
+            {
+                /// Player 2 win ///
+                return 2;
+            }
+
+            if (fighter2.currentState == FighterState.Dying)
+            {
+                /// Player 1 win ///
+                return 1;
+            }
+
+            /// No Victor ///
+            return -1;
+        }
+
+        void CheckCurrentMinigameState()
+        {
+            // Check Current game state in frame
+            switch (currentState)
+            {
+
+                case (MinigameState.Intro):
+                    break;
+
+                case (MinigameState.Gameplay):
+
+                    // Return 
+
+                    int gameCheck = CheckForDefeatedFighter();
+
+                    // If result is not neutral, Start Ending
+                    if (gameCheck != -1) StartEndingSequence(gameCheck);
+                    break;
+
+                case (MinigameState.End):
+                    break;
+            }
+        }
+
+        void CheckCurrentInput()
+        {
+            // Check Current game state in frame
+            switch (currentState)
+            {
+
+                case (MinigameState.Intro):
+
+                    // Check to Game to Start
+                    if (Input.GetButtonDown("Submit")) StartGameplaySequence();
+
+                    break;
+
+                case (MinigameState.Gameplay):
+                    // Empty
+                    break;
+
+                case (MinigameState.End):
+
+                    // Check to Return to Main Menu
+                    if (Input.GetButtonDown("Submit"))
+                    {
+                        // Return to Main Menu
+                        ChangeToMainMenuScene();
+                    }
+
+                    break;
+            }
+        }
+
+        #endregion
+
+        #region Start Sequence Methods
+
+        void StartIntroSequence()
+        {
+            // Define current state
+            currentState = MinigameState.Intro;
+
             // Deactivate Player Controllers
             ConfigFighterControllers(false);
 
-            Invoke("ResetLevel", 2.5f);  // TEMP
+            // Config Canvas
+            ChangeCanvas(currentState);
         }
 
-        if (fighter2.currentState == FighterState.Dying)
+        void StartGameplaySequence()
         {
-            //Debug.LogAssertion("Victory PLAYER 1");
-            currentState = MinigameState.End;
+            // Activate Player Controllers
+            ConfigFighterControllers(true);
+
+            // Change State
+            currentState = MinigameState.Gameplay;
+
+            //Stop Intro
+            ChangeCanvas(currentState);
+        }
+
+        void StartEndingSequence(int victorID)
+        {
+
             // Deactivate Player Controllers
             ConfigFighterControllers(false);
 
-            Invoke("ToMainMenu", 2.5f); // TEMP
+            // Change Current State
+            currentState = MinigameState.End;
+
+            // Change Canvas
+            ChangeCanvas(currentState, victorID);
         }
-    }
 
-    void ToMainMenu()
-    {
-        SceneManager.LoadScene("Main Menu");
-    }
+        #endregion
 
-    void ResetLevel()
-    {
-        SceneManager.LoadScene("2D_Fighter");
     }
 }

@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: e8bd4bf3c8a8c8a418cf66796dd00aed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4133414286683785325
+    second: AM Morte_0
+  - first:
+      213: -7380186738619431383
+    second: AM Morte_1
+  - first:
+      213: -7417458765121856362
+    second: AM Morte_2
+  - first:
+      213: -8115347636300792443
+    second: AM Morte_3
+  - first:
+      213: 3128487227046546055
+    second: AM Morte_4
+  - first:
+      213: -5125064084889627286
+    second: AM Morte_5
+  - first:
+      213: 2458745813973927570
+    second: AM Morte_6
+  - first:
+      213: 6736387136388237283
+    second: AM Morte_7
+  - first:
+      213: -7785463052936917637
+    second: AM Morte_8
+  - first:
+      213: 2974654045546482887
+    second: AM Morte_9
+  - first:
+      213: 2015734840672444306
+    second: AM Morte_10
+  - first:
+      213: 994918985601894572
+    second: AM Morte_11
+  - first:
+      213: 8568056164516611536
+    second: AM Morte_12
+  - first:
+      213: 6649830368863241869
+    second: AM Morte_13
+  - first:
+      213: -8330989354975647787
+    second: AM Morte_14
+  - first:
+      213: -4927115560542493156
+    second: AM Morte_15
+  - first:
+      213: -4302721564823247826
+    second: AM Morte_0
+  - first:
+      213: -8948526917469537571
+    second: AM Morte_1
+  - first:
+      213: 58804773385439443
+    second: AM Morte_2
+  - first:
+      213: -3661730328038725542
+    second: AM Morte_3
+  - first:
+      213: -3528218957115152562
+    second: AM Morte_4
+  - first:
+      213: 5564407814954101231
+    second: AM Morte_5
+  - first:
+      213: 4532823149114691695
+    second: AM Morte_6
+  - first:
+      213: -6854922358090531624
+    second: AM Morte_7
+  - first:
+      213: 3524083552017955297
+    second: AM Morte_8
+  - first:
+      213: -765139905965495656
+    second: AM Morte_9
+  - first:
+      213: -9105468593417224894
+    second: AM Morte_10
+  - first:
+      213: -4378620772016993086
+    second: AM Morte_11
+  - first:
+      213: -8352797926741474333
+    second: AM Morte_12
+  - first:
+      213: -7074483564556732269
+    second: AM Morte_13
+  - first:
+      213: -7947449894083734279
+    second: AM Morte_14
+  - first:
+      213: 2270112299861143422
+    second: AM Morte_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 384
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AM Morte_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2254
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e242c499889a944c0800000000000000
+      internalID: -4302721564823247826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2254
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddaf43d0e2270d380800000000000000
+      internalID: -8948526917469537571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2254
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d88cbc31aae0d000800000000000000
+      internalID: 58804773385439443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_3
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2254
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a582af5daabee2dc0800000000000000
+      internalID: -3661730328038725542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1504
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e472a534d8f390fc0800000000000000
+      internalID: -3528218957115152562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1504
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe92fbb1d6fb83d40800000000000000
+      internalID: 5564407814954101231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_6
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1504
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6016a063a2d7ee30800000000000000
+      internalID: 4532823149114691695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_7
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1504
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc712b2f6c6ed0a0800000000000000
+      internalID: -6854922358090531624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 754
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9b3d4b15f08e030800000000000000
+      internalID: 3524083552017955297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_9
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 754
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a63753f4da165f0800000000000000
+      internalID: -765139905965495656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_10
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 754
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24df3ef9e80e2a180800000000000000
+      internalID: -9105468593417224894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_11
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 754
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ccc7c55b930c33c0800000000000000
+      internalID: -4378620772016993086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e384f76a86e41c80800000000000000
+      internalID: -8352797926741474333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_13
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 4
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398b1452ea262dd90800000000000000
+      internalID: -7074483564556732269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_14
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f45ce0cd6cf4b190800000000000000
+      internalID: -7947449894083734279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AM Morte_15
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 4
+        width: 746
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7fe771fb1f018f10800000000000000
+      internalID: 2270112299861143422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
