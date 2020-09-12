@@ -12,7 +12,7 @@ namespace Sidescroller.Canvas
         [SerializeField] Animator endAnimator = null;
         [SerializeField] Camera endCamera = null;
 
-        public void StartEnding(int victorID)
+        public void StartEndingCutscene(int victorID)
         {
             if (!PublicVariablesAvailable())
             {

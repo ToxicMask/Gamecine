@@ -25,11 +25,26 @@ namespace Sidescroller.Fighting
 
         public Transform attackPos;
 
+        private Vector3 startPosition;
 
 
         private void Start()
         {
             animator = GetComponent<Animator>();
+
+            startPosition = transform.position;
+        }
+
+        public void ResetFighterPosition()
+        {
+            transform.position = startPosition;
+        }
+
+        public void ResetAnimator()
+        {
+            animator.SetFloat("Walk", 0f);
+            animator.SetTrigger("Reset");
+
         }
 
         public void AttackBasic()
@@ -52,14 +67,6 @@ namespace Sidescroller.Fighting
             currentState = FighterState.Damaged;
             animator.SetTrigger("Damage");
         }
-
-        /*
-        public void Dodge()
-        {
-            currentState = FighterState.Dodging;
-            animator.SetTrigger("Dodge");
-            
-        }*/
 
         public void Death()
         {
@@ -105,7 +112,7 @@ namespace Sidescroller.Fighting
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(attackPos.position, attackRange);
+            //Gizmos.DrawWireSphere(attackPos.position, attackRange);
         }
     }
 }
