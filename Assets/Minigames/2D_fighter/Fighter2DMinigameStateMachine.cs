@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Sidescroller.Fighting;
 using Sidescroller.Control;
 using Sidescroller.Canvas;
+using TMPro;
 
 
 namespace Sidescroller.StateMachine
@@ -32,6 +33,13 @@ namespace Sidescroller.StateMachine
         [SerializeField] IntroControl introControl = null;
         [SerializeField] GameplayCanvasControl gameControl = null;
         [SerializeField] EndingControl endControl = null;
+
+        [SerializeField] TextMeshProUGUI fighter1ScoreDisplay = null;
+        [SerializeField] TextMeshProUGUI fighter2ScoreDisplay = null;
+
+        [SerializeField] TextMeshProUGUI roundDisplay = null;
+        [SerializeField] TextMeshProUGUI finalRoundDisplay = null;
+         
 
         [SerializeField] GameObject PauseCanvas = null;
 
@@ -238,7 +246,8 @@ namespace Sidescroller.StateMachine
             //Update Round Counter & Update UI
             roundID += 1;
 
-            // UI Update .......
+            // UI Update
+            UpdateRoundDisplay();
 
             // Change State
             currentState = MinigameState.Gameplay;
@@ -252,6 +261,8 @@ namespace Sidescroller.StateMachine
             // Victory to player1
             else if (victorID == 2) fighter2Score += 1;
 
+            // Update Display
+            UpdateFightersScore();
 
             // Deactivate Player Controllers
             ConfigFighterControllers(false);
@@ -395,6 +406,21 @@ namespace Sidescroller.StateMachine
         void ResetCurrentLevel()
         {
             SceneManager.LoadScene("2D_Fighter");
+        }
+
+        void UpdateRoundDisplay()
+        {
+            // Update Round Conter
+            roundDisplay.SetText(roundID.ToString());
+
+            // Display Final Mark; if is final round
+            finalRoundDisplay.gameObject.SetActive(roundID == maxRound);
+        }
+
+        void UpdateFightersScore()
+        {
+            fighter1ScoreDisplay.SetText(fighter1Score.ToString());
+            fighter2ScoreDisplay.SetText(fighter2Score.ToString());
         }
 
         #endregion
