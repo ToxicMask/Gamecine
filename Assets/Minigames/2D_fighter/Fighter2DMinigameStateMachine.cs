@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Sidescroller.Fighting;
 using Sidescroller.Control;
 using Sidescroller.Canvas;
+using Sidescroller.Music;
 using TMPro;
 
 
@@ -43,7 +44,7 @@ namespace Sidescroller.StateMachine
 
         [SerializeField] GameObject PauseCanvas = null;
 
-        [SerializeField] AudioSource levelMusic = null;
+        [SerializeField] MusicControl levelMusic = null;
 
 
 
@@ -201,8 +202,8 @@ namespace Sidescroller.StateMachine
             // Define current state
             currentState = MinigameState.Intro;
 
-            // Change music - Stop music
-            levelMusic.Stop();
+            // Change music - Intro music
+            levelMusic.IntroMusic();
 
             // Deactivate Player Controllers
             ConfigFighterControllers(false);
@@ -216,9 +217,6 @@ namespace Sidescroller.StateMachine
 
         void StartGameplaySequence()
         {
-
-            // Change music - Start music
-            levelMusic.Play();
 
             // Activate Pause Menu
             PauseCanvas.SetActive(true);
@@ -236,6 +234,8 @@ namespace Sidescroller.StateMachine
         void StartNewRoundSequence()
         {
 
+            // Change music - Start music
+            levelMusic.PlayStandardMusic();
 
             // Recover full Health & Position
             ResetAllFightersStats();
@@ -261,6 +261,9 @@ namespace Sidescroller.StateMachine
             // Victory to player1
             else if (victorID == 2) fighter2Score += 1;
 
+            // Disable Music
+            levelMusic.Stop();
+
             // Update Display
             UpdateFightersScore();
 
@@ -278,8 +281,9 @@ namespace Sidescroller.StateMachine
             // Deactivate Pause Menu
             PauseCanvas.SetActive(false);
 
-            // Change music - Stop music
-            levelMusic.Stop();
+            // Change To End Song
+            levelMusic.PlayEndMusic();
+
 
             // Change State
             currentState = MinigameState.EndBattle;

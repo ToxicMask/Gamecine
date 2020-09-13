@@ -312,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289286710
 GameObject:
@@ -542,7 +542,7 @@ MonoBehaviour:
   roundDisplay: {fileID: 289286712}
   finalRoundDisplay: {fileID: 987312150}
   PauseCanvas: {fileID: 1067185151}
-  levelMusic: {fileID: 714763154}
+  levelMusic: {fileID: 714763158}
   roundID: -1
   maxRound: 3
   fighter1Score: 0
@@ -841,7 +841,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Pixel Perfect Camera - Gameplay
   m_TagString: MainCamera
@@ -849,14 +848,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -910,8 +901,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 714763153}
+  m_Children: []
   m_Father: {fileID: 880309071}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -924,7 +914,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714763153}
+  - component: {fileID: 714763158}
   - component: {fileID: 714763154}
+  - component: {fileID: 714763157}
+  - component: {fileID: 714763156}
+  - component: {fileID: 714763155}
+  - component: {fileID: 714763159}
   m_Layer: 0
   m_Name: Level Music
   m_TagString: Untagged
@@ -940,11 +935,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714763152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 519420032}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &714763154
 AudioSource:
@@ -958,8 +953,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 59eeee2ce491416418523e5902dd4e1c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
-  m_Pitch: 1
+  m_Volume: 0.8
+  m_Pitch: 0.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -1042,6 +1037,76 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!169 &714763155
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714763152}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.27239653
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!168 &714763156
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714763152}
+  m_Enabled: 0
+  m_Delay: 400
+  m_DecayRatio: 0.2
+  m_WetMix: 1
+  m_DryMix: 0.45
+--- !u!81 &714763157
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714763152}
+  m_Enabled: 1
+--- !u!114 &714763158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714763152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5535be8f98618f848996479b598ee387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelMusic: {fileID: 714763154}
+  musicEchoFilter: {fileID: 714763156}
+  musicLowFilter: {fileID: 714763155}
+  musicDistortion: {fileID: 714763159}
+--- !u!170 &714763159
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714763152}
+  m_Enabled: 1
+  m_DistortionLevel: 0.45
 --- !u!224 &727142868 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7531248193798761625, guid: a74ccb66bbba17a46a2b14858a021431,
