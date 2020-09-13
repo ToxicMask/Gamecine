@@ -12,12 +12,16 @@ using UnityEngine;
         [SerializeField] float maxHealth = 10;
         public float currentHealth;
 
-        void Awake()
+        void Start()
         {
             currentHealth = maxHealth;
 
-            // Update player Bar
-            if (playerBar != null) playerBar.SetHealth((int)currentHealth);
+        // Update player Bar
+        if (playerBar != null)
+        {
+            playerBar.SetHealth((int)currentHealth);
+            playerBar.SetMaxHealth((int)maxHealth);
+        }
         }
 
         void Update() { }

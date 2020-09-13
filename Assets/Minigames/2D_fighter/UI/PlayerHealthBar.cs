@@ -12,7 +12,7 @@ namespace Sidescroller.Fighting
     {
         Slider healthSlider;
 
-        private void Start()
+        private void Awake()
         {
             // Auto Get
 
@@ -24,6 +24,12 @@ namespace Sidescroller.Fighting
             if (healthSlider == null) return;
 
             healthSlider.value = currentValue;
+        }
+
+        public void SetMaxHealth(int newValue)
+        {
+            if (healthSlider == null) return;
+            healthSlider.maxValue = newValue;
         }
     }
 

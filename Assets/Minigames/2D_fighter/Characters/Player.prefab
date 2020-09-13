@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 1.2
+  knockbackDirection: -1
+  knockbackSpeed: 0.8
 --- !u!114 &1695325121424287540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  timeBetweenAttacks: 0.6
-  knockbackTime: 0
+  timeBetweenAttacks: 0.8
   attackRange: 0.5
   attackDamage: 3
   attackPos: {fileID: 7902700957065620090}
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBar: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 20
   currentHealth: 0
 --- !u!50 &1179197818
 Rigidbody2D:

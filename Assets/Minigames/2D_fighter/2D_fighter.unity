@@ -3051,6 +3051,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2119952669512070666, guid: 669b220da11ebf64c8862c0996ba7c90,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2119952670254543241, guid: 669b220da11ebf64c8862c0996ba7c90,
         type: 3}
       propertyPath: m_Name
@@ -3233,11 +3238,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695325121424287540, guid: 88e105792d81fc745a7bd91c3710c974,
-        type: 3}
-      propertyPath: knockbackTime
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e105792d81fc745a7bd91c3710c974, type: 3}
