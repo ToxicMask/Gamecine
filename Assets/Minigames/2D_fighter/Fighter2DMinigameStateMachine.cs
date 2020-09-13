@@ -130,7 +130,7 @@ namespace Sidescroller.StateMachine
                     if (roundResult != -1)
                     {
 
-                        if (roundID == maxRound)
+                        if ((roundID == maxRound) || (CheckForWinner() != -1))
                         {
                             // Change Canvas to End Screen / End Game
 
@@ -444,6 +444,16 @@ namespace Sidescroller.StateMachine
             }
 
             /// No Victor ///
+            return -1;
+        }
+
+        int CheckForWinner()
+        {
+            int victoryMin = Mathf.CeilToInt((float)maxRound / 2f);
+
+            if (fighter1Score >= victoryMin) return 1;
+            if (fighter2Score >= victoryMin) return 2;
+
             return -1;
         }
 
