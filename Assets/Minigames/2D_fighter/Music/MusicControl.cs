@@ -36,7 +36,7 @@ namespace Sidescroller.Music
             levelMusic.Play();
             levelMusic.pitch = .5f;
 
-            musicDistortion.enabled = true;
+            musicDistortion.enabled = false;
 
             musicLowFilter.enabled = true;
             musicLowFilter.cutoffFrequency = 6000;
@@ -47,6 +47,7 @@ namespace Sidescroller.Music
         public void PlayEndMusic()
         {
             levelMusic.Play();
+            levelMusic.time = 0f;
             levelMusic.pitch = .2f;
 
             musicLowFilter.enabled = true;

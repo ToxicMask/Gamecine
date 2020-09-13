@@ -10,6 +10,7 @@ namespace Sidescroller.Canvas
     {
 
         [SerializeField] Animator endAnimator = null;
+        [SerializeField] Animator endTextAnimator = null;
         [SerializeField] Camera endCamera = null;
 
         public void StartEndingCutscene(int victorID)
@@ -26,6 +27,9 @@ namespace Sidescroller.Canvas
             if (victorID != -1) endAnimator.SetInteger("Victor ID", victorID);
             else Debug.LogAssertion("No Victor!");
 
+            // Show Text
+            endTextAnimator.SetTrigger("FadeIn");
+
             // Config Camera
             endCamera.enabled = true;
         }
@@ -36,6 +40,11 @@ namespace Sidescroller.Canvas
 
             endAnimator.SetTrigger("Stop");
             endCamera.enabled = false;
+        }
+
+        public void SkipEnd()
+        {
+            endAnimator.SetTrigger("Stop");
         }
 
         bool PublicVariablesAvailable()
