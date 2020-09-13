@@ -35,6 +35,8 @@ namespace Sidescroller.StateMachine
         [SerializeField] GameplayCanvasControl gameControl = null;
         [SerializeField] EndingControl endControl = null;
 
+        [SerializeField] Animator sceneryAnimator = null;
+
         [SerializeField] TextMeshProUGUI fighter1ScoreDisplay = null;
         [SerializeField] TextMeshProUGUI fighter2ScoreDisplay = null;
 
@@ -184,7 +186,6 @@ namespace Sidescroller.StateMachine
                     // Reset Minigame
                     if (Input.GetButtonDown("Submit"))
                     {
-                        print("@!");
                         ResetCurrentLevel();
                     }
 
@@ -248,6 +249,9 @@ namespace Sidescroller.StateMachine
 
             // UI Update
             UpdateRoundDisplay();
+
+            //Update Background
+            UpdateBackground();
 
             // Change State
             currentState = MinigameState.Gameplay;
@@ -410,6 +414,14 @@ namespace Sidescroller.StateMachine
         void ResetCurrentLevel()
         {
             SceneManager.LoadScene("2D_Fighter");
+        }
+
+        void UpdateBackground()
+        {
+            if (roundID == maxRound)
+            {
+                sceneryAnimator.SetTrigger("Final Stage");
+            }
         }
 
         void UpdateRoundDisplay()

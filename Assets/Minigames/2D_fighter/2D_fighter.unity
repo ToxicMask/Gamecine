@@ -537,6 +537,7 @@ MonoBehaviour:
   introControl: {fileID: 1123464516}
   gameControl: {fileID: 880309072}
   endControl: {fileID: 1636128090}
+  sceneryAnimator: {fileID: 1070924250}
   fighter1ScoreDisplay: {fileID: 802190659}
   fighter2ScoreDisplay: {fileID: 1850612546}
   roundDisplay: {fileID: 289286712}
@@ -2863,7 +2864,7 @@ GameObject:
   - component: {fileID: 1809631326}
   - component: {fileID: 1809631327}
   m_Layer: 0
-  m_Name: Blank_1080p
+  m_Name: Dark Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2877,8 +2878,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809631325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.39, z: -1}
-  m_LocalScale: {x: 0.32549998, y: 0.091350004, z: 1}
+  m_LocalPosition: {x: 0, y: -1.812, z: -1}
+  m_LocalScale: {x: 0.32915428, y: 0.16949888, z: 1}
   m_Children: []
   m_Father: {fileID: 1070924248}
   m_RootOrder: 0
