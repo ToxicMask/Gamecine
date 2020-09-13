@@ -20,6 +20,9 @@ namespace Sidescroller.Fighting
         [SerializeField] float timeBetweenAttacks = .5f;
         float timeSinceLastAttack = Mathf.Infinity;
 
+        [SerializeField] float knockbackTime;
+        float timeSinceKnockbackTime = Mathf.Infinity;
+
         [SerializeField] float attackRange = .3f;
         [SerializeField] float attackDamage = 1f;
 
@@ -79,6 +82,8 @@ namespace Sidescroller.Fighting
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
+
+            timeSinceKnockbackTime += Time.deltaTime;
         }
 
         private void AttackBasicHit()
@@ -93,7 +98,7 @@ namespace Sidescroller.Fighting
                     {
                         if (collider.GetComponent<SideScrollerFighter>().currentState == FighterState.Blocking)
                         {
-                            print(collider.gameObject.name + " blocked and took no damage");
+                            this.gameObject.GetComponent<Health>().TakeDamage(1f);
                             continue;
                         }
 

@@ -34,6 +34,9 @@ namespace Sidescroller.Control
             // Return if Character is Acting
             if (fighterScript.currentState == FighterState.Blocking|| fighterScript.currentState == FighterState.Attacking) return;
 
+            // Return if Character is taking Damage, do Knockback then return
+            if (fighterScript.currentState == FighterState.Damaged) { moverScript.Knockback(); return; }
+
             // Return if Character is Dead
             if (fighterScript.currentState == FighterState.Dead || fighterScript.currentState == FighterState.Dying) return;
 
@@ -85,13 +88,6 @@ namespace Sidescroller.Control
 
         public void SetCharacterToStandStill()
         {
-            if (moverScript != null)
-            {
-                moverScript.Stand();
-            }
-            else
-            {
-                //Debug.Log("Cant find moverScript");
-            }
+            if (moverScript != null)  moverScript.Stand();
         }
     } }

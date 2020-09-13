@@ -11,6 +11,9 @@ namespace Sidescroller.Movement
         Vector2 movementDirection = new Vector2();
         Animator animator;
         [SerializeField] float walkSpeed = .6f;
+
+        [SerializeField] [Range(-1, 1)] float knockbackDirection = -1f;
+        [SerializeField] float knockbackSpeed = .4f;
         void Start()
         {
            animator = GetComponent<Animator>();
@@ -21,7 +24,14 @@ namespace Sidescroller.Movement
             this.GetComponent<Animator>().SetFloat("Walk", 0);
         }
 
+        public void Knockback()
+        {
+            movementDirection.x = knockbackDirection;
 
+            Vector2 linearVelocity = knockbackSpeed * movementDirection;
+            this.transform.Translate(linearVelocity * Time.deltaTime);
+        }
+        
         public void Walk(float direction)
         {
 

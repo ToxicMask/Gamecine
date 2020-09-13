@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ec683a41e2d3148b1712644abb5335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0.6
+  walkSpeed: 1.2
 --- !u!114 &1695325121424287540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,8 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   timeBetweenAttacks: 0.6
-  attackRange: 0.31
-  attackDamage: 1
+  knockbackTime: 0
+  attackRange: 0.5
+  attackDamage: 3
   attackPos: {fileID: 7902700957065620090}
 --- !u!114 &1179197817
 MonoBehaviour:
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd865cf414284c469fe7eb0f6f96501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBar: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
 --- !u!50 &1179197818
