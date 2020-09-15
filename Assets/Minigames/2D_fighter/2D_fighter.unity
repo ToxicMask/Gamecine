@@ -236,6 +236,11 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1246428532043059838, guid: 4e6ac6472ad0f834b889a96d92380d2f,
+        type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 714763157}
     - target: {fileID: 1246428532043059839, guid: 4e6ac6472ad0f834b889a96d92380d2f,
         type: 3}
       propertyPath: knockbackDirection
@@ -1027,7 +1032,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 59eeee2ce491416418523e5902dd4e1c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.7
   m_Pitch: 0.5
   Loop: 1
   Mute: 0
@@ -3629,5 +3634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 1695325121424287540, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 714763157}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e105792d81fc745a7bd91c3710c974, type: 3}

@@ -154,6 +154,12 @@ MonoBehaviour:
   attackRange: 0.5
   attackDamage: 3
   attackPos: {fileID: 7902700957065620090}
+  audioListener: {fileID: 0}
+  audioDamaged: {fileID: 8300000, guid: da4f5695bff34bf4b88959334d31f55f, type: 3}
+  audioAttackGrunt: {fileID: 8300000, guid: b58fa8783b46ccf47bce520207b2454b, type: 3}
+  audioAttackHit: {fileID: 8300000, guid: 8c4a6d3173c94d04c9896a4afd752f69, type: 3}
+  audioAttackBlock: {fileID: 8300000, guid: 379e40c9ee994864fa1cbcd90934c6a9, type: 3}
+  audioDeath: {fileID: 8300000, guid: 6e60ad64e34fc624ea76483921551c25, type: 3}
 --- !u!114 &1179197817
 MonoBehaviour:
   m_ObjectHideFlags: 0
