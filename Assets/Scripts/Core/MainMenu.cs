@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-namespace Core.UI
+
+namespace Core.ChangeScene
 {
     public class MainMenu : MonoBehaviour
     {
-        public void StartMinigame(int sceneNumber)
+        public static void StartMinigame(int sceneNumber)
         {
             SceneManager.LoadScene(sceneNumber);
         }

@@ -393,7 +393,7 @@ namespace Sidescroller.StateMachine
 
         void ChangeToMainMenuScene()
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Main Menu1");
         }
 
         void ResetAllFightersStats() { // Recover Health and Position of Player
