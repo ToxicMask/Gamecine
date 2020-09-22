@@ -41,18 +41,18 @@ namespace Sidescroller.Music
             musicLowFilter.enabled = true;
             musicLowFilter.cutoffFrequency = 6000;
 
-            musicEchoFilter.enabled = false;
+            musicEchoFilter.enabled = true;
         }
 
         public void PlayEndMusic()
         {
             levelMusic.Play();
             levelMusic.time = 0f;
-            levelMusic.pitch = .2f;
+            levelMusic.pitch = .4f;
 
             musicLowFilter.enabled = true;
-            musicLowFilter.cutoffFrequency = 800;
-            musicEchoFilter.enabled = true;
+            musicLowFilter.cutoffFrequency = 1000;
+            musicEchoFilter.enabled = false;
         }
 
         public void Stop()
