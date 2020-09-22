@@ -39,13 +39,8 @@ namespace Sidescroller.StateMachine
 
         [SerializeField] Animator sceneryAnimator = null;
 
-        [SerializeField] TextMeshProUGUI fighter1ScoreDisplay = null;
-        [SerializeField] TextMeshProUGUI fighter2ScoreDisplay = null;
-
-        [SerializeField] TextMeshProUGUI roundDisplay = null;
-        [SerializeField] TextMeshProUGUI finalRoundDisplay = null;
-         
-
+        [SerializeField] GUIControl guiControl = null;
+ 
         [SerializeField] GameObject PauseCanvas = null;
 
         [SerializeField] MusicControl levelMusic = null;
@@ -462,17 +457,14 @@ namespace Sidescroller.StateMachine
 
         void UpdateRoundDisplay()
         {
-            // Update Round Conter
-            roundDisplay.SetText(roundID.ToString());
-
-            // Display Final Mark; if is final round
-            finalRoundDisplay.gameObject.SetActive(roundID == maxRound);
+            // Update Round Conter // Display Final Mark; if is final round
+            guiControl.UpdateRoundDisplay(roundID, roundID == maxRound);
         }
 
         void UpdateFightersScore()
         {
-            fighter1ScoreDisplay.SetText(fighter1Score.ToString());
-            fighter2ScoreDisplay.SetText(fighter2Score.ToString());
+            //Update fighter Score Counter
+            guiControl.UpdateFightersScore(fighter1Score, fighter2Score);
         }
 
         #endregion

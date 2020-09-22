@@ -1019,6 +1019,7 @@ MonoBehaviour:
   gameControl: {fileID: 880309072}
   endControl: {fileID: 1636128090}
   sceneryAnimator: {fileID: 1070924250}
+  guiControl: {fileID: 988509852}
   fighter1ScoreDisplay: {fileID: 802190659}
   fighter2ScoreDisplay: {fileID: 1850612546}
   roundDisplay: {fileID: 289286712}
@@ -2630,6 +2631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988509850}
   - component: {fileID: 988509851}
+  - component: {fileID: 988509852}
   m_Layer: 0
   m_Name: Fighters - UI
   m_TagString: Untagged
@@ -2669,6 +2671,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988509849}
   m_CullTransparentMesh: 0
+--- !u!114 &988509852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988509849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf87b69d4e47ef4e8e4d15242ca00dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighter1ScoreDisplay: {fileID: 802190659}
+  fighter2ScoreDisplay: {fileID: 1850612546}
+  roundDisplay: {fileID: 289286712}
+  finalRoundDisplay: {fileID: 987312150}
 --- !u!1 &1021655943
 GameObject:
   m_ObjectHideFlags: 0
