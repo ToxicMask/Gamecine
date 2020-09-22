@@ -14,6 +14,7 @@ namespace Sidescroller.StateMachine
     public enum MinigameState
     {
         Intro,
+        Selection,
         Gameplay,
         EndRound,
         EndBattle
@@ -32,6 +33,7 @@ namespace Sidescroller.StateMachine
         [SerializeField] SideScrollerFighter fighter2 = null;
 
         [SerializeField] IntroControl introControl = null;
+        [SerializeField] SelectionControl selectionControl = null;
         [SerializeField] GameplayCanvasControl gameControl = null;
         [SerializeField] EndingControl endControl = null;
 
@@ -163,12 +165,12 @@ namespace Sidescroller.StateMachine
                 case (MinigameState.Intro):
 
                     // Check to Game to Start
-                    if (Input.GetButtonDown("Submit")) StartGameplaySequence();
+                    if (Input.GetButtonDown("Submit")) StartSelectionSequence();
 
                     break;
 
-                case (MinigameState.Gameplay):
-                    // Empty
+                case (MinigameState.Selection):
+                    if (Input.GetButtonDown("Submit")) StartGameplaySequence();
                     break;
 
                 case (MinigameState.EndRound):
@@ -202,6 +204,24 @@ namespace Sidescroller.StateMachine
         {
             // Define current state
             currentState = MinigameState.Intro;
+
+            // Change music - Intro music
+            levelMusic.IntroMusic();
+
+            // Deactivate Player Controllers
+            ConfigFighterControllers(false);
+
+            // Deactivate Pause Menu
+            PauseCanvas.SetActive(false);
+
+            // Config Canvas
+            ChangeCanvas(currentState);
+        }
+
+        void StartSelectionSequence()
+        {
+            // Define current state
+            currentState = MinigameState.Selection;
 
             // Change music - Intro music
             levelMusic.IntroMusic();
@@ -347,26 +367,35 @@ namespace Sidescroller.StateMachine
             controller2.SetCharacterToStandStill();
         }
 
-        void ChangeCanvas(MinigameState to, int victorID = -1)
+        void ChangeCanvas(MinigameState toCanvas, int victorID = -1)
         {
-            switch (to)
+            switch (toCanvas)
             {
                 case (MinigameState.Intro):
 
                     // Deactivate
-                    gameControl.StopGameplay();
-                    endControl.StopEnd();
+                    DeactivateAllCanvas();
 
                     // Activate
                     introControl.PlayIntro();
 
                     break;
 
+                case (MinigameState.Selection):
+
+                    // Deactivate
+                    DeactivateAllCanvas();
+
+
+                    // Activate
+                    selectionControl.Display();
+
+                    break;
+
                 case (MinigameState.Gameplay):
 
                     // Deactivate
-                    introControl.StopIntro();
-                    endControl.StopEnd();
+                    DeactivateAllCanvas();
 
                     // Activate
                     gameControl.StartGameplay();
@@ -376,8 +405,7 @@ namespace Sidescroller.StateMachine
                 case (MinigameState.EndBattle):
 
                     // Deactivate
-                    introControl.StopIntro();
-                    gameControl.StopGameplay();
+                    DeactivateAllCanvas();
 
                     // Activate
                     endControl.StartEndingCutscene (victorID);
@@ -394,6 +422,14 @@ namespace Sidescroller.StateMachine
         void ChangeToMainMenuScene()
         {
             SceneManager.LoadScene("Main Menu1");
+        }
+
+        void DeactivateAllCanvas()
+        {
+            selectionControl.Hide();
+            introControl.StopIntro();
+            gameControl.StopGameplay();
+            endControl.StopEnd();
         }
 
         void ResetAllFightersStats() { // Recover Health and Position of Player

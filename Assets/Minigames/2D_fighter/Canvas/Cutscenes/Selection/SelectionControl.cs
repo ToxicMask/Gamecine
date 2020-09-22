@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Sidescroller.Canvas
 {
-
-    public class IntroControl : MonoBehaviour
+    public class SelectionControl : MonoBehaviour
     {
+        //[SerializeField] Animator animator = null;
+        [SerializeField] Camera canvasCamera = null;
 
-        [SerializeField] Animator introAnimator = null;
-        [SerializeField] Camera introCamera = null;
 
-        public void PlayIntro()
+        public void Display()
         {
             if (!PublicVariablesAvailable())
             {
@@ -21,25 +19,24 @@ namespace Sidescroller.Canvas
             }
 
             // Config Animator
-            introAnimator.SetBool("Playing", true);
+            //animator.SetTrigger("Play");
 
             // Config Camera
-            introCamera.enabled = true;
+            canvasCamera.enabled = true;
         }
 
-        public void StopIntro()
+        public void Hide()
         {
             if (!PublicVariablesAvailable()) return;
 
-            introAnimator.SetBool("Playing", false);
-            
-            introCamera.enabled = false;
+            //introAnimator.SetTrigger("Stop");
+            canvasCamera.enabled = false;
         }
 
         bool PublicVariablesAvailable()
         {
-            if (introAnimator == null) return false;
-            if (introCamera == null) return false;
+            //if (animator == null) return false;
+            if (canvasCamera == null) return false;
 
             return true;
         }
