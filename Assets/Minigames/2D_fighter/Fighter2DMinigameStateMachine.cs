@@ -6,7 +6,6 @@ using Sidescroller.Fighting;
 using Sidescroller.Control;
 using Sidescroller.Canvas;
 using Sidescroller.Music;
-using TMPro;
 
 
 namespace Sidescroller.StateMachine
@@ -66,6 +65,7 @@ namespace Sidescroller.StateMachine
 
         private void Awake()
         {
+            // Set single instance
             current = this;
         }
 
@@ -85,13 +85,8 @@ namespace Sidescroller.StateMachine
         // Check Current Minigamestate
         void Update()
         {
-            /// Check Methods realise Action Methods acording to the current State///
-
-           // Process acording for Conditions And Variables in the Cureent Scene State
+            /// Check Methods realise Methods acording to the current State///
             ProcessCurrentMinigameState();
-
-            // Check For Player Input acording to current State
-            ProcessCurrentInput();
         }
 
         #endregion
@@ -156,45 +151,6 @@ namespace Sidescroller.StateMachine
                     break;
 
                 case (MinigameState.EndBattle):
-                    break;
-            }
-        }
-
-        void ProcessCurrentInput()
-        {
-            // Check Current game state in frame
-            switch (currentState)
-            {
-
-                case (MinigameState.Intro):
-
-                    // Check to Game to Start
-                    //if (Input.GetButtonDown("Submit")) StartSelectionSequence();
-
-                    break;
-
-                case (MinigameState.Selection):
-                    //if (Input.GetButtonDown("Submit")) StartGameplaySequence();
-                    break;
-
-                case (MinigameState.EndRound):
-                    break;
-
-                case (MinigameState.EndBattle):
-
-                    // Check to Return to Main Menu
-                    if (Input.GetButtonDown("Cancel"))
-                    {
-                        // Return to Main Menu
-                        //ChangeToMainMenuScene();
-                    }
-
-                    // Reset Minigame
-                    if (Input.GetButtonDown("Submit"))
-                    {
-                        //ResetCurrentLevel();
-                    }
-
                     break;
             }
         }
@@ -469,8 +425,6 @@ namespace Sidescroller.StateMachine
             fighter1.ChangeState(FighterState.Idle);
             fighter2.ChangeState(FighterState.Idle);
         }
-
-
 
         private void UpdateBackground()
         {

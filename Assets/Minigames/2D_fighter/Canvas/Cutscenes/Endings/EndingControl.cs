@@ -9,16 +9,25 @@ namespace Sidescroller.Canvas
     public class EndingControl : MonoBehaviour
     {
 
-        [SerializeField] Animator endAnimator = null;
+        [SerializeField] Animator endImageAnimator = null;
         [SerializeField] Animator endTextAnimator = null;
         [SerializeField] Camera endCamera = null;
 
-        bool isInputEnabled = true;
+        public bool isInputEnabled = false;
 
         private void Update()
         {
-            // Return is input not enabled
-            if (!isInputEnabled) return;
+            // Check if is input not enabled
+            if (!isInputEnabled)
+            {
+
+                if (Input.GetButtonDown("Submit"))
+                {
+                    SkipEnd();
+                    ActivateInput();
+                }
+                return;
+            }
 
 
             // Check to Return to Main Menu
@@ -35,6 +44,10 @@ namespace Sidescroller.Canvas
             }
         }
 
+        public void ActivateInput()
+        {
+            isInputEnabled = true;
+        }
 
         public void StartEndingCutscene(int victorID)
         {
@@ -44,14 +57,18 @@ namespace Sidescroller.Canvas
                 return;
             }
 
-            endAnimator.SetTrigger("Play");
+            endImageAnimator.SetTrigger("Play");
 
             // Branch Ending
-            if (victorID != -1) endAnimator.SetInteger("Victor ID", victorID);
+            if (victorID != -1) endImageAnimator.SetInteger("Victor ID", victorID);
             else Debug.LogAssertion("No Victor!");
 
-            // Show Text
-            endTextAnimator.SetTrigger("FadeIn");
+            // Show Text - Delay
+            Invoke("FadeInText", 7.5f);
+            //endTextAnimator.SetTrigger("FadeIn");
+
+            //ActivateInput
+            Invoke("ActivateInput", 8f);
 
             // Config Camera
             endCamera.enabled = true;
@@ -61,18 +78,25 @@ namespace Sidescroller.Canvas
         {
             if (!PublicVariablesAvailable()) return;
 
-            endAnimator.SetTrigger("Stop");
+            endImageAnimator.SetTrigger("Stop");
             endCamera.enabled = false;
         }
 
-        public void SkipEnd()
+        private void SkipEnd()
         {
-            endAnimator.SetTrigger("Stop");
+            endImageAnimator.SetTrigger("Stop");
+            endTextAnimator.Play("Show");
+            CancelInvoke();
         }
+
+        private void FadeInText() {
+            endTextAnimator.Play("FadeIn");
+        }
+
 
         bool PublicVariablesAvailable()
         {
-            if (endAnimator == null) return false;
+            if (endImageAnimator == null) return false;
             if (endCamera == null) return false;
 
             return true;

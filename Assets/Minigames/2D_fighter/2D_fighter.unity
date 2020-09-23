@@ -4934,9 +4934,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56caf19b31c60a54b9fbdc3e5a05f617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endAnimator: {fileID: 435044527}
+  endImageAnimator: {fileID: 435044527}
   endTextAnimator: {fileID: 892809185}
   endCamera: {fileID: 1129098273}
+  isInputEnabled: 0
 --- !u!114 &1636128091
 MonoBehaviour:
   m_ObjectHideFlags: 0
