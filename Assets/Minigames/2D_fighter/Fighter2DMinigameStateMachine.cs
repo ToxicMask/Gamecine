@@ -17,13 +17,19 @@ namespace Sidescroller.StateMachine
         Selection,
         Gameplay,
         EndRound,
-        EndBattle
+        EndBattle,
+        EndCutscene,
 
     }
 
 
     public class Fighter2DMinigameStateMachine : MonoBehaviour
     {
+        #region Static Variables
+
+        public static Fighter2DMinigameStateMachine current;
+
+        #endregion
 
         #region Class Variables
 
@@ -45,8 +51,6 @@ namespace Sidescroller.StateMachine
 
         [SerializeField] MusicControl levelMusic = null;
 
-
-
         #endregion
 
         #region Gameplay Variables
@@ -59,6 +63,11 @@ namespace Sidescroller.StateMachine
         #endregion
 
         #region Unity Methods
+
+        private void Awake()
+        {
+            current = this;
+        }
 
         void Start()
         {
@@ -160,12 +169,12 @@ namespace Sidescroller.StateMachine
                 case (MinigameState.Intro):
 
                     // Check to Game to Start
-                    if (Input.GetButtonDown("Submit")) StartSelectionSequence();
+                    //if (Input.GetButtonDown("Submit")) StartSelectionSequence();
 
                     break;
 
                 case (MinigameState.Selection):
-                    if (Input.GetButtonDown("Submit")) StartGameplaySequence();
+                    //if (Input.GetButtonDown("Submit")) StartGameplaySequence();
                     break;
 
                 case (MinigameState.EndRound):
@@ -177,13 +186,13 @@ namespace Sidescroller.StateMachine
                     if (Input.GetButtonDown("Cancel"))
                     {
                         // Return to Main Menu
-                        ChangeToMainMenuScene();
+                        //ChangeToMainMenuScene();
                     }
 
                     // Reset Minigame
                     if (Input.GetButtonDown("Submit"))
                     {
-                        ResetCurrentLevel();
+                        //ResetCurrentLevel();
                     }
 
                     break;
@@ -195,7 +204,7 @@ namespace Sidescroller.StateMachine
 
         #region Start Sequence Methods
 
-        void StartIntroSequence()
+        private void StartIntroSequence()
         {
             // Define current state
             currentState = MinigameState.Intro;
@@ -213,7 +222,7 @@ namespace Sidescroller.StateMachine
             ChangeCanvas(currentState);
         }
 
-        void StartSelectionSequence()
+        public void StartSelectionSequence()
         {
             // Define current state
             currentState = MinigameState.Selection;
@@ -231,7 +240,7 @@ namespace Sidescroller.StateMachine
             ChangeCanvas(currentState);
         }
 
-        void StartGameplaySequence()
+        public void StartGameplaySequence()
         {
 
             // Activate Pause Menu
@@ -247,7 +256,7 @@ namespace Sidescroller.StateMachine
             ChangeCanvas(currentState);
         }
 
-        void StartNewRoundSequence()
+        private void StartNewRoundSequence()
         {
 
             // Change music - Start music
@@ -273,7 +282,7 @@ namespace Sidescroller.StateMachine
 
         }
 
-        void StartEndRoundSequence(int victorID)
+        private void StartEndRoundSequence(int victorID)
         {
             // Victory to player2
             if (victorID == 1) fighter1Score += 1;
@@ -294,7 +303,7 @@ namespace Sidescroller.StateMachine
 
         }
 
-        void StartEndBattleSequence(int victorID)
+        private void StartEndBattleSequence(int victorID)
         {
 
             // Deactivate Pause Menu
@@ -338,7 +347,19 @@ namespace Sidescroller.StateMachine
 
         #region Action Methods 
 
-        void ConfigFighterControllers(bool controllersEnabled)
+        public void ChangeToMainMenuScene()
+        {
+            SceneManager.LoadScene("Main Menu1");
+        }
+
+        public void ResetCurrentLevel()
+        {
+            SceneManager.LoadScene("2D_Fighter");
+        }
+
+
+
+        private void ConfigFighterControllers(bool controllersEnabled)
         {
             // Get Controller Components
 
@@ -362,7 +383,7 @@ namespace Sidescroller.StateMachine
             controller2.SetCharacterToStandStill();
         }
 
-        void ChangeCanvas(MinigameState toCanvas, int victorID = -1)
+        private void ChangeCanvas(MinigameState toCanvas, int victorID = -1)
         {
             switch (toCanvas)
             {
@@ -372,6 +393,7 @@ namespace Sidescroller.StateMachine
                     DeactivateAllCanvas();
 
                     // Activate
+                    introControl.gameObject.SetActive(true);
                     introControl.PlayIntro();
 
                     break;
@@ -383,6 +405,7 @@ namespace Sidescroller.StateMachine
 
 
                     // Activate
+                    selectionControl.gameObject.SetActive(true);
                     selectionControl.Display();
 
                     break;
@@ -393,6 +416,7 @@ namespace Sidescroller.StateMachine
                     DeactivateAllCanvas();
 
                     // Activate
+                    gameControl.gameObject.SetActive(true);
                     gameControl.StartGameplay();
 
                     break;
@@ -403,31 +427,35 @@ namespace Sidescroller.StateMachine
                     DeactivateAllCanvas();
 
                     // Activate
+                    endControl.gameObject.SetActive(true);
                     endControl.StartEndingCutscene (victorID);
 
                     break;
             }
         }
 
-        void ChangeCurrentMinigameState(MinigameState newState)
+        private void ChangeCurrentMinigameState(MinigameState newState)
         {
             currentState = newState;
         }
 
-        void ChangeToMainMenuScene()
+        private void DeactivateAllCanvas()
         {
-            SceneManager.LoadScene("Main Menu1");
-        }
 
-        void DeactivateAllCanvas()
-        {
-            selectionControl.Hide();
+            // End Scripts Methods
             introControl.StopIntro();
+            selectionControl.Hide();
             gameControl.StopGameplay();
             endControl.StopEnd();
+
+            // Deactivate Object
+            introControl.gameObject.SetActive(false);
+            selectionControl.gameObject.SetActive(false);
+            gameControl.gameObject.SetActive(false);
+            endControl.gameObject.SetActive(false);
         }
 
-        void ResetAllFightersStats() { // Recover Health and Position of Player
+        private void ResetAllFightersStats() { // Recover Health and Position of Player
 
             fighter1.GetComponent<Health>().FullRecovery();
             fighter2.GetComponent<Health>().FullRecovery();
@@ -442,12 +470,9 @@ namespace Sidescroller.StateMachine
             fighter2.ChangeState(FighterState.Idle);
         }
 
-        void ResetCurrentLevel()
-        {
-            SceneManager.LoadScene("2D_Fighter");
-        }
 
-        void UpdateBackground()
+
+        private void UpdateBackground()
         {
             if (roundID == maxRound)
             {
@@ -455,13 +480,13 @@ namespace Sidescroller.StateMachine
             }
         }
 
-        void UpdateRoundDisplay()
+        private void UpdateRoundDisplay()
         {
             // Update Round Conter // Display Final Mark; if is final round
             guiControl.UpdateRoundDisplay(roundID, roundID == maxRound);
         }
 
-        void UpdateFightersScore()
+        private void UpdateFightersScore()
         {
             //Update fighter Score Counter
             guiControl.UpdateFightersScore(fighter1Score, fighter2Score);

@@ -36,7 +36,7 @@ namespace Sidescroller.Fighting
         private Vector3 startPosition;
 
 
-        private void Start()
+        private void Awake()
         {
             animator = GetComponent<Animator>();
 

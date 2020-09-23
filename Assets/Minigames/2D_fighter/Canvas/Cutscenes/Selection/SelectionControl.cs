@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sidescroller.StateMachine;
 
 namespace Sidescroller.Canvas
 {
@@ -8,6 +9,11 @@ namespace Sidescroller.Canvas
     {
         //[SerializeField] Animator animator = null;
         [SerializeField] Camera canvasCamera = null;
+
+        private void Update()
+        {
+            if (Input.GetButtonDown("Submit")) Fighter2DMinigameStateMachine.current.StartGameplaySequence(); 
+        }
 
 
         public void Display()

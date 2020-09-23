@@ -1020,10 +1020,6 @@ MonoBehaviour:
   endControl: {fileID: 1636128090}
   sceneryAnimator: {fileID: 1070924250}
   guiControl: {fileID: 988509852}
-  fighter1ScoreDisplay: {fileID: 802190659}
-  fighter2ScoreDisplay: {fileID: 1850612546}
-  roundDisplay: {fileID: 289286712}
-  finalRoundDisplay: {fileID: 987312150}
   PauseCanvas: {fileID: 1067185151}
   levelMusic: {fileID: 714763158}
   roundID: -1
