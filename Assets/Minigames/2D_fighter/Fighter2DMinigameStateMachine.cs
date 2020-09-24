@@ -10,6 +10,7 @@ using Sidescroller.Music;
 
 namespace Sidescroller.StateMachine
 {
+    
     public enum MinigameState
     {
         Intro,
@@ -32,7 +33,7 @@ namespace Sidescroller.StateMachine
 
         #region Class Variables
 
-        MinigameState currentState = MinigameState.Intro;
+        private MinigameState currentState = MinigameState.Intro;
 
         [SerializeField] SideScrollerFighter fighter1 = null;
         [SerializeField] SideScrollerFighter fighter2 = null;
@@ -53,11 +54,12 @@ namespace Sidescroller.StateMachine
         #endregion
 
         #region Gameplay Variables
-        public int roundID = 0;
-        public int maxRound = 3;
 
-        public int fighter1Score = 0;
-        public int fighter2Score = 0;
+        [SerializeField] int roundID = 0;
+        [SerializeField] int maxRound = 3;
+
+        [SerializeField] int fighter1Score = 0;
+        [SerializeField] int fighter2Score = 0;
 
         #endregion
 
@@ -194,7 +196,7 @@ namespace Sidescroller.StateMachine
 
             // Config Canvas
             ChangeCanvas(currentState);
-        }
+        } // Public
 
         public void StartGameplaySequence()
         {
@@ -210,7 +212,7 @@ namespace Sidescroller.StateMachine
 
             //Change to Gameplay canvas
             ChangeCanvas(currentState);
-        }
+        } // Public
 
         private void StartNewRoundSequence()
         {
@@ -478,5 +480,6 @@ namespace Sidescroller.StateMachine
 
         #endregion
 
+        
     }
 }

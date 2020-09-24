@@ -84,7 +84,7 @@ namespace Sidescroller.Canvas
 
         private void SkipEnd()
         {
-            endImageAnimator.SetTrigger("Stop");
+            endImageAnimator.Play("End");
             endTextAnimator.Play("Show");
             CancelInvoke();
         }
