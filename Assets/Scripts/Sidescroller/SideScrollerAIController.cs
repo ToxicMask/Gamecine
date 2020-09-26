@@ -61,7 +61,7 @@ namespace Sidescroller.AI
         {
 
             // Check conditions if it can receive Input
-            if (!CanReceiveInput()) { print("NULL"); return; }
+            if (!CanReceiveInput())  return; 
 
 
             // Check if it is about to performang a action
@@ -130,7 +130,6 @@ namespace Sidescroller.AI
             else if (action == ControllerAction.WALK_LEFT)
             {
                 moverScript.Walk(-1f);
-                print("!");
             }
 
             else
@@ -152,7 +151,7 @@ namespace Sidescroller.AI
 
             if (thinkState == ThinkState.Attack)
             {
-                print(fighterScript.attackRange.ToString() + "/" + (currentTarget.position - transform.position).magnitude.ToString());
+                // Debug print print(fighterScript.attackRange.ToString() + "/" + (currentTarget.position - transform.position).magnitude.ToString());
                 //if AI is far from Player
                 if (fighterScript.attackRange + (attackDistance) < (currentTarget.position - transform.position).magnitude)
                 {
