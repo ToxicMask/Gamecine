@@ -315,6 +315,29 @@ namespace Sidescroller.StateMachine
             SceneManager.LoadScene("2D_Fighter");
         }
 
+        public void SetCurrentPlayers(SideScrollerFighter script, int id)
+        {
+
+            if (id == 1) fighter1 = script;
+            if (id == 2) fighter2 = script;
+
+            if (fighter1 == null || fighter2 == null)
+            {
+                Debug.Log("ERROR - NO FIGHTER SCRIPT");
+            }
+        }
+
+        public void SetCurrentPlayers(GameObject player1, GameObject player2)
+        {
+            fighter1 = player1.GetComponent<SideScrollerFighter>();
+            fighter2 = player2.GetComponent<SideScrollerFighter>();
+
+            if (fighter1 == null || fighter2 == null)
+            {
+                Debug.Log("ERROR - NO FIGHTER SCRIPT");
+            }
+        }
+
 
 
         private void ConfigFighterControllers(bool controllersEnabled)
@@ -323,7 +346,6 @@ namespace Sidescroller.StateMachine
 
             SideScrollerController controller1 = fighter1.GetComponent<SideScrollerController>();
             SideScrollerController controller2 = fighter2.GetComponent<SideScrollerController>();
-
 
             if (controller1 == null || controller2 == null)
             {

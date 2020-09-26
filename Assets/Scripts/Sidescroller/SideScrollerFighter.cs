@@ -9,7 +9,6 @@ namespace Sidescroller.Fighting
         Damaged,
         Dead,
         Dying,
-        Dodging,
     }
     public class SideScrollerFighter : MonoBehaviour
     {
@@ -20,8 +19,9 @@ namespace Sidescroller.Fighting
         [SerializeField] float timeBetweenAttacks = .5f;
         float timeSinceLastAttack = Mathf.Infinity;
 
-        [SerializeField] float attackRange = .3f;
-        [SerializeField] float attackDamage = 1f;
+        public float attackRange = .3f;
+        [SerializeField] float attackStrongDamage = 3f;
+        [SerializeField] float attackWeakDamage = 1f;
 
         public Transform attackPos;
 
@@ -109,14 +109,14 @@ namespace Sidescroller.Fighting
                             // Attacked Blocked
                             if (audioAttackBlock != null) AudioSource.PlayClipAtPoint(audioAttackBlock, audioListener.transform.position, .8f);
                             if (audioDamaged != null) AudioSource.PlayClipAtPoint(audioDamaged, audioListener.transform.position, .6f);
-                            this.gameObject.GetComponent<Health>().TakeDamage(1f); // Block Damage
+                            this.gameObject.GetComponent<Health>().TakeDamage(attackWeakDamage); // Block Damage
                             continue;
                         }
 
                     }
                     // Hit Player
                     if (audioAttackHit != null) AudioSource.PlayClipAtPoint(audioAttackHit, audioListener.transform.position, .2f);
-                    collider.GetComponent<Health>().TakeDamage(attackDamage);
+                    collider.GetComponent<Health>().TakeDamage(attackStrongDamage);
                 }
             }
 

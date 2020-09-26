@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e63015210747f4eb2a8bdb89f474b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMode: 1
   playerNumber: 1
 --- !u!114 &1695325121424287541
 MonoBehaviour:
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 1.2
   knockbackDirection: -1
-  knockbackSpeed: 0.8
+  knockbackSpeed: 1
 --- !u!114 &1695325121424287540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,9 +151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  timeBetweenAttacks: 0.8
-  attackRange: 0.5
-  attackDamage: 3
+  timeBetweenAttacks: 1
+  attackRange: 0.6
+  attackStrongDamage: 3
+  attackWeakDamage: 1
   attackPos: {fileID: 7902700957065620090}
   audioListener: {fileID: 0}
   audioDamaged: {fileID: 8300000, guid: da4f5695bff34bf4b88959334d31f55f, type: 3}
@@ -173,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBar: {fileID: 0}
-  maxHealth: 20
+  maxHealth: 15
   currentHealth: 0
 --- !u!50 &1179197818
 Rigidbody2D:

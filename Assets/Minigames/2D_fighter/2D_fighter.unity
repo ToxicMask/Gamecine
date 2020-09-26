@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 58516591}
   - component: {fileID: 58516590}
   m_Layer: 5
-  m_Name: Player 1
+  m_Name: Player 1 - Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,6 +709,11 @@ PrefabInstance:
     - target: {fileID: 1246428532043059836, guid: 4e6ac6472ad0f834b889a96d92380d2f,
         type: 3}
       propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246428532043059836, guid: 4e6ac6472ad0f834b889a96d92380d2f,
+        type: 3}
+      propertyPath: currentMode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1246428532043059838, guid: 4e6ac6472ad0f834b889a96d92380d2f,
@@ -4012,7 +4017,7 @@ GameObject:
   - component: {fileID: 1398260048}
   - component: {fileID: 1398260047}
   m_Layer: 5
-  m_Name: Player 2
+  m_Name: Player 2 - Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6479,5 +6484,10 @@ PrefabInstance:
       propertyPath: audioListener
       value: 
       objectReference: {fileID: 714763157}
+    - target: {fileID: 1695325121424287542, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: currentMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e105792d81fc745a7bd91c3710c974, type: 3}
