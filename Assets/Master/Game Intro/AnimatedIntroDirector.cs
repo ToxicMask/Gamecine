@@ -56,7 +56,7 @@ namespace Cinematic.Intro
 
         void GoToMainMenu()
         {
-            SceneManager.LoadScene("Main Menu1");
+            SceneManager.LoadScene((int) AllScenes.MainMenu);
         }
     }
 }

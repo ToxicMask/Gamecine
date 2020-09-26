@@ -16,7 +16,7 @@ namespace MainMenu.Selection
         public CanvasGroup buttonCanvas;
         
 
-        private int currentMinigameID =1;
+        private int currentMinigameID = (int) AllScenes.AugustoMatraga;
 
         bool canSelect = false;
 

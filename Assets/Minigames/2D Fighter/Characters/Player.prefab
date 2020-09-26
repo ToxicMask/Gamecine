@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 0.8
   attackRange: 0.6
   attackStrongDamage: 3
   attackWeakDamage: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBar: {fileID: 0}
   maxHealth: 15
-  currentHealth: 0
+  currentHealth: 15
 --- !u!50 &1179197818
 Rigidbody2D:
   serializedVersion: 4

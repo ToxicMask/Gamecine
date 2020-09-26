@@ -307,12 +307,12 @@ namespace Sidescroller.StateMachine
 
         public void ChangeToMainMenuScene()
         {
-            SceneManager.LoadScene("Main Menu1");
+            SceneManager.LoadScene( (int) AllScenes.MainMenu);
         }
 
         public void ResetCurrentLevel()
         {
-            SceneManager.LoadScene("2D_Fighter");
+            SceneManager.LoadScene( (int) AllScenes.AugustoMatraga);
         }
 
         public void SetCurrentPlayers(SideScrollerFighter script, int id)
