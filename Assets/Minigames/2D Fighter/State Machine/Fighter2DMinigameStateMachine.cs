@@ -363,6 +363,34 @@ namespace Sidescroller.StateMachine
             controller2.SetCharacterToStandStill();
         }
 
+        public void ConfigFighterControllers(int playerID, ControllerMode mode )
+        {
+            // Get Controller Components
+
+            SideScrollerController controller1 = fighter1.GetComponent<SideScrollerController>();
+            SideScrollerController controller2 = fighter2.GetComponent<SideScrollerController>();
+
+            if (controller1 == null || controller2 == null)
+            {
+                Debug.LogAssertion(" No Controlers Found ");
+                return;
+            }
+
+            //Config AI Players
+            if (mode == ControllerMode.AI_PLAYER)
+            {
+                if (playerID == 1) controller1.SetCharacterControllerAsAI();
+                if (playerID == 2) controller2.SetCharacterControllerAsAI();
+
+                return;
+            }
+
+            // Config Local Players
+            if (playerID == 1) controller1.currentMode = mode;
+            if (playerID == 2) controller2.currentMode = mode;
+            return;
+        }
+
         private void ChangeCanvas(MinigameState toCanvas, int victorID = -1)
         {
             switch (toCanvas)

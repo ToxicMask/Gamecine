@@ -12,7 +12,9 @@ namespace Sidescroller.Control
     {
         SINGLE_PLAYER,
         MULTI_PLAYER,
-        AI_PLAYER
+        AI_PLAYER,
+        COUNT, // Meta enum
+        NUll = -1, // Meta enum - Always last
     }
 
     public enum ControllerAction
@@ -30,6 +32,7 @@ namespace Sidescroller.Control
 
 
         [SerializeField] [Range(1, 2)] int playerNumber = 1;
+        [SerializeField] bool autoSetAI = false;
 
         // Components
         protected SideScrollerMover moverScript;
@@ -39,7 +42,8 @@ namespace Sidescroller.Control
         // Remove self if is AI Controled, then set Control AI componet
         protected void Awake()
         {
-            if (currentMode == ControllerMode.AI_PLAYER) SetCharacterControllerAsAI();
+            // Auto - AI Controller
+            if (currentMode == ControllerMode.AI_PLAYER && autoSetAI) SetCharacterControllerAsAI();
         }
 
         // Start is called before the first frame update
