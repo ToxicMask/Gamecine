@@ -12,49 +12,66 @@ namespace Sidescroller.Canvas
         [SerializeField] Camera canvasCamera = null;
 
         [SerializeField] ControllerMode selectedMode = ControllerMode.SINGLE_PLAYER;
-
-        [SerializeField] bool isModeSelected = false;
         [SerializeField] int modeID = 0;
+
+        [SerializeField] GameObject canvasSingle = null;
+        [SerializeField] GameObject canvasMulti = null;
+        [SerializeField] GameObject canvasAuto = null;
+
+        [SerializeField] GameObject arrowLeft = null;
+        [SerializeField] GameObject arrowRight = null;
 
         private void Start()
         {
-            isModeSelected = false;
+            selectedMode = (ControllerMode)modeID;
+
+            UpdateCurrentScreen(selectedMode);
         }
 
 
         private void Update()
         {
-            if (Input.GetButtonDown("Action Primary")) {
+            // All input are Key Down; else return
+            if (!Input.anyKeyDown) return;
+
+            if (Input.GetAxis("Horizontal") > 0f)
+                {
+                //Max Value
+                if (modeID == (int)ControllerMode.COUNT -1) return;
 
                 //Toggle Mode
-                modeID = (modeID + 1) % (int) ControllerMode.COUNT;
+                modeID = (modeID + 1);
 
-                print((ControllerMode)modeID);
+                selectedMode = (ControllerMode)modeID;
+
+                UpdateCurrentScreen(selectedMode);
             }
 
+            else if (Input.GetAxis("Horizontal") < 0f) 
+            {
+                //Min Value
+                if (modeID == 0) return;
+
+                //Toggle Mode
+                modeID = (modeID - 1);
+
+                selectedMode = (ControllerMode)modeID;
+
+                UpdateCurrentScreen(selectedMode);
+            }
+
+            // Activate current selected mode
             if (Input.GetButtonDown("Submit"))
             {
-                //If not selected, then select
-                if (!isModeSelected)
-                {
-                    isModeSelected = true;
-
-                    selectedMode = (ControllerMode)modeID;
-                    print(selectedMode);
-                    return;
-                }
-
-                else
-                {
-                    // Config Controllers
-                    ConfigFightersInput(selectedMode);
-
-
-                    Fighter2DMinigameStateMachine.current.StartGameplaySequence();
-                }
-
                 
+                // Config Controllers
+                ConfigFightersInput(selectedMode);
+
+                // Start Sequence in State Machine
+                Fighter2DMinigameStateMachine.current.StartGameplaySequence();
+
             }
+            
         }
 
 
@@ -106,8 +123,7 @@ namespace Sidescroller.Canvas
 
                 //Fighter2 - AI
                 sm.ConfigFighterControllers(2, ControllerMode.AI_PLAYER);
-
-                return;
+                
             }
 
             // Multiplayer
@@ -130,6 +146,53 @@ namespace Sidescroller.Canvas
                 sm.ConfigFighterControllers(2, ControllerMode.AI_PLAYER);
             }
 
+        }
+
+        void UpdateCurrentScreen(ControllerMode mode)
+        {
+            //Hide all screens
+            DeactivateAllScreens();
+
+            // Hide all Arrows
+            DeactivateAllArrows();
+
+            // Single Player
+            if (mode == ControllerMode.SINGLE_PLAYER)
+            {
+                canvasSingle.SetActive(true);
+
+                arrowRight.SetActive(true);
+            }
+
+            // Multiplayer
+            else if (mode == ControllerMode.MULTI_PLAYER)
+            {
+                canvasMulti.SetActive(true);
+
+                //Arrows
+                arrowLeft.SetActive(true);
+                arrowRight.SetActive(true);
+            }
+
+            else if (mode == ControllerMode.AI_PLAYER)
+            {
+                canvasAuto.SetActive(true);
+
+                arrowLeft.SetActive(true);
+            }
+        }
+
+        void DeactivateAllScreens()
+        {
+            canvasSingle.SetActive(false);
+            canvasMulti.SetActive(false);
+            canvasAuto.SetActive(false);
+        }
+
+        void DeactivateAllArrows()
+        {
+            arrowLeft.SetActive(false);
+            arrowRight.SetActive(false);
         }
     }
 }
