@@ -29,9 +29,13 @@ using UnityEngine;
         public void FullRecovery()
         {
             currentHealth = maxHealth;
-            // Display Damage // Update UI
-            if (playerBar != null) playerBar.SetHealth((int)currentHealth);
+        // Display Damage // Update UI
+        if (playerBar != null)
+        {
+            playerBar.SetHealth((int)currentHealth);
+            playerBar.SetMaxHealth((int)maxHealth);
         }
+    }
 
         public void TakeDamage(float damage)
         {
