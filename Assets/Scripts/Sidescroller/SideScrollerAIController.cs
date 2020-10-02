@@ -129,7 +129,7 @@ namespace Sidescroller.AI
 
             else if (action == ControllerAction.WALK_LEFT)
             {
-                moverScript.Walk(-1f);
+                fighterScript.Walk(-1f);
             }
 
             else

@@ -1,21 +1,34 @@
 ﻿using UnityEngine;
+
+using Sidescroller.Movement;
+using Sidescroller.Animation;
+
 namespace Sidescroller.Fighting
 {
     public enum FighterState
     {
         Idle,
+        WalkLeft,
+        WalkRight,
         Attacking,
         Blocking,
         Damaged,
         Dead,
         Dying,
     }
+
     public class SideScrollerFighter : MonoBehaviour
     {
-        Animator animator;
+
         public FighterState currentState = FighterState.Idle;
 
-        //setando a velocidade de ataque
+        // Animation
+        [SerializeField] SideScrollerAnimation animationScript = null;
+
+        // Movement
+        [SerializeField] SideScrollerMover moverScript = null;
+
+        //Attack
         [SerializeField] float timeBetweenAttacks = .5f;
         float timeSinceLastAttack = Mathf.Infinity;
 
@@ -25,6 +38,7 @@ namespace Sidescroller.Fighting
 
         public Transform attackPos;
 
+        // Audio Variables
         public AudioListener audioListener;
 
         public AudioClip audioDamaged;
@@ -38,7 +52,8 @@ namespace Sidescroller.Fighting
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
+            animationScript = GetComponent<SideScrollerAnimation>();
+            moverScript = GetComponent<SideScrollerMover>();
 
             startPosition = transform.position;
         }
@@ -48,15 +63,38 @@ namespace Sidescroller.Fighting
             timeSinceLastAttack += Time.deltaTime;
         }
 
-        public void ResetFighterPosition()
-        {
-            transform.position = startPosition;
-        }
 
-        public void ResetAnimator()
+        // Action Methods - Input Commands
+
+        public void Walk(float direction)
         {
-            animator.SetFloat("Walk", 0f);
-            animator.SetTrigger("Reset");
+
+            // Action 
+            moverScript.Walk(direction);
+
+            // Idle 
+            if (direction == 0f)
+            {
+                currentState = FighterState.Idle;
+                animationScript.ChangeAnimationState(currentState);
+            }
+
+            else
+            {
+                // Walking
+
+                if (direction > 0f)
+                {
+                    currentState = FighterState.WalkRight;
+                    animationScript.ChangeAnimationState(currentState);
+                }
+                else if (direction < 0f)
+
+                {
+                    currentState = FighterState.WalkLeft;
+                    animationScript.ChangeAnimationState(currentState);
+                }
+            }
         }
 
         public void AttackBasic()
@@ -64,20 +102,20 @@ namespace Sidescroller.Fighting
             if (timeSinceLastAttack < timeBetweenAttacks) { return; }
 
             currentState = FighterState.Attacking;
-            animator.SetTrigger("Attack");
+            animationScript.ChangeAnimationState(currentState);
             timeSinceLastAttack = 0;
         }
 
         public void Block()
         {
             currentState = FighterState.Blocking;
-            animator.SetTrigger("Block");
+            animationScript.ChangeAnimationState(currentState);
         }
 
         public void Damaged()
         {
             currentState = FighterState.Damaged;
-            animator.SetTrigger("Damage");
+            animationScript.ChangeAnimationState(currentState);
             if (audioDamaged != null) AudioSource.PlayClipAtPoint( audioDamaged, audioListener.transform.position, 1f);
         }
 
@@ -85,7 +123,12 @@ namespace Sidescroller.Fighting
         {
             // Dying State ==> Death Animation
             currentState = FighterState.Dying;
-            animator.SetTrigger("Death");
+            animationScript.ChangeAnimationState(currentState);
+
+            // Disable Animation Changes
+            EnableAnimationChange(false);
+
+
 
             if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
         }
@@ -126,11 +169,19 @@ namespace Sidescroller.Fighting
         public void ChangeState(FighterState newState) //usado em eventos nos finais das animações pra retornar ao estado de idle;
         {
             currentState = newState;
+
+            // Animation Reset
+            animationScript.ChangeAnimationState(currentState);
         }
 
-        private void OnDrawGizmos()
+        public void EnableAnimationChange(bool active)
         {
-            //Gizmos.DrawWireSphere(attackPos.position, attackRange);
+            animationScript.canChangeAnimation = active;
+        }
+
+        public void ResetFighterPosition()
+        {
+            transform.position = startPosition;
         }
     }
 }

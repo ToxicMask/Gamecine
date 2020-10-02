@@ -184,9 +184,8 @@ namespace Sidescroller.StateMachine
         {
             // Define current state
             currentState = MinigameState.Selection;
-
-            // Change music - Intro music
-            levelMusic.IntroMusic();
+            
+            // Continue previous Muisic
 
             // Deactivate Player Controllers
             ConfigFighterControllers(false);
@@ -471,11 +470,14 @@ namespace Sidescroller.StateMachine
             fighter1.ResetFighterPosition();
             fighter2.ResetFighterPosition();
 
-            fighter1.ResetAnimator();
-            fighter2.ResetAnimator();
+            // Reset for New Animations
+            fighter1.EnableAnimationChange(true);
+            fighter2.EnableAnimationChange(true);
+
 
             fighter1.ChangeState(FighterState.Idle);
             fighter2.ChangeState(FighterState.Idle);
+            
         }
 
         private void UpdateBackground()

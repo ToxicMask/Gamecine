@@ -107,7 +107,7 @@ namespace Sidescroller.Control
             // Walk
             if (Input.GetAxis("Horizontal" + playerTag) != 0)
             {
-                moverScript.Walk(Input.GetAxis("Horizontal" + playerTag));
+                fighterScript.Walk(Input.GetAxis("Horizontal" + playerTag));
             }
 
             // Stand Still
@@ -133,7 +133,7 @@ namespace Sidescroller.Control
 
         public void SetCharacterToStandStill()
         {
-            if (moverScript != null)  moverScript.Stand();
+            if (fighterScript != null) fighterScript.Walk(0f);
         }
 
         public void SetPlayerID(int newID)
