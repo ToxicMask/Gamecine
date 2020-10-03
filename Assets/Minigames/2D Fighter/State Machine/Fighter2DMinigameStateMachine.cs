@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sidescroller.Fighting;
+using Sidescroller.Health;
 using Sidescroller.Control;
 using Sidescroller.Canvas;
 using Sidescroller.Music;
@@ -464,8 +465,8 @@ namespace Sidescroller.StateMachine
 
         private void ResetAllFightersStats() { // Recover Health and Position of Player
 
-            fighter1.GetComponent<Health>().FullRecovery();
-            fighter2.GetComponent<Health>().FullRecovery();
+            fighter1.GetComponent<SideScrollerHealth>().FullRecovery();
+            fighter2.GetComponent<SideScrollerHealth>().FullRecovery();
 
             fighter1.ResetFighterPosition();
             fighter2.ResetFighterPosition();

@@ -10,11 +10,13 @@ namespace Sidescroller.AI
     public class SideScrollerAIController : SideScrollerController
     {
         // AI variable
-        ThinkState currentState = ThinkState.Attack;
+        ThinkState currentThinkState = ThinkState.Attack;
+
+        // Char
 
         // Delay Variables
-        protected bool isInDelayTime = false;
-        protected float thinkDelay = .5f;
+        public bool isInDelayTime = false;
+        public float thinkDelay = .5f;
 
         [SerializeField] float thinkDelayMin = .4f;
         [SerializeField] float thinkDelayMax = .9f;
@@ -60,6 +62,7 @@ namespace Sidescroller.AI
         protected override void Update()
         {
 
+
             // Check conditions if it can receive Input
             if (!CanReceiveInput())  return; 
 
@@ -72,8 +75,7 @@ namespace Sidescroller.AI
                 {
                     ProcessAction( nextAction );
                     lastAction = nextAction;
-                    isInDelayTime = false;
-                    timeSinceDelay = 0f;
+                    ResetDelayTime();
                 }
 
                 // Add to Delay time + Perform previus Action
@@ -89,20 +91,19 @@ namespace Sidescroller.AI
             else
             {
                 // Think AI state
-                currentState = GetCurrentThink();
+                currentThinkState = GetCurrentThink();
 
                 // Controler Action
-                ControllerAction newAction = GetCurrentAction(currentState);
+                ControllerAction newAction = GetCurrentAction(currentThinkState);
 
                 //If new action -> Start Delay
                 if (newAction != lastAction)
                 {
-                    isInDelayTime = true;
                     nextAction = newAction;
                     ProcessAction(lastAction);
 
                     // Random Delay Time
-                    thinkDelay = Random.Range(thinkDelayMin, thinkDelayMax);
+                    SetNewDelayTime();
 
                 }
 
@@ -112,8 +113,7 @@ namespace Sidescroller.AI
                     ProcessAction(lastAction);
                 }
             }
-
-
+            
          }
             
 
@@ -130,6 +130,11 @@ namespace Sidescroller.AI
             else if (action == ControllerAction.WALK_LEFT)
             {
                 fighterScript.Walk(-1f);
+            }
+
+            else if (action == ControllerAction.WALK_RIGHT)
+            {
+                fighterScript.Walk(1f);
             }
 
             else
@@ -151,18 +156,42 @@ namespace Sidescroller.AI
 
             if (thinkState == ThinkState.Attack)
             {
+                Vector2 targetDistance = currentTarget.position - transform.position;
+
                 // Debug print print(fighterScript.attackRange.ToString() + "/" + (currentTarget.position - transform.position).magnitude.ToString());
                 //if AI is far from Player
-                if (fighterScript.attackRange + (attackDistance) < (currentTarget.position - transform.position).magnitude)
+                if (fighterScript.GetAttackRange() + (attackDistance) < targetDistance.magnitude)
                 {
-                    
-                    return ControllerAction.WALK_LEFT;
+                    if ( targetDistance.x > 0) return ControllerAction.WALK_RIGHT;
+
+                    else return ControllerAction.WALK_LEFT;
                 }
 
                 else return ControllerAction.ATTACK;
             }
 
             return ControllerAction.IDLE;
+        }
+
+        // Reset
+        protected void ResetDelayTime()
+        {
+            isInDelayTime = false;
+            timeSinceDelay = 0f;
+        }
+
+        protected void SetNewDelayTime()
+        {
+            // Random Delay Time
+            isInDelayTime = true;
+            thinkDelay = Random.Range(thinkDelayMin, thinkDelayMax);
+        }
+
+        protected void SetNewDelayTime(float time)
+        {
+            // Random Delay Time
+            isInDelayTime = true;
+            thinkDelay = time;
         }
     }
 }

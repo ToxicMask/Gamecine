@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Sidescroller.Health
+{
 
-    public class Health : MonoBehaviour
+    public class SideScrollerHealth : MonoBehaviour
     {
 
         public PlayerHealthBar playerBar;
@@ -16,12 +18,12 @@ using UnityEngine;
         {
             currentHealth = maxHealth;
 
-        // Update player Bar
-        if (playerBar != null)
-        {
-            playerBar.SetHealth((int)currentHealth);
-            playerBar.SetMaxHealth((int)maxHealth);
-        }
+            // Update player Bar
+            if (playerBar != null)
+            {
+                playerBar.SetHealth((int)currentHealth);
+                playerBar.SetMaxHealth((int)maxHealth);
+            }
         }
 
         void Update() { }
@@ -29,13 +31,13 @@ using UnityEngine;
         public void FullRecovery()
         {
             currentHealth = maxHealth;
-        // Display Damage // Update UI
-        if (playerBar != null)
-        {
-            playerBar.SetHealth((int)currentHealth);
-            playerBar.SetMaxHealth((int)maxHealth);
+            // Display Damage // Update UI
+            if (playerBar != null)
+            {
+                playerBar.SetHealth((int)currentHealth);
+                playerBar.SetMaxHealth((int)maxHealth);
+            }
         }
-    }
 
         public void TakeDamage(float damage)
         {
@@ -75,3 +77,4 @@ using UnityEngine;
             this.GetComponent<SideScrollerFighter>().Death();
         }
     }
+}

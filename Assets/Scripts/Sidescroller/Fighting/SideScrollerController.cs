@@ -146,7 +146,6 @@ namespace Sidescroller.Control
             SideScrollerAIController newControl = gameObject.AddComponent(typeof(SideScrollerAIController)) as SideScrollerAIController;
 
             newControl.SetPlayerID(playerNumber);
-            newControl.currentMode = ControllerMode.AI_PLAYER;
             Destroy(this);
         }
     } }

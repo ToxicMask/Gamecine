@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6628731359969450060}
   - component: {fileID: 1695325121424287542}
   - component: {fileID: 1857953251765922289}
+  - component: {fileID: 603961527348975696}
   - component: {fileID: 1695325121424287541}
   - component: {fileID: 1695325121424287540}
   - component: {fileID: 1179197817}
@@ -60,7 +61,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1179197816
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +175,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5064221cc50f2442ac6efe905b029a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canChangeAnimation: 0
+--- !u!114 &603961527348975696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695325121424287538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415c5672db75dc64b9765797e8491cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.8
+  attackRange: 0.6
+  attackStrongDamage: 3
+  attackWeakDamage: 1
+  attackPos: {fileID: 7902700957065620090}
 --- !u!114 &1695325121424287541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,13 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  animationScrip: {fileID: 0}
+  animationScript: {fileID: 0}
   moverScript: {fileID: 0}
-  timeBetweenAttacks: 0.8
-  attackRange: 0.6
-  attackStrongDamage: 3
-  attackWeakDamage: 1
-  attackPos: {fileID: 7902700957065620090}
+  attackScript: {fileID: 0}
   audioListener: {fileID: 0}
   audioDamaged: {fileID: 8300000, guid: da4f5695bff34bf4b88959334d31f55f, type: 3}
   audioAttackGrunt: {fileID: 8300000, guid: b58fa8783b46ccf47bce520207b2454b, type: 3}

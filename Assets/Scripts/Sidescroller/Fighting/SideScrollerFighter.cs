@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-
+using Sidescroller.Attack;
+using Sidescroller.Health;
 using Sidescroller.Movement;
 using Sidescroller.Animation;
 
@@ -22,21 +23,11 @@ namespace Sidescroller.Fighting
 
         public FighterState currentState = FighterState.Idle;
 
-        // Animation
-        [SerializeField] SideScrollerAnimation animationScript = null;
 
-        // Movement
-        [SerializeField] SideScrollerMover moverScript = null;
-
-        //Attack
-        [SerializeField] float timeBetweenAttacks = .5f;
-        float timeSinceLastAttack = Mathf.Infinity;
-
-        public float attackRange = .3f;
-        [SerializeField] float attackStrongDamage = 3f;
-        [SerializeField] float attackWeakDamage = 1f;
-
-        public Transform attackPos;
+        // Sidescroller Scripts
+        [SerializeField] SideScrollerAnimation animationScript = null; // Animation
+        [SerializeField] SideScrollerMover moverScript = null; // Movement
+        [SerializeField] SideScrollerAttack attackScript = null; //Attack
 
         // Audio Variables
         public AudioListener audioListener;
@@ -49,22 +40,21 @@ namespace Sidescroller.Fighting
 
         private Vector3 startPosition;
 
+        #region Unity Methods
 
         private void Awake()
         {
             animationScript = GetComponent<SideScrollerAnimation>();
+            attackScript = GetComponent<SideScrollerAttack>();
             moverScript = GetComponent<SideScrollerMover>();
 
             startPosition = transform.position;
         }
 
-        private void Update()
-        {
-            timeSinceLastAttack += Time.deltaTime;
-        }
-
+        #endregion
 
         // Action Methods - Input Commands
+        #region Action Methods - Commands
 
         public void Walk(float direction)
         {
@@ -99,11 +89,18 @@ namespace Sidescroller.Fighting
 
         public void AttackBasic()
         {
-            if (timeSinceLastAttack < timeBetweenAttacks) { return; }
+            if (!attackScript.CanAttack()) { return; }
 
+            // Action + Animation
+            print(gameObject.name);
             currentState = FighterState.Attacking;
             animationScript.ChangeAnimationState(currentState);
-            timeSinceLastAttack = 0;
+
+            // Battle Cry - Audio
+            if (audioAttackGrunt != null)
+            {
+                AudioSource.PlayClipAtPoint(audioAttackGrunt, audioListener.transform.position, .6f);
+            }
         }
 
         public void Block()
@@ -133,38 +130,32 @@ namespace Sidescroller.Fighting
             if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
         }
 
-        private void AttackBasicHit()
+        #endregion
+
+        // Method for Attack Animation
+        public void ProcessAttackResult()
         {
-            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
+            AttackResult attackResult = attackScript.AttackHit();
 
-            // Battle Cry
-            if ( audioAttackGrunt != null) { AudioSource.PlayClipAtPoint(audioAttackGrunt, audioListener.transform.position, .6f);}
-
-            foreach (Collider2D collider in enemiesToDamage)
+            // Play sound
+            switch (attackResult)
             {
-                if (collider == this.gameObject.GetComponent<Collider2D>()) continue;
-                if (collider.GetComponent<Health>() != null)
-                {
-                    if (collider.GetComponent<SideScrollerFighter>() != null)
-                    {
-                        if (collider.GetComponent<SideScrollerFighter>().currentState == FighterState.Blocking)
-                        {
-                            // Attacked Blocked
-                            if (audioAttackBlock != null) AudioSource.PlayClipAtPoint(audioAttackBlock, audioListener.transform.position, .8f);
-                            if (audioDamaged != null) AudioSource.PlayClipAtPoint(audioDamaged, audioListener.transform.position, .6f);
-                            this.gameObject.GetComponent<Health>().TakeDamage(attackWeakDamage); // Block Damage
-                            continue;
-                        }
+                case AttackResult.NoHit:
+                    break;
 
-                    }
-                    // Hit Player
+                case AttackResult.NormalHit:
                     if (audioAttackHit != null) AudioSource.PlayClipAtPoint(audioAttackHit, audioListener.transform.position, .2f);
-                    collider.GetComponent<Health>().TakeDamage(attackStrongDamage);
-                }
-            }
+                    break;
 
+                case AttackResult.BlockedHit:
+                    if (audioAttackBlock != null) AudioSource.PlayClipAtPoint(audioAttackBlock, audioListener.transform.position, .8f);
+                    if (audioDamaged != null) AudioSource.PlayClipAtPoint(audioDamaged, audioListener.transform.position, .6f);
+                    break;
+            }
+            
         }
 
+        #region Action Methods - Others
 
         public void ChangeState(FighterState newState) //usado em eventos nos finais das animações pra retornar ao estado de idle;
         {
@@ -172,6 +163,7 @@ namespace Sidescroller.Fighting
 
             // Animation Reset
             animationScript.ChangeAnimationState(currentState);
+            print(gameObject.name + newState.ToString());
         }
 
         public void EnableAnimationChange(bool active)
@@ -183,5 +175,16 @@ namespace Sidescroller.Fighting
         {
             transform.position = startPosition;
         }
+
+        #endregion
+
+        #region Methods
+        public float GetAttackRange()
+        {
+            return attackScript.attackRange;
+        }
+
+        #endregion
+
     }
 }
