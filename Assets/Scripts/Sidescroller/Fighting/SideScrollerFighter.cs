@@ -25,9 +25,9 @@ namespace Sidescroller.Fighting
 
 
         // Sidescroller Scripts
-        [SerializeField] SideScrollerAnimation animationScript = null; // Animation
-        [SerializeField] SideScrollerMover moverScript = null; // Movement
-        [SerializeField] SideScrollerAttack attackScript = null; //Attack
+        [SerializeField] SideScrollerAnimation animationScript = null;  // Animation
+        [SerializeField] SideScrollerMover moverScript = null;          // Movement
+        [SerializeField] SideScrollerAttack attackScript = null;        // Attack
 
         // Audio Variables
         public AudioListener audioListener;
@@ -65,8 +65,7 @@ namespace Sidescroller.Fighting
             // Idle 
             if (direction == 0f)
             {
-                currentState = FighterState.Idle;
-                animationScript.ChangeAnimationState(currentState);
+                ChangeState(FighterState.Idle);
             }
 
             else
@@ -75,14 +74,12 @@ namespace Sidescroller.Fighting
 
                 if (direction > 0f)
                 {
-                    currentState = FighterState.WalkRight;
-                    animationScript.ChangeAnimationState(currentState);
+                    ChangeState(FighterState.WalkRight);
                 }
                 else if (direction < 0f)
 
                 {
-                    currentState = FighterState.WalkLeft;
-                    animationScript.ChangeAnimationState(currentState);
+                    ChangeState(FighterState.WalkLeft);
                 }
             }
         }
@@ -92,41 +89,38 @@ namespace Sidescroller.Fighting
             if (!attackScript.CanAttack()) { return; }
 
             // Action + Animation
-            print(gameObject.name);
-            currentState = FighterState.Attacking;
-            animationScript.ChangeAnimationState(currentState);
+            ChangeState(FighterState.Attacking);
 
             // Battle Cry - Audio
             if (audioAttackGrunt != null)
             {
                 AudioSource.PlayClipAtPoint(audioAttackGrunt, audioListener.transform.position, .6f);
             }
+           
         }
 
         public void Block()
         {
-            currentState = FighterState.Blocking;
-            animationScript.ChangeAnimationState(currentState);
+            ChangeState(FighterState.Blocking);
+            
         }
 
         public void Damaged()
         {
-            currentState = FighterState.Damaged;
-            animationScript.ChangeAnimationState(currentState);
+            ChangeState(FighterState.Damaged);
             if (audioDamaged != null) AudioSource.PlayClipAtPoint( audioDamaged, audioListener.transform.position, 1f);
+            
         }
 
         public void Death()
         {
             // Dying State ==> Death Animation
-            currentState = FighterState.Dying;
-            animationScript.ChangeAnimationState(currentState);
+            ChangeState(FighterState.Dying);
 
             // Disable Animation Changes
             EnableAnimationChange(false);
 
-
-
+            // Audio
             if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
         }
 
@@ -157,13 +151,28 @@ namespace Sidescroller.Fighting
 
         #region Action Methods - Others
 
+        public void ChangeStateToIdle()
+        {
+            currentState = FighterState.Idle;
+
+            // Animation Set
+            animationScript.ChangeAnimationState(currentState);
+        }
+
+        public void ChangeStateToDead()
+        {
+            currentState = FighterState.Dead;
+
+            // Animation Set
+            animationScript.ChangeAnimationState(currentState);
+        }
+
         public void ChangeState(FighterState newState) //usado em eventos nos finais das animações pra retornar ao estado de idle;
         {
             currentState = newState;
 
-            // Animation Reset
+            // Animation Set
             animationScript.ChangeAnimationState(currentState);
-            print(gameObject.name + newState.ToString());
         }
 
         public void EnableAnimationChange(bool active)
@@ -178,10 +187,16 @@ namespace Sidescroller.Fighting
 
         #endregion
 
-        #region Methods
+        #region Check Methods
+
         public float GetAttackRange()
         {
             return attackScript.attackRange;
+        }
+
+        public float GetAnimationLenght()
+        {
+            return animationScript.GetCurrentAnimationLenght();
         }
 
         #endregion

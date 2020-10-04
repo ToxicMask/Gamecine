@@ -12,7 +12,7 @@ namespace Sidescroller.Animation
 
         private Animator animator;
 
-        FighterState currentAnimation;
+        public FighterState currentAnimation;
 
         public bool canChangeAnimation;
 
@@ -27,8 +27,10 @@ namespace Sidescroller.Animation
         public void ChangeAnimationState( FighterState newState)
 
         {
+            
+
             // Redundent
-            if (currentAnimation == newState) return;
+            if (currentAnimation == newState) return; 
 
             // Return
             if (!animator.isActiveAndEnabled) return;
@@ -40,7 +42,6 @@ namespace Sidescroller.Animation
             currentAnimation = newState;
 
             PlayAnimation(currentAnimation);
-
         }
 
         void PlayAnimation(FighterState state)
@@ -79,6 +80,11 @@ namespace Sidescroller.Animation
                     break;
 
             }
+        }
+
+        public float GetCurrentAnimationLenght()
+        {
+            return animator.GetNextAnimatorStateInfo(0).length;
         }
     }
 }

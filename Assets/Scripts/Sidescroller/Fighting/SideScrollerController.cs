@@ -17,15 +17,6 @@ namespace Sidescroller.Control
         NUll = -1, // Meta enum - Always last
     }
 
-    public enum ControllerAction
-    {
-        IDLE,
-        WALK_LEFT,
-        WALK_RIGHT,
-        ATTACK,
-        BLOCK
-    }
-
     public class SideScrollerController : MonoBehaviour
     {
         public ControllerMode currentMode = ControllerMode.SINGLE_PLAYER;

@@ -12,7 +12,7 @@ namespace Sidescroller.AI
         // AI variable
         ThinkState currentThinkState = ThinkState.Attack;
 
-        // Char
+        // 
 
         // Delay Variables
         public bool isInDelayTime = false;
@@ -23,8 +23,8 @@ namespace Sidescroller.AI
         [SerializeField] float timeSinceDelay = 0f;
 
         // Action Variables
-        [SerializeField] ControllerAction lastAction = ControllerAction.IDLE;
-        [SerializeField] ControllerAction nextAction = ControllerAction.IDLE;
+        [SerializeField] FighterState lastState = FighterState.Idle;
+        [SerializeField] FighterState nextState = FighterState.Idle;
         
 
         // Target Variables 
@@ -61,7 +61,8 @@ namespace Sidescroller.AI
         // Update is called once per frame
         protected override void Update()
         {
-
+            // if fighter last action is diferent, than Update
+            if (fighterScript.currentState != lastState) lastState = fighterScript.currentState;
 
             // Check conditions if it can receive Input
             if (!CanReceiveInput())  return; 
@@ -73,8 +74,8 @@ namespace Sidescroller.AI
                 // After Delay Time -> Act New action + End Delay
                 if (timeSinceDelay > thinkDelay)
                 {
-                    ProcessAction( nextAction );
-                    lastAction = nextAction;
+                    ProcessAction(nextState);
+                    lastState = nextState;
                     ResetDelayTime();
                 }
 
@@ -82,7 +83,7 @@ namespace Sidescroller.AI
                 else
                 {
                     timeSinceDelay += Time.deltaTime;
-                    ProcessAction(lastAction);
+                    ProcessAction(lastState);
                 }
             }
 
@@ -94,13 +95,13 @@ namespace Sidescroller.AI
                 currentThinkState = GetCurrentThink();
 
                 // Controler Action
-                ControllerAction newAction = GetCurrentAction(currentThinkState);
+                FighterState newAction = GetCurrentAction(currentThinkState);
 
                 //If new action -> Start Delay
-                if (newAction != lastAction)
+                if (newAction != lastState)
                 {
-                    nextAction = newAction;
-                    ProcessAction(lastAction);
+                    nextState = newAction;
+                    ProcessAction(lastState);
 
                     // Random Delay Time
                     SetNewDelayTime();
@@ -110,29 +111,28 @@ namespace Sidescroller.AI
                 //Repeat last Action
                 else
                 {
-                    ProcessAction(lastAction);
+                    ProcessAction(lastState);
                 }
             }
             
          }
             
 
-        protected void ProcessAction(ControllerAction action)
+        protected void ProcessAction(FighterState action)
         {
 
-            if (action == ControllerAction.ATTACK)
-            {
+            if (action == FighterState.Attacking) { 
                 //Try to Attack
                 fighterScript.AttackBasic();
                 
             }
 
-            else if (action == ControllerAction.WALK_LEFT)
+            else if (action == FighterState.WalkLeft)
             {
                 fighterScript.Walk(-1f);
             }
 
-            else if (action == ControllerAction.WALK_RIGHT)
+            else if (action == FighterState.WalkRight)
             {
                 fighterScript.Walk(1f);
             }
@@ -150,7 +150,7 @@ namespace Sidescroller.AI
         }
 
         //Decide action based on current state
-        protected ControllerAction GetCurrentAction( ThinkState thinkState)
+        protected FighterState GetCurrentAction( ThinkState thinkState)
         {
             // Reset action and Delay
 
@@ -162,15 +162,15 @@ namespace Sidescroller.AI
                 //if AI is far from Player
                 if (fighterScript.GetAttackRange() + (attackDistance) < targetDistance.magnitude)
                 {
-                    if ( targetDistance.x > 0) return ControllerAction.WALK_RIGHT;
+                    if ( targetDistance.x > 0) return FighterState.WalkRight;
 
-                    else return ControllerAction.WALK_LEFT;
+                    else return FighterState.WalkLeft;
                 }
 
-                else return ControllerAction.ATTACK;
+                else return FighterState.Attacking;
             }
 
-            return ControllerAction.IDLE;
+            return FighterState.Idle;
         }
 
         // Reset
