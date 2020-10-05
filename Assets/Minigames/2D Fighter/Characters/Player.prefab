@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5064221cc50f2442ac6efe905b029a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnimation: 0
   canChangeAnimation: 0
 --- !u!114 &603961527348975696
 MonoBehaviour:
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.8
-  attackRange: 0.6
+  attackRange: 0.75
   attackStrongDamage: 3
   attackWeakDamage: 1
   attackPos: {fileID: 7902700957065620090}
@@ -269,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754936473117973859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 258325915916751577}

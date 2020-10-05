@@ -18,7 +18,7 @@ namespace Sidescroller.AI
         public bool isInDelayTime = false;
         public float thinkDelay = .5f;
 
-        [SerializeField] float thinkDelayMin = .4f;
+        [SerializeField] float thinkDelayMin = .1f;
         [SerializeField] float thinkDelayMax = .9f;
         [SerializeField] float timeSinceDelay = 0f;
 
@@ -35,8 +35,9 @@ namespace Sidescroller.AI
         {
             AlwaysAttack,
             Attack,
-            Block,
-            Escape
+            Defensive,
+            Escape,
+            Confused,
         }
 
 
@@ -137,23 +138,44 @@ namespace Sidescroller.AI
                 fighterScript.Walk(1f);
             }
 
+            else if (action == FighterState.Blocking)
+            {
+                fighterScript.Block();
+            }
+
             else
             {
                 SetCharacterToStandStill();
             }
         }
 
-        //Decide mode of operation - !!! TMEP # Only attack
+        //Decide mode of operation 
         protected ThinkState GetCurrentThink( )
         {
-            return ThinkState.Attack;
+            // Result between 1 - 100
+            int rF = Random.Range((int)1, (int)100);
+
+
+            // 10% - Escape
+            if (rF < 10) return ThinkState.Escape;
+
+            // 5 % - Defesive
+            else if (rF < 15) return ThinkState.Defensive;
+
+            // 57.5% - Attack
+            else if (rF < 97.5f) return ThinkState.Attack;
+
+            // 5% - Confused
+            else return ThinkState.Confused;
         }
 
         //Decide action based on current state
         protected FighterState GetCurrentAction( ThinkState thinkState)
         {
-            // Reset action and Delay
+            // Report Current  Think State
+            print(thinkState.ToString());
 
+            // Wants to attack
             if (thinkState == ThinkState.Attack)
             {
                 Vector2 targetDistance = currentTarget.position - transform.position;
@@ -170,6 +192,32 @@ namespace Sidescroller.AI
                 else return FighterState.Attacking;
             }
 
+            else if (thinkState == ThinkState.Escape)
+            {
+
+                Vector2 targetDistance = currentTarget.position - transform.position;
+
+                // Try to Escape
+                if (targetDistance.x < 0) return FighterState.WalkRight;
+
+                else return FighterState.WalkLeft;
+            }
+
+            else if (thinkState == ThinkState.Defensive)
+            {
+
+                Vector2 targetDistance = currentTarget.position - transform.position;
+
+                if (fighterScript.GetAttackRange() + (attackDistance) > targetDistance.magnitude)
+                {
+                    return FighterState.Blocking;
+                }
+
+                return FighterState.Idle;
+            }
+
+
+            // If nothing else, then satd put
             return FighterState.Idle;
         }
 
