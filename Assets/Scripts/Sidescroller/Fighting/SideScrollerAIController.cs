@@ -12,7 +12,9 @@ namespace Sidescroller.AI
         // AI variable
         ThinkState currentThinkState = ThinkState.Attack;
 
-        // 
+        // Variation in Noise for random choice
+        public float pScale = 8;
+        private float noiseOffset = 0;
 
         // Delay Variables
         public bool isInDelayTime = false;
@@ -55,13 +57,17 @@ namespace Sidescroller.AI
 
                 if (gameObject.name == "Player2") currentTarget = GameObject.Find("Player1").transform;
             }
-            
+
+            // Set noise Offset
+            noiseOffset = Random.Range(-10000, 10000);
         }
 
 
         // Update is called once per frame
         protected override void Update()
         {
+
+
             // if fighter last action is diferent, than Update
             if (fighterScript.currentState != lastState) lastState = fighterScript.currentState;
 
@@ -129,22 +135,26 @@ namespace Sidescroller.AI
             }
 
             else if (action == FighterState.WalkLeft)
-            {
+            { 
+                // Try to walk
                 fighterScript.Walk(-1f);
             }
 
             else if (action == FighterState.WalkRight)
             {
+                // Try to walk
                 fighterScript.Walk(1f);
             }
 
             else if (action == FighterState.Blocking)
             {
+                // Try to walk
                 fighterScript.Block();
             }
 
             else
             {
+                // Try to walk
                 SetCharacterToStandStill();
             }
         }
@@ -152,20 +162,20 @@ namespace Sidescroller.AI
         //Decide mode of operation 
         protected ThinkState GetCurrentThink( )
         {
-            // Result between 1 - 100
-            int rF = Random.Range((int)1, (int)100);
+            // Result between 0 - 100 - Smoth variation
+            float rF = Mathf.PerlinNoise((Time.time * pScale) +  noiseOffset, 0)  * 100 ;
 
 
-            // 10% - Escape
-            if (rF < 10) return ThinkState.Escape;
+            // Escape
+            if (rF < 18f) return ThinkState.Escape;
 
-            // 5 % - Defesive
-            else if (rF < 15) return ThinkState.Defensive;
+            //  Defesive
+            else if (rF < 35f) return ThinkState.Defensive;
 
-            // 57.5% - Attack
-            else if (rF < 97.5f) return ThinkState.Attack;
+            // Attack
+            else if (rF < 95f) return ThinkState.Attack;
 
-            // 5% - Confused
+            // Confused
             else return ThinkState.Confused;
         }
 
@@ -173,7 +183,7 @@ namespace Sidescroller.AI
         protected FighterState GetCurrentAction( ThinkState thinkState)
         {
             // Report Current  Think State
-            print(thinkState.ToString());
+            //print(thinkState.ToString());
 
             // Wants to attack
             if (thinkState == ThinkState.Attack)
@@ -182,7 +192,7 @@ namespace Sidescroller.AI
 
                 // Debug print print(fighterScript.attackRange.ToString() + "/" + (currentTarget.position - transform.position).magnitude.ToString());
                 //if AI is far from Player
-                if (fighterScript.GetAttackRange() + (attackDistance) < targetDistance.magnitude)
+                if (fighterScript.GetAttackRange() + (attackDistance) -0.4f < targetDistance.magnitude)
                 {
                     if ( targetDistance.x > 0) return FighterState.WalkRight;
 
