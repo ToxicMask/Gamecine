@@ -6037,6 +6037,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398260045}
   m_CullTransparentMesh: 0
+--- !u!1 &1451295529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1695325121424287538, guid: 88e105792d81fc745a7bd91c3710c974,
+    type: 3}
+  m_PrefabInstance: {fileID: 8592703258114491608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1451295537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451295529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7497c881fbeb7489d90924b946ec29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterCollision: {fileID: 0}
+  crouching: 1
 --- !u!1 &1477719126
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,7 +7136,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8592703258114491608}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1451295529}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9748267aa271db64e87455a4a430bf78, type: 3}
@@ -8707,6 +8727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695325121424287539, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1695325121424287540, guid: 88e105792d81fc745a7bd91c3710c974,
         type: 3}

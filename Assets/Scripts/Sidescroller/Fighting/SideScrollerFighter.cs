@@ -16,6 +16,8 @@ namespace Sidescroller.Fighting
         Damaged,
         Dead,
         Dying,
+
+        Crouching,
     }
 
     public class SideScrollerFighter : MonoBehaviour
@@ -55,7 +57,7 @@ namespace Sidescroller.Fighting
 
         // Action Methods - Input Commands
         #region Action Methods - Commands
-
+        
         public void Walk(float direction)
         {
 
@@ -123,6 +125,13 @@ namespace Sidescroller.Fighting
             // Audio
             if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
         }
+
+        // Crouch
+        public void Crouch()
+        {
+            ChangeState(FighterState.Crouching);
+        }
+
 
         #endregion
 
