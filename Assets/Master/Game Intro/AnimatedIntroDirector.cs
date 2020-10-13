@@ -16,6 +16,12 @@ namespace Cinematic.Intro
 
         public VideoPlayer introVideo;
 
+        private void Awake()
+        {
+            // Video for WebGl
+            introVideo.url = System.IO.Path.Combine(Application.streamingAssetsPath, "IntroGamecineDemo.mp4");
+        }
+
         // Start is called before the first frame update
         void Start()
         {
