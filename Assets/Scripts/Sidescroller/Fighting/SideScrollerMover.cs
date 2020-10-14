@@ -33,8 +33,5 @@ namespace Sidescroller.Movement
             this.transform.Translate(linearVelocity * Time.deltaTime);
             
         }
-
-
-        
     }
 }

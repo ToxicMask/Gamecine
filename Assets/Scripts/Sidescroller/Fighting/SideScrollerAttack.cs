@@ -81,7 +81,12 @@ namespace Sidescroller.Attack
 
     public AttackResult AttackHit()
         {
-            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
+            Vector2 boxSize = new Vector2(attackRange, float.MinValue);
+
+            //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
+
+            Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, boxSize, 0f);
+
 
             bool hit = false;
             bool blocked = false;
