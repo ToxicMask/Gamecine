@@ -22,9 +22,6 @@ namespace Sidescroller.Pose
 
             // Set Dictionary Values
             SetDictionaryValues();
-
-            // TEMP
-            UpdateCollision();
         }
 
         #region Set Dictionary Values
@@ -52,16 +49,19 @@ namespace Sidescroller.Pose
 
             crouching = false;
 
+            UpdateCollision(crouching);
         }
 
         public void Crouch()
         {
             crouching = true;
+
+            UpdateCollision(crouching);
         }
 
-        private void UpdateCollision()
+        private void UpdateCollision(bool c)
         {
-            if (crouching)
+            if (c)
             {
                 //Crouching info
                 fighterCollision.size = crouchCollisionInfo["size"];
@@ -77,6 +77,11 @@ namespace Sidescroller.Pose
 
             // Update Offset
             fighterCollision.offset = new Vector2(fighterCollision.offset.x, fighterCollision.size.y * 0.5f);
+        }
+
+        public bool IsCrouching()
+        {
+            return crouching;
         }
     }
 }

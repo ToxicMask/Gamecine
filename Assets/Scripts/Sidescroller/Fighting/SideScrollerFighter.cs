@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Sidescroller.Attack;
 using Sidescroller.Health;
+using Sidescroller.Pose;
 using Sidescroller.Movement;
 using Sidescroller.Animation;
 
@@ -30,6 +31,7 @@ namespace Sidescroller.Fighting
         [SerializeField] SideScrollerAnimation animationScript = null;  // Animation
         [SerializeField] SideScrollerMover moverScript = null;          // Movement
         [SerializeField] SideScrollerAttack attackScript = null;        // Attack
+        [SerializeField] SideScrollerPose poseScript = null;            // Pose
 
         // Audio Variables
         public AudioListener audioListener;
@@ -49,6 +51,7 @@ namespace Sidescroller.Fighting
             animationScript = GetComponent<SideScrollerAnimation>();
             attackScript = GetComponent<SideScrollerAttack>();
             moverScript = GetComponent<SideScrollerMover>();
+            poseScript = GetComponent<SideScrollerPose>();
 
             startPosition = transform.position;
         }
@@ -84,6 +87,21 @@ namespace Sidescroller.Fighting
                     ChangeState(FighterState.WalkLeft);
                 }
             }
+        }
+
+        public void Crouch(bool isCrouching)
+        {
+            //Update Pose
+            if (isCrouching)
+            {
+                if (!poseScript.IsCrouching()) poseScript.Crouch();
+            }
+
+            else
+            {
+                if (poseScript.IsCrouching()) poseScript.StandUp();
+            }
+
         }
 
         public void AttackBasic()
@@ -126,13 +144,6 @@ namespace Sidescroller.Fighting
             if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
         }
 
-        // Crouch
-        public void Crouch()
-        {
-            ChangeState(FighterState.Crouching);
-        }
-
-
         #endregion
 
         // Method for Attack Animation
@@ -164,6 +175,9 @@ namespace Sidescroller.Fighting
         {
             currentState = FighterState.Idle;
 
+            //Update Collision Box
+            poseScript.StandUp();
+
             // Animation Set
             animationScript.ChangeAnimationState(currentState);
         }
@@ -171,6 +185,9 @@ namespace Sidescroller.Fighting
         public void ChangeStateToDead()
         {
             currentState = FighterState.Dead;
+
+            //Update Collision Box
+            poseScript.StandUp();
 
             // Animation Set
             animationScript.ChangeAnimationState(currentState);

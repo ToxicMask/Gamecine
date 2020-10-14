@@ -95,6 +95,21 @@ namespace Sidescroller.Control
             }
 
 
+            // Crouching
+            if (Input.GetAxis("Vertical" + playerTag) < 0)
+            {
+                print("X");
+                fighterScript.Crouch(true);
+                return;
+            }
+
+            else
+            {
+                fighterScript.Crouch(false);
+            }
+
+
+
             // Walk
             if (Input.GetAxis("Horizontal" + playerTag) != 0)
             {
@@ -107,18 +122,35 @@ namespace Sidescroller.Control
                 SetCharacterToStandStill();
             }
 
-            // Primary Action - Attack
 
+            // Actions - Atack Defensce
             if (Input.GetButtonDown("Action Primary" + playerTag))
             {
                 fighterScript.AttackBasic();
+                return;
             }
 
             // Primary Action - Block
             if (Input.GetButtonDown("Action Secondary" + playerTag))
             {
                 fighterScript.Block();
+                return;
             }
+
+
+
+            // Walk
+            if (Input.GetAxis("Horizontal" + playerTag) != 0)
+            {
+                fighterScript.Walk(Input.GetAxis("Horizontal" + playerTag));
+            }
+
+            // Stand Still
+            else
+            {
+                SetCharacterToStandStill();
+            }
+           
 
         }
 
