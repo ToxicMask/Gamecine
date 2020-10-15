@@ -20,9 +20,9 @@ namespace Sidescroller.AI
         public bool isInDelayTime = false;
         public float thinkDelay = .5f;
 
-        [SerializeField] float thinkDelayMin = .1f;
-        [SerializeField] float thinkDelayMax = .9f;
-        [SerializeField] float timeSinceDelay = 0f;
+        [SerializeField] readonly float  thinkDelayMin = .1f;
+        [SerializeField] readonly float thinkDelayMax = .6f;
+        public float timeSinceDelay = 0f;
 
         // Action Variables
         [SerializeField] FighterState lastState = FighterState.Idle;
@@ -31,7 +31,7 @@ namespace Sidescroller.AI
 
         // Target Variables 
         [SerializeField] Transform currentTarget = null;
-        [SerializeField] float attackDistance = .6f;
+        [SerializeField] readonly float attackThreshold = 0.2f;
 
         public enum ThinkState
         {
@@ -167,16 +167,16 @@ namespace Sidescroller.AI
 
 
             // Escape
-            if (rF < 18f) return ThinkState.Escape;
+            if (rF < 18f) return ThinkState.Confused;
 
             //  Defesive
-            else if (rF < 35f) return ThinkState.Defensive;
+            else if (rF < 32f) return ThinkState.Defensive;
 
             // Attack
-            else if (rF < 95f) return ThinkState.Attack;
+            else if (rF < 85f) return ThinkState.Attack;
 
             // Confused
-            else return ThinkState.Confused;
+            else return ThinkState.Escape;
         }
 
         //Decide action based on current state
@@ -192,7 +192,7 @@ namespace Sidescroller.AI
 
                 // Debug print print(fighterScript.attackRange.ToString() + "/" + (currentTarget.position - transform.position).magnitude.ToString());
                 //if AI is far from Player
-                if (fighterScript.GetAttackRange() + (attackDistance) -0.4f < targetDistance.magnitude)
+                if (fighterScript.GetAttackRange() - (attackThreshold) < targetDistance.magnitude)
                 {
                     if ( targetDistance.x > 0) return FighterState.WalkRight;
 
@@ -218,7 +218,7 @@ namespace Sidescroller.AI
 
                 Vector2 targetDistance = currentTarget.position - transform.position;
 
-                if (fighterScript.GetAttackRange() + (attackDistance) > targetDistance.magnitude)
+                if (fighterScript.GetAttackRange() - (attackThreshold) > targetDistance.magnitude)
                 {
                     return FighterState.Blocking;
                 }

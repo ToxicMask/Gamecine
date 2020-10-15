@@ -46,42 +46,11 @@ namespace Sidescroller.Attack
             return true;
         }
 
-        public void AttackBasicHit()
-        {
-            Vector2 boxSize = new Vector2(attackRange, float.MinValue);
-
-            //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
-
-            Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, boxSize, 0f);
-
-            // Update Timer
-            timeSinceLastAttack = 0;
-
-            foreach (Collider2D collider in enemiesToDamage)
-            {
-                if (collider == this.gameObject.GetComponent<Collider2D>()) continue;
-                if (collider.GetComponent<SideScrollerHealth>() != null)
-                {
-                    // Gonna check if the attack is blocked
-                    if (collider.GetComponent<SideScrollerFighter>() != null)
-                    {
-                        if (collider.GetComponent<SideScrollerFighter>().currentState == FighterState.Blocking)
-                        {
-                            // Attacked Blocked
-                            this.gameObject.GetComponent<SideScrollerHealth>().TakeDamage(attackWeakDamage); // Block Damage
-                            continue;
-                        }
-                    }
-
-                    // Hit Player - Deal damage
-                    collider.GetComponent<SideScrollerHealth>().TakeDamage(attackStrongDamage);
-                }
-            }
-        }
 
     public AttackResult AttackHit()
         {
-            Vector2 boxSize = new Vector2(attackRange, float.MinValue);
+            // Reach on bouth sides
+            Vector2 boxSize = new Vector2(attackRange * 2, 0.1f);
 
             //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
 
