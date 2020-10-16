@@ -55,11 +55,13 @@ namespace Sidescroller.Attack
 
             //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
 
-            Collider2D[] enemiesToDamage; 
-            
+            Collider2D[] enemiesToDamage;
+
             // if not crouching, then attack High, else, attack Low
-            if (!crouching) enemiesToDamage = Physics2D.OverlapBoxAll(attackHighPos.position, boxSize, 0f);
-                       else enemiesToDamage = Physics2D.OverlapBoxAll(attackLowPos.position, boxSize, 0f);
+            if (!crouching)
+            { enemiesToDamage = Physics2D.OverlapBoxAll(attackHighPos.position, boxSize, 0f); }
+            else
+            { enemiesToDamage = Physics2D.OverlapBoxAll(attackLowPos.position, boxSize, 0f); }
 
             bool hit = false;
             bool blocked = false;

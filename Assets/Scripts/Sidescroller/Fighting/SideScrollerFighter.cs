@@ -19,6 +19,8 @@ namespace Sidescroller.Fighting
         Dying,
 
         Crouching,
+        CrouchingAttack,
+        CrouchingBlock,
     }
 
     public class SideScrollerFighter : MonoBehaviour
@@ -109,6 +111,7 @@ namespace Sidescroller.Fighting
             if (!attackScript.CanAttack()) { return; }
 
             // Action + Animation
+            // Decide Attacking
             ChangeState(FighterState.Attacking);
 
             // Battle Cry - Audio
@@ -149,7 +152,11 @@ namespace Sidescroller.Fighting
         // Method for Attack Animation
         public void ProcessAttackResult()
         {
-            AttackResult attackResult = attackScript.AttackHit();
+            // Find fi is Crouching
+            bool Crouch = poseScript.IsCrouching(); 
+
+            //Attack in script and return Value
+            AttackResult attackResult = attackScript.AttackHit( Crouch );
 
             // Play sound
             switch (attackResult)
