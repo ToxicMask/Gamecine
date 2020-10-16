@@ -114,8 +114,9 @@ namespace Sidescroller.Control
             // Crouching or Walkinh
             if (vInput < 0)
             {
-                print("X");
                 fighterScript.Crouch(true);
+                // TEMP No Attack or Block
+                return;
                 
             }
 

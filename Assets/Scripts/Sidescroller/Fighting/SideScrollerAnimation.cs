@@ -71,6 +71,10 @@ namespace Sidescroller.Animation
                     animator.Play("Block");
                     break;
 
+                case FighterState.Crouching:
+                    animator.Play("Crouch Idle");
+                    break;
+
                 case FighterState.Damaged:
                     animator.Play("Get Damaged");
                     break;

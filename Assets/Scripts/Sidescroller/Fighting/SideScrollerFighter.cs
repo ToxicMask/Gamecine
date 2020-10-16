@@ -91,18 +91,25 @@ namespace Sidescroller.Fighting
             }
         }
 
-        public void Crouch(bool isCrouching)
+        public void Crouch(bool crouchCommand)
         {
+            bool isCrouching = poseScript.IsCrouching();
+
             //Update Pose
-            if (isCrouching)
+            if (crouchCommand)
             {
                 if (!poseScript.IsCrouching()) poseScript.Crouch();
+
+                // Update Animation
+                ChangeState(FighterState.Crouching);
             }
 
             else
             {
                 if (poseScript.IsCrouching()) poseScript.StandUp();
             }
+
+
 
         }
 

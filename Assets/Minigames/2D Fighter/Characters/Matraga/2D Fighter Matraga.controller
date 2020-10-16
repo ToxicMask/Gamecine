@@ -215,6 +215,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &231567645594352422
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Crouch Idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: c2d25f160ed5f9340adbf6c001c168e5, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &1973514553908233104
 AnimatorState:
   serializedVersion: 5
@@ -258,22 +284,25 @@ AnimatorStateMachine:
     m_Position: {x: 350, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7776324342802424998}
-    m_Position: {x: 360, y: 410, z: 0}
+    m_Position: {x: 350, y: 520, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3510059802014500306}
     m_Position: {x: 590, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9040891633638783475}
-    m_Position: {x: 610, y: 400, z: 0}
+    m_Position: {x: 600, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -301640542081783434}
-    m_Position: {x: 360, y: 340, z: 0}
+    m_Position: {x: 350, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7032380467587672640}
     m_Position: {x: 350, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1973514553908233104}
     m_Position: {x: 590, y: 180, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 231567645594352422}
+    m_Position: {x: 350, y: 370, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
