@@ -21,6 +21,16 @@ namespace Sidescroller.Music
             if (musicDistortion == null) musicDistortion = GetComponent<AudioDistortionFilter>();
         }
 
+        private void Update()
+        {
+            //Pause if is pause
+            if (levelMusic.isPlaying && PauseSystem.gameIsPaused) levelMusic.Pause();
+
+            // Resume if paused
+            if (!levelMusic.isPlaying && !PauseSystem.gameIsPaused) levelMusic.UnPause();
+        }
+
+
         public void PlayStandardMusic()
         {
             levelMusic.Play();
