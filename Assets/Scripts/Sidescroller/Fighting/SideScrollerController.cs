@@ -94,63 +94,55 @@ namespace Sidescroller.Control
                 playerTag = playerID.ToString();
             }
 
+            // Input Variables
+            float vInput = Input.GetAxis("Vertical" + playerTag);    // Vertical Input
+            float hInput = Input.GetAxis("Horizontal" + playerTag);  // Horizontal Input
+            bool pButton = Input.GetButtonDown("Action Primary" + playerTag); // Primary Button Pressed
+            bool sButton = Input.GetButtonDown("Action Secondary" + playerTag);// Secondary Button Pressed
 
-            // Crouching
-            if (Input.GetAxis("Vertical" + playerTag) < 0)
+            // Crouching or Walkinh
+            if (vInput < 0)
             {
                 print("X");
                 fighterScript.Crouch(true);
-                return;
+                
             }
 
-            else
+            else // Walking
             {
                 fighterScript.Crouch(false);
+
+                // Walk
+                if (hInput != 0)
+                {
+                    fighterScript.Walk(hInput);
+                }
+
+                // Stand Still
+                else
+                {
+                    SetCharacterToStandStill();
+                }
+
+
             }
 
 
+            // Actions - Atack / Defensce
 
-            // Walk
-            if (Input.GetAxis("Horizontal" + playerTag) != 0)
-            {
-                fighterScript.Walk(Input.GetAxis("Horizontal" + playerTag));
-            }
-
-            // Stand Still
-            else
-            {
-                SetCharacterToStandStill();
-            }
-
-
-            // Actions - Atack Defensce
-            if (Input.GetButtonDown("Action Primary" + playerTag))
+            // Primary Action - Attack
+            if (pButton)
             {
                 fighterScript.AttackBasic();
                 return;
             }
 
             // Primary Action - Block
-            if (Input.GetButtonDown("Action Secondary" + playerTag))
+            if (sButton)
             {
                 fighterScript.Block();
                 return;
             }
-
-
-
-            // Walk
-            if (Input.GetAxis("Horizontal" + playerTag) != 0)
-            {
-                fighterScript.Walk(Input.GetAxis("Horizontal" + playerTag));
-            }
-
-            // Stand Still
-            else
-            {
-                SetCharacterToStandStill();
-            }
-           
 
         }
 

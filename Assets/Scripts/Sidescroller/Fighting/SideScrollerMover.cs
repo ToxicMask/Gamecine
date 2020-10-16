@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sidescroller.Animation;
 
 namespace Sidescroller.Movement
 {
@@ -27,6 +26,7 @@ namespace Sidescroller.Movement
         public void Walk(float direction)
         {
             //Debug.Log(gameObject.name + "Moved !");
+            
 
             movementDirection.x = direction;
             Vector2 linearVelocity = movementDirection * walkSpeed;

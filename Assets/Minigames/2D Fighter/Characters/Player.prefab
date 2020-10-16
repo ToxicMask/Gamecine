@@ -39,6 +39,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7902700957065620090}
+  - {fileID: 3255072343777821993}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -201,10 +202,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.8
-  attackRange: 0.75
+  attackRange: 0.65
   attackStrongDamage: 3
   attackWeakDamage: 1
-  attackPos: {fileID: 7902700957065620090}
+  attackHighPos: {fileID: 7902700957065620090}
+  attackLowPos: {fileID: 3255072343777821993}
 --- !u!114 &1695325121424287541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 1
   knockbackDirection: -1
-  knockbackSpeed: 1
+  knockbackSpeed: 1.8
 --- !u!114 &1695325121424287540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,4 +303,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 258325915916751577}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4063353666772659503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3255072343777821993}
+  m_Layer: 0
+  m_Name: 'LowAttackPos '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3255072343777821993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4063353666772659503}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 258325915916751577}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

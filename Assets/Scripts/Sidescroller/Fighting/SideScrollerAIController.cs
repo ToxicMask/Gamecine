@@ -173,7 +173,7 @@ namespace Sidescroller.AI
             else if (rF < 32f) return ThinkState.Defensive;
 
             // Attack
-            else if (rF < 85f) return ThinkState.Attack;
+            else if (rF < 70f) return ThinkState.Attack;
 
             // Confused
             else return ThinkState.Escape;

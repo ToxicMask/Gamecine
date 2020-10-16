@@ -24,7 +24,8 @@ namespace Sidescroller.Attack
         [SerializeField] float attackStrongDamage = 3f;
         [SerializeField] float attackWeakDamage = 1f;
 
-        public Transform attackPos;
+        public Transform attackHighPos;
+        public Transform attackLowPos;
 
         #region Unity Methods
 
@@ -47,15 +48,18 @@ namespace Sidescroller.Attack
         }
 
 
-    public AttackResult AttackHit()
+    public AttackResult AttackHit(bool crouching = false)
         {
             // Reach on bouth sides
             Vector2 boxSize = new Vector2(attackRange * 2, 0.1f);
 
             //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);//todo mudar pra box quando tiver as sprites certas
 
-            Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, boxSize, 0f);
-
+            Collider2D[] enemiesToDamage; 
+            
+            // if not crouching, then attack High, else, attack Low
+            if (!crouching) enemiesToDamage = Physics2D.OverlapBoxAll(attackHighPos.position, boxSize, 0f);
+                       else enemiesToDamage = Physics2D.OverlapBoxAll(attackLowPos.position, boxSize, 0f);
 
             bool hit = false;
             bool blocked = false;
