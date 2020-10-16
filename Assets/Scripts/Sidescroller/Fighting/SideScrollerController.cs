@@ -66,14 +66,25 @@ namespace Sidescroller.Control
             if (fighterScript.currentState == FighterState.Blocking || fighterScript.currentState == FighterState.Attacking) return false;
 
             // Return if Character is taking Damage, do Knockback then return
-            if (fighterScript.currentState == FighterState.Damaged) {
-                moverScript.Knockback(); return false; }
+            if (IsBeingDamaged()) return false; 
 
             // Return if Character is Dead
             if (fighterScript.currentState == FighterState.Dead || fighterScript.currentState == FighterState.Dying) return false;
 
-            // If nothing returns, teturn true
+            // If nothing returns, return true
             return true;
+        }
+
+        // If is Damaged, the do th knockback
+        protected bool IsBeingDamaged()
+        {
+            if (fighterScript.currentState == FighterState.Damaged)
+            {
+                moverScript.Knockback(); return true;
+            }
+
+            // If nothing returns, return false
+            return false;
         }
         
         protected void ProcessInput(ControllerMode mode, int playerID = -1)
