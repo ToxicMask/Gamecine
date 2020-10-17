@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum AllScenes
 {
+    StartScene,
     IntroCutscene,
     MainMenu,
     AugustoMatraga,
