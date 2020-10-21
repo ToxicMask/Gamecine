@@ -14,6 +14,10 @@ namespace Sidescroller.Canvas
         [SerializeField] ControllerMode selectedMode = ControllerMode.SINGLE_PLAYER;
         [SerializeField] int modeID = 0;
 
+        [SerializeField] GameObject optionSingle = null;
+        [SerializeField] GameObject optionMulti = null;
+        [SerializeField] GameObject optionAuto = null;
+
         [SerializeField] GameObject canvasSingle = null;
         [SerializeField] GameObject canvasMulti = null;
         [SerializeField] GameObject canvasAuto = null;
@@ -21,11 +25,13 @@ namespace Sidescroller.Canvas
         [SerializeField] GameObject arrowLeft = null;
         [SerializeField] GameObject arrowRight = null;
 
+        bool modeIsSelected = false;
+
         private void Start()
         {
             selectedMode = (ControllerMode)modeID;
 
-            UpdateCurrentScreen(selectedMode);
+            DisplayOptionsScreen(selectedMode);
         }
 
 
@@ -34,44 +40,70 @@ namespace Sidescroller.Canvas
             // All input are Key Down; else return
             if (!Input.anyKeyDown) return;
 
-            if (Input.GetAxis("Horizontal") > 0f)
-                {
-                //Max Value
-                if (modeID == (int)ControllerMode.COUNT -1) return;
-
-                //Toggle Mode
-                modeID = (modeID + 1);
-
-                selectedMode = (ControllerMode)modeID;
-
-                UpdateCurrentScreen(selectedMode);
-            }
-
-            else if (Input.GetAxis("Horizontal") < 0f) 
+            // Check for new selection
+            if (!modeIsSelected)
             {
-                //Min Value
-                if (modeID == 0) return;
 
-                //Toggle Mode
-                modeID = (modeID - 1);
+                float inputAxis = Input.GetAxis("Horizontal");
 
-                selectedMode = (ControllerMode)modeID;
+                if (inputAxis > 0f)
+                {
+                    //Max Value
+                    if (modeID == (int)ControllerMode.COUNT - 1) return;
 
-                UpdateCurrentScreen(selectedMode);
+                    //Toggle Mode
+                    modeID = (modeID + 1);
+
+                    selectedMode = (ControllerMode)modeID;
+                }
+
+                else if (inputAxis < 0f)
+                {
+                    //Min Value
+                    if (modeID == 0) return;
+
+                    //Toggle Mode
+                    modeID = (modeID - 1);
+
+                    selectedMode = (ControllerMode)modeID;
+                }
+                
+                // Update the display
+                DisplayOptionsScreen(selectedMode);
             }
 
             // Activate current selected mode
             if (Input.GetButtonDown("Submit"))
             {
                 
-                // Config Controllers
-                ConfigFightersInput(selectedMode);
+                if (!modeIsSelected)
+                {
+                    DisplayHowToScreen(selectedMode);
+                    modeIsSelected = true;
+                }
 
-                // Start Sequence in State Machine
-                Fighter2DMinigameStateMachine.current.StartGameplaySequence();
+                else
+                {
+                    // Config Controllers
+                    ConfigFightersInput(selectedMode);
 
+                    // Start Sequence in State Machine
+                    Fighter2DMinigameStateMachine.current.StartGameplaySequence();
+                }
             }
-            
+
+            else if (Input.GetButtonDown("Cancel"))
+            {
+                // If mode is selected then go back
+                if (modeIsSelected)
+                {
+                    modeIsSelected = false;
+
+                    DisplayOptionsScreen(selectedMode);
+                }
+            }
+
+
         }
 
 
@@ -148,7 +180,44 @@ namespace Sidescroller.Canvas
 
         }
 
-        void UpdateCurrentScreen(ControllerMode mode)
+        void DisplayOptionsScreen(ControllerMode mode)
+        {
+
+            //Hide all screens
+            DeactivateAllScreens();
+
+            // Hide all Arrows
+            DeactivateAllArrows();
+
+            // Single Player
+            if (mode == ControllerMode.SINGLE_PLAYER)
+            {
+                optionSingle.SetActive(true);
+
+                //Arrows
+                arrowRight.SetActive(true);
+            }
+
+            // Multiplayer
+            else if (mode == ControllerMode.MULTI_PLAYER)
+            {
+                optionMulti.SetActive(true);
+
+                //Arrows
+                arrowRight.SetActive(true);
+                arrowLeft.SetActive(true);
+            }
+
+            else if (mode == ControllerMode.AI_PLAYER)
+            {
+                optionAuto.SetActive(true);
+
+                //Arrows
+                arrowLeft.SetActive(true);
+            }
+        }
+
+        void DisplayHowToScreen(ControllerMode mode)
         {
             //Hide all screens
             DeactivateAllScreens();
@@ -160,25 +229,17 @@ namespace Sidescroller.Canvas
             if (mode == ControllerMode.SINGLE_PLAYER)
             {
                 canvasSingle.SetActive(true);
-
-                arrowRight.SetActive(true);
             }
 
             // Multiplayer
             else if (mode == ControllerMode.MULTI_PLAYER)
             {
                 canvasMulti.SetActive(true);
-
-                //Arrows
-                arrowLeft.SetActive(true);
-                arrowRight.SetActive(true);
             }
 
             else if (mode == ControllerMode.AI_PLAYER)
             {
                 canvasAuto.SetActive(true);
-
-                arrowLeft.SetActive(true);
             }
         }
 
@@ -187,6 +248,10 @@ namespace Sidescroller.Canvas
             canvasSingle.SetActive(false);
             canvasMulti.SetActive(false);
             canvasAuto.SetActive(false);
+
+            optionSingle.SetActive(false);
+            optionMulti.SetActive(false);
+            optionAuto.SetActive(false);
         }
 
         void DeactivateAllArrows()
