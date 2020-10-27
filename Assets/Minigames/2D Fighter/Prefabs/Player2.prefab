@@ -91,6 +91,11 @@ PrefabInstance:
       propertyPath: attackStrongDamage
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1695325121424287541, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: knockbackDirection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6628731359969450060, guid: 88e105792d81fc745a7bd91c3710c974,
         type: 3}
       propertyPath: m_Sprite

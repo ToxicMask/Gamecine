@@ -88,7 +88,7 @@ namespace Sidescroller.Canvas
                     ConfigFightersInput(selectedMode);
 
                     // Start Sequence in State Machine
-                    Fighter2DMinigameStateMachine.current.StartGameplaySequence();
+                    Fighter2DGameManager.current.StartGameplaySequence();
                 }
             }
 
@@ -145,7 +145,7 @@ namespace Sidescroller.Canvas
         void ConfigFightersInput(ControllerMode mode)
         {
             // State Machine
-            Fighter2DMinigameStateMachine sm = Fighter2DMinigameStateMachine.current;
+            Fighter2DGameManager sm = Fighter2DGameManager.current;
 
             // Single Player
             if (mode == ControllerMode.SINGLE_PLAYER)

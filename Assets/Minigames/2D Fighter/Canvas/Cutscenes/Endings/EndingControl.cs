@@ -73,13 +73,13 @@ namespace Sidescroller.Canvas
             if (Input.GetButtonDown("Cancel"))
             {
                 // Return to Main Menu
-                Fighter2DMinigameStateMachine.current.ChangeToMainMenuScene();
+                Fighter2DGameManager.current.ChangeToMainMenuScene();
             }
 
             // Reset Minigame
             else if (Input.GetButtonDown("Submit"))
             {
-                Fighter2DMinigameStateMachine.current.ResetCurrentLevel();
+                Fighter2DGameManager.current.ResetCurrentLevel();
             }
         }
 

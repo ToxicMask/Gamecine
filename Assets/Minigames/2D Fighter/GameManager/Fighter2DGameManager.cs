@@ -24,11 +24,11 @@ namespace Sidescroller.StateMachine
     }
 
 
-    public class Fighter2DMinigameStateMachine : MonoBehaviour
+    public class Fighter2DGameManager : MonoBehaviour
     {
         #region Static Variables
 
-        public static Fighter2DMinigameStateMachine current;
+        public static Fighter2DGameManager current;
 
         #endregion
 

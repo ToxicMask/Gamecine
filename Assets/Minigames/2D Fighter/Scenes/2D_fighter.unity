@@ -1230,11 +1230,6 @@ PrefabInstance:
       propertyPath: audioListener
       value: 
       objectReference: {fileID: 714763157}
-    - target: {fileID: 1246428532043059839, guid: 4e6ac6472ad0f834b889a96d92380d2f,
-        type: 3}
-      propertyPath: knockbackDirection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2074069950729817418, guid: 4e6ac6472ad0f834b889a96d92380d2f,
         type: 3}
       propertyPath: audioListener

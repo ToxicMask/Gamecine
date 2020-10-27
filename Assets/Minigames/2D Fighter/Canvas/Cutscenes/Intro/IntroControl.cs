@@ -71,7 +71,7 @@ namespace Sidescroller.Canvas
 
         public void EndIntro()
         {
-            Fighter2DMinigameStateMachine.current.StartSelectionSequence();
+            Fighter2DGameManager.current.StartSelectionSequence();
         }
 
         bool PublicVariablesAvailable()
