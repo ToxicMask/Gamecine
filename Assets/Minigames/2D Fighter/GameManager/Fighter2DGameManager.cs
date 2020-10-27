@@ -465,8 +465,8 @@ namespace Sidescroller.StateMachine
 
         private void ResetAllFightersStats() { // Recover Health and Position of Player
 
-            fighter1.GetComponent<SideScrollerHealth>().FullRecovery();
-            fighter2.GetComponent<SideScrollerHealth>().FullRecovery();
+            fighter1.GetComponent<SideScrollerHealth>().FillToMaxHealth();
+            fighter2.GetComponent<SideScrollerHealth>().FillToMaxHealth();
 
             fighter1.ResetFighterPosition();
             fighter2.ResetFighterPosition();

@@ -35,6 +35,7 @@ namespace Sidescroller.Fighting
         private SideScrollerAnimation animationScript = null;  // Animation
         private SideScrollerAttack attackScript = null;        // Attack
         private SideScrollerAudio audioScript = null;          // Audio
+        private SideScrollerHealth healthScript = null;        // Health
         private SideScrollerMover moverScript = null;          // Movement
         private SideScrollerPose poseScript = null;            // Pose
 
@@ -51,31 +52,46 @@ namespace Sidescroller.Fighting
             animationScript = GetComponent<SideScrollerAnimation>();
             audioScript = GetComponent<SideScrollerAudio>();
             attackScript = GetComponent<SideScrollerAttack>();
+            healthScript = GetComponent<SideScrollerHealth>();
             moverScript = GetComponent<SideScrollerMover>();
             poseScript = GetComponent<SideScrollerPose>();
 
             startPosition = transform.position;
 
             // Set Status - if has preset
-            if (statusData)
-            {
-                // Attack
-                float TBA = statusData.timeBetweenAttacks;
-                float AR = statusData.attackRange;
-                float ASD = statusData.attackStrongDamage;
-                float AWD = statusData.attackWeakDamage;
+            if (statusData) SetFighterData(statusData);
 
-                if (attackScript) attackScript.SetStatus(TBA,AR, ASD, AWD);
-
-                //
-            }
         }
 
         #endregion
 
         // Set Fighters Stats
 
+        private void SetFighterData(FighterStatus data)
+            { 
 
+                // Attack
+                float TBA = data.timeBetweenAttacks;
+                float MAR = data.attackRange;
+                float ASD = data.attackStrongDamage;
+                float AWD = data.attackWeakDamage;
+
+                // Update
+                if (attackScript) attackScript.SetStatus(TBA, MAR, ASD, AWD);
+
+                // Health
+                float MX = data.maxHealth;
+
+                // Update
+                if (healthScript) healthScript.SetMaxHealth(MX);
+
+                // Movement
+                float walkSpeed = data.walkSpeed;
+                float knockSpeed = data.knockbackSpeed;
+
+                // Update
+                if (moverScript) moverScript.SetStatus(walkSpeed, knockSpeed);
+            }
 
         // Action Methods - Input Commands
         #region Action Methods - Commands
@@ -125,9 +141,6 @@ namespace Sidescroller.Fighting
             {
                 if (poseScript.IsCrouching()) poseScript.StandUp();
             }
-
-
-
         }
 
         public void AttackBasic()
@@ -149,7 +162,7 @@ namespace Sidescroller.Fighting
             
         }
 
-        public void Damaged()
+        public void Damaged() // Comes from health Script
         {
             ChangeState(FighterState.Damaged);
             audioScript.PlayClip(AudioClips.Damaged);

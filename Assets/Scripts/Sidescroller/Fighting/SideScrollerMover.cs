@@ -8,12 +8,23 @@ namespace Sidescroller.Movement
     
     public class SideScrollerMover : MonoBehaviour
     {
-        Vector2 movementDirection = new Vector2();
-        [SerializeField] float walkSpeed = .6f;
+        
 
-        [SerializeField] [Range(-1, 1)] float knockbackDirection = -1f;
-        [SerializeField] float knockbackSpeed = .4f;
+        // Movement Variables
 
+        // Data
+        private float walkSpeed = .6f;
+        private float knockbackSpeed = .4f;
+
+        [SerializeField][Range(-1, 1)] float knockbackDirection = -1f;
+        Vector2 movementDirection = new Vector2(); // Current Motion
+
+
+        public void SetStatus(float wSpeed, float kSpeed)
+        {
+            this.walkSpeed = wSpeed;
+            this.knockbackSpeed = kSpeed;
+        }
 
         public void Knockback()
         {

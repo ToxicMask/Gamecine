@@ -8,11 +8,12 @@ namespace Sidescroller.Health
 
     public class SideScrollerHealth : MonoBehaviour
     {
-
+        // Components
         public PlayerHealthBar playerBar;
 
-        [SerializeField] float maxHealth = 10;
-        public float currentHealth;
+        //Variables
+        float maxHealth = 10;
+        float currentHealth;
 
         void Start()
         {
@@ -26,13 +27,20 @@ namespace Sidescroller.Health
             }
         }
 
-        void Update() { }
+        public void SetMaxHealth(float newValue)
+        {
+            // Set new Value
+            this.maxHealth = newValue;
 
-        public void FullRecovery()
+            // Update - Health + UI
+            FillToMaxHealth();
+        }
+
+        public void FillToMaxHealth()
         {
             currentHealth = maxHealth;
             // Display Damage // Update UI
-            if (playerBar != null)
+            if (playerBar)
             {
                 playerBar.SetHealth((int)currentHealth);
                 playerBar.SetMaxHealth((int)maxHealth);
