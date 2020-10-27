@@ -1235,6 +1235,11 @@ PrefabInstance:
       propertyPath: knockbackDirection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2074069950729817418, guid: 4e6ac6472ad0f834b889a96d92380d2f,
+        type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 714763157}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ac6472ad0f834b889a96d92380d2f, type: 3}
 --- !u!1 &269729247
@@ -10304,6 +10309,11 @@ PrefabInstance:
       propertyPath: currentMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874525160993519616, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 714763157}
     - target: {fileID: 7902700957065620090, guid: 88e105792d81fc745a7bd91c3710c974,
         type: 3}
       propertyPath: m_LocalPosition.y

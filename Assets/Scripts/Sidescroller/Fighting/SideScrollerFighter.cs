@@ -4,6 +4,7 @@ using Sidescroller.Health;
 using Sidescroller.Pose;
 using Sidescroller.Movement;
 using Sidescroller.Animation;
+using Sidescroller.Audio;
 
 namespace Sidescroller.Fighting
 {
@@ -31,19 +32,21 @@ namespace Sidescroller.Fighting
 
         // Sidescroller Scripts
         [SerializeField] SideScrollerAnimation animationScript = null;  // Animation
-        [SerializeField] SideScrollerMover moverScript = null;          // Movement
         [SerializeField] SideScrollerAttack attackScript = null;        // Attack
+        [SerializeField] SideScrollerAudio audioScript = null;          // Audio
+        [SerializeField] SideScrollerMover moverScript = null;          // Movement
         [SerializeField] SideScrollerPose poseScript = null;            // Pose
 
-        // Audio Variables
-        public AudioListener audioListener;
+        //// Audio Variables
+        //public AudioListener audioListener;
 
-        public AudioClip audioDamaged;
-        public AudioClip audioAttackGrunt;
-        public AudioClip audioAttackHit;
-        public AudioClip audioAttackBlock;
-        public AudioClip audioDeath;
+        //public AudioClip audioDamaged;
+        //public AudioClip audioAttackGrunt;
+        //public AudioClip audioAttackHit;
+        //public AudioClip audioAttackBlock;
+        //public AudioClip audioDeath;
 
+        // Self Position
         private Vector3 startPosition;
 
         #region Unity Methods
@@ -51,6 +54,7 @@ namespace Sidescroller.Fighting
         private void Awake()
         {
             animationScript = GetComponent<SideScrollerAnimation>();
+            audioScript = GetComponent<SideScrollerAudio>();
             attackScript = GetComponent<SideScrollerAttack>();
             moverScript = GetComponent<SideScrollerMover>();
             poseScript = GetComponent<SideScrollerPose>();
@@ -122,11 +126,8 @@ namespace Sidescroller.Fighting
             ChangeState(FighterState.Attacking);
 
             // Battle Cry - Audio
-            if (audioAttackGrunt != null)
-            {
-                AudioSource.PlayClipAtPoint(audioAttackGrunt, audioListener.transform.position, .6f);
-            }
-           
+            audioScript.PlayClip(AudioClips.AttackGrunt);
+
         }
 
         public void Block()
@@ -138,7 +139,8 @@ namespace Sidescroller.Fighting
         public void Damaged()
         {
             ChangeState(FighterState.Damaged);
-            if (audioDamaged != null) AudioSource.PlayClipAtPoint( audioDamaged, audioListener.transform.position, 1f);
+            audioScript.PlayClip(AudioClips.Damaged);
+            //if (audioDamaged != null) AudioSource.PlayClipAtPoint( audioDamaged, audioListener.transform.position, 1f);
             
         }
 
@@ -151,7 +153,8 @@ namespace Sidescroller.Fighting
             EnableAnimationChange(false);
 
             // Audio
-            if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
+            audioScript.PlayClip(AudioClips.Death);
+            //if (audioDeath != null) AudioSource.PlayClipAtPoint(audioDeath, audioListener.transform.position, 1f);
         }
 
         #endregion
@@ -172,12 +175,15 @@ namespace Sidescroller.Fighting
                     break;
 
                 case AttackResult.NormalHit:
-                    if (audioAttackHit != null) AudioSource.PlayClipAtPoint(audioAttackHit, audioListener.transform.position, .2f);
+                    audioScript.PlayClip(AudioClips.AttackHit, .2f);
+                    //if (audioAttackHit != null) AudioSource.PlayClipAtPoint(audioAttackHit, audioListener.transform.position, .2f);
                     break;
 
                 case AttackResult.BlockedHit:
-                    if (audioAttackBlock != null) AudioSource.PlayClipAtPoint(audioAttackBlock, audioListener.transform.position, .8f);
-                    if (audioDamaged != null) AudioSource.PlayClipAtPoint(audioDamaged, audioListener.transform.position, .6f);
+                    audioScript.PlayClip(AudioClips.AttackBlocked, .8f);
+                    audioScript.PlayClip(AudioClips.Damaged, .6f);
+                    //if (audioAttackBlock != null) AudioSource.PlayClipAtPoint(audioAttackBlock, audioListener.transform.position, .8f);
+                    //if (audioDamaged != null) AudioSource.PlayClipAtPoint(audioDamaged, audioListener.transform.position, .6f);
                     break;
             }
             
