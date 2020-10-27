@@ -8,25 +8,53 @@ namespace Sidescroller.Canvas
 
     public class EndingControl : MonoBehaviour
     {
-
+        //Componets
         [SerializeField] Animator endImageAnimator = null;
         [SerializeField] Animator endTextAnimator = null;
         [SerializeField] Camera endCamera = null;
 
-        public bool isInputEnabled = false;
+
+        //Variables
+        [SerializeField] bool canSkip = true;
+        [SerializeField] bool isTextOver = false;
+        [SerializeField] int winnerID = -1;
 
         private void Update()
         {
-            // Check if is input not enabled
-            if (!isInputEnabled)
+            // Check if Text is Over
+            if (!isTextOver)
             {
-
                 if (Input.GetButtonDown("Submit"))
                 {
+                    //Set Animation 
+                    SetWinnerAnimation(false);
 
-                    SkipEnd();
-                    ActivateInput();
+                    //Set Text Is Over
+                    isTextOver = true;
+
+                    // Config End Text & Input
+                    ConfigEndImage();
                 }
+
+                else if (Input.GetButtonDown("Cancel"))
+                {
+                    SkipEnd();
+                    DeactivateSkip();
+                }
+                // End Update
+               return;
+            }
+
+
+            // Check if is input not enabled
+            if (canSkip)
+            {
+                if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
+                {
+                    SkipEnd();
+                    DeactivateSkip();
+                }
+                // End Update
                 return;
             }
 
@@ -45,9 +73,9 @@ namespace Sidescroller.Canvas
             }
         }
 
-        public void ActivateInput()
+        public void DeactivateSkip()
         {
-            isInputEnabled = true;
+            canSkip = false;
         }
 
         public void StartEndingCutscene(int victorID)
@@ -58,24 +86,48 @@ namespace Sidescroller.Canvas
                 return;
             }
 
-            // AM - Victory
-            if (victorID == 1) endImageAnimator.Play("AM Victory");
-            // JBB - Victory
-            else if (victorID == 2) endImageAnimator.Play("JBB Victory");
-            // No Winner
-            else Debug.LogAssertion("No Victor!");
+            // Config
+
+            // Winner 
+            winnerID = victorID;
+
+            //Set winner Animation
+            SetWinnerAnimation(true);
 
             // Config Camera
             endCamera.enabled = true;
+        }
 
+        private void SetWinnerAnimation(bool withText)
+        {
+            if (withText)
+            {
+                // AM - Victory
+                if (winnerID == 1) endImageAnimator.Play("AM Victory Text");
+                // JBB - Victory
+                else if (winnerID == 2) endImageAnimator.Play("JBB Victory Text");
+                // No Winner
+                else Debug.LogAssertion("No Victor!");
+            }
+            else
+            {
+                // AM - Victory
+                if (winnerID == 1) endImageAnimator.Play("AM Victory");
+                // JBB - Victory
+                else if (winnerID == 2) endImageAnimator.Play("JBB Victory");
+                // No Winner
+                else Debug.LogAssertion("No Victor!");
+            }
+        }
+
+        private void ConfigEndImage()
+        {
             // Show Text - Delay
             Invoke("FadeInText", 7.5f);
             //endTextAnimator.SetTrigger("FadeIn");
 
             //ActivateInput
-            Invoke("ActivateInput", 8f);
-
-
+            Invoke("DeactivateSkip", 8f);
         }
 
         public void StopEnd()

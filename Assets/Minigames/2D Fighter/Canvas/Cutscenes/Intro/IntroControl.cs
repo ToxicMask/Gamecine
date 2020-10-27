@@ -94,15 +94,6 @@ namespace Sidescroller.Canvas
             //Debug print(lineChar + ":" +lineContent);
         }
 
-        private void EndIntro()
-        {
-            Fighter2DMinigameStateMachine.current.StartSelectionSequence();
-        }
-
-        #endregion
-
-        #region Dialogue
-
         private void TextAlligment(string charName)
         {
             //Left Indetment for Augusto
@@ -152,6 +143,11 @@ namespace Sidescroller.Canvas
             introAnimator.SetBool("Playing", false);
             
             introCamera.enabled = false;
+        }
+
+        private void EndIntro()
+        {
+            Fighter2DMinigameStateMachine.current.StartSelectionSequence();
         }
 
         bool PublicVariablesAvailable()
