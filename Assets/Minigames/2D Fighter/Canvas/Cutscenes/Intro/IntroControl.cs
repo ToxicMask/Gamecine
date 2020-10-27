@@ -66,8 +66,6 @@ namespace Sidescroller.Canvas
         {
             if (!PublicVariablesAvailable()) return;
 
-            introAnimator.Play("No Animation");
-
             introCamera.enabled = false;
         }
 

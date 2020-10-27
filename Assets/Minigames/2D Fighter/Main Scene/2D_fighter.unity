@@ -3111,7 +3111,7 @@ GameObject:
   - component: {fileID: 763170282}
   - component: {fileID: 763170281}
   m_Layer: 0
-  m_Name: Char Title
+  m_Name: Character Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3155,7 +3155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JBB
+  m_text: PPPPPP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bbe49f9ab894bb24490bfa0cc2a54dc0, type: 2}
   m_sharedMaterial: {fileID: 2419443967775915591, guid: bbe49f9ab894bb24490bfa0cc2a54dc0,
@@ -3225,7 +3225,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 763170281}
-    characterCount: 3
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -5393,7 +5393,7 @@ GameObject:
   - component: {fileID: 1130828324}
   - component: {fileID: 1130828323}
   m_Layer: 0
-  m_Name: 'Dialog Text '
+  m_Name: 'Dialogue Text '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7976,6 +7976,7 @@ GameObject:
   - component: {fileID: 1636128092}
   - component: {fileID: 1636128091}
   - component: {fileID: 1636128089}
+  - component: {fileID: 1636128094}
   m_Layer: 0
   m_Name: 'Ending Canvas '
   m_TagString: Untagged
@@ -8015,9 +8016,12 @@ MonoBehaviour:
   endImageAnimator: {fileID: 435044527}
   endTextAnimator: {fileID: 892809185}
   endCamera: {fileID: 2051843834}
+  dialogueManager: {fileID: 1636128094}
   canSkip: 1
   isTextOver: 0
   winnerID: -1
+  augustoEnding: {fileID: 11400000, guid: 88db3dffbcc09c643a13053e2769606f, type: 2}
+  joaoEnding: {fileID: 11400000, guid: 8e05960e85239564fa8a023c414766de, type: 2}
 --- !u!114 &1636128091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8083,6 +8087,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1636128094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636128088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0229f7a7bbf720443aa3012f672f620e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charText: {fileID: 763170281}
+  lineText: {fileID: 1130828323}
+  dialogAsset: {fileID: 11400000, guid: 88db3dffbcc09c643a13053e2769606f, type: 2}
+  active: 0
 --- !u!1 &1636321855
 GameObject:
   m_ObjectHideFlags: 0

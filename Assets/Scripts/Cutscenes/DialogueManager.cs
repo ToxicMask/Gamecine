@@ -35,6 +35,21 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void SetNewDialogue(Dialogue newDialogue)
+    {
+        dialogue.Clear();
+
+        dialogAsset = newDialogue;
+
+        if (dialogAsset)
+        {
+            foreach (DialogueLine line in dialogAsset.lines)
+            {
+                dialogue.Enqueue(line);
+            }
+        }
+    }
+
     // Returns True When it is done
     public void NextStep()
         //Returns null if not active
@@ -77,8 +92,7 @@ public class DialogueManager : MonoBehaviour
         charText.text = lineChar;
         lineText.text = lineContent;
 
-        //Debug 
-        print(lineChar + ":" +lineContent);
+        //Debug print(lineChar + ":" +lineContent);
     }
 
     private void TextAlligment(string charName)

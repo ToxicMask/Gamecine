@@ -12,12 +12,16 @@ namespace Sidescroller.Canvas
         [SerializeField] Animator endImageAnimator = null;
         [SerializeField] Animator endTextAnimator = null;
         [SerializeField] Camera endCamera = null;
-
+        [SerializeField] DialogueManager dialogueManager = null;
 
         //Variables
         [SerializeField] bool canSkip = true;
         [SerializeField] bool isTextOver = false;
         [SerializeField] int winnerID = -1;
+
+        //Endings text
+        [SerializeField] Dialogue augustoEnding = null;
+        [SerializeField] Dialogue joaoEnding = null;
 
         private void Update()
         {
@@ -26,28 +30,34 @@ namespace Sidescroller.Canvas
             {
                 if (Input.GetButtonDown("Submit"))
                 {
-                    //Set Animation 
-                    SetWinnerAnimation(false);
+                    // Next Line
+                    dialogueManager.NextStep();
 
-                    //Set Text Is Over
-                    isTextOver = true;
+                    if (!dialogueManager.active)
+                    {
+                        //Set Animation 
+                        SetWinnerAnimation(false);
 
-                    // Config End Text & Input
-                    ConfigEndImage();
+                        //Set Text Is Over
+                        isTextOver = true;                        
+                    }
+
                 }
 
                 else if (Input.GetButtonDown("Cancel"))
                 {
                     SkipEnd();
                     DeactivateSkip();
+
+                    isTextOver = true;
                 }
                 // End Update
-               return;
+                return;
             }
 
 
             // Check if is input not enabled
-            if (canSkip)
+            else if (canSkip)
             {
                 if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
                 {
@@ -67,7 +77,7 @@ namespace Sidescroller.Canvas
             }
 
             // Reset Minigame
-            if (Input.GetButtonDown("Submit"))
+            else if (Input.GetButtonDown("Submit"))
             {
                 Fighter2DMinigameStateMachine.current.ResetCurrentLevel();
             }
@@ -103,11 +113,23 @@ namespace Sidescroller.Canvas
             if (withText)
             {
                 // AM - Victory
-                if (winnerID == 1) endImageAnimator.Play("AM Victory Text");
+                if (winnerID == 1)
+                {
+                    endImageAnimator.Play("AM Victory Text");
+                    dialogueManager.SetNewDialogue(augustoEnding);
+                    
+                }
                 // JBB - Victory
-                else if (winnerID == 2) endImageAnimator.Play("JBB Victory Text");
+                else if (winnerID == 2)
+                {
+                    endImageAnimator.Play("JBB Victory Text");
+                    dialogueManager.SetNewDialogue(joaoEnding);
+                }
                 // No Winner
                 else Debug.LogAssertion("No Victor!");
+
+                // Start Dialogue
+                dialogueManager.StartIntoText();
             }
             else
             {
@@ -117,6 +139,9 @@ namespace Sidescroller.Canvas
                 else if (winnerID == 2) endImageAnimator.Play("JBB Victory");
                 // No Winner
                 else Debug.LogAssertion("No Victor!");
+
+                // Config End Text & Input
+                ConfigEndImage();                        
             }
         }
 
