@@ -14,8 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - character: A. Matraga
-    content: 'There is a flow in my blow. '
-  - character: J. Bem Bem
-    content: 'Please help me '
+    content: "N\xE3o faz isso amigo! N\xE3o faz isso que o desgra\xE7ado velho t\xE1
+      pedindo em nome de Nosso Senhor e da Virgem Maria!"
   - character: A. Matraga
-    content: No...
+    content: "E o que voc\xEAs t\xE3o querendo fazer com ele \xE9 coisa que nem Deus
+      n\xE3o manda e que nem o diabo n\xE3o faz!"
+  - character: J. Bem-Bem
+    content: "Voc\xEA t\xE1 ca\xE7oando com a gente Mano Velho?"
+  - character: A. Matraga
+    content: "T\xF4 n\xE3o. T\xF4 pedindo como amigo."
+  - character: J. Bem-Bem
+    content: "Pois pedido nenhum desse atrevimento nunca eu at\xE9 hoje nunca que
+      eu vi nem atendi."
+  - character: A. Matraga
+    content: "Pois ent\xE3o..."
+  - character: A. Matraga
+    content: "Pois ent\xE3o meu amigo Seu Jo\xE3osinho Bem-Bem \xE9 f\xE1cil..."
+  - character: A. Matraga
+    content: Vai ter primeiro que passar por cima de eu defunto.
+  - character: ' '
+    content: "Os jagun\xE7os v\xE3o pra cima. Matraga atira em tr\xEAs.\n"
+  - character: A. Matraga
+    content: "Cambada de filhos da m\xE3e que chegou a minha vez!"
+  - character: ' '
+    content: "Seu Jo\xE3osinho Bem-Bem interfere e grita para os juagun\xE7os:"
+  - character: J. Bem-Bem
+    content: "Pra tr\xE1s, pra tr\xE1s!"
+  - character: A. Matraga
+    content: "\xC9 gostosura de fim de mundo!"

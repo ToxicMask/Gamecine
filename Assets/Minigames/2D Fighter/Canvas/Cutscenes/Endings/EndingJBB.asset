@@ -13,7 +13,26 @@ MonoBehaviour:
   m_Name: EndingJBB
   m_EditorClassIdentifier: 
   lines:
-  - character: JBB
-    content: OUVIDO!
-  - character: JBB
-    content: "HI\xC7S"
+  - character: A. Matraga
+    content: "Estou no quase meu parente. Morro mas morro nas m\xE3os de um dos homens
+      mais valentes que j\xE1 conheci."
+  - character: A. Matraga
+    content: Fiz da vida o meu inferno, que nem Deus nem o capeta foram capazes de 
+      bulir.
+  - character: A. Matraga
+    content: Quero acabar sendo amigos.
+  - character: J. Bem-Bem
+    content: "Feito! Eu sempre disse que voc\xEA era bom mesmo Mano Velho!"
+  - character: A. Matraga
+    content: "Ent\xE3o se \xE9 assim, Seu Jo\xE3osinho meu parente, escuta o pedido
+      dessa alma condenada."
+  - character: J. Bem-Bem
+    content: Pode falar Mano Velho!
+  - character: A. Matraga
+    content: "Se arrepende dos pecados! E com a minha vida t\xE1 paga a d\xEDvida
+      do velho, daqui pra frente n\xE3o morre mais ningu\xE9m hoje."
+  - character: J. Bem-Bem
+    content: "T\xE1 prometido Mano Velho. Vai em paz que seu enterro vai ser em ch\xE3o
+      sagrado com todo o respeito! Hoje ningu\xE9m morre mais!"
+  - character: A. Matraga
+    content: "Se algu\xE9m tem que morrer, que seja pra melhorar."

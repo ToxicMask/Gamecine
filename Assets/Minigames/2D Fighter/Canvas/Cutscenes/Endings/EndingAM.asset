@@ -13,7 +13,24 @@ MonoBehaviour:
   m_Name: EndingAM
   m_EditorClassIdentifier: 
   lines:
-  - character: A.JJ
-    content: Batata!
-  - character: A.JJ
-    content: BATATA@
+  - character: J. Bem-Bem
+    content: "Estou no quase Mano Velho. Morro mas morro nas m\xE3os de um dos homens
+      mais valentes que j\xE1 conheci."
+  - character: J. Bem-Bem
+    content: "Eu sempre disse que voc\xEA era bom mesmo."
+  - character: J. Bem-Bem
+    content: "\xC9 s\xF3 assim que gente como eu tem licen\xE7a de morrer."
+  - character: J. Bem-Bem
+    content: Quero acabar sendo amigos.
+  - character: A. Matraga
+    content: Feito! Mas agora se arrepende dos pecados!
+  - character: A. Matraga
+    content: "E morre logo como Crist\xE3o que \xE9 pra gente poder ir juntos!"
+  - character: J. Bem-Bem
+    content: Bobajada Mano Velho!
+  - character: A. Matraga
+    content: Depois enterre bem direitinho o corpo.
+  - character: A. Matraga
+    content: "Em ch\xE3o sagrado com muito respeito."
+  - character: A. Matraga
+    content: "Esse a\xED \xE9 meu amigo Seu Jo\xE3osinho Bem-Bem."

@@ -112,8 +112,8 @@ public class DialogueManager : MonoBehaviour
         //Left Indetment for Augusto
         else
         {
-            charText.alignment = TextAlignmentOptions.BaselineLeft;
-            lineText.alignment = TextAlignmentOptions.TopLeft;
+            charText.alignment = TextAlignmentOptions.BaselineGeoAligned;
+            lineText.alignment = TextAlignmentOptions.Top;
         }
     }
 
