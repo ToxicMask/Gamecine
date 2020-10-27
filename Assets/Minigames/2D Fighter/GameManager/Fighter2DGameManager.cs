@@ -7,6 +7,7 @@ using Sidescroller.Health;
 using Sidescroller.Control;
 using Sidescroller.Canvas;
 using Sidescroller.Music;
+using Sidescroller.Status;
 
 
 namespace Sidescroller.StateMachine
@@ -38,6 +39,8 @@ namespace Sidescroller.StateMachine
 
         [SerializeField] SideScrollerFighter fighter1 = null;
         [SerializeField] SideScrollerFighter fighter2 = null;
+
+        [SerializeField] AIFighterData standardProfile = null;
 
         [SerializeField] IntroControl introControl = null;
         [SerializeField] SelectionControl selectionControl = null;
@@ -379,8 +382,8 @@ namespace Sidescroller.StateMachine
             //Config AI Players
             if (mode == ControllerMode.AI_PLAYER)
             {
-                if (playerID == 1) controller1.SetCharacterControllerAsAI();
-                if (playerID == 2) controller2.SetCharacterControllerAsAI();
+                if (playerID == 1) controller1.SetCharacterControllerAsAI(standardProfile);
+                if (playerID == 2) controller2.SetCharacterControllerAsAI(standardProfile);
 
                 return;
             }

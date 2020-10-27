@@ -5,6 +5,7 @@ using UnityEngine;
 using Sidescroller.AI;
 using Sidescroller.Movement;
 using Sidescroller.Fighting;
+using Sidescroller.Status;
 
 namespace Sidescroller.Control
 {
@@ -106,10 +107,10 @@ namespace Sidescroller.Control
             }
 
             // Input Variables
-            float vInput = Input.GetAxis("Vertical" + playerTag);    // Vertical Input
-            float hInput = Input.GetAxis("Horizontal" + playerTag);  // Horizontal Input
-            bool pButton = Input.GetButtonDown("Action Primary" + playerTag); // Primary Button Pressed
-            bool sButton = Input.GetButtonDown("Action Secondary" + playerTag);// Secondary Button Pressed
+            float vInput = Input.GetAxis("Vertical" + playerTag);               // Vertical Input
+            float hInput = Input.GetAxis("Horizontal" + playerTag);             // Horizontal Input
+            bool pButton = Input.GetButtonDown("Action Primary" + playerTag);   // Primary Button Pressed
+            bool sButton = Input.GetButtonDown("Action Secondary" + playerTag); // Secondary Button Pressed
 
             // Crouching or Walkinh
             if (vInput < 0)
@@ -168,11 +169,15 @@ namespace Sidescroller.Control
             playerNumber = newID;
         }
 
-        public void SetCharacterControllerAsAI()
+        public void SetCharacterControllerAsAI(AIFighterData profile = null)
         {
             SideScrollerAIController newControl = gameObject.AddComponent(typeof(SideScrollerAIController)) as SideScrollerAIController;
 
             newControl.SetPlayerID(playerNumber);
+
+            // Config AI Profile
+            if (profile) newControl.SetDataProfile(profile);
+
             Destroy(this);
         }
     } }

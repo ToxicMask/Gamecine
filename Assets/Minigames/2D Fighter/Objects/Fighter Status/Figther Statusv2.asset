@@ -16,6 +16,6 @@ MonoBehaviour:
   attackRange: 0.65
   attackStrongDamage: 5
   attackWeakDamage: 3
-  maxHealth: 21
+  maxHealth: 30
   walkSpeed: 1.8
   knockbackSpeed: 2.4

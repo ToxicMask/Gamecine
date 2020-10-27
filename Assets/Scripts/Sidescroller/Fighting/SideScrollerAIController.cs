@@ -1,28 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sidescroller.Movement;
 using Sidescroller.Fighting;
 using Sidescroller.Control;
+using Sidescroller.Status;
 
 namespace Sidescroller.AI
 {
     public class SideScrollerAIController : SideScrollerController
     {
+
+        #region Class Variables
+
         // AI variable
         ThinkState currentThinkState = ThinkState.Attack;
 
         // Variation in Noise for random choice
-        public float pScale = 8;
+        [SerializeField] float perlinScale = 8;
         private float noiseOffset = 0;
 
         // Delay Variables
-        public bool isInDelayTime = false;
-        public float thinkDelay = .5f;
+        private bool isInDelayTime = false;
+        private float thinkDelay = .5f;
 
-        [SerializeField] readonly float  thinkDelayMin = .1f;
-        [SerializeField] readonly float thinkDelayMax = .6f;
-        public float timeSinceDelay = 0f;
+        [SerializeField] float  thinkDelayMin = .1f;
+        [SerializeField] float thinkDelayMax = .6f;
+        private float timeSinceDelay = 0f;
 
         // Action Variables
         [SerializeField] FighterState lastState = FighterState.Idle;
@@ -31,7 +34,9 @@ namespace Sidescroller.AI
 
         // Target Variables 
         [SerializeField] Transform currentTarget = null;
-        [SerializeField] readonly float attackThreshold = 0.2f;
+        private float attackThreshold = 0.2f;
+
+        #endregion
 
         public enum ThinkState
         {
@@ -41,6 +46,21 @@ namespace Sidescroller.AI
             Escape,
             Confused,
         }
+
+        //Set Delay Profile
+        public void SetDataProfile(AIFighterData profile)
+        {
+            // Perlin Noise Variables
+            this.perlinScale = profile.perlinScale;
+
+            // Delay Variables
+            this.thinkDelayMin = profile.thinkDelayMin;
+            this.thinkDelayMax = profile.thinkDelayMax;
+
+            // Distance Variation To Attack
+            this.attackThreshold = profile.attackThreshold;
+         }
+    
 
 
         // Start is called before the first frame update
@@ -163,7 +183,7 @@ namespace Sidescroller.AI
         protected ThinkState GetCurrentThink( )
         {
             // Result between 0 - 100 - Smoth variation
-            float rF = Mathf.PerlinNoise((Time.time * pScale) +  noiseOffset, 0)  * 100 ;
+            float rF = Mathf.PerlinNoise((Time.time * perlinScale) +  noiseOffset, 0)  * 100 ;
 
 
             // Escape
