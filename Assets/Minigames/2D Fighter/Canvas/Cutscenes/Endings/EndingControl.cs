@@ -23,6 +23,7 @@ namespace Sidescroller.Canvas
 
                 if (Input.GetButtonDown("Submit"))
                 {
+
                     SkipEnd();
                     ActivateInput();
                 }
@@ -57,11 +58,15 @@ namespace Sidescroller.Canvas
                 return;
             }
 
-            endImageAnimator.SetTrigger("Play");
-
-            // Branch Ending
-            if (victorID != -1) endImageAnimator.SetInteger("Victor ID", victorID);
+            // AM - Victory
+            if (victorID == 1) endImageAnimator.Play("AM Victory");
+            // JBB - Victory
+            else if (victorID == 2) endImageAnimator.Play("JBB Victory");
+            // No Winner
             else Debug.LogAssertion("No Victor!");
+
+            // Config Camera
+            endCamera.enabled = true;
 
             // Show Text - Delay
             Invoke("FadeInText", 7.5f);
@@ -70,8 +75,7 @@ namespace Sidescroller.Canvas
             //ActivateInput
             Invoke("ActivateInput", 8f);
 
-            // Config Camera
-            endCamera.enabled = true;
+
         }
 
         public void StopEnd()
