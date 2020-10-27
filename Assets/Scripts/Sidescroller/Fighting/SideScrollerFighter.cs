@@ -5,6 +5,7 @@ using Sidescroller.Pose;
 using Sidescroller.Movement;
 using Sidescroller.Animation;
 using Sidescroller.Audio;
+using Sidescroller.Status;
 
 namespace Sidescroller.Fighting
 {
@@ -31,20 +32,14 @@ namespace Sidescroller.Fighting
 
 
         // Sidescroller Scripts
-        [SerializeField] SideScrollerAnimation animationScript = null;  // Animation
-        [SerializeField] SideScrollerAttack attackScript = null;        // Attack
-        [SerializeField] SideScrollerAudio audioScript = null;          // Audio
-        [SerializeField] SideScrollerMover moverScript = null;          // Movement
-        [SerializeField] SideScrollerPose poseScript = null;            // Pose
+        private SideScrollerAnimation animationScript = null;  // Animation
+        private SideScrollerAttack attackScript = null;        // Attack
+        private SideScrollerAudio audioScript = null;          // Audio
+        private SideScrollerMover moverScript = null;          // Movement
+        private SideScrollerPose poseScript = null;            // Pose
 
-        //// Audio Variables
-        //public AudioListener audioListener;
-
-        //public AudioClip audioDamaged;
-        //public AudioClip audioAttackGrunt;
-        //public AudioClip audioAttackHit;
-        //public AudioClip audioAttackBlock;
-        //public AudioClip audioDeath;
+        // Scriptable objects - Fighter stats
+        [SerializeField] FighterStatus statusData = null;
 
         // Self Position
         private Vector3 startPosition;
@@ -60,9 +55,27 @@ namespace Sidescroller.Fighting
             poseScript = GetComponent<SideScrollerPose>();
 
             startPosition = transform.position;
+
+            // Set Status - if has preset
+            if (statusData)
+            {
+                // Attack
+                float TBA = statusData.timeBetweenAttacks;
+                float AR = statusData.attackRange;
+                float ASD = statusData.attackStrongDamage;
+                float AWD = statusData.attackWeakDamage;
+
+                if (attackScript) attackScript.SetStatus(TBA,AR, ASD, AWD);
+
+                //
+            }
         }
 
         #endregion
+
+        // Set Fighters Stats
+
+
 
         // Action Methods - Input Commands
         #region Action Methods - Commands
@@ -237,7 +250,7 @@ namespace Sidescroller.Fighting
 
         public float GetAttackRange()
         {
-            return attackScript.attackRange;
+            return attackScript.GetAttackRange();
         }
 
         public float GetAnimationLenght()

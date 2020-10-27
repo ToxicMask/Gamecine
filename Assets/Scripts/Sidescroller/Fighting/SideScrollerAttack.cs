@@ -17,35 +17,55 @@ namespace Sidescroller.Attack
     public class SideScrollerAttack : MonoBehaviour
     {
         //Attack
-        [SerializeField] float timeBetweenAttacks = .5f;
-        float timeSinceLastAttack = Mathf.Infinity;
+        private float timeBetweenAttacks = .5f;
+        private float timeSinceLastAttack = Mathf.Infinity;
 
-        public float attackRange = .3f;
-        [SerializeField] float attackStrongDamage = 3f;
-        [SerializeField] float attackWeakDamage = 1f;
+        private float attackRange = .3f;
+        private float attackStrongDamage = 3f;
+        private float attackWeakDamage = 1f;
 
         public Transform attackHighPos;
         public Transform attackLowPos;
+
+        #region Status
+
+        public void SetStatus(float atkDelay, float atkRnage, float atkStrDamage, float atkWkDamage)
+        {
+            this.timeBetweenAttacks = atkDelay;
+            this.attackRange = atkRnage;
+            this.attackStrongDamage = atkStrDamage;
+            this.attackWeakDamage = atkWkDamage;
+        }
+
+        public bool CanAttack()
+        {
+            // Not in the time framed
+            if (timeSinceLastAttack < timeBetweenAttacks)
+            {
+                return false;
+            }
+
+            // Can Attack
+            return true;
+        }
+
+        public float GetAttackRange()
+        {
+            return attackRange;
+        }
+
+        #endregion
+
 
         #region Unity Methods
 
         private void Update()
         {
+            // Add to Time
             timeSinceLastAttack += Time.deltaTime;
         }
 
         #endregion
-
-        public bool CanAttack()
-        {
-            // Not in the time framed
-            if (timeSinceLastAttack < timeBetweenAttacks) {
-                return false;
-                    }
-
-            // Can Attack
-            return true;
-        }
 
 
     public AttackResult AttackHit(bool crouching = false)
