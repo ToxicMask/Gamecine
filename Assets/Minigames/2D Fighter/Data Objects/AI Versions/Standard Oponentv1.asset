@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fbcc4b7ed267ed4f8b738e2de639013, type: 3}
-  m_Name: Standard Oponentv2
+  m_Name: Standard Oponentv1
   m_EditorClassIdentifier: 
   perlinScale: 8
   thinkDelayMin: 0.1
-  thinkDelayMax: 0.6
-  attackThreshold: 0.35
+  thinkDelayMax: 0.3
+  attackThreshold: 0.2
   confusionLimit: 18
-  defenseLimit: 40
-  attackLimit: 80
+  defenseLimit: 32
+  attackLimit: 70
