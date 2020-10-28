@@ -88,7 +88,17 @@ namespace Sidescroller.Animation
 
         public float GetCurrentAnimationLenght()
         {
-            return animator.GetNextAnimatorStateInfo(0).length;
+
+            AnimatorClipInfo[] infoArray = animator.GetCurrentAnimatorClipInfo(0);
+
+            if (infoArray.Length <= 0)
+            {
+                return -1;
+            }
+
+            AnimatorClipInfo info = infoArray[0];
+
+            return info.clip.length;
         }
     }
 }

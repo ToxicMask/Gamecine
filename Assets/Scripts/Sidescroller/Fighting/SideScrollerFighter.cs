@@ -245,6 +245,13 @@ namespace Sidescroller.Fighting
 
             // Animation Set
             animationScript.ChangeAnimationState(currentState);
+
+            // TEmp
+            if (gameObject.name == "Player1")
+            {
+                //print(animationScript.GetCurrentAnimationLenght());
+            }
+            
         }
 
         public void EnableAnimationChange(bool active)
