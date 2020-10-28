@@ -18,5 +18,10 @@ namespace Sidescroller.Status
 
         // Distance Variation To Attack
         public float attackThreshold = 0.2f;
+
+        // Think Variables
+        public float confusionLimit = 18f;
+        public float defenseLimit = 32f;
+        public float attackLimit = 70f;
     }
 }

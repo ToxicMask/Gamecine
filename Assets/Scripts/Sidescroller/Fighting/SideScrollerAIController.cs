@@ -30,7 +30,13 @@ namespace Sidescroller.AI
         // Action Variables
         [SerializeField] FighterState lastState = FighterState.Idle;
         [SerializeField] FighterState nextState = FighterState.Idle;
-        
+
+
+        // Think variables
+        [SerializeField] float confusionLimit = 18f;
+        [SerializeField] float defenseLimit = 36f;
+        [SerializeField] float attackLimit = 74f;
+
 
         // Target Variables 
         [SerializeField] Transform currentTarget = null;
@@ -59,6 +65,12 @@ namespace Sidescroller.AI
 
             // Distance Variation To Attack
             this.attackThreshold = profile.attackThreshold;
+
+            // Variables
+            this.confusionLimit = profile.confusionLimit;
+            this.defenseLimit = profile.defenseLimit;
+            this.attackLimit = profile.attackLimit;
+
          }
     
 
@@ -186,16 +198,16 @@ namespace Sidescroller.AI
             float rF = Mathf.PerlinNoise((Time.time * perlinScale) +  noiseOffset, 0)  * 100 ;
 
 
-            // Escape
-            if (rF < 18f) return ThinkState.Confused;
+            // Confusion
+            if (rF < confusionLimit) return ThinkState.Confused;
 
             //  Defesive
-            else if (rF < 32f) return ThinkState.Defensive;
+            else if (rF < defenseLimit) return ThinkState.Defensive;
 
             // Attack
-            else if (rF < 70f) return ThinkState.Attack;
+            else if (rF < attackLimit) return ThinkState.Attack;
 
-            // Confused
+            // Escape
             else return ThinkState.Escape;
         }
 
@@ -212,7 +224,7 @@ namespace Sidescroller.AI
 
                 // Debug print print(fighterScript.attackRange.ToString() + "/" + (currentTarget.position - transform.position).magnitude.ToString());
                 //if AI is far from Player
-                if (fighterScript.GetAttackRange() - (attackThreshold) < targetDistance.magnitude)
+                if (fighterScript.GetAttackRange() - (attackThreshold) <= targetDistance.magnitude)
                 {
                     if ( targetDistance.x > 0) return FighterState.WalkRight;
 
@@ -251,6 +263,8 @@ namespace Sidescroller.AI
             return FighterState.Idle;
         }
 
+        #region Delay Methods
+
         // Reset
         protected void ResetDelayTime()
         {
@@ -271,5 +285,7 @@ namespace Sidescroller.AI
             isInDelayTime = true;
             thinkDelay = time;
         }
+
+        #endregion
     }
 }

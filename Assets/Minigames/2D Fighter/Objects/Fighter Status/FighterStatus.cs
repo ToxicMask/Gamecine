@@ -20,5 +20,6 @@ namespace Sidescroller.Status
         // Movement
         public float walkSpeed = 1.2f;
         public float knockbackSpeed = 1.8f;
+
     }
 }
