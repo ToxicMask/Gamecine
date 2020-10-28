@@ -219,13 +219,10 @@ namespace Sidescroller.Fighting
 
         public void ChangeStateToIdle()
         {
-            currentState = FighterState.Idle;
-
             //Update Collision Box
             poseScript.StandUp();
 
-            // Animation Set
-            animationScript.ChangeAnimationState(currentState);
+            ChangeState(FighterState.Idle);
         }
 
         public void ChangeStateToDead()
@@ -241,15 +238,19 @@ namespace Sidescroller.Fighting
 
         public void ChangeState(FighterState newState) //usado em eventos nos finais das animações pra retornar ao estado de idle;
         {
+            // Reset Coroutines
+            StopAllCoroutines();
+
+            // Update State
             currentState = newState;
 
             // Animation Set
             animationScript.ChangeAnimationState(currentState);
 
-            // TEmp
-            if (gameObject.name == "Player1")
+            // To Not Looping Animation
+            if ( currentState == FighterState.Blocking || currentState == FighterState.Attacking)
             {
-                //print(animationScript.GetCurrentAnimationLenght());
+                Invoke("ChangeStateToIdle", GetAnimationLenght(currentState));
             }
             
         }
@@ -273,9 +274,9 @@ namespace Sidescroller.Fighting
             return attackScript.GetAttackRange();
         }
 
-        public float GetAnimationLenght()
+        public float GetAnimationLenght( FighterState state)
         {
-            return animationScript.GetCurrentAnimationLenght();
+            return animationScript.GetAnimationLenght(state);
         }
 
         #endregion

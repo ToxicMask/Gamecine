@@ -16,6 +16,8 @@ namespace Sidescroller.Animation
 
         public bool canChangeAnimation;
 
+        public bool activeLoop = false;
+
         // Start is called before the first frame update
         void Awake()
         {
@@ -46,8 +48,6 @@ namespace Sidescroller.Animation
 
         void PlayAnimation(FighterState state)
         {
-
-
             switch (state)
             {
 
@@ -84,21 +84,68 @@ namespace Sidescroller.Animation
                     break;
 
             }
+
         }
 
-        public float GetCurrentAnimationLenght()
+        public float GetAnimationLenght(FighterState state)
         {
 
-            AnimatorClipInfo[] infoArray = animator.GetCurrentAnimatorClipInfo(0);
+            // Get All Information
+            AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
 
-            if (infoArray.Length <= 0)
-            {
-                return -1;
+            // Anim Info
+            string animName = "";
+            float animLength = -1f;
+
+            foreach (AnimationClip clip in clips) {
+                switch (state)
+                {
+
+                    case FighterState.Idle:
+                        animName = ("Idle");
+                        break;
+
+                    case FighterState.WalkLeft:
+                        animName = ("Walk Left");
+                        break;
+
+                    case FighterState.WalkRight:
+                        animName = ("Walk Right");
+                        break;
+
+                    case FighterState.Attacking:
+                        animName = ("Attack");
+                        break;
+
+                    case FighterState.Blocking:
+                        animName = ("Block");
+                        break;
+
+                    case FighterState.Crouching:
+                        animName = ("Crouch Idle");
+                        break;
+
+                    case FighterState.Damaged:
+                        animName = ("Get Damaged");
+                        break;
+
+                    case FighterState.Dying:
+                        animName = ("Dying");
+                        break;
+
+                }
             }
 
-            AnimatorClipInfo info = infoArray[0];
+            foreach (AnimationClip clip in clips)
+            {
+                //print(clip.name);
+                if (clip.name.Contains(animName) )
+                {
+                    animLength = clip.length;
+                }
+            }
 
-            return info.clip.length;
+            return animLength; 
         }
     }
 }
