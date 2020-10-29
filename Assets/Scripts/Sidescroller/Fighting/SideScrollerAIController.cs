@@ -33,7 +33,7 @@ namespace Sidescroller.AI
 
 
         // Think variables
-        [SerializeField] float confusionLimit = 18f;
+        [SerializeField] float evadeLimit = 18f;
         [SerializeField] float defenseLimit = 36f;
         [SerializeField] float attackLimit = 74f;
 
@@ -51,6 +51,7 @@ namespace Sidescroller.AI
             Defensive,
             Escape,
             Confused,
+            Evasive,
         }
 
         //Set Delay Profile
@@ -67,7 +68,7 @@ namespace Sidescroller.AI
             this.attackThreshold = profile.attackThreshold;
 
             // Variables
-            this.confusionLimit = profile.confusionLimit;
+            this.evadeLimit = profile.evadeLimit;
             this.defenseLimit = profile.defenseLimit;
             this.attackLimit = profile.attackLimit;
 
@@ -159,6 +160,16 @@ namespace Sidescroller.AI
 
         protected void ProcessAction(FighterState action)
         {
+            //Crouch
+            if (action == FighterState.Crouching)
+            {
+                fighterScript.Crouch(true);
+                return;
+            }
+            else
+            {
+                fighterScript.Crouch(false);
+            }
 
             if (action == FighterState.Attacking) { 
                 //Try to Attack
@@ -184,6 +195,11 @@ namespace Sidescroller.AI
                 fighterScript.Block();
             }
 
+            else if (action == FighterState.Crouching)
+            {
+                fighterScript.Crouch(true);
+            }
+
             else
             {
                 // Try to walk
@@ -198,8 +214,8 @@ namespace Sidescroller.AI
             float rF = Mathf.PerlinNoise((Time.time * perlinScale) +  noiseOffset, 0)  * 100 ;
 
 
-            // Confusion
-            if (rF < confusionLimit) return ThinkState.Confused;
+            // Evade
+            if (rF < evadeLimit) return ThinkState.Evasive;
 
             //  Defesive
             else if (rF < defenseLimit) return ThinkState.Defensive;
@@ -250,6 +266,7 @@ namespace Sidescroller.AI
 
                 Vector2 targetDistance = currentTarget.position - transform.position;
 
+                // If close
                 if (fighterScript.GetAttackRange() - (attackThreshold) > targetDistance.magnitude)
                 {
                     return FighterState.Blocking;
@@ -258,6 +275,18 @@ namespace Sidescroller.AI
                 return FighterState.Idle;
             }
 
+            else if (thinkState == ThinkState.Evasive)
+            {
+                Vector2 targetDistance = currentTarget.position - transform.position;
+
+                // If close
+                if (fighterScript.GetAttackRange() - (attackThreshold) > targetDistance.magnitude)
+                {
+                    return FighterState.Crouching;
+                }
+
+                return FighterState.Idle;
+            }
 
             // If nothing else, then satd put
             return FighterState.Idle;

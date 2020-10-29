@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighter1: {fileID: 1721978222}
   fighter2: {fileID: 772655575}
-  standardProfile: {fileID: 11400000, guid: df3a0b27495b2cb42bb88161e1322e74, type: 2}
+  standardProfile: {fileID: 11400000, guid: 76ba7516ff5f5cc46961218c9ce91427, type: 2}
   introControl: {fileID: 1123464516}
   selectionControl: {fileID: 1800971599}
   gameControl: {fileID: 880309072}

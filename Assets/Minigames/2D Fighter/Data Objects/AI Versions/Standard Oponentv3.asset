@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b5aaa54687cb4498e2dbb6a11e34f4, type: 3}
-  m_Name: Figther Statusv2
+  m_Script: {fileID: 11500000, guid: 1fbcc4b7ed267ed4f8b738e2de639013, type: 3}
+  m_Name: Standard Oponentv3
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 0.8
-  attackRange: 0.65
-  attackStrongDamage: 5
-  attackWeakDamage: 3
-  maxHealth: 36
-  walkSpeed: 1.4
-  knockbackSpeed: 2.4
+  perlinScale: 4
+  thinkDelayMin: 0.12
+  thinkDelayMax: 0.35
+  attackThreshold: 0.3
+  evadeLimit: 35
+  defenseLimit: 45
+  attackLimit: 85
