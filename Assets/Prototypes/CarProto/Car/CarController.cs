@@ -46,7 +46,7 @@ namespace TopDownCar.Controller
                 carMovement.TurnLeft();
                 carAnimation.SetCarDirection(carMovement.direction);
                 Steering = true;
-                print("LEFT!");
+                //print("LEFT!");
             }
 
             // Right
@@ -54,7 +54,7 @@ namespace TopDownCar.Controller
                 carMovement.TurnRight();
                 carAnimation.SetCarDirection(carMovement.direction);
                 Steering = true;
-                print("Right!");
+                //print("Right!");
             }
 
             else if ((Input.GetAxis("Horizontal") == 0)) { Steering = false; }

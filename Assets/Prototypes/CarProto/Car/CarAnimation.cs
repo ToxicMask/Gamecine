@@ -30,7 +30,7 @@ namespace TopDownCar.Animation
         {
             animControl.SetFloat("moveX", newDirection.x);
             animControl.SetFloat("moveY", newDirection.y);
-            print("TURN");
+            //print("TURN");
         }
     }
 }

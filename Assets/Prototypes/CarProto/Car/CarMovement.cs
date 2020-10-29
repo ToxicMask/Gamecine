@@ -49,7 +49,7 @@ namespace TopDownCar.Movement
         public void GoFoward()
         {
 
-            print("Go foward!");
+            //print("Go foward!");
             // Increasses
             speed += accelSpeed;
 
@@ -60,7 +60,7 @@ namespace TopDownCar.Movement
 
         public void Break()
         {
-            print("Break");
+            //print("Break");
             speed -= breakSpeed;
             
             // Clamp Speed
@@ -115,7 +115,7 @@ namespace TopDownCar.Movement
         private void ChangeDirection(Vector2 newDir)
         {
             direction = newDir;
-            print(newDir);
+            //print(newDir);
         }
     }
 }
