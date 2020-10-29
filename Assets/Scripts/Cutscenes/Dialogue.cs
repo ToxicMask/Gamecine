@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "New Dialog", menuName = "Dialogue Object")]
+[CreateAssetMenu(fileName = "New Dialog", menuName = "Game Text/Dialogue Object")]
 public class Dialogue : ScriptableObject
 {
     public DialogueLine[] lines;

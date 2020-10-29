@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Sidescroller.Status
 {
     [System.Serializable]
-    [CreateAssetMenu(fileName = " New Figther Status", menuName = "Figther Status Object")]
+    [CreateAssetMenu(fileName = " New Figther Status", menuName = "Figther 2D/Status Object")]
     public class FighterStatus : ScriptableObject
     {
         // Attack

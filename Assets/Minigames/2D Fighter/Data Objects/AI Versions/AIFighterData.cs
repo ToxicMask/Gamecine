@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Sidescroller.Status
 {
     [System.Serializable]
-    [CreateAssetMenu(fileName = " New AI Data", menuName = "Figther AI Data")]
+    [CreateAssetMenu(fileName = " New AI Data", menuName = "Figther 2D/AI Data")]
     public class AIFighterData : ScriptableObject
     {
         // Perlin Noise Variables
