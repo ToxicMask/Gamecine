@@ -8,16 +8,25 @@ public class FroggerGameManager : MonoBehaviour
 
     public static FroggerGameManager current;
 
+    public static bool gameEnd = false;
+
     public Frogger playerFrogger = null;
+
+    
 
     void Awake()
     {
-        current = this;  
+        current = this;
+
+        gameEnd = false;
     }
 
     // Check Conditions
     void LateUpdate()
     {
+        if (gameEnd) return;
+
+
         // Check
         CheckDefeat();
 
@@ -29,18 +38,29 @@ public class FroggerGameManager : MonoBehaviour
         // Check Defeat
         if (!playerFrogger)
         {
+            gameEnd = true;
             print("Defeat");
-            Destroy(gameObject);
+            Invoke("ResetGame", 3f);
             return;
         }
     }
 
     public void LevelCompleted()
     {
-
+        gameEnd = true;
         print("Victory");
+        Invoke("ResetGame", 3f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         return;
+    }
+
+    private void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

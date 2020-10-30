@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 2780785097738384346}
   - component: {fileID: 2780785097738384347}
   - component: {fileID: 2780785097738384349}
+  - component: {fileID: 1310258670754740114}
   - component: {fileID: 2780785097738384351}
   - component: {fileID: 2780785097738384348}
   m_Layer: 0
-  m_Name: Step -Plataform
+  m_Name: Plataform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780785097738384344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,6 +99,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collision: {fileID: 0}
   rb: {fileID: 0}
+  speedH: 32
+--- !u!114 &1310258670754740114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780785097738384344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243f8488450104a43a1482d6f99a485c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 15
 --- !u!50 &2780785097738384351
 Rigidbody2D:
   serializedVersion: 4

@@ -2,46 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoverPlataform : MonoBehaviour
+public class MoverPlataform : Plataform
 {
-    [SerializeField] Collider2D collision;
-    [SerializeField] Rigidbody2D rb;
 
     public float speedH = 8;
-    private Vector3 direction = Vector3.right;
-
-    void Awake()
-    {
-        //Auto Get
-        rb = GetComponent<Rigidbody2D>();
-
-
-    }
+    public Vector3 moveDirection = Vector3.right;
 
     private void FixedUpdate()
     {
-        rb.velocity = direction * speedH * Time.fixedDeltaTime;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            collision.transform.parent = gameObject.transform;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.transform.parent == gameObject.transform && collision.CompareTag("Player"))
-        {
-            collision.transform.parent = null;
-        }
+        rb.velocity = moveDirection * speedH * Time.fixedDeltaTime;
     }
 
     public void SetPlataformConfig(float speed, Vector3 direction)
     {
         this.speedH = speed;
-        this.direction = direction;
+        this.moveDirection = direction;
     }
 }

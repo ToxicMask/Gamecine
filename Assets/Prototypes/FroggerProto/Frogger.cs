@@ -20,11 +20,17 @@ public class Frogger : MonoBehaviour
 
         // Set Grid size
         SetGridSize(step);
+
+        //Set Grid Size
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Game End
+        if (FroggerGameManager.gameEnd) return;
+
         //Movement
         if (Input.anyKeyDown)
         {
@@ -50,6 +56,18 @@ public class Frogger : MonoBehaviour
         }
     }
 
+    // Kills if Not at the top of Anything
+    private void LateUpdate()
+    {
+        // Game End
+        if (FroggerGameManager.gameEnd) return;
+
+        if (transform.parent == null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void SetGridSize(float size)
     {
         gridSize = Vector3.one * size;
@@ -67,7 +85,7 @@ public class Frogger : MonoBehaviour
         //Movement
         rb.transform.position = newPosition;
 
-        print(newPosition);
+        //print(newPosition);
         //Snap Position
         //SnapToGrid(gridSize);
     }

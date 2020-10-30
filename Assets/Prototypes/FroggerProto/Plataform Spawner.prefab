@@ -48,3 +48,5 @@ MonoBehaviour:
   repeat: 3
   plataformSpeed: 32
   plataformDirection: {x: 1, y: 0, z: 0}
+  selfDescruct: 1
+  selfDestructDelay: 10
