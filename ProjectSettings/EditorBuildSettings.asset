@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Master/Game Intro/Animated Intro.unity
     guid: 295745a7db6456a449dc60150d853611
   - enabled: 1
-    path: Assets/Master/Main Menu/Main Menu1/Main Menu1.unity
+    path: Assets/Master/MainMenu/MainMenu1/MainMenu1.unity
     guid: 1ccf7bf29735c2e49ba20ba1aba7ea8b
   - enabled: 1
     path: Assets/Minigames/2D Fighter/Scenes/2D_fighter.unity
