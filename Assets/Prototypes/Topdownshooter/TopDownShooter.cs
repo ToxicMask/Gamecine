@@ -2,41 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TopDownShooter : MonoBehaviour
+namespace Prototypes.TopDownShooter
 {
-
-    public GameObject prefabBullet;
-
-    // Start is called before the first frame update
-    void Start()
+    public class TopDownShooter : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Mouse World Location
-        //Vector3 mouseLocation = Input.mousePosition;
-        //mouseLocation.z = -(Camera.main.transform.position.z);
-        //mouseLocation = Camera.main.ScreenToWorldPoint(mouseLocation);
+        public GameObject prefabBullet;
 
-        int vInput = (int)Input.GetAxis("Vertical");           // Vertical Input
-        int hInput = (int)Input.GetAxis("Horizontal");         // Horizontal Input
-        bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
-        bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
-
-
-        //Rotate
-        transform.Rotate(Vector3.back * hInput * Time.deltaTime * 180f);
-
-        //Move
-        transform.position += (transform.up * vInput * Time.deltaTime * 2f);
-
-
-        if (pButton)
+        // Start is called before the first frame update
+        void Start()
         {
-            Instantiate(prefabBullet, transform.position, transform.rotation);
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            // Mouse World Location
+            //Vector3 mouseLocation = Input.mousePosition;
+            //mouseLocation.z = -(Camera.main.transform.position.z);
+            //mouseLocation = Camera.main.ScreenToWorldPoint(mouseLocation);
+
+            int vInput = (int)Input.GetAxis("Vertical");           // Vertical Input
+            int hInput = (int)Input.GetAxis("Horizontal");         // Horizontal Input
+            bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
+            bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
+
+
+            //Rotate
+            transform.Rotate(Vector3.back * hInput * Time.deltaTime * 180f);
+
+            //Move
+            transform.position += (transform.up * vInput * Time.deltaTime * 2f);
+
+
+            if (pButton)
+            {
+                Instantiate(prefabBullet, transform.position, transform.rotation);
+            }
         }
     }
 }

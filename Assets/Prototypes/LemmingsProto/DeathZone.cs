@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathZone : MonoBehaviour
+
+namespace Prototypes.Lemmings
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class DeathZone : MonoBehaviour
     {
-        if (collision.GetComponent<Paulista>()) Destroy(collision.gameObject);
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.GetComponent<Paulista>()) Destroy(collision.gameObject);
+        }
     }
 }

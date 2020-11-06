@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoverPlataform : Plataform
+
+namespace Prototypes.Frogger
 {
-
-    public float speedH = 8;
-    public Vector3 moveDirection = Vector3.right;
-
-    private void FixedUpdate()
+    public class MoverPlataform : Plataform
     {
-        rb.velocity = moveDirection * speedH * Time.fixedDeltaTime;
-    }
 
-    public void SetPlataformConfig(float speed, Vector3 direction)
-    {
-        this.speedH = speed;
-        this.moveDirection = direction;
+        public float speedH = 8;
+        public Vector3 moveDirection = Vector3.right;
+
+        private void FixedUpdate()
+        {
+            rb.velocity = moveDirection * speedH * Time.fixedDeltaTime;
+        }
+
+        public void SetPlataformConfig(float speed, Vector3 direction)
+        {
+            this.speedH = speed;
+            this.moveDirection = direction;
+        }
     }
 }

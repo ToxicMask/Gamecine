@@ -3,64 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FroggerGameManager : MonoBehaviour
+
+namespace Prototypes.Frogger
 {
-
-    public static FroggerGameManager current;
-
-    public static bool gameEnd = false;
-
-    public Frogger playerFrogger = null;
-
-    
-
-    void Awake()
+    public class FroggerGameManager : MonoBehaviour
     {
-        current = this;
 
-        gameEnd = false;
-    }
+        public static FroggerGameManager current;
 
-    // Check Conditions
-    void LateUpdate()
-    {
-        if (gameEnd) return;
+        public static bool gameEnd = false;
+
+        public Frogger playerFrogger = null;
 
 
-        // Check
-        CheckDefeat();
 
-    }
+        void Awake()
+        {
+            current = this;
+
+            gameEnd = false;
+        }
+
+        // Check Conditions
+        void LateUpdate()
+        {
+            if (gameEnd) return;
 
 
-    void CheckDefeat()
-    {
-        // Check Defeat
-        if (!playerFrogger)
+            // Check
+            CheckDefeat();
+
+        }
+
+
+        void CheckDefeat()
+        {
+            // Check Defeat
+            if (!playerFrogger)
+            {
+                gameEnd = true;
+                print("Defeat");
+                Invoke("ResetGame", 3f);
+                return;
+            }
+        }
+
+        public void LevelCompleted()
         {
             gameEnd = true;
-            print("Defeat");
+            print("Victory");
             Invoke("ResetGame", 3f);
+
             return;
         }
-    }
 
-    public void LevelCompleted()
-    {
-        gameEnd = true;
-        print("Victory");
-        Invoke("ResetGame", 3f);
+        private void ResetGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
-        return;
-    }
-
-    private void ResetGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
     }
 }

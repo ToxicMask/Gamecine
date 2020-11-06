@@ -3,47 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LemmingsGameManager : MonoBehaviour
+
+namespace Prototypes.Lemmings
 {
-    public int paulistasCurrent = 0;
-    public int paulistasDone = 5;
-
-    public LemmingsExit paulistaExit = null;
-
-    public void Awake()
+    public class LemmingsGameManager : MonoBehaviour
     {
-        paulistasCurrent = 0;
-    }
+        public int paulistasCurrent = 0;
+        public int paulistasDone = 5;
 
-    private void LateUpdate()
-    {
-        if (paulistaExit)
+        public LemmingsExit paulistaExit = null;
+
+        public void Awake()
         {
-            paulistasCurrent = paulistaExit.exitedCount;
+            paulistasCurrent = 0;
         }
 
-        CheckVictory();
-    }
-
-
-    void CheckVictory()
-    {
-        if (paulistasCurrent >= paulistasDone)
+        private void LateUpdate()
         {
-            LevelCompleted();
+            if (paulistaExit)
+            {
+                paulistasCurrent = paulistaExit.exitedCount;
+            }
+
+            CheckVictory();
         }
-    }
 
-    public void LevelCompleted()
-    {
-        print("Victory");
-        Invoke("ResetGame", 3f);
 
-        return;
-    }
+        void CheckVictory()
+        {
+            if (paulistasCurrent >= paulistasDone)
+            {
+                LevelCompleted();
+            }
+        }
 
-    private void ResetGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        public void LevelCompleted()
+        {
+            print("Victory");
+            Invoke("ResetGame", 3f);
+
+            return;
+        }
+
+        private void ResetGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

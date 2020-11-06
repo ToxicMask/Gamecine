@@ -1235,6 +1235,11 @@ PrefabInstance:
       propertyPath: audioListener
       value: 
       objectReference: {fileID: 714763157}
+    - target: {fileID: 6716777031354576134, guid: 4e6ac6472ad0f834b889a96d92380d2f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ac6472ad0f834b889a96d92380d2f, type: 3}
 --- !u!1 &269729247
@@ -1296,12 +1301,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269729247}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1560071170}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289286710
 GameObject:
@@ -2283,8 +2288,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1542017559
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4154367693818918994, guid: 0e1af576ac6e0cd4cb7ce1ec9a4d233e,
     type: 3}
@@ -5061,8 +5066,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 930439087
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8147978088825045153, guid: d019b9edc7535ca4daf774cfabe14212,
     type: 3}
@@ -7541,6 +7546,7 @@ Transform:
   - {fileID: 1800971598}
   - {fileID: 880309071}
   - {fileID: 1636128093}
+  - {fileID: 269729250}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7613,8 +7619,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1945512527
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1681831283906654698, guid: 60aa9e51932566b4c9a0efd9e64618f6,
     type: 3}
@@ -10310,6 +10316,16 @@ PrefabInstance:
       propertyPath: audioListener
       value: 
       objectReference: {fileID: 714763157}
+    - target: {fileID: 6628731359969450060, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628731359969450060, guid: 88e105792d81fc745a7bd91c3710c974,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7902700957065620090, guid: 88e105792d81fc745a7bd91c3710c974,
         type: 3}
       propertyPath: m_LocalPosition.y

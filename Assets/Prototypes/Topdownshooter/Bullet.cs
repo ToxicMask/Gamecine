@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Prototypes.TopDownShooter
 {
-
-    // Update is called once per frame
-    void Update()
+    public class Bullet : MonoBehaviour
     {
-        transform.position += transform.up * 8f * Time.deltaTime;
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position += transform.up * 8f * Time.deltaTime;
+        }
     }
 }

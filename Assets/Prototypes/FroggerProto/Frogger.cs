@@ -2,100 +2,103 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Frogger : MonoBehaviour
+namespace Prototypes.Frogger
 {
-
-    // Component
-    Rigidbody2D rb;
-
-    //Variable
-    float step = .25f;
-    Vector3 gridSize = Vector3.one;
-
-    // Start is called before the first frame update
-    void Awake()
+    public class Frogger : MonoBehaviour
     {
-        // Auto Get
-        rb = this.GetComponent<Rigidbody2D>();
 
-        // Set Grid size
-        SetGridSize(step);
+        // Component
+        Rigidbody2D rb;
 
-        //Set Grid Size
+        //Variable
+        float step = .25f;
+        Vector3 gridSize = Vector3.one;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Game End
-        if (FroggerGameManager.gameEnd) return;
-
-        //Movement
-        if (Input.anyKeyDown)
+        // Start is called before the first frame update
+        void Awake()
         {
-            // Input Variables
+            // Auto Get
+            rb = this.GetComponent<Rigidbody2D>();
 
-            
+            // Set Grid size
+            SetGridSize(step);
 
-            int vInput = (int) Input.GetAxis("Vertical");           // Vertical Input
-            int hInput = (int) Input.GetAxis("Horizontal");         // Horizontal Input
-            bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
-            bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
+            //Set Grid Size
 
-            if (vInput != 0)
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            // Game End
+            if (FroggerGameManager.gameEnd) return;
+
+            //Movement
+            if (Input.anyKeyDown)
             {
-                
-                GridMovement(0, vInput);
-            }
+                // Input Variables
 
-            else if (hInput != 0)
-            {
-                GridMovement(hInput, 0);
+
+
+                int vInput = (int)Input.GetAxis("Vertical");           // Vertical Input
+                int hInput = (int)Input.GetAxis("Horizontal");         // Horizontal Input
+                bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
+                bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
+
+                if (vInput != 0)
+                {
+
+                    GridMovement(0, vInput);
+                }
+
+                else if (hInput != 0)
+                {
+                    GridMovement(hInput, 0);
+                }
             }
         }
-    }
 
-    // Kills if Not at the top of Anything
-    private void LateUpdate()
-    {
-        // Game End
-        if (FroggerGameManager.gameEnd) return;
-
-        if (transform.parent == null)
+        // Kills if Not at the top of Anything
+        private void LateUpdate()
         {
-            Destroy(gameObject);
+            // Game End
+            if (FroggerGameManager.gameEnd) return;
+
+            if (transform.parent == null)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
 
-    void SetGridSize(float size)
-    {
-        gridSize = Vector3.one * size;
-    }
+        void SetGridSize(float size)
+        {
+            gridSize = Vector3.one * size;
+        }
 
-    void GridMovement(int x, int y)
-    {
-        //Debug print("x -" + x.ToString() + "  " + "y -" + y.ToString());
+        void GridMovement(int x, int y)
+        {
+            //Debug print("x -" + x.ToString() + "  " + "y -" + y.ToString());
 
-        // Variables
-        Vector2 move = new Vector2(x, y);
-        Vector2 currentPosition = transform.position;
-        Vector2 newPosition =  currentPosition + (move * step);
+            // Variables
+            Vector2 move = new Vector2(x, y);
+            Vector2 currentPosition = transform.position;
+            Vector2 newPosition = currentPosition + (move * step);
 
-        //Movement
-        rb.transform.position = newPosition;
+            //Movement
+            rb.transform.position = newPosition;
 
-        //print(newPosition);
-        //Snap Position
-        //SnapToGrid(gridSize);
-    }
+            //print(newPosition);
+            //Snap Position
+            //SnapToGrid(gridSize);
+        }
 
 
-    void SnapToGrid(Vector3 gridSize)
-    {
-        var currentPos = transform.position;
-        transform.position = new Vector3(Mathf.Round(currentPos.x / gridSize.x), 
-                                         Mathf.Round(currentPos.y / gridSize.y), 
-                                         Mathf.Round(currentPos.z / gridSize.z));
+        void SnapToGrid(Vector3 gridSize)
+        {
+            var currentPos = transform.position;
+            transform.position = new Vector3(Mathf.Round(currentPos.x / gridSize.x),
+                                             Mathf.Round(currentPos.y / gridSize.y),
+                                             Mathf.Round(currentPos.z / gridSize.z));
+        }
     }
 }

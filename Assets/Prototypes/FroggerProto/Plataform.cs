@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plataform : MonoBehaviour
+namespace Prototypes.Frogger
 {
-    [SerializeField] protected Rigidbody2D rb;
-
-    void Awake()
+    public class Plataform : MonoBehaviour
     {
-        //Auto Get
-        rb = GetComponent<Rigidbody2D>();
+        [SerializeField] protected Rigidbody2D rb;
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        void Awake()
         {
-            collision.transform.parent = gameObject.transform;
+            //Auto Get
+            rb = GetComponent<Rigidbody2D>();
+
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.transform.parent == gameObject.transform && collision.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            collision.transform.parent = null;
+            if (collision.CompareTag("Player"))
+            {
+                collision.transform.parent = gameObject.transform;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.transform.parent == gameObject.transform && collision.CompareTag("Player"))
+            {
+                collision.transform.parent = null;
+            }
         }
     }
 }

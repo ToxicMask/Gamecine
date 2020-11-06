@@ -2,58 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerPoint : MonoBehaviour
+
+namespace Prototypes.Lemmings
 {
-    public GameObject prefab = null;
-
-    public float delay = 1f;
-    public float repeat = 3f;
-
-    public bool limited = false;
-    public int maxTimes = 5;
-    private int times = 0;
-    
-
-    // Start is called before the first frame update
-    void Start()
+    public class SpawnerPoint : MonoBehaviour
     {
-        if (prefab)
+        public GameObject prefab = null;
+
+        public float delay = 1f;
+        public float repeat = 3f;
+
+        public bool limited = false;
+        public int maxTimes = 5;
+        private int times = 0;
+
+
+        // Start is called before the first frame update
+        void Start()
         {
-            InvokeRepeating("Spawn", delay, repeat);
+            if (prefab)
+            {
+                InvokeRepeating("Spawn", delay, repeat);
+            }
         }
-    }
 
-    protected virtual void Spawn()
-    {
-        Instantiate(prefab, transform.position, transform.rotation);
-
-        times++;
-
-        if (times >= maxTimes && limited)
+        protected virtual void Spawn()
         {
-            Destroy(gameObject);
+            Instantiate(prefab, transform.position, transform.rotation);
+
+            times++;
+
+            if (times >= maxTimes && limited)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
 
-    protected virtual void Spawn(Vector3 newPosition)
-    {
-        Instantiate(prefab, newPosition, transform.rotation);
-    }
+        protected virtual void Spawn(Vector3 newPosition)
+        {
+            Instantiate(prefab, newPosition, transform.rotation);
+        }
 
-    protected virtual void Spawn(GameObject modPrefab)
-    {
+        protected virtual void Spawn(GameObject modPrefab)
+        {
 
-        Instantiate(modPrefab, transform.position, transform.rotation);
-    }
+            Instantiate(modPrefab, transform.position, transform.rotation);
+        }
 
-    protected virtual void Spawn(GameObject modPrefab, Vector3 newPosition)
-    {
-        
-        Instantiate(modPrefab, newPosition, transform.rotation);
-    }
+        protected virtual void Spawn(GameObject modPrefab, Vector3 newPosition)
+        {
 
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
+            Instantiate(modPrefab, newPosition, transform.rotation);
+        }
+
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
     }
 }
