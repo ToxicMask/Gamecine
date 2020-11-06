@@ -14,7 +14,7 @@ public class PauseSystem : MonoBehaviour
     public GameObject pauseMenuUI;
 
     // Main Menu ID
-    [SerializeField] string quitToSceneID = "";
+    [SerializeField] AllScenes quitToSceneID = AllScenes.MainMenu;
 
     private void Start()
     {
@@ -24,13 +24,12 @@ public class PauseSystem : MonoBehaviour
         // Hide Menu
         if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
 
-        // Set quit to main scene if empty
-        if (quitToSceneID == "") quitToSceneID = "Main Menu";
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel")) TogglePause(); // ESC --> Pause Game
+        if (Input.GetButtonDown("Pause")) TogglePause();
+ 
     }
 
     public void TogglePause()
@@ -84,6 +83,6 @@ public class PauseSystem : MonoBehaviour
     public void Quit()
     {
         Resume();
-        SceneManager.LoadScene(quitToSceneID);
+        SceneManager.LoadScene((int)quitToSceneID);
     }
 }

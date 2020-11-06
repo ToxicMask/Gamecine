@@ -113,7 +113,7 @@ namespace Sidescroller.Control
             bool sButton = Input.GetButtonDown("Action Secondary" + playerTag); // Secondary Button Pressed
 
             // Crouching or Walkinh
-            if (vInput < 0)
+            if (vInput < -.5f)
             {
                 fighterScript.Crouch(true);
                 // TEMP No Attack or Block

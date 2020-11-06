@@ -703,7 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseButtom: {fileID: 2714401296788338276}
   pauseMenuUI: {fileID: 2714401298260797881}
-  quitToSceneID: Main Menu1
+  quitToSceneID: 2
 --- !u!1 &2714401297571137458
 GameObject:
   m_ObjectHideFlags: 0
