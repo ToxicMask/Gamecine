@@ -27,7 +27,7 @@ namespace Sidescroller.Fighting
 
     public class SideScrollerFighter : MonoBehaviour
     {
-
+        [Tooltip("Character current state.")]
         public FighterState currentState = FighterState.Idle;
 
 
@@ -40,6 +40,7 @@ namespace Sidescroller.Fighting
         private SideScrollerPose poseScript = null;            // Pose
 
         // Scriptable objects - Fighter stats
+        [Tooltip("Scriptable Object that sets the fighter atributes.")]
         [SerializeField] FighterStatus statusData = null;
 
         // Self Position
@@ -49,6 +50,7 @@ namespace Sidescroller.Fighting
 
         private void Awake()
         {
+            // Auto Get Scripts
             animationScript = GetComponent<SideScrollerAnimation>();
             audioScript = GetComponent<SideScrollerAudio>();
             attackScript = GetComponent<SideScrollerAttack>();

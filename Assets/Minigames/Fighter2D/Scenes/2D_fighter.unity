@@ -1238,7 +1238,7 @@ PrefabInstance:
     - target: {fileID: 6716777031354576134, guid: 4e6ac6472ad0f834b889a96d92380d2f,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ac6472ad0f834b889a96d92380d2f, type: 3}
@@ -7948,13 +7948,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56caf19b31c60a54b9fbdc3e5a05f617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endCamera: {fileID: 2051843834}
   endImageAnimator: {fileID: 435044527}
   endTextAnimator: {fileID: 892809185}
-  endCamera: {fileID: 2051843834}
   dialogueManager: {fileID: 1636128094}
-  canSkip: 1
-  isTextOver: 0
-  winnerID: -1
   augustoEnding: {fileID: 11400000, guid: 88db3dffbcc09c643a13053e2769606f, type: 2}
   joaoEnding: {fileID: 11400000, guid: 8e05960e85239564fa8a023c414766de, type: 2}
 --- !u!114 &1636128091

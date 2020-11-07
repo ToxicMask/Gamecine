@@ -9,19 +9,29 @@ namespace Sidescroller.Canvas
     public class EndingControl : MonoBehaviour
     {
         //Componets
-        [SerializeField] Animator endImageAnimator = null;
-        [SerializeField] Animator endTextAnimator = null;
+        [Header("Camera")]
         [SerializeField] Camera endCamera = null;
+
+        [Header("Animators")]
+        [Tooltip("Displays ending sprites.")]
+        [SerializeField] Animator endImageAnimator = null;
+        [Tooltip("Displays ending dialogue text.")]
+        [SerializeField] Animator endTextAnimator = null;
+
+        [Header("Dialogue")]
         [SerializeField] DialogueManager dialogueManager = null;
+        [Tooltip("Ending 1")]
+        [SerializeField] Dialogue augustoEnding = null;
+        [Tooltip("Ending 2")]
+        [SerializeField] Dialogue joaoEnding = null;
 
         //Variables
-        [SerializeField] bool canSkip = true;
-        [SerializeField] bool isTextOver = false;
-        [SerializeField] int winnerID = -1;
+        private bool canSkip = true;
+        private bool isTextOver = false;
+        private int winnerID = -1;
 
         //Endings text
-        [SerializeField] Dialogue augustoEnding = null;
-        [SerializeField] Dialogue joaoEnding = null;
+
 
         private void Update()
         {
