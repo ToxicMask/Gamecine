@@ -16,6 +16,7 @@ namespace Sidescroller.Canvas
         private ControllerMode selectedMode = ControllerMode.SINGLE_PLAYER;
         private int modeID = 0;
         private bool modeIsSelected = false;
+        private bool axisAlreadyPressed = false;
 
         [Header("Single Player Mode - UI")]
         [SerializeField] GameObject optionSingle = null;
@@ -45,14 +46,17 @@ namespace Sidescroller.Canvas
 
         private void Update()
         {
+            float inputAxis = (int)Input.GetAxis("Horizontal");
+
+
+            if ( Mathf.Abs(inputAxis) == 0) axisAlreadyPressed = false;
+
             // All input are Key Down; else return
-            if (!Input.anyKeyDown) return;
+            if (axisAlreadyPressed) return;
 
             // Check for new selection
-            if (!modeIsSelected)
+            if (!modeIsSelected && inputAxis != 0)
             {
-
-                float inputAxis = Input.GetAxis("Horizontal");
 
                 if (inputAxis > 0f)
                 {
@@ -75,7 +79,10 @@ namespace Sidescroller.Canvas
 
                     selectedMode = (ControllerMode)modeID;
                 }
-                
+
+                // Axis already pressed for controllers
+                axisAlreadyPressed = true;
+
                 // Update the display
                 DisplayOptionsScreen(selectedMode);
             }

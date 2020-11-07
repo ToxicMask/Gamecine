@@ -112,6 +112,8 @@ namespace Sidescroller.Control
             bool pButton = Input.GetButtonDown("Action Primary" + playerTag);   // Primary Button Pressed
             bool sButton = Input.GetButtonDown("Action Secondary" + playerTag); // Secondary Button Pressed
 
+            //print(vInput.ToString() + " : " + hInput.ToString());
+
             // Crouching or Walkinh
             if (vInput < -.5f)
             {
