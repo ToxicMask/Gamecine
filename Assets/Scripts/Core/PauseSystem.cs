@@ -7,7 +7,7 @@ public class PauseSystem : MonoBehaviour
 {
 
     // Public Static var --> Acessible to get; private to set
-    public static bool gameIsPaused { get => gameIsPaused; private set => gameIsPaused = value ; }
+    public static bool gameIsPaused = false;
 
     // Pause UI
     [Header("UI Elements")]

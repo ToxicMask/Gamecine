@@ -73,7 +73,7 @@ namespace Sidescroller.StateMachine
         [Header("Battle Variables")]
 
         [Tooltip("Maximum number of round per combat.")]
-        [SerializeField]  readonly int maxRound = 3;
+        [SerializeField] int maxRound = 3;
 
         private int roundID = 0;
         private int fighter1Score = 0;

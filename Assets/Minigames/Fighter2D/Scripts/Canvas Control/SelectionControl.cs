@@ -9,23 +9,31 @@ namespace Sidescroller.Canvas
     public class SelectionControl : MonoBehaviour
     {
         //[SerializeField] Animator animator = null;
+        [Header("Camera")]
         [SerializeField] Camera canvasCamera = null;
 
-        [SerializeField] ControllerMode selectedMode = ControllerMode.SINGLE_PLAYER;
-        [SerializeField] int modeID = 0;
+        //
+        private ControllerMode selectedMode = ControllerMode.SINGLE_PLAYER;
+        private int modeID = 0;
+        private bool modeIsSelected = false;
 
+        [Header("Single Player Mode - UI")]
         [SerializeField] GameObject optionSingle = null;
-        [SerializeField] GameObject optionMulti = null;
-        [SerializeField] GameObject optionAuto = null;
-
         [SerializeField] GameObject canvasSingle = null;
+
+        [Header("Local Multiplayer Mode - UI")]
+        [SerializeField] GameObject optionMulti = null;
         [SerializeField] GameObject canvasMulti = null;
+
+        [Header("Esceptador Mode - UI")]
+        [SerializeField] GameObject optionAuto = null;
         [SerializeField] GameObject canvasAuto = null;
 
+        [Header("Arrows UI")]
         [SerializeField] GameObject arrowLeft = null;
         [SerializeField] GameObject arrowRight = null;
 
-        bool modeIsSelected = false;
+        
 
         private void Start()
         {

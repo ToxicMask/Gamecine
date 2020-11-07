@@ -1125,7 +1125,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &261808309
 Transform:
@@ -1665,10 +1665,7 @@ MonoBehaviour:
   guiControl: {fileID: 988509852}
   PauseCanvas: {fileID: 1067185151}
   levelMusic: {fileID: 714763158}
-  roundID: -1
   maxRound: 3
-  fighter1Score: 0
-  fighter2Score: 0
 --- !u!4 &335354313
 Transform:
   m_ObjectHideFlags: 0
@@ -3926,7 +3923,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1945512527
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &880309071
@@ -5282,8 +5279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charText: {fileID: 1613808748}
   lineText: {fileID: 1360202274}
-  dialogAsset: {fileID: 11400000, guid: d5a581a7561e08d46aeb44c401ddc4be, type: 2}
   active: 0
+  dialogAsset: {fileID: 11400000, guid: d5a581a7561e08d46aeb44c401ddc4be, type: 2}
 --- !u!1 &1125236830
 GameObject:
   m_ObjectHideFlags: 0
@@ -7015,7 +7012,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1477719127
 Transform:
@@ -8039,8 +8036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charText: {fileID: 763170281}
   lineText: {fileID: 1130828323}
-  dialogAsset: {fileID: 11400000, guid: 88db3dffbcc09c643a13053e2769606f, type: 2}
   active: 0
+  dialogAsset: {fileID: 0}
 --- !u!1 &1636321855
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,13 +8477,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasCamera: {fileID: 1389458169}
-  selectedMode: 0
-  modeID: 0
   optionSingle: {fileID: 850527872}
-  optionMulti: {fileID: 1831052234}
-  optionAuto: {fileID: 1261963322}
   canvasSingle: {fileID: 1125236830}
+  optionMulti: {fileID: 1831052234}
   canvasMulti: {fileID: 511015455}
+  optionAuto: {fileID: 1261963322}
   canvasAuto: {fileID: 304863759}
   arrowLeft: {fileID: 965461540}
   arrowRight: {fileID: 499763754}
@@ -8604,7 +8599,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1829526765
 Transform:

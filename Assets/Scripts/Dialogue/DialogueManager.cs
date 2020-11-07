@@ -7,14 +7,22 @@ public class DialogueManager : MonoBehaviour
 {
 
     //Dialogue Componets
+    [Header("UI Elements")]
     [SerializeField] TextMeshProUGUI charText = null;
     [SerializeField] TextMeshProUGUI lineText = null;
 
 
     //Dialogue Variables
-    public Dialogue dialogAsset = null;
-    private Queue<DialogueLine> dialogue = null;
+    [Header("Dialogue Variables")]
+    [Tooltip("Check if dialogue is active.")]
     public bool active = false;
+    [Tooltip("Scriptable objects that contains dialogue data.")]
+    public Dialogue dialogAsset = null;
+
+
+    private Queue<DialogueLine> dialogue = null;
+    
+    
 
 
 
