@@ -9,12 +9,6 @@ namespace Prototypes.Lemmings
 
         public float cameraSpeed = 16f;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
         // Update is called once per frame
         void LateUpdate()
         {
@@ -23,6 +17,7 @@ namespace Prototypes.Lemmings
 
             Vector3 move = (moveX * Vector3.right) + (moveY * Vector3.up);
 
+            // Update X/Y Positions
             transform.position = transform.position + (move * Time.unscaledDeltaTime);
         }
     }

@@ -11,12 +11,11 @@ public abstract class GameManager : MonoBehaviour
     public static GameManager current;
 
     #endregion
-
-    //private MinigameState currentState = MinigameState.Intro;
+    
 
     [SerializeField] GameObject PauseCanvas = null;
 
-    // [SerializeField] MusicControl levelMusic = null;
+    public AudioControl audioControl = null;
 
 
     #region Unity Methods
@@ -48,6 +47,20 @@ public abstract class GameManager : MonoBehaviour
     #region Process Methods
 
     protected virtual void ProcessCurrentMinigameState()
+    {
+
+    }
+
+    #endregion
+
+    #region Check Methods
+
+    protected virtual void CheckVictory()
+    {
+
+    }
+
+    protected virtual void CheckDefeat()
     {
 
     }
