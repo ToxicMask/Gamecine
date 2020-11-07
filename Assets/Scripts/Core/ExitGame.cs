@@ -7,13 +7,6 @@ using UnityEngine;
 
 public class ExitGame : MonoBehaviour
 {
-    void Update()
-    {
-        if (Input.GetKey("escape"))
-        {
-            CloseAplication();
-        }
-    }
 
     void CloseAplication()
     {

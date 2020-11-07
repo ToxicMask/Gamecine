@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Master/Scenes/Intro/Start Screen.unity
+    path: Assets/Scenes/Intro/Start Screen.unity
     guid: 1c3f591a6252ec242b78d85600970527
   - enabled: 1
-    path: Assets/Master/Scenes/Intro/Animated Intro.unity
+    path: Assets/Scenes/Intro/Animated Intro.unity
     guid: 295745a7db6456a449dc60150d853611
   - enabled: 1
-    path: Assets/Master/Scenes/MainMenu1.unity
+    path: Assets/Scenes/MainMenu/MainMenu1.unity
     guid: 1ccf7bf29735c2e49ba20ba1aba7ea8b
   - enabled: 1
     path: Assets/Minigames/Fighter2D/Scenes/2D_fighter.unity
