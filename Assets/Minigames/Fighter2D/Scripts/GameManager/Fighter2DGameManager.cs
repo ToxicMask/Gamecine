@@ -28,7 +28,7 @@ namespace Sidescroller.StateMachine
     public class Fighter2DGameManager : MonoBehaviour
     {
         #region Static Variables
-
+        [HideInInspector]
         public static Fighter2DGameManager current;
 
         #endregion
@@ -37,33 +37,47 @@ namespace Sidescroller.StateMachine
 
         private MinigameState currentState = MinigameState.Intro;
 
+        [Header("Fighter Characters")]
+        [Tooltip("Character fighter script. - Left")]
         [SerializeField] SideScrollerFighter fighter1 = null;
+        [Tooltip("Character fighter script. - Right")]
         [SerializeField] SideScrollerFighter fighter2 = null;
-
+        [Tooltip("Data pack for AI characters.")]
         [SerializeField] AIFighterData standardProfile = null;
 
+        [Space(2)]
+
+        [Header("Canvas Control")]
+        [Tooltip("Introduction canvas script.")]
         [SerializeField] IntroControl introControl = null;
+        [Tooltip("Select gameplay mode canvas script.")]
         [SerializeField] SelectionControl selectionControl = null;
+        [Tooltip("Battle gameplay canvas script")]
         [SerializeField] GameplayCanvasControl gameControl = null;
+        [Tooltip("Conclusion canvas script.")]
         [SerializeField] EndingControl endControl = null;
 
+        [Header("Gameplay UI")]
         [SerializeField] Animator sceneryAnimator = null;
-
         [SerializeField] GUIControl guiControl = null;
- 
         [SerializeField] GameObject PauseCanvas = null;
 
+        [Header("Audio")]
+        [Tooltip("Audio manager script.")]
         [SerializeField] MusicControl levelMusic = null;
 
         #endregion
 
         #region Gameplay Variables
 
-        [SerializeField] int roundID = 0;
-        [SerializeField] int maxRound = 3;
+        [Header("Battle Variables")]
 
-        [SerializeField] int fighter1Score = 0;
-        [SerializeField] int fighter2Score = 0;
+        [Tooltip("Maximum number of round per combat.")]
+        [SerializeField]  readonly int maxRound = 3;
+
+        private int roundID = 0;
+        private int fighter1Score = 0;
+        private int fighter2Score = 0;
 
         #endregion
 
@@ -80,9 +94,6 @@ namespace Sidescroller.StateMachine
             /////////////////////////
             /// Config Game Scene ///
             /////////////////////////
-
-            // Check SerializeField variables
-            if (!PublicVariablesAvailable()) return;
 
             // Start Intro Sequence
             StartIntroSequence();
@@ -282,30 +293,6 @@ namespace Sidescroller.StateMachine
 
         #endregion
 
-        #region Meta Methods
-
-        // Check Public Defined Variables to Reassure the Right Assigment
-        bool PublicVariablesAvailable()
-        {
-            // End Function
-            if (fighter1 == null || fighter2 == null)
-            {
-                Debug.LogAssertion("No Fighters Selected !!!");
-                return false;
-            }
-
-            if (introControl == null || gameControl == null)
-            {
-                Debug.LogAssertion("No Canvas Selected !!!");
-                return false;
-            }
-
-            //Dont end Function
-            return true;
-        }
-
-        #endregion
-
         #region Action Methods 
 
         public void ChangeToMainMenuScene()
@@ -315,7 +302,7 @@ namespace Sidescroller.StateMachine
 
         public void ResetCurrentLevel()
         {
-            SceneManager.LoadScene( (int) AllScenes.AugustoMatraga);
+            SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex);
         }
 
         public void SetCurrentPlayers(SideScrollerFighter script, int id)

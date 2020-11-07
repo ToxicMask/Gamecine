@@ -7,13 +7,18 @@ public class PauseSystem : MonoBehaviour
 {
 
     // Public Static var --> Acessible to get; private to set
-    public static bool gameIsPaused; // { get { return gameIsPaused; } private set { gameIsPaused = value; } }
+    public static bool gameIsPaused { get => gameIsPaused; private set => gameIsPaused = value ; }
 
     // Pause UI
-    public GameObject pauseButtom;
-    public GameObject pauseMenuUI;
+    [Header("UI Elements")]
+    [Tooltip("Button to activate the menu canvas.")]
+    [SerializeField] GameObject pauseButtom = null;
+    [Tooltip("Canvas to manage the game pause.")]
+    [SerializeField] GameObject pauseMenuUI = null;
 
     // Main Menu ID
+    [Header("Quit to Scene")]
+    [Tooltip("Changes to this Scene when quits minigame.")]
     [SerializeField] AllScenes quitToSceneID = AllScenes.MainMenu;
 
     private void Start()
@@ -80,7 +85,7 @@ public class PauseSystem : MonoBehaviour
 
     // Change to Main Menu
 
-    public void Quit()
+    private void Quit()
     {
         Resume();
         SceneManager.LoadScene((int)quitToSceneID);
