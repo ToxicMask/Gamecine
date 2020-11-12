@@ -14,6 +14,8 @@ namespace GuideCharacter {
         public GameObject characterPrefab = null;
 
         // Time
+        private float spawnStartDelay = 2f;
+        private float spawnDelay = 1.5f;
 
         private void Awake()
         {
@@ -22,7 +24,12 @@ namespace GuideCharacter {
 
         private void Start()
         {
-            InvokeRepeating("SpawnCharacter", 2f, 1.5f);
+            // Set Invoking
+            InvokeRepeating("SpawnCharacter", spawnStartDelay, spawnDelay);
+
+            //Set Events
+            // Level Manager
+            if (LevelManager.current) LevelManager.current.OnLevelCompleted += Deactivate;
         }
 
         void SpawnCharacter()
@@ -31,8 +38,12 @@ namespace GuideCharacter {
             Debug.Assert(characterPrefab);
 
             GameObject newCharacter = Instantiate(characterPrefab, transform.position, transform.rotation);
+        }
 
-            
+
+        public void Deactivate()
+        {
+            CancelInvoke();
         }
     }
 }

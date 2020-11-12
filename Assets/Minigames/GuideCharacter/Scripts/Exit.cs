@@ -30,7 +30,7 @@ namespace GuideCharacter {
 
             if (charPassed >= minimalPassed)
             {
-                print("Victory");
+                LevelManager.current.LevelEnd(true);
             }
         }
     }

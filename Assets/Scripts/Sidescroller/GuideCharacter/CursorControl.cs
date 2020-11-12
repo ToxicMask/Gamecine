@@ -6,16 +6,30 @@ namespace GuideCharacter
 {
     public class CursorControl : MonoBehaviour
     {
+
+
+
         // Components
         public DynamicWorldBoundry cursorLimit = null;
 
         [Range(0, 8)]
         public float cursorSpeed = 4f;
 
-        // Update is called once per frame
-        void Update()
+        private void Start()
+        {
+            // Level Manager
+            if (LevelManager.current) LevelManager.current.OnLevelCompleted += Deacativate;
+        }
+
+        private void Update()
         {
             ProcessInput();
+        }
+
+        private void OnDestroy()
+        {
+            // Level Manager
+            if (LevelManager.current) LevelManager.current.OnLevelCompleted -= Deacativate;
         }
 
         void ProcessInput()
@@ -38,6 +52,11 @@ namespace GuideCharacter
 
             return new Vector2(x, y);
 
+        }
+
+        void Deacativate()
+        {
+            this.enabled = false;
         }
     }
 }

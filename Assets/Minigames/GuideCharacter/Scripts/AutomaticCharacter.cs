@@ -7,6 +7,8 @@ namespace GuideCharacter
     public class AutomaticCharacter : MonoBehaviour
     {
 
+        public static int totalCharacters = 0;
+
         [Range(-1, 1)]
         [SerializeField] int walkDirection = 1;
         [SerializeField] float walkSpeed = 16f;
@@ -22,10 +24,14 @@ namespace GuideCharacter
         Rigidbody2D rb = null;
 
 
-
+        #region Unity Methods
 
         private void Awake()
         {
+            // Add to Total Characters
+            totalCharacters++;
+
+            // Components
             rb = GetComponent<Rigidbody2D>();
 
             Collider2D collider = GetComponent<Collider2D>();
@@ -37,10 +43,26 @@ namespace GuideCharacter
             }
         }
 
+        private void Start()
+        {
+            // Level Manager
+            if (LevelManager.current) LevelManager.current.OnLevelCompleted += DestroySelf;
+        }
+
         void FixedUpdate()
         {
             Move();
         }
+
+        private void OnDestroy()
+        {
+            totalCharacters--;
+
+            // Level Manager
+            if (LevelManager.current) LevelManager.current.OnLevelCompleted -= DestroySelf;
+        }
+
+        #endregion
 
         private void Move()
         {
@@ -64,6 +86,11 @@ namespace GuideCharacter
             rb.velocity = Vector2.zero;
         }
 
+        private void DestroySelf()
+        {
+            Destroy(gameObject);
+        }
+
         bool CheckIsGrounded()
         {
             bool rightTrigger = Physics2D.Raycast(transform.position + (rangeGroundCheck * Vector3.right), Vector3.down, distanceToGround + fallDiff);
@@ -71,6 +98,7 @@ namespace GuideCharacter
 
             return leftTrigger || rightTrigger;
         }
+
     }
 }
 
