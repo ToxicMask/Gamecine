@@ -44,7 +44,6 @@ namespace GuideCharacter
 
         public void PanCamera(int direction)
         {
-
             print(direction);
         }
 
