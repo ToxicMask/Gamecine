@@ -14,8 +14,8 @@ namespace GuideCharacter {
         public GameObject characterPrefab = null;
 
         // Time
-        private float spawnStartDelay = 2f;
-        private float spawnDelay = 1.5f;
+        public float spawnStartDelay = 2f;
+        public float spawnDelay = 1.5f;
 
         private void Awake()
         {

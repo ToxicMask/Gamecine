@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace GuideCharacter
 {
-    public class AutomaticCharacter : MonoBehaviour
+    public class CharacterMovement : MonoBehaviour
     {
+        #region Variables & Components
 
-        public static int totalCharacters = 0;
-
+        // Walking
         [Range(-1, 1)]
         [SerializeField] int walkDirection = 1;
         [SerializeField] float walkSpeed = 16f;
@@ -21,18 +21,18 @@ namespace GuideCharacter
         // Gravity
         public float fallVelocity = 1f;
 
+        // Components
         Rigidbody2D rb = null;
+
+        #endregion
 
 
         #region Unity Methods
-
         private void Awake()
         {
-            // Add to Total Characters
-            totalCharacters++;
-
             // Components
             rb = GetComponent<Rigidbody2D>();
+
 
             Collider2D collider = GetComponent<Collider2D>();
 
@@ -42,29 +42,10 @@ namespace GuideCharacter
                 rangeGroundCheck = collider.bounds.extents.x;
             }
         }
-
-        private void Start()
-        {
-            // Level Manager
-            if (LevelManager.current) LevelManager.current.OnLevelCompleted += DestroySelf;
-        }
-
-        void FixedUpdate()
-        {
-            Move();
-        }
-
-        private void OnDestroy()
-        {
-            totalCharacters--;
-
-            // Level Manager
-            if (LevelManager.current) LevelManager.current.OnLevelCompleted -= DestroySelf;
-        }
-
         #endregion
 
-        private void Move()
+        #region Movement
+        public void Move()
         {
             if (CheckIsGrounded())
             {
@@ -81,24 +62,19 @@ namespace GuideCharacter
             }
         }
 
-        private void Stop()
+        public void Stop()
         {
             rb.velocity = Vector2.zero;
         }
 
-        private void DestroySelf()
-        {
-            Destroy(gameObject);
-        }
-
-        bool CheckIsGrounded()
+        private bool CheckIsGrounded()
         {
             bool rightTrigger = Physics2D.Raycast(transform.position + (rangeGroundCheck * Vector3.right), Vector3.down, distanceToGround + fallDiff);
             bool leftTrigger = Physics2D.Raycast(transform.position + (rangeGroundCheck * Vector3.left), Vector3.down, distanceToGround + fallDiff);
 
             return leftTrigger || rightTrigger;
         }
+        #endregion
 
     }
 }
-

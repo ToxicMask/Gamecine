@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3578994870129342395}
   - component: {fileID: 3578994870129342394}
+  - component: {fileID: 5150912017047141313}
   - component: {fileID: 3578994870129342373}
   - component: {fileID: 3578994870129342393}
   - component: {fileID: 3578994870129342392}
@@ -44,6 +45,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92874179bc0e1c14a9891248a8a547b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkDirection: 1
+  walkSpeed: 24
+  fallDiff: 0.01
+  fallVelocity: 1
+--- !u!114 &5150912017047141313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578994870129342372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44911d54ef6e182499c52e4752541805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkDirection: 1

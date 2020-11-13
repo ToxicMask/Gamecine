@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GuideCharacter
 {
-    public class CursorControl : MonoBehaviour
+    public class CursorMovementControl : MonoBehaviour
     {
 
 
