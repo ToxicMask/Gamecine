@@ -4,8 +4,20 @@ using UnityEngine;
 
 namespace GuideCharacter
 {
-    public class CharacterClass : MonoBehaviour
+    [System.Serializable]
+    public class CharacterClass 
     {
+
+        public string name = ""; 
+
+        protected CharacterMovement moveScript = null;
+
+        public CharacterClass( CharacterMovement characterMovement)
+        {
+            moveScript = characterMovement;
+        }
+
+
         public virtual void Setup()
         {
 
@@ -13,18 +25,32 @@ namespace GuideCharacter
 
         public virtual void UpdateLoop()
         {
-
+            
         }
 
         public virtual void FixedLoop()
+        {
+            
+        }
+
+        public virtual void Exit()
         {
 
         }
 
     }
 
+    [System.Serializable]
     public class Pedestrian : CharacterClass
     {
+        public Pedestrian(CharacterMovement characterMovement) :base (characterMovement)
+        {
+            name = "Pedestrian";
+        }
 
+        public override void FixedLoop()
+        {
+            moveScript.StandardMove();
+        }
     }
 }

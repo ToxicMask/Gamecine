@@ -10,7 +10,12 @@ namespace GuideCharacter
         public static int totalCharacters = 0;
 
         // Components
-        CharacterMovement moveScipt = null;
+        CharacterMovement moveScript = null;
+
+        // Current Class
+        public CharacterClass currentClass = null;
+
+
 
         #region Unity Methods
 
@@ -20,7 +25,10 @@ namespace GuideCharacter
             totalCharacters++;
 
             // Components
-            moveScipt = GetComponent<CharacterMovement>();
+            moveScript = GetComponent<CharacterMovement>();
+
+            // Set Standard Class
+            ChangeClass();
         }
 
         private void Start()
@@ -29,9 +37,14 @@ namespace GuideCharacter
             if (LevelManager.current) LevelManager.current.OnLevelCompleted += DestroySelf;
         }
 
+        private void Update()
+        {
+            currentClass.UpdateLoop();
+        }
+
         void FixedUpdate()
         {
-            moveScipt.Move();
+            currentClass.FixedLoop();
         }
 
         private void OnDestroy()
@@ -44,6 +57,14 @@ namespace GuideCharacter
 
         #endregion
 
+        #region Class Control
+
+        private void ChangeClass()
+        {
+            currentClass = new Pedestrian(moveScript);
+        }
+
+        #endregion
 
         #region Interaction
 

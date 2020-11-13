@@ -45,7 +45,7 @@ namespace GuideCharacter
         #endregion
 
         #region Movement
-        public void Move()
+        public void StandardMove()
         {
             if (CheckIsGrounded())
             {
