@@ -8,7 +8,7 @@ public class CursorCommandControl : MonoBehaviour
     // Expression
     private bool mainClick => Input.GetButtonDown("Action Primary");
 
-    private float cursorRadius = .05f;
+    private float cursorRadius = .04f;
     
     void LateUpdate()
     {
@@ -19,8 +19,12 @@ public class CursorCommandControl : MonoBehaviour
             foreach ( Collider2D clicked in clickedObjects)
             {
                 ICursorInteractable interact = clicked.GetComponent<ICursorInteractable>();
-
-                if (interact != null) interact.Interact();
+                if (interact != null)
+                {
+                    // Only Once
+                    interact.Interact();
+                    return;
+                }
             }
         }
     }

@@ -8,10 +8,14 @@ namespace GuideCharacter {
     public class Entrance : MonoBehaviour
     {
         // Components
-        Collider2D colliderTrigger = null;
+        private Collider2D colliderTrigger = null;
 
         // Character Prefab
         public GameObject characterPrefab = null;
+
+        // Max Number
+        [SerializeField] bool hasMaxSpawn = true;
+        [SerializeField] int maxSpawn = 20;
 
         // Time
         public float spawnStartDelay = 2f;
@@ -37,6 +41,12 @@ namespace GuideCharacter {
 
             Debug.Assert(characterPrefab);
 
+            // Max at The Level at the same Type
+            if (hasMaxSpawn)
+            {
+                if ( AutomaticCharacter.totalCharacters >= maxSpawn) return;
+            }
+            
             GameObject newCharacter = Instantiate(characterPrefab, transform.position, transform.rotation);
         }
 

@@ -28,7 +28,7 @@ namespace GuideCharacter
             moveScript = GetComponent<CharacterMovement>();
 
             // Set Standard Class
-            ChangeClass();
+            ChangeClass(ClassName.Pedestrian);
         }
 
         private void Start()
@@ -42,9 +42,14 @@ namespace GuideCharacter
             currentClass.UpdateLoop();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             currentClass.FixedLoop();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            currentClass.OnTriggerEnter(collider);
         }
 
         private void OnDestroy()
@@ -59,9 +64,30 @@ namespace GuideCharacter
 
         #region Class Control
 
-        private void ChangeClass()
+        private void ChangeClass(ClassName newClassName)
         {
-            currentClass = new Pedestrian(moveScript);
+
+            CharacterClass newClass = null;
+
+            switch (newClassName)
+            {
+                case ClassName.Pedestrian: newClass = new Pedestrian(moveScript); break;
+                case ClassName.Guard: newClass = new Guard(moveScript); break;
+            }
+
+
+
+            if (newClass != null)
+            {
+                // Exit Old State
+                currentClass.Exit();
+
+                // Change State
+                currentClass = newClass;
+
+                // Enter New State
+                currentClass.Setup();
+            }
         }
 
         #endregion
@@ -70,7 +96,16 @@ namespace GuideCharacter
 
         public void Interact()
         {
-            
+            //Temp
+            if (currentClass.name == ClassName.Pedestrian)
+            {
+                ChangeClass(ClassName.Guard);
+            }
+            else if (currentClass.name == ClassName.Guard)
+            {
+                ChangeClass(ClassName.Pedestrian);
+            }
+
         }
 
         private void DestroySelf()

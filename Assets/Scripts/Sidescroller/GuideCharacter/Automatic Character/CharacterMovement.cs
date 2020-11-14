@@ -26,7 +26,6 @@ namespace GuideCharacter
 
         #endregion
 
-
         #region Unity Methods
         private void Awake()
         {
@@ -62,9 +61,29 @@ namespace GuideCharacter
             }
         }
 
+        public void OnlyFall()
+        {
+            if (CheckIsGrounded())
+            {
+                // Stay Still
+                Stop();
+            }
+
+            else
+            {
+                // Only Verical
+                rb.velocity = fallVelocity * Vector3.down;
+            }
+        }
+
         public void Stop()
         {
             rb.velocity = Vector2.zero;
+        }
+
+        public void InvertWalkDirection()
+        {
+            walkDirection *= -1;
         }
 
         private bool CheckIsGrounded()
