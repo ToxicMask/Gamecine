@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GuideCharacter;
 
-public interface ICursorInteractable 
+public interface ICursorChangeClass 
 {
-    void Interact();
+    void Try2ChangeClass(ClassName newClass);
 }

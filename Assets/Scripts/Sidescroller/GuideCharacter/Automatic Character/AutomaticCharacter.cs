@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GuideCharacter
 {
-    public class AutomaticCharacter : MonoBehaviour, ICursorInteractable
+    public class AutomaticCharacter : MonoBehaviour, ICursorChangeClass
     {
 
         // Components
@@ -92,16 +92,13 @@ namespace GuideCharacter
 
         #region Interaction
 
-        public void Interact()
+        public void Try2ChangeClass(ClassName newClass)
         {
-            //Temp
-            if (currentClass.name == ClassName.Pedestrian)
+            if (currentClass.name == newClass || newClass == ClassName.Null) return;
+
+            else
             {
-                ChangeClass(ClassName.Guard);
-            }
-            else if (currentClass.name == ClassName.Guard)
-            {
-                ChangeClass(ClassName.Pedestrian);
+                ChangeClass(newClass);
             }
 
         }
