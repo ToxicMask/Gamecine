@@ -43,13 +43,11 @@ namespace GuideCharacter
             // Perform Action event
             if (OnLevelCompleted != null) OnLevelCompleted();
 
-            print("Total A. Character: " + AutomaticCharacter.totalCharacters.ToString());
             print("Victory!");
             
 
             yield return new WaitWhile(() => !InputKeyPress);
-
-            print("Total A. Character: " + AutomaticCharacter.totalCharacters.ToString());
+            
 
             SceneManager.LoadScene((int)AllScenes.MainMenu);
 

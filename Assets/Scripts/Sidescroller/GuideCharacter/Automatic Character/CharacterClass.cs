@@ -21,9 +21,12 @@ namespace GuideCharacter
 
         protected CharacterMovement moveScript = null;
 
-        public CharacterClass( CharacterMovement characterMovement)
+        protected SpriteRenderer renderer = null;
+
+        public CharacterClass( CharacterMovement characterMovement, SpriteRenderer spriteRenderer)
         {
             moveScript = characterMovement;
+            renderer = spriteRenderer;
         }
 
 
@@ -67,9 +70,14 @@ namespace GuideCharacter
     [System.Serializable]
     public class Pedestrian : CharacterClass
     {
-        public Pedestrian(CharacterMovement characterMovement) :base(characterMovement)
+        public Pedestrian(CharacterMovement characterMovement, SpriteRenderer spriteRenderer) :base(characterMovement, spriteRenderer)
         {
             name = ClassName.Pedestrian;
+        }
+
+        public override void Setup()
+        {
+            renderer.color = Color.green;
         }
 
         public override void FixedLoop()
@@ -86,7 +94,7 @@ namespace GuideCharacter
     [System.Serializable]
     public class Guard : CharacterClass
     {
-        public Guard(CharacterMovement characterMovement) : base(characterMovement)
+        public Guard(CharacterMovement characterMovement, SpriteRenderer spriteRenderer) : base(characterMovement, spriteRenderer)
         {
             name = ClassName.Guard;
         }
@@ -94,6 +102,7 @@ namespace GuideCharacter
         public override void Setup()
         {
             moveScript.OnlyFall();
+            renderer.color = Color.red;
         }
 
         public override void UpdateLoop()

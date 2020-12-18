@@ -6,8 +6,6 @@ namespace GuideCharacter
 {
     public class AutomaticCharacter : MonoBehaviour, ICursorInteractable
     {
-        // Static
-        public static int totalCharacters = 0;
 
         // Components
         CharacterMovement moveScript = null;
@@ -21,8 +19,6 @@ namespace GuideCharacter
 
         private void Awake()
         {
-            // Add to Total Characters
-            totalCharacters++;
 
             // Components
             moveScript = GetComponent<CharacterMovement>();
@@ -54,7 +50,6 @@ namespace GuideCharacter
 
         private void OnDestroy()
         {
-            totalCharacters--;
 
             // Level Manager
             if (LevelManager.current) LevelManager.current.OnLevelCompleted -= DestroySelf;
@@ -69,10 +64,13 @@ namespace GuideCharacter
 
             CharacterClass newClass = null;
 
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+
             switch (newClassName)
             {
-                case ClassName.Pedestrian: newClass = new Pedestrian(moveScript); break;
-                case ClassName.Guard: newClass = new Guard(moveScript); break;
+                case ClassName.Pedestrian: newClass = new Pedestrian(moveScript, spriteRenderer); break;
+                case ClassName.Guard: newClass = new Guard(moveScript, spriteRenderer); break;
             }
 
 
