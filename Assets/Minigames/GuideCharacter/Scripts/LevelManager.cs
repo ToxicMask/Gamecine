@@ -17,12 +17,25 @@ namespace GuideCharacter
         // Expressions
         private bool InputKeyPress => Input.GetButtonDown("Action Primary") || Input.GetButtonDown("Action Secondary");
 
+        // Level State
+
+        [Tooltip("Number of Spawn Paulistas in the Level")]
+        public int paulistasIn = 10;
+        [Tooltip("Number of  Paulistas that fineshed the Level")]
+        public int paulistaOut = 0;
+        [Tooltip("Minimal number of OutPaulistas to Win the Level")]
+        public int minOut = 5;
+
+        public int score = 0;
+
 
         #region Unity Methods
 
         private void Awake()
         {
             current = this;
+
+            score = 0;
         }
 
         private void OnDestroy()

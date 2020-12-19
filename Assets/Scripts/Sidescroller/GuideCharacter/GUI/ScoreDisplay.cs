@@ -6,7 +6,7 @@ using TMPro;
 
 namespace GuideCharacter
 {
-    public class PaulistaCountDisplay : MonoBehaviour
+    public class ScoreDisplay : MonoBehaviour
     {
 
         TMP_Text displayCount = null;
@@ -21,16 +21,15 @@ namespace GuideCharacter
         {
 
             UpdateDisplay();
-
         }
 
 
         private void UpdateDisplay()
         {
 
-            string template = "PAULISTAS: {0}";
+            string template = "SCORE: {0}";
 
-            string newCount = AutomaticCharacter.GetCurrentCount().ToString("D2");
+            string newCount = LevelManager.current.score.ToString("D4");
 
             string newText = string.Format(template, newCount);
 

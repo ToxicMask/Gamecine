@@ -14,8 +14,8 @@ namespace GuideCharacter
         [SerializeField] float walkSpeed = 16f;
 
         // Ground Check
-        private float distanceToGround = .1f;
-        private float rangeGroundCheck = .1f;
+        private float distanceToGround = .15f;
+        private float rangeGroundCheck = .15f;
         public float fallDiff = .01f;
 
         // Gravity
