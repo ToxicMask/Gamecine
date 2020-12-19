@@ -6,11 +6,12 @@ using TMPro;
 
 namespace GuideCharacter
 {
-    public class PaulistaGoalDisplay : MonoBehaviour
+    public class ScoreDisplay : MonoBehaviour
     {
+
         TMP_Text displayCount = null;
 
-        private void Start()
+    private void Awake()
         {
             // Auto Get
             displayCount = GetComponent<TMP_Text>();
@@ -20,20 +21,19 @@ namespace GuideCharacter
         {
 
             UpdateDisplay();
-
         }
+
 
         private void UpdateDisplay()
         {
 
-            string template = "GOAL: {0} / {1} (Min: {2})";
+            string template = "SCORE: {0}";
 
-            string newCount = AutomaticCharacter.GetCurrentCount().ToString("D2");
+            string newCount = LevelManager.current.score.ToString("D3");
 
-            string newText = string.Format(template, LevelManager.current.paulistaOut, LevelManager.current.paulistasIn, LevelManager.current.minOut );
+            string newText = string.Format(template, newCount);
 
             displayCount.text = newText;
         }
-
     }
 }

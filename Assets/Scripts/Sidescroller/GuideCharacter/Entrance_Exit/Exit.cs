@@ -36,6 +36,9 @@ namespace GuideCharacter {
                 Destroy(collider.gameObject);
                 charOut++;
 
+                // Level Manager
+                LevelManager.current.paulistaOut = charOut;
+
                 // Score 
                 LevelManager.current.score += 100;
             }

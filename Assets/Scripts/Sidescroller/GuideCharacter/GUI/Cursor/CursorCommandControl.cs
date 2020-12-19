@@ -27,6 +27,12 @@ namespace GuideCharacter
             current = this;
         }
 
+        private void Start()
+        {
+            // Event
+            if (LevelManager.current)  LevelManager.current.OnLevelCompleted += Deactivated;
+        }
+
         void Update()
         {
             if (mainClick)
@@ -75,6 +81,9 @@ namespace GuideCharacter
         private void OnDestroy()
         {
             if (current == this) current = null;
+
+            // Event
+            if (LevelManager.current) LevelManager.current.OnLevelCompleted -= Deactivated;
         }
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace GuideCharacter
 {
@@ -20,6 +21,15 @@ namespace GuideCharacter
         // Expressions
         private bool InputKeyPress => Input.GetButtonDown("Action Primary") || Input.GetButtonDown("Action Secondary");
 
+
+        // Canvas
+        public Canvas pauseCanvas = null;
+        public Canvas gameplayCanvas = null;
+        public Canvas endLevelCanvas = null;
+
+        // Text
+        public LevelVictoryDisplay endLevelResultText = null;
+
         // Level State
 
         [Tooltip("Number of Spawn Paulistas in the Level")]
@@ -37,8 +47,6 @@ namespace GuideCharacter
         private void Awake()
         {
             current = this;
-
-            score = 0;
         }
 
         private void LateUpdate()
@@ -56,6 +64,11 @@ namespace GuideCharacter
 
         #endregion
 
+        public void ResetCurrentLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         public void CheckVictory()
         {
             // No more Spawns
@@ -67,37 +80,43 @@ namespace GuideCharacter
                 // Make Level Completed
                 levelCompleted = true;
 
-                // Minimal For Victory
-                bool isVictory = (Exit.current.charOut >= minOut);
-
-                LevelEnd(isVictory);
+                StartCoroutine("LevelCompleted");
             }
             
         }
-        
-
-        public void LevelEnd(bool isVictory)
-        {
-            if (isVictory) print("Victory!");
-
-            else print("Defeat!");
-
-            StartCoroutine("LevelCompleted");
-        }
-
 
         private IEnumerator LevelCompleted()
         {
+            // Minimal For Victory
+            bool isVictory = (Exit.current.charOut >= minOut);
+
+
             // Perform Action event
             if (OnLevelCompleted != null) OnLevelCompleted();
 
+            // Disable Pause Canvas
+            if (pauseCanvas) pauseCanvas.gameObject.SetActive(false);
+
+            // Disable GUI
+            if (gameplayCanvas) gameplayCanvas.gameObject.SetActive(false);
+
+            // Activate Victory Canvas
+            if (endLevelCanvas) endLevelCanvas.gameObject.SetActive(true);
+
+            // Update End Level Text
+            if (endLevelResultText) endLevelResultText.DisplayResult(isVictory);
+
+            // Display Score
             print("Total Score: " + score.ToString());
             
 
             yield return new WaitWhile(() => !InputKeyPress);
-            
 
-            SceneManager.LoadScene((int)AllScenes.MainMenu);
+            // Next Level if victory, else Reload Level
+            if (isVictory) SceneManager.LoadScene((int)AllScenes.MainMenu);
+
+            else ResetCurrentLevel();
+
 
             yield return null;
         }

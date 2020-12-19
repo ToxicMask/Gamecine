@@ -6,20 +6,19 @@ using TMPro;
 
 namespace GuideCharacter
 {
-    public class ScoreDisplay : MonoBehaviour
+    public class FinalScoreDisplay : MonoBehaviour
     {
 
         TMP_Text displayCount = null;
 
-        private void Start()
+        private void Awake()
         {
             // Auto Get
             displayCount = GetComponent<TMP_Text>();
         }
 
-        private void LateUpdate()
+        private void OnEnable()
         {
-
             UpdateDisplay();
         }
 
@@ -29,7 +28,7 @@ namespace GuideCharacter
 
             string template = "SCORE: {0}";
 
-            string newCount = LevelManager.current.score.ToString("D4");
+            string newCount = LevelManager.current.score.ToString("D3");
 
             string newText = string.Format(template, newCount);
 
