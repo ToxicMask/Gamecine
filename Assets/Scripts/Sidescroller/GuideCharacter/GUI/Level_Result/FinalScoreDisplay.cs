@@ -28,7 +28,7 @@ namespace GuideCharacter
 
             string template = "SCORE: {0}";
 
-            string newCount = LevelManager.current.score.ToString("D3");
+            string newCount = LevelManager.current.score.ToString();
 
             string newText = string.Format(template, newCount);
 

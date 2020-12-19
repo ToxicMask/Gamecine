@@ -35,7 +35,6 @@ namespace GuideCharacter {
 
             displayCount.text = newText;
 
-            print(newText);
         }
     }
 }

@@ -28,10 +28,16 @@ namespace GuideCharacter
         {
 
             string template = "SCORE: {0}";
+            int fixedSize = 28;
 
-            string newCount = LevelManager.current.score.ToString("D3");
+            string newCount = LevelManager.current.score.ToString();
 
             string newText = string.Format(template, newCount);
+
+            if (newText.Length < fixedSize)
+            {
+                newText = newText.Replace(" ", (new string(' ', (fixedSize - newText.Length))));
+            }
 
             displayCount.text = newText;
         }

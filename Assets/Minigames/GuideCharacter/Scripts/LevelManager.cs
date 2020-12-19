@@ -19,8 +19,10 @@ namespace GuideCharacter
         public event LevelEvent OnLevelCompleted;
 
         // Expressions
-        private bool InputKeyPress => Input.GetButtonDown("Action Primary") || Input.GetButtonDown("Action Secondary");
+        private bool InputKeyPress => Input.GetButtonDown("Action Primary") || Input.GetButtonDown("Action Secondary") || Input.GetButtonDown("Pause");
 
+        // Timer
+        public Timer levelTimer = null;
 
         // Canvas
         public Canvas pauseCanvas = null;
@@ -40,6 +42,7 @@ namespace GuideCharacter
         public int minOut = 5;
 
         public int score = 0;
+        public int scoreBonusPerSecond = 5;
 
 
         #region Unity Methods
@@ -47,6 +50,7 @@ namespace GuideCharacter
         private void Awake()
         {
             current = this;
+            levelTimer = GetComponent<Timer>();
         }
 
         private void LateUpdate()
@@ -77,12 +81,17 @@ namespace GuideCharacter
 
             if (entranceCleared && (CharacterLeft == 0))
             {
-                // Make Level Completed
-                levelCompleted = true;
-
-                StartCoroutine("LevelCompleted");
+                EndLevel();
             }
             
+        }
+
+        public void EndLevel()
+        {
+            // Make Level Completed
+            levelCompleted = true;
+
+            StartCoroutine("LevelCompleted");
         }
 
         private IEnumerator LevelCompleted()
@@ -90,9 +99,14 @@ namespace GuideCharacter
             // Minimal For Victory
             bool isVictory = (Exit.current.charOut >= minOut);
 
+            // Update Score = Timer if victory
+            if (isVictory) score += ((int)levelTimer.TimeLeft) * scoreBonusPerSecond;
 
             // Perform Action event
             if (OnLevelCompleted != null) OnLevelCompleted();
+
+            // Disable Timer
+            if (levelTimer) levelTimer.enabled = false;
 
             // Disable Pause Canvas
             if (pauseCanvas) pauseCanvas.gameObject.SetActive(false);
@@ -106,8 +120,6 @@ namespace GuideCharacter
             // Update End Level Text
             if (endLevelResultText) endLevelResultText.DisplayResult(isVictory);
 
-            // Display Score
-            print("Total Score: " + score.ToString());
             
 
             yield return new WaitWhile(() => !InputKeyPress);
