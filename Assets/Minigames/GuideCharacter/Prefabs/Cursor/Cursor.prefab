@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2138432238755892811}
   - component: {fileID: 2138432238755892808}
   - component: {fileID: 2138432238755892810}
-  - component: {fileID: 2138432238755892812}
+  - component: {fileID: 541778576}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138432238755892809}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 1783404007
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6495dc73db747b7439159df73d8809fb, type: 3}
   m_Color: {r: 0, g: 1, b: 0.13080311, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,25 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorLimit: {fileID: 0}
-  cursorSpeed: 4
---- !u!50 &2138432238755892812
-Rigidbody2D:
-  serializedVersion: 4
+  cursorSpeed: 2
+--- !u!114 &541778576
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138432238755892809}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713c75adb69a25c4dabf145e929a2ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedClassName: 1
