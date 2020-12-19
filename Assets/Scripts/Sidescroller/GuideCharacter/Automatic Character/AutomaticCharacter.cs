@@ -90,6 +90,15 @@ namespace GuideCharacter
 
         #endregion
 
+        #region Static
+
+        public static int GetCurrentCount()
+        {
+            return GameObject.FindGameObjectsWithTag("Player").Length;
+        }
+
+        #endregion
+
         #region Interaction
 
         public void Try2ChangeClass(ClassName newClass)

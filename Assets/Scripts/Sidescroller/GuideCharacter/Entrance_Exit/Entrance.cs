@@ -44,7 +44,7 @@ namespace GuideCharacter {
             // Max at The Level at the same Type
             if (hasMaxSpawn)
             {
-                if ( GameObject.FindGameObjectsWithTag("Player").Length >= maxSpawn) return;
+                if ( AutomaticCharacter.GetCurrentCount() >= maxSpawn) return;
             }
             
             GameObject newCharacter = Instantiate(characterPrefab, transform.position, transform.rotation);
