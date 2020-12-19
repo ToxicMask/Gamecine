@@ -10,6 +10,9 @@ namespace GuideCharacter
         // Singletons
         public static LevelManager current = null;
 
+        // End
+        private bool levelCompleted = false;
+
         // Events
         public delegate void LevelEvent();
         public event LevelEvent OnLevelCompleted;
@@ -38,6 +41,14 @@ namespace GuideCharacter
             score = 0;
         }
 
+        private void LateUpdate()
+        {
+            if (!levelCompleted)
+            {
+                CheckVictory();
+            }
+        }
+
         private void OnDestroy()
         {
             if (LevelManager.current == this) current = null;
@@ -45,9 +56,33 @@ namespace GuideCharacter
 
         #endregion
 
+        public void CheckVictory()
+        {
+            // No more Spawns
+            bool entranceCleared = Entrance.current.totalSpawned == Entrance.current.maxSpawn;
+            int CharacterLeft = AutomaticCharacter.GetCurrentCount();
+
+            if (entranceCleared && (CharacterLeft == 0))
+            {
+                // Make Level Completed
+                levelCompleted = true;
+
+                // Minimal For Victory
+                bool isVictory = (Exit.current.charOut >= minOut);
+
+                LevelEnd(isVictory);
+            }
+            
+        }
+        
+
         public void LevelEnd(bool isVictory)
         {
-            if (isVictory) StartCoroutine("LevelCompleted");
+            if (isVictory) print("Victory!");
+
+            else print("Defeat!");
+
+            StartCoroutine("LevelCompleted");
         }
 
 
@@ -56,7 +91,7 @@ namespace GuideCharacter
             // Perform Action event
             if (OnLevelCompleted != null) OnLevelCompleted();
 
-            print("Victory!");
+            print("Total Score: " + score.ToString());
             
 
             yield return new WaitWhile(() => !InputKeyPress);

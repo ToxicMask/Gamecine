@@ -4,19 +4,28 @@ using UnityEngine;
 
 
 namespace GuideCharacter {
+
     [RequireComponent(typeof(Collider2D))]
     public class Exit : MonoBehaviour
     {
+        // Static
+        public static Exit current = null;
+
         // Components
         Collider2D colliderTrigger = null;
 
         // Counter
-        int charPassed = 0;
-        int minimalPassed = 5;
+        public int charOut = 0;
 
         private void Awake()
         {
+            current = this;
             colliderTrigger = GetComponent<Collider2D>();
+        }
+
+        private void Start()
+        {
+            charOut = 0;
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
@@ -25,13 +34,16 @@ namespace GuideCharacter {
             if (collider.GetComponent<AutomaticCharacter>())
             {
                 Destroy(collider.gameObject);
-                charPassed++;
-            }
+                charOut++;
 
-            if (charPassed >= minimalPassed)
-            {
-                LevelManager.current.LevelEnd(true);
+                // Score 
+                LevelManager.current.score += 100;
             }
+        }
+
+        private void OnDestroy()
+        {
+            if (current == this) current = null;
         }
     }
 }

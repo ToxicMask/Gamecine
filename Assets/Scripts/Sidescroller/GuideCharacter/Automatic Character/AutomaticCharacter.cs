@@ -50,7 +50,6 @@ namespace GuideCharacter
 
         private void OnDestroy()
         {
-
             // Level Manager
             if (LevelManager.current) LevelManager.current.OnLevelCompleted -= DestroySelf;
         }

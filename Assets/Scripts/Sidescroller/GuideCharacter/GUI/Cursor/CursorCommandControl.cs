@@ -76,5 +76,11 @@ namespace GuideCharacter
         {
             if (current == this) current = null;
         }
+
+
+        public void Deactivated()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

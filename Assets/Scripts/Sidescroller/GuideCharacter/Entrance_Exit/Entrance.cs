@@ -7,15 +7,17 @@ namespace GuideCharacter {
     [RequireComponent(typeof(Collider2D))]
     public class Entrance : MonoBehaviour
     {
+        public static Entrance current = null;
+
         // Components
         private Collider2D colliderTrigger = null;
 
         // Character Prefab
         public GameObject characterPrefab = null;
 
-        // Max Number
-        [SerializeField] bool hasMaxSpawn = true;
-        [SerializeField] int maxSpawn = 20;
+        // Max Number of Spawn
+        public int maxSpawn = 20;
+        public int totalSpawned = 0;
 
         // Time
         public float spawnStartDelay = 2f;
@@ -23,17 +25,28 @@ namespace GuideCharacter {
 
         private void Awake()
         {
+            current = this;
             colliderTrigger = GetComponent<Collider2D>();
         }
 
         private void Start()
         {
+
+            // Set Max Spawn
+            maxSpawn = LevelManager.current.paulistasIn;
+
             // Set Invoking
             InvokeRepeating("SpawnCharacter", spawnStartDelay, spawnDelay);
 
             //Set Events
             // Level Manager
             if (LevelManager.current) LevelManager.current.OnLevelCompleted += Deactivate;
+
+        }
+
+        private void OnDestroy()
+        {
+            if (current == this) current = null;
         }
 
         void SpawnCharacter()
@@ -42,12 +55,16 @@ namespace GuideCharacter {
             Debug.Assert(characterPrefab);
 
             // Max at The Level at the same Type
-            if (hasMaxSpawn)
+            if ( totalSpawned >= maxSpawn)
             {
-                if ( AutomaticCharacter.GetCurrentCount() >= maxSpawn) return;
+                Deactivate();
+                return;
             }
             
+            // Spawn Character
             GameObject newCharacter = Instantiate(characterPrefab, transform.position, transform.rotation);
+            // Add to Count
+            totalSpawned += 1;
         }
 
 
