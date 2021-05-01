@@ -2,4 +2,4 @@
 Gamification of Brazil's Cinema.
 
 
-Engine: Unity 2019.3.3f1
+Engine: Unity 2019.4.0f1
