@@ -15,11 +15,6 @@ namespace ChickenPrototype.Player
             -> Set Movement: Auto Walk
             -> Colision: Hit Walls
             -> Pick Objective: Chicken
-
-
-
-
-
     **/
 
 

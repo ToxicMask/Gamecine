@@ -1,26 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenPrototype.Scenary;
 
 
 namespace ChickenPrototype.Chicken
 {
     public class Chicken : MonoBehaviour
     {
-
-        readonly float snapFactor = .125f; // Adjust position to grid
+        //float snapFactor = .125f; // Adjust position to grid
 
         // Components
         [SerializeField] Rigidbody2D rb2D;
 
         // Movement Variables -> Auto Walk
         Vector2 runDirection = Vector2.right;
-        [SerializeField] float runSpeed = 1.2f;
+        // Direction Control Variable
+        bool isReadyToChangeDirection = false;
+
+        //Movement Values
+        float runSpeed = 1.2f;
+        float hitWallReach = .15f;
+
+        // Timer Values
+        public GameObject eggPrefab;
+
+        public float timerValue = 10f;
+        float timerLeft = 10f;
 
 
         // Start is called before the first frame update
         void Start()
         {
+            // Set Timer
+            timerLeft = timerValue;
+
             // Auto-Get from the same GameObject
             if (!rb2D) rb2D = GetComponent<Rigidbody2D>();
 
@@ -30,13 +44,27 @@ namespace ChickenPrototype.Chicken
         void Update()
         {
 
-            // Set Input Variables
-            float vInput = 0;             // Vertical Input
-            float hInput = 0;           // Horizontal Input
+            //Update Timer
+            timerLeft -= Time.deltaTime;
 
+            if (timerLeft < 0)
+            {
+                if (eggPrefab) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+                timerLeft = timerValue;
+                
+            }
 
-            //Process Input
-            if (vInput != 0 || hInput != 0) ChangeRunDirection(vInput, hInput);
+            // Check each Direction
+            RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
+
+            if (hitWall)
+            {
+                if (hitWall.collider.GetComponent<Wall>())
+                {
+                    //Get new Direction // Invert Direction
+                    ChangeRunDirection(-runDirection);
+                }
+            }
 
 
             // Execute Movement
@@ -44,22 +72,42 @@ namespace ChickenPrototype.Chicken
 
         }
 
-        private void OnCollisionStay2D(Collision2D collision)
+
+        // Check New Direction Chenge to horizontal to vertical and vice-versa
+        private void OnTriggerStay2D(Collider2D collision)
         {
-            print(collision.collider + "@");
+            if (!isReadyToChangeDirection) return;
 
-            Vector2 contactNormal = collision.GetContact(0).normal;
 
-            // If contact is oposite of Run Direction -> Set new Direction
-            if (contactNormal == -runDirection )
+            DirectionGuide dg = collision.GetComponent<DirectionGuide>();
+            float distance = (transform.position - collision.transform.position).magnitude;
+            float threshold = 0.02f;
+
+            if (dg && (distance < threshold))
             {
-                runDirection = GetRandomDirection(runDirection);
-                print("BOUNCE!" + runDirection.ToString());
+                // Eliminate Theshhold
+                transform.position = collision.transform.position;
+
+                // Eliminate Repetition
+                isReadyToChangeDirection = false;
+
+                // Set New Direction
+                Vector2 newDirection = dg.GetSetDirection(runDirection);
+
+                ChangeRunDirection(newDirection);
+
+
+                print("POP");
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            isReadyToChangeDirection = true;
+        }
 
-        Vector2 GetRandomDirection( Vector2 excepition)
+
+        Vector2 GetRandomDirection(Vector2 excepition)
         {
             Vector2[] allDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.right, Vector2.left };
 
@@ -75,23 +123,12 @@ namespace ChickenPrototype.Chicken
          * Changes Current Direction
          * Only Moves in Vertical or Horizontal
          **/
-        private void ChangeRunDirection(float vInput, float hInput)
+        public void ChangeRunDirection(Vector2 newDir)
         {
             // Change Run Direction
-            // Move vertical
-            if (vInput != 0)
-            {
-                runDirection.x = 0;
-                runDirection.y = vInput / Mathf.Abs(vInput);
-            }
-
-            // Move Horizontal
-            else if (hInput != 0)
-            {
-                runDirection.x = hInput / Mathf.Abs(hInput);
-                runDirection.y = 0;
-            }
+            runDirection = newDir;
         }
+
 
         /**  
          * Execute Run Movement
@@ -100,7 +137,28 @@ namespace ChickenPrototype.Chicken
         {
             // Update position -> Auto Walk
             rb2D.position += runDirection * runSpeed * Time.deltaTime;
-
         }
     }
 }
+
+
+
+
+
+/// Trash Code
+
+/**
+private void OnCollisionStay2D(Collision2D collision)
+{
+    print(collision.collider + "@");
+
+    Vector2 contactNormal = collision.GetContact(0).normal;
+
+    // If contact is oposite of Run Direction -> Set new Direction
+    if (contactNormal == -runDirection )
+    {
+        ChangeRunDirection(GetRandomDirection(runDirection));
+        print("BOUNCE!" + runDirection.ToString());
+    }
+}
+**/
