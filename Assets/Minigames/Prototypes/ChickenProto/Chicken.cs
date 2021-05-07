@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ChickenPrototype.Scenary;
+using ChickenPrototype.Navigate;
 
 
 namespace ChickenPrototype.Chicken
@@ -95,9 +96,6 @@ namespace ChickenPrototype.Chicken
                 Vector2 newDirection = dg.GetSetDirection(runDirection);
 
                 ChangeRunDirection(newDirection);
-
-
-                print("POP");
             }
         }
 
