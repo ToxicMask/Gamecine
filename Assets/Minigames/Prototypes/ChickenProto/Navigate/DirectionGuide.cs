@@ -7,8 +7,11 @@ using UnityEngine;
 namespace ChickenPrototype.Navigate
 {
 
+
     public class DirectionGuide : MonoBehaviour
     {
+        
+
         public static readonly Vector2[] allDirections = new Vector2[] { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
 
         [SerializeField] Vector2[] directionPointer = new Vector2[4];// Only Normalized Vectors
@@ -16,6 +19,8 @@ namespace ChickenPrototype.Navigate
         // always Flip Between Verical and Horizontal
         [SerializeField] bool alwaysFlipDirection = false;
 
+
+        // Unity Functions
         private void Start()
         {
             // Sprite Editor Only
@@ -25,6 +30,8 @@ namespace ChickenPrototype.Navigate
             if (sprite) sprite.enabled = false;
         }
 
+
+        // Custom Functions
         public Vector2 GetSetDirection(Vector2 currentDirection)
         {
             int newIndex = Random.Range(0, 127) % directionPointer.Length;
@@ -40,8 +47,7 @@ namespace ChickenPrototype.Navigate
 
             return directionPointer[newIndex];
         }
-
-
+        
         Vector2 GetRandomDirection(Vector2 excepition)
         {
 
@@ -52,6 +58,5 @@ namespace ChickenPrototype.Navigate
 
             return allDirections[newIndex];
         }
-
     }
 }

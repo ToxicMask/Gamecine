@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenPrototype.Navigate;
 
 
 namespace ChickenPrototype.Player
@@ -17,15 +18,18 @@ namespace ChickenPrototype.Player
             -> Pick Objective: Chicken
     **/
 
-
     public class Player : MonoBehaviour
     {
 
         [SerializeField] Rigidbody2D rb2D;
+        [SerializeField] PositionSnap pSnap;
 
         // Movement Variables -> Auto Walk
         Vector2 runDirection = Vector2.right;
         [SerializeField] float runSpeed = 1.5f;
+
+        // Check Hit Wall Variables
+        float hitWallReach = .15f;
 
 
         // Start is called before the first frame update
@@ -33,6 +37,7 @@ namespace ChickenPrototype.Player
         {
             // Auto-Get from the same GameObject
             rb2D = GetComponent<Rigidbody2D>();
+            pSnap = GetComponent<PositionSnap>();
 
         }
 
@@ -47,7 +52,25 @@ namespace ChickenPrototype.Player
 
 
             //Process Input
-            if (vInput != 0 || hInput != 0) ChangeRunDirection(vInput, hInput);
+            if (vInput != 0 || hInput != 0)
+            {
+                pSnap.Snap();
+                ChangeRunDirection(vInput, hInput);
+            }
+
+
+            // Check each Direction
+            RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
+
+            if (hitWall)
+            {
+                if (hitWall.collider.GetComponent<Wall>())
+                {
+                    runDirection = Vector2.zero;//Stop
+
+                    if (pSnap) pSnap.Snap();
+                }
+            }
 
 
             // Execute Movement
