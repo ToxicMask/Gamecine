@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1095778825911998114}
   - component: {fileID: 4373791437704584587}
+  - component: {fileID: 4675839550863353749}
   - component: {fileID: 1095778825911998119}
   - component: {fileID: 1095778825911998116}
   m_Layer: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095778825911998115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.125, y: 0.125, z: 0.125}
+  m_LocalPosition: {x: 0.125, y: 0.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7890349290327889734}
@@ -46,6 +47,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e3af7de9b68ab408a889e385c61c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!249 &4675839550863353749
+AreaEffector2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095778825911998115}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGlobalAngle: 0
+  m_ForceAngle: 0
+  m_ForceMagnitude: 10
+  m_ForceVariation: 0
+  m_ForceTarget: 0
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!61 &1095778825911998119
 BoxCollider2D:
   m_ObjectHideFlags: 0

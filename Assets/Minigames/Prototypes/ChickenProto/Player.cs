@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenPrototype.Chicken;
 using ChickenPrototype.Navigate;
 
 
@@ -21,6 +22,8 @@ namespace ChickenPrototype.Player
     public class Player : MonoBehaviour
     {
 
+        [SerializeField] Chick chickenTarget;
+
         [SerializeField] Rigidbody2D rb2D;
         [SerializeField] PositionSnap pSnap;
 
@@ -30,6 +33,9 @@ namespace ChickenPrototype.Player
 
         // Check Hit Wall Variables
         float hitWallReach = .15f;
+
+        //Controller
+        Vector2 prevMove = Vector2.zero;
 
 
         // Start is called before the first frame update
@@ -45,19 +51,32 @@ namespace ChickenPrototype.Player
         void Update()
         {
             // Control Standard
-            float vInput = Input.GetAxis("Vertical");               // Vertical Input
-            float hInput = Input.GetAxis("Horizontal");             // Horizontal Input
+            Vector2 moveInput = new Vector2
+                (
+                    Mathf.Round(Input.GetAxis("Horizontal")),
+                    Mathf.Round(Input.GetAxis("Vertical"))
+                );
             bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
             bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
 
 
-            //Process Input
-            if (vInput != 0 || hInput != 0)
+            // Process Input - Action
+            if (pButton)
             {
+                print("Shoot");
                 pSnap.Snap();
-                ChangeRunDirection(vInput, hInput);
+                return;
             }
 
+            //Process Input - Movement
+            if (moveInput != Vector2.zero &&  moveInput != prevMove)
+            {
+                pSnap.Snap();
+                ChangeRunDirection(moveInput.x, moveInput.y);
+            }
+
+            // Record Prev Input
+            prevMove = moveInput;
 
             // Check each Direction
             RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
@@ -82,7 +101,7 @@ namespace ChickenPrototype.Player
          * Changes Current Direction
          * Only Moves in Vertical or Horizontal
          **/
-        private void ChangeRunDirection(float vInput, float hInput)
+        private void ChangeRunDirection(float hInput, float vInput )
         {
             // Change Run Direction
             // Move vertical

@@ -6,7 +6,7 @@ using ChickenPrototype.Navigate;
 
 namespace ChickenPrototype.Chicken
 {
-    public class Chicken : MonoBehaviour
+    public class Chick : MonoBehaviour
     {
         //float snapFactor = .125f; // Adjust position to grid
 
@@ -15,11 +15,9 @@ namespace ChickenPrototype.Chicken
 
         // Movement Variables -> Auto Walk
         Vector2 runDirection = Vector2.right;
-        // Direction Control Variable
-        bool isReadyToChangeDirection = false;
 
         //Movement Values
-        float runSpeed = 1.2f;
+        public float runSpeed = 1.2f;
         float hitWallReach = .15f;
 
         // Timer Values
@@ -72,36 +70,27 @@ namespace ChickenPrototype.Chicken
 
         }
 
-
         // Check New Direction Chenge to horizontal to vertical and vice-versa
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            if (!isReadyToChangeDirection) return;
+        private void OnTriggerEnter2D(Collider2D collision)
+    {
+            
 
 
             DirectionGuide dg = collision.GetComponent<DirectionGuide>();
-            float distance = (transform.position - collision.transform.position).magnitude;
-            float threshold = 0.02f;
 
-            if (dg && (distance < threshold))
+            if (dg)
             {
                 // Eliminate Theshhold
                 transform.position = collision.transform.position;
-
-                // Eliminate Repetition
-                isReadyToChangeDirection = false;
 
                 // Set New Direction
                 Vector2 newDirection = dg.GetSetDirection(runDirection);
 
                 ChangeRunDirection(newDirection);
             }
+
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            isReadyToChangeDirection = true;
-        }
 
 
         Vector2 GetRandomDirection(Vector2 excepition)
@@ -137,25 +126,3 @@ namespace ChickenPrototype.Chicken
         }
     }
 }
-
-
-
-
-
-/// Trash Code
-
-/**
-private void OnCollisionStay2D(Collision2D collision)
-{
-    print(collision.collider + "@");
-
-    Vector2 contactNormal = collision.GetContact(0).normal;
-
-    // If contact is oposite of Run Direction -> Set new Direction
-    if (contactNormal == -runDirection )
-    {
-        ChangeRunDirection(GetRandomDirection(runDirection));
-        print("BOUNCE!" + runDirection.ToString());
-    }
-}
-**/

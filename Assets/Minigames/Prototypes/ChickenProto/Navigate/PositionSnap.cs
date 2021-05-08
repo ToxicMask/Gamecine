@@ -21,7 +21,7 @@ namespace ChickenPrototype.Navigate
                 (
                 Mathf.Round(tp.x / snapFactor) * snapFactor ,
                 Mathf.Round(tp.y / snapFactor) * snapFactor ,
-                Mathf.Round(tp.z / snapFactor) * snapFactor 
+                0
                 );
 
             transform.position = tp;

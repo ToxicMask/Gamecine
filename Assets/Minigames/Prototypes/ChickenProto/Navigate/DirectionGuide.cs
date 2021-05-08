@@ -10,9 +10,6 @@ namespace ChickenPrototype.Navigate
 
     public class DirectionGuide : MonoBehaviour
     {
-        
-
-        public static readonly Vector2[] allDirections = new Vector2[] { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
 
         [SerializeField] Vector2[] directionPointer = new Vector2[4];// Only Normalized Vectors
 
@@ -46,17 +43,6 @@ namespace ChickenPrototype.Navigate
             }
 
             return directionPointer[newIndex];
-        }
-        
-        Vector2 GetRandomDirection(Vector2 excepition)
-        {
-
-            int newIndex = Random.Range(1, 1000000) % 4;
-
-            // Go to Next if it is exception
-            if (excepition == allDirections[newIndex]) newIndex = (newIndex + 1) % 4;
-
-            return allDirections[newIndex];
         }
     }
 }
