@@ -19,11 +19,9 @@ namespace ChickenPrototype.Player
             -> Pick Objective: Chicken
     **/
 
-    public class Player : MonoBehaviour
+    public class SeekerPlayer : MonoBehaviour
     {
-
-        [SerializeField] Chick chickenTarget;
-
+        // Position Control Variables
         [SerializeField] Rigidbody2D rb2D;
         [SerializeField] PositionSnap pSnap;
 

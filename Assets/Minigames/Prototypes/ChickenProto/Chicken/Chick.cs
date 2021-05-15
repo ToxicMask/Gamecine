@@ -16,13 +16,18 @@ namespace ChickenPrototype.Chicken
         // Movement Variables -> Auto Walk
         Vector2 runDirection = Vector2.right;
 
+        //Navigation Componets
+        DirectionGuide lastDirectionGuide = null;
+
         //Movement Values
         public float runSpeed = 1.2f;
         float hitWallReach = .15f;
 
-        // Timer Values
-        public GameObject eggPrefab;
 
+        public GameObject eggPrefab;
+        public Transform eggFolder;
+
+        // Timer Values
         public float timerValue = 10f;
         float timerLeft = 10f;
 
@@ -47,7 +52,11 @@ namespace ChickenPrototype.Chicken
 
             if (timerLeft < 0)
             {
-                if (eggPrefab) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+                if (eggPrefab)
+                {
+                    if (eggFolder) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero), eggFolder);
+                    else GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+                }
                 timerLeft = timerValue;
                 
             }
@@ -71,22 +80,30 @@ namespace ChickenPrototype.Chicken
         }
 
         // Check New Direction Chenge to horizontal to vertical and vice-versa
-        private void OnTriggerEnter2D(Collider2D collision)
-    {
-            
-
+        private void OnTriggerStay2D(Collider2D collision)
+        { 
 
             DirectionGuide dg = collision.GetComponent<DirectionGuide>();
 
-            if (dg)
+            if ((dg) && dg != lastDirectionGuide )
             {
-                // Eliminate Theshhold
-                transform.position = collision.transform.position;
+                // Get Distance
+                float distance = (transform.position - dg.transform.position).magnitude;
+                float threshold = .1f;
 
-                // Set New Direction
-                Vector2 newDirection = dg.GetSetDirection(runDirection);
+                if (distance <= threshold)
+                {
+                    // Eliminate Theshhold
+                    transform.position = collision.transform.position;
 
-                ChangeRunDirection(newDirection);
+                    // Set New Direction
+                    Vector2 newDirection = dg.GetSetDirection(runDirection);
+
+                    ChangeRunDirection(newDirection);
+
+                    //Update Navigation
+                    lastDirectionGuide = dg;
+                }
             }
 
         }

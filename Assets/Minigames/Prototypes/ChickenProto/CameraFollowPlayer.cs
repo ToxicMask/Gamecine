@@ -3,35 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using ChickenPrototype.Player;
 
-public class CameraFollowPlayer : MonoBehaviour
+
+namespace ChickenPrototype.Camera
 {
-
-    public Player playerScript;
-
-    public Transform[] cameraPositions; 
-
-    Transform playerTransform;
-
-    // Start is called before the first frame update
-    void Start()
+    public class CameraFollowPlayer : MonoBehaviour
     {
-        if (playerScript)
+
+        [SerializeField] float tweenTime = .6f;
+
+        public void MoveTo(Vector2 newPosition)
         {
-            playerTransform = playerScript.transform;
+            LeanTween.moveLocal(gameObject, newPosition, tweenTime).setEaseOutCubic();
+
+            //transform.position = newPosition;
         }
     }
-
-    private void Update()
-    {
-        if (playerTransform)
-        {
-            transform.position = playerTransform.position * Vector2.right;
-        }
-    }
-
-    // Update is called once per frame
-    public void MoveTo(int cameraPositionIndex)
-    {
-        transform.position = cameraPositions[cameraPositionIndex].position;
-    } 
 }

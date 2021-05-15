@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenPrototype.Chicken;
 
-public class DeadLine : MonoBehaviour
+namespace ChickenPrototype.Navigate
 {
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public class DeadLine : MonoBehaviour
     {
-        print("CABOU O JOGO!");
-        Time.timeScale = 0;
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.GetComponent<Chick>())
+            {
+                print("CABOU O JOGO!");
+                Time.timeScale = 0;
+            }
+        }
+
     }
 }
