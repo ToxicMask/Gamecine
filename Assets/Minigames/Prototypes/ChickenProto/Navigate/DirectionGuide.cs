@@ -52,7 +52,14 @@ namespace ChickenPrototype.Navigate
             {
                 Gizmos.color = Color.green;
 
-                Gizmos.DrawRay(transform.position, dir);
+                float lenght = .4f;
+                float tipSize = .04f;
+
+                // Main
+                Gizmos.DrawRay(transform.position, dir * lenght);
+
+                //Tip
+                Gizmos.DrawWireCube((transform.position + (Vector3) dir * lenght), Vector3.one * tipSize);
             }
         }
     }
