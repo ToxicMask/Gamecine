@@ -44,5 +44,16 @@ namespace ChickenPrototype.Navigate
 
             return directionPointer[newIndex];
         }
+
+
+        private void OnDrawGizmos()
+        {
+            foreach (Vector2 dir in directionPointer)
+            {
+                Gizmos.color = Color.green;
+
+                Gizmos.DrawRay(transform.position, dir);
+            }
+        }
     }
 }

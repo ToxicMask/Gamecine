@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ChickenPrototype.Chicken;
 using ChickenPrototype.Navigate;
+using ChickenPrototype.PickUp;
 
 
 namespace ChickenPrototype.Player
@@ -125,6 +126,32 @@ namespace ChickenPrototype.Player
             // Update position -> Auto Walk
             rb2D.position += runDirection * runSpeed * Time.deltaTime;
         }
+
+
+        /**
+         * Collision Pick Chicken
+         *
+         **/
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.GetComponent<Chick>())
+            {
+                Time.timeScale = 0;
+                print("Pegou Galinha!");
+
+            }
+        }
+
+        //Pick Bullet
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.GetComponent<BulletPickUp>())
+            {
+                Chick.current.stuned = true;
+                Chick.current.timerLeft = BulletPickUp.stunTime;
+            }
+        }
+
 
     }
 

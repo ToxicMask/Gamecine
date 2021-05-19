@@ -10,6 +10,8 @@ namespace ChickenPrototype.Chicken
     {
         //float snapFactor = .125f; // Adjust position to grid
 
+        public static Chick current = null;
+
         // Components
         [SerializeField] Rigidbody2D rb2D;
 
@@ -23,18 +25,27 @@ namespace ChickenPrototype.Chicken
         public float runSpeed = 1.2f;
         float hitWallReach = .15f;
 
-
+        // Egg
         public GameObject eggPrefab;
         public Transform eggFolder;
 
         // Timer Values
         public float timerValue = 10f;
-        float timerLeft = 10f;
+        public float timerLeft = 10f;
+
+
+        // Stun
+        public bool stuned = false;
 
 
         // Start is called before the first frame update
         void Start()
         {
+
+            // Set current static reference
+            current = this;
+
+
             // Set Timer
             timerLeft = timerValue;
 
@@ -52,14 +63,19 @@ namespace ChickenPrototype.Chicken
 
             if (timerLeft < 0)
             {
+
+
                 if (eggPrefab)
                 {
                     if (eggFolder) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero), eggFolder);
                     else GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
                 }
+                stuned = false;
                 timerLeft = timerValue;
-                
             }
+
+            // Return if stunned
+            if (stuned) return;
 
             // Check each Direction
             RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
@@ -140,6 +156,11 @@ namespace ChickenPrototype.Chicken
         {
             // Update position -> Auto Walk
             rb2D.position += runDirection * runSpeed * Time.deltaTime;
+        }
+
+        private void OnDestroy()
+        {
+            current = null;
         }
     }
 }
