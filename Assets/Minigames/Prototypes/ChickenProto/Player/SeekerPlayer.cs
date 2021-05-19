@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using ChickenPrototype.GameManager;
 using ChickenPrototype.Chicken;
 using ChickenPrototype.Navigate;
 using ChickenPrototype.PickUp;
@@ -136,9 +138,11 @@ namespace ChickenPrototype.Player
         {
             if (collision.collider.GetComponent<Chick>())
             {
-                Time.timeScale = 0;
-                print("Pegou Galinha!");
+                // Set Result
+                LevelManager.GAME_RESULT gameResult = LevelManager.GAME_RESULT.VICTORY;
 
+                // Set Result in Manager
+                LevelManager.current.GameOver(gameResult);
             }
         }
 
@@ -149,6 +153,7 @@ namespace ChickenPrototype.Player
             {
                 Chick.current.stuned = true;
                 Chick.current.timerLeft = BulletPickUp.stunTime;
+                Destroy(collision.gameObject);
             }
         }
 

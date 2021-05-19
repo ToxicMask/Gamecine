@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using ChickenPrototype.Navigate;
 
 
@@ -76,6 +77,9 @@ namespace ChickenPrototype.Chicken
 
             // Return if stunned
             if (stuned) return;
+
+
+
 
             // Check each Direction
             RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
