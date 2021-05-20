@@ -23,7 +23,7 @@ namespace RythumProto.Controller
         [SerializeField] SpriteRenderer spriteRight = null;
 
         // Input Classes
-        InputTrack inputTrack = new InputTrack();
+        InputRow inputRow = new InputRow();
 
 
 
@@ -40,14 +40,14 @@ namespace RythumProto.Controller
 
 
             // Set Input Process
-            inputTrack.ProcessInput(hInput, vInput);
+            inputRow.ProcessInput(hInput, vInput);
 
 
             // Show in Interface
-            if (spriteLeft) spriteLeft.enabled  = inputTrack.noteLeft.GetIsPressed();
-            if (spriteDown) spriteDown.enabled  = inputTrack.noteDown.GetIsPressed();
-            if (spriteUp)   spriteUp.enabled    = inputTrack.noteUp.GetIsPressed();
-            if (spriteRight) spriteRight.enabled= inputTrack.noteRight.GetIsPressed();
+            if (spriteLeft) spriteLeft.enabled  = inputRow.noteLeft.GetIsPressed();
+            if (spriteDown) spriteDown.enabled  = inputRow.noteDown.GetIsPressed();
+            if (spriteUp)   spriteUp.enabled    = inputRow.noteUp.GetIsPressed();
+            if (spriteRight) spriteRight.enabled= inputRow.noteRight.GetIsPressed();
         }
     }
 }

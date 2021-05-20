@@ -6,9 +6,9 @@ using UnityEngine;
 namespace RythumProto.Controller
 {
 
-    class InputTrack
+    class InputRow
     {
-        public InputTrack() { }
+        public InputRow() { }
 
 
         // Set Up Class to Monitor
