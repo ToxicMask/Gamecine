@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RythumProto.Controller
 {
 
-    class InputRow
+    public class InputRow
     {
         public InputRow() { }
 

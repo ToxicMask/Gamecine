@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RythumProto.Controller
 {
     // Class to remember Input of each node
-    class InputNote
+    public class InputNote
     {
         public InputNote() { }
 
