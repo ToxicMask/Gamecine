@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3014824100080709366}
   - component: {fileID: 3726027078735890025}
-  - component: {fileID: 8216215814297689324}
   m_Layer: 0
   m_Name: TrackTemplate
   m_TagString: Untagged
@@ -45,20 +44,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 0}
---- !u!114 &8216215814297689324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7970411988381077218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35c985c867f4b542a13e667e1922f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetList:
-  - {fileID: 3726027078735890025}
-  timerValue: 10
-  autoStart: 1
-  loop: 1

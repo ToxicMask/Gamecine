@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using RythumProto.Timer;
 
-public class SpawnNotes : TimerTarget
+public class SpawnNotes : MonoBehaviour
 {
 
     // Prefab
     public GameObject notePrefab;
 
-    public override void TimeOut()
+    public void Spawn()
     {
-        base.TimeOut();
-        print("!");
         //Instanciate Node
         GameObject.Instantiate(notePrefab, gameObject.transform);
     }
-
 }

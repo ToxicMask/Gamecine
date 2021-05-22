@@ -15,7 +15,9 @@ namespace RythumProto.BeatTrack
 
         public NoteType noteType;
         float speed = 1.6f;
-        float fallLimit = -2;
+        float fallLimit = -3;
+
+
 
         // Update is called once per frame
         void Update()
@@ -24,6 +26,7 @@ namespace RythumProto.BeatTrack
 
             if (transform.position.y < fallLimit) Destroy(gameObject);
         }
+
 
 
         // Retun false if not hit, retun true if hit
