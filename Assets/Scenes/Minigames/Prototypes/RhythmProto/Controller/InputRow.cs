@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/// 
+/// Structure to Process and Store Input
+///
+
+
+
 namespace RythumProto.Controller
 {
 
@@ -17,9 +23,12 @@ namespace RythumProto.Controller
         public InputNote noteUp = new InputNote();
         public InputNote noteRight = new InputNote();
 
+        public InputNote noteA = new InputNote();
+        public InputNote noteB = new InputNote();
+
 
         // Process Vertical and Horizontal Input
-        public void ProcessInput(float hInput, float vInput)
+        public void ProcessInput(float hInput, float vInput, bool buttonA, bool buttonB)
         {
             // Minimum Value to counto to joystick
             float minAnalog = .5f;
@@ -45,6 +54,14 @@ namespace RythumProto.Controller
             // Right
             if (minAnalog <= hInput) noteRight.Press();
             else noteRight.Release();
+
+
+            //Special Buttons
+            if (buttonA) noteA.Press();
+            else noteA.Release();
+
+            if (buttonB) noteB.Press();
+            else noteB.Release();
         }
     }
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Set up Tempo to maintain constant Rythum
+/// </summary>
+
 namespace RythumProto.BeatTrack
 {
     public class BPMTempo : MonoBehaviour

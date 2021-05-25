@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/// <summary>
+/// MainTrack - Store and Manages Rhythum Beats and Notes Spawn
+/// </summary>
+
 namespace RythumProto.BeatTrack
 {
     public class MainTrack : MonoBehaviour

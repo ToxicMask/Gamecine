@@ -44,7 +44,7 @@ namespace RythumProto.Controller
 
 
             // Set Input Process
-            inputRow.ProcessInput(hInput, vInput);
+            inputRow.ProcessInput(hInput, vInput, pButton, sButton);
 
 
             // Show in Interface
@@ -88,6 +88,14 @@ namespace RythumProto.Controller
                 {
                     // Check
                     bn.CheckHit(inputRow);
+                }
+
+                TrickNote tn = collider.GetComponent<TrickNote>();
+
+                if (tn)
+                {
+                    // Check
+                    tn.CheckHit(inputRow);
                 }
             }
         }

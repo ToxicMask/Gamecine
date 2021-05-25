@@ -5,38 +5,29 @@ using RythumProto.Controller;
 
 
 /// <summary>
-/// BeatNote - Set to set the Correct Rythum of Input
+/// Trick Note - Note to disturb the flow
 /// </summary>
 
 namespace RythumProto.BeatTrack
 {
-    public class BeatNote : BaseNote
+
+    public class TrickNote : BaseNote
     {
-
-        public NoteType noteType;
-
+        public TrickType trickType;
 
         // Retun false if not hit, retun true if hit
         public override bool CheckHit(InputRow currentInput)
         {
             InputNote inputNote = null;
 
-            switch (noteType)
+            switch (trickType)
             {
-                case NoteType.LEFT:
-                    inputNote = currentInput.noteLeft;
+                case TrickType.A:
+                    inputNote = currentInput.noteA;
                     break;
 
-                case NoteType.DOWN:
-                    inputNote = currentInput.noteDown;
-                    break;
-
-                case NoteType.UP:
-                    inputNote = currentInput.noteUp;
-                    break;
-
-                case NoteType.RIGHT:
-                    inputNote = currentInput.noteRight;
+                case TrickType.B:
+                    inputNote = currentInput.noteB;
                     break;
             }
 

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Set Info To Scriptable object - New Tracks
+/// </summary>
+
 namespace RythumProto.BeatTrack
 {
     [System.Serializable]
