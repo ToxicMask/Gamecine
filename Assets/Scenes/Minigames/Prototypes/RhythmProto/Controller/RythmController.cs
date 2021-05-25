@@ -38,13 +38,13 @@ namespace RythumProto.Controller
             float hInput = Input.GetAxis("Horizontal");             // Horizontal Input
             float vInput = Input.GetAxis("Vertical");               // Vertical Input
             
-            bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
-            bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
+            bool aButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
+            bool bButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
 
 
 
             // Set Input Process
-            inputRow.ProcessInput(hInput, vInput, pButton, sButton);
+            inputRow.ProcessInput(hInput, vInput, aButton, bButton);
 
 
             // Show in Interface
@@ -54,7 +54,7 @@ namespace RythumProto.Controller
             if (spriteRight) spriteRight.enabled= inputRow.noteRight.GetIsPressed();
 
             //End Loop if No Note Input
-            if (hInput == 0 && vInput == 0) return;
+            if ((hInput == 0 && vInput == 0) && (aButton == false && bButton == false) ) return;
 
             // Get Nodes
             Collider2D[] colliders = DetectColliders();

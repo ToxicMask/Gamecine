@@ -17,6 +17,9 @@ namespace RythumProto.BeatTrack
         [SerializeField] SpawnNotes upTrack     = null;
         [SerializeField] SpawnNotes rightTrack  = null;
 
+        [SerializeField] SpawnNotes aTrack = null;
+        [SerializeField] SpawnNotes bTrack = null;
+
 
         // Input
         public BeatTrackSource beatSource;
@@ -60,6 +63,9 @@ namespace RythumProto.BeatTrack
             if (note.down)  downTrack.Spawn();
             if (note.up)    upTrack.Spawn();
             if (note.right) rightTrack.Spawn();
+
+            if (note.trickA) aTrack.Spawn();
+            if (note.trickB) bTrack.Spawn();
         }
     }
 }

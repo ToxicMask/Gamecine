@@ -17,31 +17,47 @@ MonoBehaviour:
     down: 0
     up: 0
     right: 0
+    trickA: 0
+    trickB: 0
   - left: 0
     down: 0
     up: 0
-    right: 1
+    right: 0
+    trickA: 0
+    trickB: 0
   - left: 1
     down: 1
     up: 0
     right: 0
-  - left: 1
+    trickA: 0
+    trickB: 0
+  - left: 0
     down: 0
-    up: 1
+    up: 0
     right: 0
+    trickA: 1
+    trickB: 0
   - left: 1
     down: 1
     up: 0
     right: 0
+    trickA: 0
+    trickB: 0
   - left: 1
     down: 1
     up: 0
     right: 0
+    trickA: 1
+    trickB: 0
   - left: 0
     down: 0
     up: 1
     right: 1
+    trickA: 0
+    trickB: 0
   - left: 1
     down: 1
     up: 0
     right: 0
+    trickA: 0
+    trickB: 0
