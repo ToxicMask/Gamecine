@@ -15,6 +15,20 @@ namespace RythumProto.BeatTrack
     {
         public TrickType trickType;
 
+        public Vector2 target;
+
+
+        public void LeanMove(Vector2 origin, Vector2 dest, float arriveTime = 0.5f)
+        {
+
+            target = dest;
+
+            // Set origin of move
+            transform.position = origin;
+
+            LeanTween.moveLocal(gameObject, dest, arriveTime);
+        }
+
         // Retun false if not hit, retun true if hit
         public override bool CheckHit(InputRow currentInput)
         {

@@ -748,12 +748,12 @@ PrefabInstance:
     - target: {fileID: 3014824100080709366, guid: d5c09078476a30442b71b75ffbc30df9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9
+      value: -5.15
       objectReference: {fileID: 0}
     - target: {fileID: 3014824100080709366, guid: d5c09078476a30442b71b75ffbc30df9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 3014824100080709366, guid: d5c09078476a30442b71b75ffbc30df9,
         type: 3}
@@ -802,10 +802,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
         type: 3}
+      propertyPath: targetTracks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
+        type: 3}
       propertyPath: notePrefab
       value: 
       objectReference: {fileID: 2308834239521585589, guid: 760fa7c1f89ac5a4d9dc08efc488554b,
         type: 3}
+    - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
+        type: 3}
+      propertyPath: targetTrack
+      value: 
+      objectReference: {fileID: 1445290989}
+    - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
+        type: 3}
+      propertyPath: targetTracks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1445290989}
+    - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
+        type: 3}
+      propertyPath: targetTracks.Array.data[1]
+      value: 
+      objectReference: {fileID: 1938394717}
+    - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
+        type: 3}
+      propertyPath: targetTracks.Array.data[2]
+      value: 
+      objectReference: {fileID: 226976696}
+    - target: {fileID: 3726027078735890025, guid: d5c09078476a30442b71b75ffbc30df9,
+        type: 3}
+      propertyPath: targetTracks.Array.data[3]
+      value: 
+      objectReference: {fileID: 205393271}
     - target: {fileID: 7970411988381077218, guid: d5c09078476a30442b71b75ffbc30df9,
         type: 3}
       propertyPath: m_Name
