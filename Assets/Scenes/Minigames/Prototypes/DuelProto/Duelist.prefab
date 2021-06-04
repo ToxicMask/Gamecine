@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: -1
   spawnPoint: {fileID: 5311733759261250851}
+  bulletFolder: {fileID: 0}
   bulletPrefab: {fileID: 3111643898931142733, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
     type: 3}
 --- !u!50 &3460802127186567730
@@ -172,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8913978524711764960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.125, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3460802127186567693}

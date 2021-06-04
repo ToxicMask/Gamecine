@@ -17,7 +17,7 @@ using DuelProto.Gun;
 
 namespace DuelProto.Duelist
 {
-    public class Duelist : MonoBehaviour
+    public class DuelistPlayer : MonoBehaviour
     {
 
         struct InputData

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DuelProto.Duelist;
+using DuelProto.Scenary;
 
 
 namespace DuelProto.Gun
@@ -12,6 +13,7 @@ namespace DuelProto.Gun
         Rigidbody2D mainBody;
 
         public Vector2 direction = Vector2.down;
+        private float speed = 5f;
 
         private void Awake()
         {
@@ -21,15 +23,27 @@ namespace DuelProto.Gun
         // Update is called once per frame
         void Update()
         {
-            Movement(mainBody, direction, 2f);
+            Movement(mainBody, direction, speed);
 
             // Destroy after 3
-            if (Mathf.Abs(transform.position.y) > 3f) Destroy(gameObject);
+            //if (Mathf.Abs(transform.position.y) > 3.2f) Destroy(gameObject);
         }
 
         void Movement(Rigidbody2D mainBody, Vector2 direction, float speed)
         {
             mainBody.velocity = direction * speed;
+        }
+
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.GetComponent<Wall>()) Destroy(gameObject);
+
+            else if (collision.GetComponent<DuelistPlayer>())
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }
