@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: -1
+  spawnPoint: {fileID: 5311733759261250851}
+  bulletPrefab: {fileID: 3111643898931142733, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+    type: 3}
 --- !u!50 &3460802127186567730
 Rigidbody2D:
   serializedVersion: 4

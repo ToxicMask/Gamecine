@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DuelProto.Gun;
 
 /// <summary>
 /// Duelist
@@ -29,7 +29,17 @@ namespace DuelProto.Duelist
 
         class DuelGun
         {
-            public DuelGun() { }
+            public DuelGun(Transform bp, GameObject bpf, Transform bf)
+            {
+                bulletSpawn = bp;
+                bulletPreFab = bpf;
+                bulletFolder = bf;
+            }
+
+
+            Transform bulletSpawn;
+            Transform bulletFolder;
+            GameObject bulletPreFab;
 
 
 
@@ -40,6 +50,7 @@ namespace DuelProto.Duelist
                 // Fire Gun
                 if (bullets >= 1)
                 {
+                    Instantiate(bulletPreFab, bulletSpawn.position, Quaternion.Euler(Vector3.zero), bulletFolder);
                     print("Fire!");
                     bullets--;
                 }
@@ -56,7 +67,10 @@ namespace DuelProto.Duelist
 
 
         // Gun
-        DuelGun mainGun = new DuelGun();
+        DuelGun mainGun;
+        public Transform spawnPoint;
+        public Transform bulletFolder;
+        public GameObject bulletPrefab;
 
         // Body
         Rigidbody2D mainBody;
@@ -64,6 +78,7 @@ namespace DuelProto.Duelist
         private void Awake()
         {
             // Auto Get Components
+            mainGun = new DuelGun(spawnPoint, bulletPrefab, bulletFolder); // Temp
             mainBody = GetComponent<Rigidbody2D>();
         }
 
