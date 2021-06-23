@@ -5,41 +5,43 @@ using UnityEngine.UI;
 using TMPro;
 using GuideCharacter;
 
-
-public class TimeDisplay : MonoBehaviour
+namespace GuideCharacter
 {
-
-    TMP_Text displayCount = null;
-
-    private void Awake()
-    {
-        // Auto Get
-        displayCount = GetComponent<TMP_Text>();
-    }
-
-    private void LateUpdate()
+    public class TimeDisplay : MonoBehaviour
     {
 
-        UpdateDisplay();
-    }
+        TMP_Text displayCount = null;
+
+        private void Awake()
+        {
+            // Auto Get
+            displayCount = GetComponent<TMP_Text>();
+        }
+
+        private void LateUpdate()
+        {
+
+            UpdateDisplay();
+        }
 
 
-    private void UpdateDisplay()
-    {
+        private void UpdateDisplay()
+        {
 
-        int new_value = (int)Timer.current.TimeLeft;
-
-
-        string template = "{1} : {0}";
-
-        string newSeconds = (new_value % 60).ToString("D2");
-
-        string newMinutes = ((new_value-(new_value % 60)) / 60).ToString("D2");
+            int new_value = (int)Timer.current.TimeLeft;
 
 
-        string newText = string.Format(template, newSeconds, newMinutes);
+            string template = "{1} : {0}";
+
+            string newSeconds = (new_value % 60).ToString("D2");
+
+            string newMinutes = ((new_value - (new_value % 60)) / 60).ToString("D2");
 
 
-        displayCount.text = newText;
+            string newText = string.Format(template, newSeconds, newMinutes);
+
+
+            displayCount.text = newText;
+        }
     }
 }
