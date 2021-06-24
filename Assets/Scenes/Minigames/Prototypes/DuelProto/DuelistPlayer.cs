@@ -19,7 +19,7 @@ namespace DuelProto.Duelist
 {
     public class DuelistPlayer : MonoBehaviour
     {
-
+        [SerializeField] private float limiteDireita, limiteEsquerda;
         struct InputData
         {
             public Vector2 analog;
@@ -63,7 +63,7 @@ namespace DuelProto.Duelist
         }
 
         // Controller
-        [SerializeField] int playerNumber = -1;
+        public int playerNumber = -1;
 
 
         // Gun
@@ -89,7 +89,7 @@ namespace DuelProto.Duelist
 
             DuelController(ref currentInput, playerNumber);
             InputGunFire(mainGun, currentInput.justPressedA);
-            MoveCharacter(mainBody, currentInput.analog);
+            MoveCharacter(mainBody, currentInput.analog, this.transform);
 
         }
 
@@ -118,10 +118,14 @@ namespace DuelProto.Duelist
             if (Try2Shoot) gun.TryFireGun();
         }
 
-        private void MoveCharacter(in Rigidbody2D mainBody, in Vector2 directionInput)
+        private void MoveCharacter(in Rigidbody2D mainBody, in Vector2 directionInput, in Transform duelistPos)
         {
             float speedMove = 1.6f;
             Vector2 velocity = speedMove * directionInput.normalized;
+            velocity.y = 0;
+            var position = duelistPos.position;
+            position.x = Mathf.Clamp(position.x, limiteEsquerda, limiteDireita);
+            duelistPos.position = position;
 
             mainBody.velocity = velocity;
 

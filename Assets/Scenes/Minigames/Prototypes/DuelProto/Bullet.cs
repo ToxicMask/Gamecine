@@ -39,10 +39,13 @@ namespace DuelProto.Gun
         {
             if (collision.GetComponent<Wall>()) Destroy(gameObject);
 
-            else if (collision.GetComponent<DuelistPlayer>())
-            {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
+            var health = collision.GetComponent<Health>();
+            if(health != null){
+                if(health.IsDead()){
+                    Destroy(collision.gameObject);
+                    return;
+                }
+                health.Current--;
             }
         }
     }
