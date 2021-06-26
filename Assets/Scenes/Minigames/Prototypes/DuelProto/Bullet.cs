@@ -40,6 +40,7 @@ namespace DuelProto.Gun
             if (collision.GetComponent<Wall>()) Destroy(gameObject);
 
             var health = collision.GetComponent<Health>();
+            var duelist = collision.GetComponent<DuelistPlayer>();
             if(health != null){
                 if(health.IsDead()){
                     Destroy(collision.gameObject);
@@ -47,6 +48,15 @@ namespace DuelProto.Gun
                 }
                 health.Current--;
             }
+            if(duelist != null){
+                if(duelist.playerNumber== 2){
+                Duel.Manager.DuelManager.Instance.firstPlayerScore++;
+                }else{
+                    Duel.Manager.DuelManager.Instance.secondPlayerScore++; 
+                }
+                Duel.Manager.DuelManager.Instance.ResetGame();
+            }
+            Destroy(this.gameObject);
         }
     }
 }

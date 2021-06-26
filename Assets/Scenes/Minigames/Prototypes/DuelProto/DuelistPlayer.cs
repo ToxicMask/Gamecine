@@ -27,7 +27,7 @@ namespace DuelProto.Duelist
             public bool justPressedB;
         }
 
-        class DuelGun
+        public class DuelGun
         {
             public DuelGun(Transform bp, GameObject bpf, Transform bf)
             {
@@ -43,7 +43,7 @@ namespace DuelProto.Duelist
 
 
 
-            int bullets = 6;
+            public int bullets = 6;
 
             public void TryFireGun()
             {
@@ -67,7 +67,7 @@ namespace DuelProto.Duelist
 
 
         // Gun
-        DuelGun mainGun;
+        public DuelGun mainGun;
         public Transform spawnPoint;
         public Transform bulletFolder;
         public GameObject bulletPrefab;
@@ -85,6 +85,7 @@ namespace DuelProto.Duelist
 
         private void Update()
         {
+            if(StateController.Instance.currentState != States.GAME_UPDATE) return;
             InputData currentInput = new InputData();
 
             DuelController(ref currentInput, playerNumber);
@@ -92,7 +93,7 @@ namespace DuelProto.Duelist
             MoveCharacter(mainBody, currentInput.analog, this.transform);
 
         }
-
+        
 
 
         private void DuelController(ref InputData input, int playerNumber = -1)
@@ -139,7 +140,5 @@ namespace DuelProto.Duelist
             transform.position = (Vector2)transform.position  - (collisionDir * -0.075f) ;
 
         }
-
-
     }
 }
