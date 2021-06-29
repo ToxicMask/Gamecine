@@ -319,12 +319,12 @@ PrefabInstance:
     - target: {fileID: 6729224870656822469, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 206.6
+      value: 206.5
       objectReference: {fileID: 0}
     - target: {fileID: 6729224870656822469, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6.100006
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6729224870892406680, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
@@ -3132,7 +3132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: time
+  m_Text: turns
 --- !u!222 &2096474148
 CanvasRenderer:
   m_ObjectHideFlags: 0
