@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limiteDireita: 2.5
   limiteEsquerda: -2.5
+  ShootSound: {fileID: 8300000, guid: 90558e1a74b5f5e4dacf82dd627ecff5, type: 3}
   playerNumber: 2
   spawnPoint: {fileID: 2226146807916094434}
   bulletFolder: {fileID: 0}

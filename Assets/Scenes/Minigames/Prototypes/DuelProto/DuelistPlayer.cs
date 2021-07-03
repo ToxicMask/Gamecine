@@ -20,6 +20,7 @@ namespace DuelProto.Duelist
     public class DuelistPlayer : MonoBehaviour
     {
         [SerializeField] private float limiteDireita, limiteEsquerda;
+        public AudioClip ShootSound;
         struct InputData
         {
             public Vector2 analog;
@@ -116,7 +117,10 @@ namespace DuelProto.Duelist
 
         private void InputGunFire(in DuelGun gun, in bool Try2Shoot)
         {
-            if (Try2Shoot) gun.TryFireGun();
+            if (Try2Shoot) {
+                SoundController.Instance.SetSfx(ShootSound);
+                gun.TryFireGun();
+            }
         }
 
         private void MoveCharacter(in Rigidbody2D mainBody, in Vector2 directionInput, in Transform duelistPos)
