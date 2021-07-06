@@ -6,6 +6,7 @@ using UnityEditor;
 
 namespace ChickenPrototype.Navigate
 {
+    /*
     [CustomEditor(typeof(PositionSnap))]
     public class PositionSnaptEditor : Editor
     {
@@ -22,5 +23,6 @@ namespace ChickenPrototype.Navigate
             }
         }
     }
+    */
 }
 

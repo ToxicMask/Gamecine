@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro/Start Screen.unity
     guid: 1c3f591a6252ec242b78d85600970527
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro/Animated Intro.unity
     guid: 295745a7db6456a449dc60150d853611
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu/MainMenu1.unity
     guid: 1ccf7bf29735c2e49ba20ba1aba7ea8b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Minigames/Fighter2D/Scenes/2D_fighter.unity
     guid: 2106072305548694699f88d71a21097b
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Prototypes/DuelProto/DuelProto.unity
+    guid: acaed9facc255914e9bfb69a95b19f1d
   m_configObjects: {}
