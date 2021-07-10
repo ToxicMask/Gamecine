@@ -13,10 +13,10 @@ namespace DuelProto.Gun
         Rigidbody2D mainBody;
         public AudioClip hitSound;
         public AudioClip wallHitSound;
-
+        public AudioClip npcHitSound;
         public Vector2 direction = Vector2.down;
         private float speed = 5f;
-
+        public int playerNumber;
         private void Awake()
         {
             mainBody = GetComponent<Rigidbody2D>();
@@ -43,6 +43,7 @@ namespace DuelProto.Gun
 
             var health = collision.GetComponent<Health>();
             var duelist = collision.GetComponent<DuelistPlayer>();
+            var npc = collision.GetComponent<Npc>();
             if(health != null){
                 if(health.IsDead()){
                     if(wallHitSound != null)SoundController.Instance.SetSfx(wallHitSound);
@@ -50,6 +51,15 @@ namespace DuelProto.Gun
                     return;
                 }
                 health.Current--;
+            }
+            if(npc != null){
+                SoundController.Instance.SetSfx(npcHitSound);
+                if(playerNumber== 2){
+                    Duel.Manager.DuelManager.Instance.firstPlayerScore++;
+                }else{
+                    Duel.Manager.DuelManager.Instance.secondPlayerScore++; 
+                }
+                Duel.Manager.DuelManager.Instance.ResetGame();
             }
             if(duelist != null){
                 SoundController.Instance.SetSfx(hitSound);

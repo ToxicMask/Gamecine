@@ -345,6 +345,7 @@ MonoBehaviour:
   - {fileID: 548115684}
   holder: {fileID: 204046266}
   timeToSpawn: 5
+  ammoSpawn: {fileID: 0}
 --- !u!1 &243909171
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 6729224870656822469, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 206.5
+      value: 206
       objectReference: {fileID: 0}
     - target: {fileID: 6729224870656822469, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
@@ -2328,8 +2329,39 @@ Transform:
   - {fileID: 1215904978}
   - {fileID: 473125258}
   - {fileID: 204046266}
+  - {fileID: 1354795194}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1354795193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354795194}
+  m_Layer: 0
+  m_Name: Npcs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1354795194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354795193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1346074946}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361204160
 GameObject:
@@ -2750,16 +2782,23 @@ MonoBehaviour:
   - {x: -2, y: 0.08}
   - {x: 2.39, y: -0.73}
   - {x: -2.14, y: -0.73}
-  firstPlayerAmmoPos: []
-  secondPlayerAmmoPos: []
+  npcPos:
+  - {x: -3.5, y: -0.6}
+  - {x: 3.5, y: 0.005}
   firstPlayer: {fileID: 3460802127186567694, guid: ad1eee276f5ff7246a878c58b53d8a12,
     type: 3}
   secondPlayer: {fileID: 7445840236877042895, guid: 914b9f5a3050c824995c36d5dd45c80c,
     type: 3}
   wall: {fileID: 396027375920097905, guid: 6067480efbbb4b849a2a653da90af462, type: 3}
-  ammo: {fileID: 0}
+  npcsObj:
+  - {fileID: 396027375920097905, guid: ff7b40d5078939340b49d56f6bde3031, type: 3}
+  - {fileID: 396027375920097905, guid: 8600a8a6134eb164c9ee5587cb3e57cc, type: 3}
   players: {fileID: 243909172}
   walls: {fileID: 1346074946}
+  npcs: {fileID: 1354795194}
+  inicioDeTurno: {fileID: 0}
+  fimDeTurno: {fileID: 0}
+  fimDaPartida: {fileID: 0}
   turnosMax: 5
   turnosJogado: 0
   firstPlayerScore: 0

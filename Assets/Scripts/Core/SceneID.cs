@@ -8,4 +8,5 @@ public enum AllScenes
     IntroCutscene,
     MainMenu,
     AugustoMatraga,
+    DeusEoDiabo
 }

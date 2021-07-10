@@ -37,7 +37,7 @@ namespace MainMenu.Selection
 
         private void Update()
         {
-            if ((Input.GetButtonDown("Submit") || Input.GetButtonDown("Action Primary")) && canSelect) { StartMinigame(); }
+            if ((Input.GetButtonDown("Submit") || Input.GetButtonDown("Action Primary")) && canSelect) { StartMinigame(currentMinigameID); }
         }
 
         public void ScrolScreenIn()
@@ -52,10 +52,10 @@ namespace MainMenu.Selection
             canSelect = !canSelect;
         }
 
-        public void StartMinigame()
+        /*public void StartMinigame()
         {
             Core.ChangeScene.MainMenu.StartMinigame(current.currentMinigameID);
-        }
+        }*/
         public void StartMinigame(int id)
         {
             LeanTween.pauseAll();

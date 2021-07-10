@@ -20,11 +20,15 @@ namespace Duel.Manager{
         public float waitTime = 5f;
         [SerializeField] Vector2 firstPlayerPos, secondPlayerPos;
         [SerializeField] Vector2[] wallPos;
-        [SerializeField] Vector2[] firstPlayerAmmoPos, secondPlayerAmmoPos;
-        [SerializeField] GameObject firstPlayer, secondPlayer, wall, ammo;
+        [SerializeField] Vector2[] npcPos;
+        [SerializeField] GameObject firstPlayer, secondPlayer, wall;
+        [SerializeField] GameObject[] npcsObj;
         [Header("Parents")]
         [SerializeField] Transform players;
         [SerializeField] Transform walls;
+        [SerializeField] Transform npcs;
+        [Header("Audios")]
+        [SerializeField] AudioClip inicioDeTurno, fimDeTurno, fimDaPartida;
         [Header("Stats")]
         public int turnosMax;
         public int turnosJogado;
@@ -32,15 +36,16 @@ namespace Duel.Manager{
         private Timer timer;
         private void Start() {
             timer = new Timer(matchTime);
+            timer.OnComplete += ResetGame;
             GameTurnBegin();
         }
         private void Update() {
             timer.Update();
-            timer.OnComplete += ResetGame;
             elapsedTime = timer.elapsed;
         }
         public void GameTurnBegin(){
             StartCoroutine(WaitForBegin());
+            SoundController.Instance.SetSfx(inicioDeTurno);
             var _firstPlayer = Instantiate(firstPlayer, firstPlayerPos, Quaternion.identity, players);
             _firstPlayer.GetComponent<DuelistPlayer>().playerNumber = 1;
             DuelHud.Instance.antonio = _firstPlayer.GetComponent<DuelistPlayer>();
@@ -50,6 +55,8 @@ namespace Duel.Manager{
             foreach(var t in wallPos){
                 Instantiate(wall, t, Quaternion.identity, walls);
             }
+            Instantiate(npcsObj[0], npcPos[0], Quaternion.identity, npcs);
+            Instantiate(npcsObj[1], npcPos[1], Quaternion.identity, npcs);
         }
         IEnumerator WaitForBegin(){
             StateController.Instance.ChangeState(States.GAME_WAIT);
@@ -57,6 +64,7 @@ namespace Duel.Manager{
             StateController.Instance.ChangeState(States.GAME_UPDATE);
         }
         public void ResetGame(){
+            SoundController.Instance.SetSfx(fimDeTurno);
             var firstPlayer = FindObjectsOfType<DuelistPlayer>();
             foreach(var p in firstPlayer){
                 Destroy(p.gameObject);
@@ -65,9 +73,13 @@ namespace Duel.Manager{
             foreach(var w in walls){
                 Destroy(w.gameObject);
             }
+            var npcs = FindObjectsOfType<Npc>();
+            foreach(var n in npcs){
+                Destroy(n.gameObject);
+            }
             turnosJogado++;
             CheckForEndGame();
-            timer.elapsed = 0;
+            timer.Reset();
             GameTurnBegin();
         }
         void CheckForEndGame(){
@@ -75,6 +87,7 @@ namespace Duel.Manager{
                 turnosJogado = 0;
                 firstPlayerScore = 0;
                 secondPlayerScore = 0;
+                SoundController.Instance.SetSfx(fimDaPartida);
             }
         }
     }
