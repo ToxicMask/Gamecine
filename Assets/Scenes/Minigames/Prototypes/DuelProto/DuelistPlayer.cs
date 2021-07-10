@@ -21,6 +21,8 @@ namespace DuelProto.Duelist
     {
         [SerializeField] private float limiteDireita, limiteEsquerda;
         public AudioClip ShootSound;
+        public AudioClip failedShootSound;
+        public AudioClip passos;
         struct InputData
         {
             public Vector2 analog;
@@ -46,18 +48,21 @@ namespace DuelProto.Duelist
 
             public int bullets = 6;
 
-            public void TryFireGun()
+            public void TryFireGun(AudioClip succesShoot, AudioClip failedShoot, int playerNumber)
             {
                 // Fire Gun
                 if (bullets >= 1)
                 {
-                    Instantiate(bulletPreFab, bulletSpawn.position, Quaternion.Euler(Vector3.zero), bulletFolder);
+                    SoundController.Instance.SetSfx(succesShoot);
+                    var bullet = Instantiate(bulletPreFab, bulletSpawn.position, Quaternion.Euler(Vector3.zero), bulletFolder);
+                    bullet.GetComponent<Bullet>().playerNumber = playerNumber;
                     print("Fire!");
                     bullets--;
                 }
 
                 else
                 {
+                    SoundController.Instance.SetSfx(failedShoot);
                     print("Out of Bullets!");
                 }
             }
@@ -118,8 +123,7 @@ namespace DuelProto.Duelist
         private void InputGunFire(in DuelGun gun, in bool Try2Shoot)
         {
             if (Try2Shoot) {
-                SoundController.Instance.SetSfx(ShootSound);
-                gun.TryFireGun();
+                gun.TryFireGun(ShootSound, failedShootSound, playerNumber);
             }
         }
 

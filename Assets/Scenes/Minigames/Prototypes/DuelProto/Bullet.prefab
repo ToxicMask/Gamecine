@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: 926fb7a5ec3a8654f8303efa856f4aea, type: 3}
+  wallHitSound: {fileID: 8300000, guid: 4905572fd18213f4389697d7824e4e72, type: 3}
   direction: {x: 0, y: -1}
 --- !u!50 &408148372769563604
 Rigidbody2D:
