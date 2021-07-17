@@ -25671,7 +25671,7 @@ PrefabInstance:
     - target: {fileID: 1095778825911998116, guid: cb6a217c91372d74a801d5ac5211ce2f,
         type: 3}
       propertyPath: directionPointer.Array.data[1].y
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1095778825911998116, guid: cb6a217c91372d74a801d5ac5211ce2f,
         type: 3}

@@ -56,14 +56,14 @@ namespace DuelProto.Duelist
                     SoundController.Instance.SetSfx(succesShoot);
                     var bullet = Instantiate(bulletPreFab, bulletSpawn.position, Quaternion.Euler(Vector3.zero), bulletFolder);
                     bullet.GetComponent<Bullet>().playerNumber = playerNumber;
-                    print("Fire!");
                     bullets--;
+                    //Debug print("Fire!");
                 }
 
                 else
                 {
                     SoundController.Instance.SetSfx(failedShoot);
-                    print("Out of Bullets!");
+                    //Debug  print("Out of Bullets!");
                 }
             }
         }

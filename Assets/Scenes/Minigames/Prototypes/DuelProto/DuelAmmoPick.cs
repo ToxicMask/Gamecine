@@ -7,7 +7,7 @@ namespace Duelist.Ammo{
     {
         [SerializeField] AudioClip pickupSound;
         private void OnTriggerEnter2D(Collider2D other) {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             var duelist = other.GetComponent<DuelProto.Duelist.DuelistPlayer>();
             if(duelist != null){
                 if(duelist.mainGun.bullets == 6) return;

@@ -345,7 +345,7 @@ MonoBehaviour:
   - {fileID: 548115684}
   holder: {fileID: 204046266}
   timeToSpawn: 5
-  ammoSpawn: {fileID: 0}
+  ammoSpawn: {fileID: 8300000, guid: 7747c31036e2f2c4695c904f243a2e19, type: 3}
 --- !u!1 &243909171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,7 +2450,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ed0b65e83bc56fc48aa9e0bca73e4e33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.0025
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchTime: 90
   elapsedTime: 0
-  waitTime: 5
+  waitTime: 1
   firstPlayerPos: {x: 1.5, y: 0.5}
   secondPlayerPos: {x: -1.5, y: -1}
   wallPos:
@@ -2796,10 +2796,10 @@ MonoBehaviour:
   players: {fileID: 243909172}
   walls: {fileID: 1346074946}
   npcs: {fileID: 1354795194}
-  inicioDeTurno: {fileID: 0}
-  fimDeTurno: {fileID: 0}
-  fimDaPartida: {fileID: 0}
-  turnosMax: 5
+  inicioDeTurno: {fileID: 8300000, guid: 627a826d4eef3e04182249512ac2ff7e, type: 3}
+  fimDeTurno: {fileID: 8300000, guid: e0aa2c66891101b40a282ba122b14ad3, type: 3}
+  fimDaPartida: {fileID: 8300000, guid: d17c6be3b8c61374b91a844821a5e125, type: 3}
+  turnosMax: 3
   turnosJogado: 0
   firstPlayerScore: 0
   secondPlayerScore: 0
