@@ -27,8 +27,8 @@ namespace DuelProto.Gun
         {
             Movement(mainBody, direction, speed);
 
-            // Destroy after 3
-            //if (Mathf.Abs(transform.position.y) > 3.2f) Destroy(gameObject);
+            // Destroy after border
+            if (Mathf.Abs(transform.position.y) > 10f) Destroy(gameObject);
         }
 
         void Movement(Rigidbody2D mainBody, Vector2 direction, float speed)
