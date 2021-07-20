@@ -91,7 +91,10 @@ namespace DuelProto.Duelist
 
         private void Update()
         {
-            if(StateController.Instance.currentState != States.GAME_UPDATE) return;
+            if (StateController.Instance.currentState != States.GAME_UPDATE){
+                mainBody.velocity = Vector2.zero;
+                return;
+            }
             InputData currentInput = new InputData();
 
             DuelController(ref currentInput, playerNumber);

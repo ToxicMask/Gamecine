@@ -25,9 +25,14 @@ namespace DuelProto.Gun
         // Update is called once per frame
         void Update()
         {
+            // End Bullet in End Turn
+
+            if (StateController.Instance.currentState != States.GAME_UPDATE) Destroy(this.gameObject);
+
+
             Movement(mainBody, direction, speed);
 
-            // Destroy after border
+            // Destroy after Border
             if (Mathf.Abs(transform.position.y) > 10f) Destroy(gameObject);
         }
 
@@ -59,7 +64,7 @@ namespace DuelProto.Gun
                 }else{
                     Duel.Manager.DuelManager.Instance.secondPlayerScore++; 
                 }
-                Duel.Manager.DuelManager.Instance.ResetGame();
+                Duel.Manager.DuelManager.Instance.GameEndTurn();
             }
             if(duelist != null){
                 SoundController.Instance.SetSfx(hitSound);
@@ -68,7 +73,7 @@ namespace DuelProto.Gun
                 }else{
                     Duel.Manager.DuelManager.Instance.secondPlayerScore++; 
                 }
-                Duel.Manager.DuelManager.Instance.ResetGame();
+                Duel.Manager.DuelManager.Instance.GameEndTurn();
             }
             Destroy(this.gameObject);
         }

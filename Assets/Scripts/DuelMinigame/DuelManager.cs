@@ -18,7 +18,8 @@ namespace Duel.Manager{
         [Header("Macth")]
         public float matchTime;
         public float elapsedTime;
-        public float waitTime = 5f;
+        public float beginWaitTime = 5f;
+        public float endWaitTime = 5f;
         [Header("Positions")]
         [SerializeField] Vector2 firstPlayerPos;
         [SerializeField] Vector2 secondPlayerPos;
@@ -47,7 +48,7 @@ namespace Duel.Manager{
             GameTurnBegin();
         }
         private void Update() {
-            timer.Update();
+            if (StateController.Instance.currentState == States.GAME_UPDATE) timer.Update();
             elapsedTime = timer.elapsed;
         }
         public void GameTurnBegin(){
@@ -67,10 +68,18 @@ namespace Duel.Manager{
             Instantiate(npcsObj[0], npcPos[0], Quaternion.identity, npcs);
             Instantiate(npcsObj[1], npcPos[1], Quaternion.identity, npcs);
         }
+        public void GameEndTurn(){
+            StartCoroutine("WaitForEnd");
+        }
         IEnumerator WaitForBegin(){
             StateController.Instance.ChangeState(States.GAME_WAIT);
-            yield return new WaitForSeconds(waitTime);
+            yield return new WaitForSeconds(beginWaitTime);
             StateController.Instance.ChangeState(States.GAME_UPDATE);
+        }
+        IEnumerator WaitForEnd(){
+            StateController.Instance.ChangeState(States.GAME_WAIT);
+            yield return new WaitForSeconds(endWaitTime);
+            ResetGame();
         }
 
         public void ResetGame(){

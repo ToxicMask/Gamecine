@@ -17,7 +17,10 @@ namespace DuelProto.Scenary{
             positions.Add(endPos);
         }
         private void Update() {
-            if(Vector2.Distance(positions[current], transform.position) <= .1f){
+
+            if (StateController.Instance.currentState != States.GAME_UPDATE) return;
+
+            if (Vector2.Distance(positions[current], transform.position) <= .1f){
                 current++;
                 if(current >= positions.Count){
                     current = 0;
