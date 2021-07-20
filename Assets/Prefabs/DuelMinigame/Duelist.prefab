@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2dcaa83a815f4e40895761132359d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limiteDireita: 2.5
-  limiteEsquerda: -2.5
+  limiteDireita: 2.15
+  limiteEsquerda: -2.15
   ShootSound: {fileID: 8300000, guid: 14bd69a3b30995343990709875e85743, type: 3}
   failedShootSound: {fileID: 8300000, guid: e65a6afac08eb5c4fa69bdd32dda11e0, type: 3}
   passos: {fileID: 8300000, guid: 6d7329e44fff2c04282a5709b7372d82, type: 3}

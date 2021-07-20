@@ -9,8 +9,11 @@ namespace Duelist.Ammo{
         [SerializeField] Transform[] ammoCima, ammoBaixo;
         [SerializeField] Transform holder;
         [SerializeField] float timeToSpawn = 5f;
+        [SerializeField] bool alternateUpAndDown = false;
         [SerializeField] AudioClip ammoSpawn;
         Timer timer;
+        int spawnOffset = 0;
+        
         private void Start() {
             timer = new Timer(timeToSpawn);
             timer.OnComplete += SpawnAmmo;
@@ -23,10 +26,19 @@ namespace Duelist.Ammo{
         void SpawnAmmo(){
             var random = Random.Range(0, ammoCima.Length);
             SoundController.Instance.SetSfx(ammoSpawn);
-            if(Random.value <= .5){
-                Instantiate(ammo, ammoCima[random].position, Quaternion.identity, holder);
+            if (alternateUpAndDown){
+                if (spawnOffset == 0){
+                    Instantiate(ammo, ammoCima[random].position, Quaternion.identity, holder);
+                }else{
+                    Instantiate(ammo, ammoBaixo[random].position, Quaternion.identity, holder);
+                }
+                spawnOffset = (spawnOffset + 1) % 2; // Offset between Up and Down
             }else{
-                Instantiate(ammo, ammoBaixo[random].position, Quaternion.identity, holder);
+                if (Random.value <= .5){
+                    Instantiate(ammo, ammoCima[random].position, Quaternion.identity, holder);
+                }else{
+                    Instantiate(ammo, ammoBaixo[random].position, Quaternion.identity, holder);
+                }
             }
         }
     }
