@@ -39,17 +39,16 @@ namespace DuelProto.Duelist
                 bulletFolder = bf;
             }
 
-
             Transform bulletSpawn;
             Transform bulletFolder;
             GameObject bulletPreFab;
 
 
-
-            public int bullets = 6;
+            public int bullets = 3;
 
             public void TryFireGun(AudioClip succesShoot, AudioClip failedShoot, int playerNumber)
             {
+
                 // Fire Gun
                 if (bullets >= 1)
                 {
@@ -65,6 +64,8 @@ namespace DuelProto.Duelist
                     SoundController.Instance.SetSfx(failedShoot);
                     //Debug  print("Out of Bullets!");
                 }
+
+                // Animation
             }
         }
 
@@ -145,11 +146,9 @@ namespace DuelProto.Duelist
         // On collision
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            print("!");
             Vector2 collisionDir = collision.GetContact(0).normal;
 
             transform.position = (Vector2)transform.position  - (collisionDir * -0.075f) ;
-
         }
     }
 }
