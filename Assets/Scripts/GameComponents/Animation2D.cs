@@ -13,7 +13,7 @@ namespace GameComponents
 
         void Start()
         {
-            animator = GetComponent<Animator>();
+           animator = GetComponent<Animator>();
         }
 
         // Update Animation State

@@ -755,17 +755,17 @@ PrefabInstance:
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 980
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 612.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 358.4
+      value: 358.3999
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
@@ -775,22 +775,22 @@ PrefabInstance:
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
@@ -800,7 +800,7 @@ PrefabInstance:
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8703346762253086643, guid: bf3ff50e961d0704ea0cc620383e0283,
         type: 3}
