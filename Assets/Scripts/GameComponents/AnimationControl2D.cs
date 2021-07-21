@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameComponents
 {
-    public class Animation2D : MonoBehaviour
+    public class AnimationControl2D : MonoBehaviour
     {
 
         Animator animator = null;
@@ -17,7 +17,7 @@ namespace GameComponents
         }
 
         // Update Animation State
-        void PlayClip(string newState)
+        public void ChangeState(string newState)
         {
             // Check Current State
             if (currentState == newState) return;
@@ -31,7 +31,7 @@ namespace GameComponents
         }
 
 
-        float GetStateLenght()
+        public float GetStateLenght()
         {
             return animator.GetCurrentAnimatorStateInfo(0).length;
         }

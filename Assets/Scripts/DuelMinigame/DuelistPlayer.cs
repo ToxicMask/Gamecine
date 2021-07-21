@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DuelProto.Gun;
+using GameComponents;
 
 /// <summary>
 /// Duelist
@@ -43,8 +44,8 @@ namespace DuelProto.Duelist
             Transform bulletFolder;
             GameObject bulletPreFab;
 
-
-            public int bullets = 3;
+            // Start Amunition
+            public int bullets = 5;
 
             public void TryFireGun(AudioClip succesShoot, AudioClip failedShoot, int playerNumber)
             {
@@ -65,13 +66,11 @@ namespace DuelProto.Duelist
                     //Debug  print("Out of Bullets!");
                 }
 
-                // Animation
             }
         }
 
         // Controller
         public int playerNumber = -1;
-
 
         // Gun
         public DuelGun mainGun;
@@ -82,28 +81,35 @@ namespace DuelProto.Duelist
         // Body
         Rigidbody2D mainBody;
 
+        // Animation Control
+        AnimationControl2D animControl = null;
+
         private void Awake()
         {
             // Auto Get Components
-            mainGun = new DuelGun(spawnPoint, bulletPrefab, bulletFolder); // Temp
+            mainGun = new DuelGun(spawnPoint, bulletPrefab, bulletFolder);
             mainBody = GetComponent<Rigidbody2D>();
+            animControl = GetComponent<AnimationControl2D>();
         }
 
 
         private void Update()
         {
+            // Stop Update on Game Wait
             if (StateController.Instance.currentState != States.GAME_UPDATE){
                 mainBody.velocity = Vector2.zero;
+                if (animControl) animControl.ChangeState("Idle");
+                //else print("NO ANIMATION CONTROL");
                 return;
             }
+
             InputData currentInput = new InputData();
 
             DuelController(ref currentInput, playerNumber);
             InputGunFire(mainGun, currentInput.justPressedA);
-            MoveCharacter(mainBody, currentInput.analog, this.transform);
+            MoveCharacter(mainBody, currentInput, this.transform);
 
         }
-        
 
 
         private void DuelController(ref InputData input, int playerNumber = -1)
@@ -124,15 +130,19 @@ namespace DuelProto.Duelist
 
 
 
-        private void InputGunFire(in DuelGun gun, in bool Try2Shoot)
+        private void InputGunFire(DuelGun gun, bool Try2Shoot)
         {
             if (Try2Shoot) {
                 gun.TryFireGun(ShootSound, failedShootSound, playerNumber);
+                // Animation
+                if (animControl) animControl.ChangeState("Shoot");
+                else print("NO ANIMATION CONTROL");
             }
         }
 
-        private void MoveCharacter(in Rigidbody2D mainBody, in Vector2 directionInput, in Transform duelistPos)
+        private void MoveCharacter(Rigidbody2D mainBody, InputData currentInput , Transform duelistPos)
         {
+            Vector2 directionInput = currentInput.analog;
             float speedMove = 1.6f;
             Vector2 velocity = speedMove * directionInput.normalized;
             velocity.y = 0;
@@ -142,13 +152,13 @@ namespace DuelProto.Duelist
 
             mainBody.velocity = velocity;
 
-        }
-        // On collision
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            Vector2 collisionDir = collision.GetContact(0).normal;
-
-            transform.position = (Vector2)transform.position  - (collisionDir * -0.075f) ;
+            // Animation
+            if (animControl)
+            {
+                if (velocity == Vector2.zero) animControl.ChangeState("Idle");
+                else animControl.ChangeState("Walk");
+            }
+            //else print("NO ANIMATION CONTROL");
         }
     }
 }
