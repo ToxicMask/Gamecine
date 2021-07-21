@@ -20,7 +20,7 @@ namespace Duelist.Ammo{
             timer.OnComplete += timer.Reset;
         }
         private void Update() {
-            timer.Update();
+            if (StateController.Instance.currentState == States.GAME_UPDATE) timer.Update();
         }
 
         void SpawnAmmo(){
