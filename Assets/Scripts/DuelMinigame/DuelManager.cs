@@ -114,6 +114,7 @@ namespace Duel.Manager{
         bool CheckForEndGame(){
             if(turnosJogado >= turnosMax){
                 SoundController.Instance.SetSfx(fimDaPartida);
+                SoundController.Instance.StopOst();
                 return true;
             }
             return false;

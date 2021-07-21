@@ -5,9 +5,9 @@ using UnityEngine;
 public class SoundController : MonoBehaviour
 {
     private static SoundController instance;
-    public static SoundController Instance{
-        get{
-            if(instance == null){
+    public static SoundController Instance {
+        get {
+            if (instance == null) {
                 instance = FindObjectOfType<SoundController>();
             }
             return instance;
@@ -16,15 +16,15 @@ public class SoundController : MonoBehaviour
 
     public AudioSource SfxSource, OstSource;
     public AudioClip ostClip;
-    public void SetSfx(AudioClip clip){
-        if(clip == null){
+    public void SetSfx(AudioClip clip) {
+        if (clip == null) {
             Debug.Log("NO CLIP ADDED");
             return;
         }
         SfxSource.PlayOneShot(clip);
     }
-    public void SetOst(AudioClip clip){
-        if(clip == null){
+    public void SetOst(AudioClip clip) {
+        if (clip == null) {
             Debug.Log("NO CLIP ADDED");
             return;
         }
@@ -33,5 +33,11 @@ public class SoundController : MonoBehaviour
     }
     private void Start() {
         SetOst(ostClip);
+    }
+    public void PlayOst() {
+        OstSource.Play();
+    }
+    public void StopOst() {
+        OstSource.Stop();
     }
 }
