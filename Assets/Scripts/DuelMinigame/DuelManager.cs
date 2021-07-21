@@ -20,6 +20,7 @@ namespace Duel.Manager{
         public float elapsedTime;
         public float beginWaitTime = 5f;
         public float endWaitTime = 5f;
+        public float endGameWaitTime = 5f;
         [Header("Positions")]
         [SerializeField] Vector2 firstPlayerPos;
         [SerializeField] Vector2 secondPlayerPos;
@@ -36,15 +37,15 @@ namespace Duel.Manager{
         [SerializeField] Transform bullets;
         [SerializeField] Transform npcs;
         [Header("Audios")]
-        [SerializeField] AudioClip inicioDeTurno, fimDeTurno, fimDaPartida;
+        [SerializeField] AudioClip inicioDeTurno, inicioGameplay, fimDeTurno, fimDaPartida;
         [Header("Stats")]
-        public int turnosMax;
-        public int turnosJogado;
-        public int firstPlayerScore, secondPlayerScore;
+        public int turnosMax = 5;
+        public int turnosJogado = 1;
+        public int firstPlayerScore = 0, secondPlayerScore = 0;
         private Timer timer;
         private void Start() {
             timer = new Timer(matchTime);
-            timer.OnComplete += ResetGame;
+            timer.OnComplete += GameEndTurn;
             GameTurnBegin();
         }
         private void Update() {
@@ -53,7 +54,6 @@ namespace Duel.Manager{
         }
         public void GameTurnBegin(){
             StartCoroutine(WaitForBegin());
-            SoundController.Instance.SetSfx(inicioDeTurno);
             var _firstPlayer = Instantiate(firstPlayer, firstPlayerPos, Quaternion.identity, players);
             _firstPlayer.GetComponent<DuelistPlayer>().playerNumber = 1;
             _firstPlayer.GetComponent<DuelistPlayer>().bulletFolder = bullets;
@@ -73,19 +73,30 @@ namespace Duel.Manager{
         }
         IEnumerator WaitForBegin(){
             StateController.Instance.ChangeState(States.GAME_WAIT);
+            SoundController.Instance.SetSfx(inicioDeTurno);
+
             yield return new WaitForSeconds(beginWaitTime);
+
+            SoundController.Instance.SetSfx(inicioGameplay);
             StateController.Instance.ChangeState(States.GAME_UPDATE);
         }
         IEnumerator WaitForEnd(){
             StateController.Instance.ChangeState(States.GAME_WAIT);
-            yield return new WaitForSeconds(endWaitTime);
-            ResetGame();
+            bool isGameEnd = CheckForEndGame();
+            if(isGameEnd){
+                SoundController.Instance.SetSfx(fimDaPartida);
+                yield return new WaitForSeconds(endGameWaitTime);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            }else{
+                SoundController.Instance.SetSfx(fimDeTurno);
+                yield return new WaitForSeconds(endWaitTime);
+                ResetGame();
+            }
         }
-
+            
         public void ResetGame(){
-            SoundController.Instance.SetSfx(fimDeTurno);
-            var firstPlayer = FindObjectsOfType<DuelistPlayer>();
-            foreach(var p in firstPlayer){
+            var players = FindObjectsOfType<DuelistPlayer>();
+            foreach(var p in players){
                 Destroy(p.gameObject);
             }
             var walls = FindObjectsOfType<Wall>();
@@ -97,17 +108,15 @@ namespace Duel.Manager{
                 Destroy(n.gameObject);
             }
             turnosJogado++;
-            CheckForEndGame();
             timer.Reset();
             GameTurnBegin();
         }
-        void CheckForEndGame(){
+        bool CheckForEndGame(){
             if(turnosJogado >= turnosMax){
-                turnosJogado = 0;
-                firstPlayerScore = 0;
-                secondPlayerScore = 0;
                 SoundController.Instance.SetSfx(fimDaPartida);
+                return true;
             }
+            return false;
         }
     }
 }

@@ -2270,8 +2270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75.60001, y: -74.999985}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: -77, y: -83}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272529665
 MonoBehaviour:
@@ -2937,6 +2937,7 @@ MonoBehaviour:
   elapsedTime: 0
   beginWaitTime: 3
   endWaitTime: 3
+  endGameWaitTime: 5
   firstPlayerPos: {x: 1.4, y: 0.65}
   secondPlayerPos: {x: -1.4, y: -1.15}
   wallPos:
@@ -2960,10 +2961,11 @@ MonoBehaviour:
   bullets: {fileID: 293704306}
   npcs: {fileID: 1354795194}
   inicioDeTurno: {fileID: 8300000, guid: 627a826d4eef3e04182249512ac2ff7e, type: 3}
+  inicioGameplay: {fileID: 8300000, guid: 98883a648cb1fc44b81ebbd95f184fef, type: 3}
   fimDeTurno: {fileID: 8300000, guid: e0aa2c66891101b40a282ba122b14ad3, type: 3}
   fimDaPartida: {fileID: 8300000, guid: d17c6be3b8c61374b91a844821a5e125, type: 3}
   turnosMax: 5
-  turnosJogado: 0
+  turnosJogado: 1
   firstPlayerScore: 0
   secondPlayerScore: 0
 --- !u!4 &1486473726
@@ -3094,7 +3096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.64, y: -38.6}
+  m_AnchoredPosition: {x: -29, y: -2.53}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1583365681
@@ -3569,8 +3571,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 118.8, y: 113.5}
-  m_SizeDelta: {x: 505.4073, y: 116.18938}
+  m_AnchoredPosition: {x: 118.8, y: 127.2}
+  m_SizeDelta: {x: 505.4073, y: 143.5522}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1798188551
 MonoBehaviour:
@@ -3678,8 +3680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.36996, y: 69.917}
-  m_SizeDelta: {x: 475.38, y: 53.35457}
+  m_AnchoredPosition: {x: -307.36996, y: 83.608}
+  m_SizeDelta: {x: 475.38, y: 80.736374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830608869
 MonoBehaviour:
@@ -3702,7 +3704,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b5059f300e6fcd94c9c143de602a2438, type: 3}
-    m_FontSize: 32
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -3713,7 +3715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Antonio das mortes
+  m_Text: "Antonio \ndas mortes"
 --- !u!222 &1830608870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4127,7 +4129,7 @@ GameObject:
   - component: {fileID: 2096474148}
   - component: {fileID: 2096474147}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TurnsHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
