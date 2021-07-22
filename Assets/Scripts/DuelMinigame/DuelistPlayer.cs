@@ -71,6 +71,7 @@ namespace DuelProto.Duelist
 
         // Controller
         public int playerNumber = -1;
+        private bool readyToShoot = true;
 
         // Gun
         public DuelGun mainGun;
@@ -99,18 +100,22 @@ namespace DuelProto.Duelist
             if (StateController.Instance.currentState != States.GAME_UPDATE){
                 mainBody.velocity = Vector2.zero;
                 if (animControl) animControl.ChangeState("Idle");
-                //else print("NO ANIMATION CONTROL");
+                else print("NO ANIMATION CONTROL");
                 return;
             }
+            
 
+            // Input
             InputData currentInput = new InputData();
 
+            // Actions
             DuelController(ref currentInput, playerNumber);
             InputGunFire(mainGun, currentInput.justPressedA);
             MoveCharacter(mainBody, currentInput, this.transform);
 
         }
 
+        // Behavoour Functions
 
         private void DuelController(ref InputData input, int playerNumber = -1)
         {
@@ -128,20 +133,33 @@ namespace DuelProto.Duelist
             input.justPressedB = Input.GetButtonDown("Action Secondary" + playerTag);     // Secondary Button Pressed
         }
 
-
-
         private void InputGunFire(DuelGun gun, bool Try2Shoot)
         {
-            if (Try2Shoot) {
-                gun.TryFireGun(ShootSound, failedShootSound, playerNumber);
-                // Animation
-                if (animControl) animControl.ChangeState("Shoot");
+            if (Try2Shoot && readyToShoot) {
+                gun.TryFireGun(ShootSound, failedShootSound, playerNumber); // Action
+
+                if (animControl) animControl.ChangeState("Shoot"); // Animation
                 else print("NO ANIMATION CONTROL");
+
+                if (animControl) // Delay Next Shoot
+                {
+                    readyToShoot = false;
+                    float delay = animControl.GetStateLenght();
+                    Invoke("SetReadytoShoot", delay);
+                }
+                else print("NO DELAY - ANIMATION CONTROL MISSING");
             }
         }
 
         private void MoveCharacter(Rigidbody2D mainBody, InputData currentInput , Transform duelistPos)
         {
+            // Stop Movement if Shooting
+            if (!readyToShoot)
+            {
+                mainBody.velocity = Vector2.zero;
+                return;
+            }
+
             Vector2 directionInput = currentInput.analog;
             float speedMove = 1.6f;
             Vector2 velocity = speedMove * directionInput.normalized;
@@ -149,16 +167,27 @@ namespace DuelProto.Duelist
             var position = duelistPos.position;
             position.x = Mathf.Clamp(position.x, limiteEsquerda, limiteDireita);
             duelistPos.position = position;
-
             mainBody.velocity = velocity;
 
             // Animation
             if (animControl)
             {
-                if (velocity == Vector2.zero) animControl.ChangeState("Idle");
+                float currentSpeed = Mathf.Abs(velocity.magnitude);
+
+                if ( currentSpeed <= .2f) animControl.ChangeState("Idle");
                 else animControl.ChangeState("Walk");
             }
-            //else print("NO ANIMATION CONTROL");
+            else print("NO ANIMATION CONTROL");
+        }
+
+        // Get / Set Functions
+
+        public void SetReadytoShoot()
+        {
+            readyToShoot = true; // Status Update
+
+            if (animControl) animControl.ChangeState("Idle"); // Animation
+            else print("NO ANIMATION CONTROL");
         }
     }
 }

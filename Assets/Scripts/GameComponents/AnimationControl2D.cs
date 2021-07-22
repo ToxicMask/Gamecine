@@ -22,6 +22,7 @@ namespace GameComponents
             // Check Current State
             if (currentState == newState) return;
 
+
             // Switch State
             if (animator) animator.Play(newState);
             else print("NO ANIMATOR");
@@ -33,7 +34,21 @@ namespace GameComponents
 
         public float GetStateLenght()
         {
-            return animator.GetCurrentAnimatorStateInfo(0).length;
+            float clipLenght = -1;
+
+            AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+
+            foreach (AnimationClip clip in clips)
+            {
+                // Check if current State is in Animator
+                if (clip.name.StartsWith(currentState))
+                {
+                    clipLenght = clip.length;
+                    break;
+                }
+            }
+
+            return clipLenght;
         }
         
     }
