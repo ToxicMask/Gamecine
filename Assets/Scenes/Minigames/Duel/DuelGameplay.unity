@@ -2957,7 +2957,7 @@ MonoBehaviour:
   - {fileID: 396027375920097905, guid: ff7b40d5078939340b49d56f6bde3031, type: 3}
   - {fileID: 396027375920097905, guid: 8600a8a6134eb164c9ee5587cb3e57cc, type: 3}
   players: {fileID: 243909172}
-  walls: {fileID: 1346074946}
+  walls: {fileID: 1215904978}
   bullets: {fileID: 293704306}
   npcs: {fileID: 1354795194}
   inicioDeTurno: {fileID: 8300000, guid: 627a826d4eef3e04182249512ac2ff7e, type: 3}
