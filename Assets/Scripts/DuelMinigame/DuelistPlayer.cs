@@ -20,10 +20,10 @@ namespace DuelProto.Duelist
 {
     public class DuelistPlayer : MonoBehaviour
     {
-        [SerializeField] private float limiteDireita, limiteEsquerda;
-        public AudioClip ShootSound;
-        public AudioClip failedShootSound;
-        public AudioClip passos;
+        [SerializeField] private float limiteDireita = 1, limiteEsquerda = -1;
+        public AudioClip ShootSound = null;
+        public AudioClip failedShootSound = null;
+        public AudioClip passos = null;
         struct InputData
         {
             public Vector2 analog;

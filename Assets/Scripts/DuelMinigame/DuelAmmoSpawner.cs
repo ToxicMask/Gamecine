@@ -5,12 +5,12 @@ using UnityEngine;
 namespace Duelist.Ammo{
     public class DuelAmmoSpawner : MonoBehaviour
     {
-        [SerializeField] GameObject ammo;
-        [SerializeField] Transform[] ammoCima, ammoBaixo;
-        [SerializeField] Transform holder;
+        [SerializeField] GameObject ammo = null;
+        [SerializeField] Transform[] ammoCima = null, ammoBaixo = null;
+        [SerializeField] Transform holder = null;
         [SerializeField] float timeToSpawn = 5f;
         [SerializeField] bool alternateUpAndDown = false;
-        [SerializeField] AudioClip ammoSpawn;
+        [SerializeField] AudioClip ammoSpawn = null;
         Timer timer;
         int spawnOffset = 0;
         

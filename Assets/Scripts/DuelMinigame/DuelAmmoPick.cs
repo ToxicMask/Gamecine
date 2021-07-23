@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Duelist.Ammo{
     public class DuelAmmoPick : MonoBehaviour
     {
-        [SerializeField] AudioClip pickupSound;
+        [SerializeField] AudioClip pickupSound = null;
         private void OnTriggerEnter2D(Collider2D other) {
             //Debug.Log("hit");
             var duelist = other.GetComponent<DuelProto.Duelist.DuelistPlayer>();

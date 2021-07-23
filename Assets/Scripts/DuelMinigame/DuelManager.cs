@@ -22,22 +22,22 @@ namespace Duel.Manager{
         public float endWaitTime = 5f;
         public float endGameWaitTime = 5f;
         [Header("Positions")]
-        [SerializeField] Vector2 firstPlayerPos;
-        [SerializeField] Vector2 secondPlayerPos;
-        [SerializeField] Vector2[] wallPos;
-        [SerializeField] Vector2[] npcPos;
+        [SerializeField] Vector2 firstPlayerPos = Vector2.zero;
+        [SerializeField] Vector2 secondPlayerPos = Vector2.zero;
+        [SerializeField] Vector2[] wallPos = null;
+        [SerializeField] Vector2[] npcPos = null;
         [Header("Prefabs")]
-        [SerializeField] GameObject firstPlayer;
-        [SerializeField] GameObject secondPlayer;
-        [SerializeField] GameObject wall;
-        [SerializeField] GameObject[] npcsObj;
+        [SerializeField] GameObject firstPlayer = null;
+        [SerializeField] GameObject secondPlayer = null;
+        [SerializeField] GameObject wall = null;
+        [SerializeField] GameObject[] npcsObj = null;
         [Header("Parents")]
-        [SerializeField] Transform players;
-        [SerializeField] Transform walls;
-        [SerializeField] Transform bullets;
-        [SerializeField] Transform npcs;
+        [SerializeField] Transform players = null;
+        [SerializeField] Transform walls = null;
+        [SerializeField] Transform bullets = null;
+        [SerializeField] Transform npcs = null;
         [Header("Audios")]
-        [SerializeField] AudioClip inicioDeTurno, inicioGameplay, fimDeTurno, fimDaPartida;
+        [SerializeField] AudioClip inicioDeTurno = null, inicioGameplay = null, fimDeTurno = null, fimDaPartida = null;
         [Header("Stats")]
         public int turnosMax = 5;
         public int turnosJogado = 1;
