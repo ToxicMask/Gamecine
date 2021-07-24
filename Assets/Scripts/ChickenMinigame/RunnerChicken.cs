@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenGameplay.GameManager;
 using ChickenGameplay.Navigate;
 
 
@@ -58,6 +59,8 @@ namespace ChickenGameplay.Chicken
         void Update()
         {
 
+            // End Update If not In Update
+            if (ChickenLevelManager.instance.currentState != GAME_STATE.UPDATE) return;
 
 
             //Update Timer

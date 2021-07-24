@@ -647,7 +647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  endgameDelay: 1.5
+  startGameDelay: 1.8
+  endGameDelay: 2.1
   playerPrefab: {fileID: 2210780753959746847, guid: 9c5f382c62f42074fa65e454f61fb88c,
     type: 3}
   chickenPrefab: {fileID: 8612190626562928963, guid: e37f53dd35078b143b917500a51737c3,

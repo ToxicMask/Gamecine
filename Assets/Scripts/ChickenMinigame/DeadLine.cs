@@ -12,7 +12,7 @@ namespace ChickenGameplay.Navigate
         {
             if (collision.collider.GetComponent<RunnerChicken>())
             {
-                ChickenLevelManager.GAME_STATE result = ChickenLevelManager.GAME_STATE.FAILURE;
+                GAME_STATE result = GAME_STATE.FAILURE;
                 ChickenLevelManager.instance.ChangeState(result);
             }
         }

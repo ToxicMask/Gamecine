@@ -51,6 +51,10 @@ namespace ChickenGameplay.Player
         // Update is called once per frame
         void Update()
         {
+            // End Update If not In Update
+            if (ChickenLevelManager.instance.currentState != GAME_STATE.UPDATE) return;
+
+
             // Control Standard
             Vector2 moveInput = new Vector2
                 (
@@ -60,14 +64,6 @@ namespace ChickenGameplay.Player
             bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
             bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
 
-
-            // Process Input - Action
-            if (pButton)
-            {
-                print("Shoot");
-                pSnap.Snap();
-                return;
-            }
 
             //Process Input - Movement
             if (moveInput != Vector2.zero &&  moveInput != prevMove)
@@ -139,7 +135,7 @@ namespace ChickenGameplay.Player
             if (collision.collider.GetComponent<RunnerChicken>())
             {
                 // Set Result
-                ChickenLevelManager.GAME_STATE gameResult = ChickenLevelManager.GAME_STATE.VICTORY;
+                GAME_STATE gameResult = GAME_STATE.VICTORY;
 
                 // Set Result in Manager
                 ChickenLevelManager.instance.ChangeState(gameResult);

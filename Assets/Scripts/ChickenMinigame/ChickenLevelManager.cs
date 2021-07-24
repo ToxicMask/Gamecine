@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 // Game Manager
 namespace ChickenGameplay.GameManager
 {
+
+    public enum GAME_STATE { WAIT, UPDATE, FAILURE, VICTORY }
+
     public class ChickenLevelManager : MonoBehaviour
     {
-
-        public enum GAME_STATE { WAIT, UPDATE, FAILURE, VICTORY }
-
 
         // Static Singletone
         public static ChickenLevelManager instance = null;
@@ -20,7 +20,7 @@ namespace ChickenGameplay.GameManager
 
         // Time Variables
         [Header("Level Time")]
-        public float startGameDelay = 2.1f;
+        public float startGameDelay = 1.0f;
         public float endGameDelay = 2.1f;
 
         // Characters
@@ -49,13 +49,7 @@ namespace ChickenGameplay.GameManager
 
         private void Start()
         {
-            // Spawn Prefabs
-            GameObject newPlayer = GameObject.Instantiate(playerPrefab, characterFolder);
-            newPlayer.transform.position = playerSpawn.position;
-
-            GameObject newChicken = GameObject.Instantiate(chickenPrefab, characterFolder);
-            newChicken.transform.position = chickenSpawn.position;
-            newChicken.GetComponent<RunnerChicken>().eggFolder = clueFolder;
+            NewGame();
         }
 
 
@@ -108,8 +102,6 @@ namespace ChickenGameplay.GameManager
             if (result == GAME_STATE.VICTORY) print("PEGOU A GALINHA!");
             else print("FUGIU!");
 
-            Time.timeScale = 0;
-
             //Deactivate Pause Canvas
             if (pauseCanvas) pauseCanvas.gameObject.SetActive(false);
 
@@ -120,14 +112,12 @@ namespace ChickenGameplay.GameManager
         IEnumerator BeginingDelay()
         {
             yield return new WaitForSecondsRealtime(startGameDelay);
-            Time.timeScale = 1;
             ChangeState(GAME_STATE.UPDATE);
         }
 
         IEnumerator ResetDelay()
         {
             yield return new WaitForSecondsRealtime(endGameDelay);
-            Time.timeScale = 1;
             ResetCurrentLevel();
         }
 
