@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-namespace ChickenPrototype.Navigate
+namespace ChickenGameplay.Navigate
 {
     /*
     [CustomEditor(typeof(PositionSnap))]

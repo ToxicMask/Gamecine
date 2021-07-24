@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ChickenPrototype.Chicken
+namespace ChickenGameplay.Chick
 {
     public class Egg : MonoBehaviour
     {

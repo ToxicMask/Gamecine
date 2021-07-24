@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-namespace ChickenPrototype.Navigate
+namespace ChickenGameplay.Navigate
 {
 
 

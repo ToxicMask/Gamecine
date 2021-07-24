@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using ChickenPrototype.GameManager;
-using ChickenPrototype.Chicken;
-using ChickenPrototype.Navigate;
-using ChickenPrototype.PickUp;
+using ChickenGameplay.GameManager;
+using ChickenGameplay.Chicken;
+using ChickenGameplay.Navigate;
+using ChickenGameplay.PickUp;
 
 
-namespace ChickenPrototype.Player
+namespace ChickenGameplay.Player
 {
 
     /**
@@ -136,13 +136,13 @@ namespace ChickenPrototype.Player
          **/
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.collider.GetComponent<Chick>())
+            if (collision.collider.GetComponent<RunnerChicken>())
             {
                 // Set Result
-                LevelManager.GAME_RESULT gameResult = LevelManager.GAME_RESULT.VICTORY;
+                ChickenLevelManager.GAME_RESULT gameResult = ChickenLevelManager.GAME_RESULT.VICTORY;
 
                 // Set Result in Manager
-                LevelManager.current.GameOver(gameResult);
+                ChickenLevelManager.current.GameOver(gameResult);
             }
         }
 
@@ -151,8 +151,8 @@ namespace ChickenPrototype.Player
         {
             if (collision.GetComponent<BulletPickUp>())
             {
-                Chick.current.stuned = true;
-                Chick.current.timerLeft = BulletPickUp.stunTime;
+                RunnerChicken.current.stuned = true;
+                RunnerChicken.current.timerLeft = BulletPickUp.stunTime;
                 Destroy(collision.gameObject);
             }
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ChickenPrototype.Scenary
+namespace ChickenGameplay.Scenary
 {
     public class TilesGismoDraw : MonoBehaviour
     {

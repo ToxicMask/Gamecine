@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenGameplay.Navigate;
 
-using ChickenPrototype.Navigate;
 
-
-namespace ChickenPrototype.Chicken
+namespace ChickenGameplay.Chicken
 {
-    public class Chick : MonoBehaviour
+    public class RunnerChicken : MonoBehaviour
     {
         //float snapFactor = .125f; // Adjust position to grid
 
-        public static Chick current = null;
+        public static RunnerChicken current = null;
 
         // Components
         [SerializeField] Rigidbody2D rb2D;

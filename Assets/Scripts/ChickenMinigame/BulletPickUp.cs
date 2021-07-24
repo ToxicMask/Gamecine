@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ChickenPrototype.Chicken;
 
-
-namespace ChickenPrototype.PickUp
+namespace ChickenGameplay.PickUp
 {
     public class BulletPickUp : MonoBehaviour
     {

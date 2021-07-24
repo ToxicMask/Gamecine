@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ChickenPrototype.Player;
+using ChickenGameplay.Player;
 
-namespace ChickenPrototype.Camera
+namespace ChickenGameplay.Camera
 {
     public class ScreenLimit : MonoBehaviour
     {

@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 
 // Game Manager
-namespace ChickenPrototype.GameManager
+namespace ChickenGameplay.GameManager
 {
-    public class LevelManager : MonoBehaviour
+    public class ChickenLevelManager : MonoBehaviour
     {
 
         public enum GAME_RESULT {FAILURE, VICTORY}
 
 
         // Static Singletone
-        public static LevelManager current = null;
+        public static ChickenLevelManager current = null;
 
         //Pause Canvas
         public Canvas pauseCanvas = null;

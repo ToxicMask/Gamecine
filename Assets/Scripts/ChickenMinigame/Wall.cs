@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ChickenPrototype.Navigate
+namespace ChickenGameplay.Navigate
 {
     public class Wall : MonoBehaviour { }
 }
