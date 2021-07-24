@@ -16,7 +16,11 @@ namespace ChickenGameplay.GameManager
 
         // Static Singletone
         public static ChickenLevelManager instance = null;
+        [Header("State Machine")]
         public GAME_STATE currentState = GAME_STATE.WAIT;
+
+        [Header("Current Score")]
+        public int playerScore = 0;
 
         // Time Variables
         [Header("Level Time")]

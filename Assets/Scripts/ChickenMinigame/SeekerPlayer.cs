@@ -131,7 +131,8 @@ namespace ChickenGameplay.Player
          *
          **/
         private void OnCollisionEnter2D(Collision2D collision)
-        {
+        { 
+            // Objective
             if (collision.collider.GetComponent<RunnerChicken>())
             {
                 // Set Result
@@ -140,6 +141,8 @@ namespace ChickenGameplay.Player
                 // Set Result in Manager
                 ChickenLevelManager.instance.ChangeState(gameResult);
             }
+
+           
         }
 
         //Pick Bullet
@@ -151,6 +154,12 @@ namespace ChickenGameplay.Player
                 RunnerChicken.current.timerLeft = BulletPickUp.stunTime;
                 Destroy(collision.gameObject);
             }
+
+            if (collision.GetComponent<EggPickUp>())
+            {
+                collision.GetComponent<EggPickUp>().PickUp();
+            }
+
         }
 
 
