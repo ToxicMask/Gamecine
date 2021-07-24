@@ -14,7 +14,7 @@ namespace ChickenGameplay.Camera
         {
             if (collision.gameObject.GetComponent<SeekerPlayer>())
             {
-                print("Change!");
+                //print("Change!");
                 if (followScript) followScript.MoveTo(transform.position);
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ChickenGameplay.Chicken;
+using ChickenGameplay.GameManager;
 
 namespace ChickenGameplay.Navigate
 {
@@ -11,8 +12,8 @@ namespace ChickenGameplay.Navigate
         {
             if (collision.collider.GetComponent<RunnerChicken>())
             {
-                print("CABOU O JOGO!");
-                Time.timeScale = 0;
+                ChickenLevelManager.GAME_STATE result = ChickenLevelManager.GAME_STATE.FAILURE;
+                ChickenLevelManager.instance.ChangeState(result);
             }
         }
 

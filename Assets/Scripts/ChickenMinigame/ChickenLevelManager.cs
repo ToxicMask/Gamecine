@@ -10,34 +10,58 @@ namespace ChickenGameplay.GameManager
     public class ChickenLevelManager : MonoBehaviour
     {
 
-        public enum GAME_STATE {WAIT, UPDATE, FAILURE, VICTORY}
+        public enum GAME_STATE { WAIT, UPDATE, FAILURE, VICTORY }
 
 
         // Static Singletone
-        public static ChickenLevelManager current = null;
+        public static ChickenLevelManager instance = null;
+        public GAME_STATE currentState = GAME_STATE.WAIT;
 
-        //Pause Canvas
+        // Time Variables
+        [Header("Level Time")]
+        public float endgameDelay = 2.1f;
+
+        // Pause Canvas
         public Canvas pauseCanvas = null;
 
 
 
         private void Awake()
         {
-            current = this;
+            instance = this;
         }
 
 
         private void OnDestroy()
         {
-            if (current == this) current = null;
+            if (instance == this) instance = null;
         }
 
 
         // General Level Manager
-        
-        public void GameOver(GAME_STATE gr)
+
+        public void ChangeState(GAME_STATE newState)
         {
-            if (gr == GAME_STATE.VICTORY) print("PEGOU A GALINHA!");
+            // Prevent Updates
+            if (newState == currentState) return;
+
+            // Update State
+            currentState = newState;
+
+            // Check Game Over
+            switch (currentState)
+            {
+                case GAME_STATE.VICTORY:
+                case GAME_STATE.FAILURE:
+                    GameOver(currentState);
+                    break;
+            }
+
+        }
+        
+        private void GameOver(GAME_STATE result)
+        {
+            if (result == GAME_STATE.VICTORY) print("PEGOU A GALINHA!");
             else print("FUGIU!");
 
             Time.timeScale = 0;
@@ -52,7 +76,7 @@ namespace ChickenGameplay.GameManager
 
         IEnumerator ResetDelay()
         {
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(endgameDelay);
             Time.timeScale = 1;
             ResetCurrentLevel();
         }

@@ -142,7 +142,7 @@ namespace ChickenGameplay.Player
                 ChickenLevelManager.GAME_STATE gameResult = ChickenLevelManager.GAME_STATE.VICTORY;
 
                 // Set Result in Manager
-                ChickenLevelManager.current.GameOver(gameResult);
+                ChickenLevelManager.instance.ChangeState(gameResult);
             }
         }
 
