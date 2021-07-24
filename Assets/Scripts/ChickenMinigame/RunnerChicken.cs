@@ -58,6 +58,8 @@ namespace ChickenGameplay.Chicken
         void Update()
         {
 
+
+
             //Update Timer
             timerLeft -= Time.deltaTime;
 

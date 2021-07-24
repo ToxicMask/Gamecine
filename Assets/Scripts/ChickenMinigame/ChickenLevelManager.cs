@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ChickenGameplay.Chicken;
 using UnityEngine.SceneManagement;
 
 
@@ -19,9 +20,24 @@ namespace ChickenGameplay.GameManager
 
         // Time Variables
         [Header("Level Time")]
-        public float endgameDelay = 2.1f;
+        public float startGameDelay = 2.1f;
+        public float endGameDelay = 2.1f;
 
-        // Pause Canvas
+        // Characters
+        [Header("Prefabs")]
+        public GameObject playerPrefab = null;
+        public GameObject chickenPrefab = null;
+
+        // Transforms - Folders
+        [Header("Folders")]
+        public Transform characterFolder = null;
+        public Transform clueFolder = null;
+
+        [Header("Spawn Positions")]
+        public Transform playerSpawn = null;
+        public Transform chickenSpawn = null;
+
+        [Header("UI")]
         public Canvas pauseCanvas = null;
 
 
@@ -29,6 +45,17 @@ namespace ChickenGameplay.GameManager
         private void Awake()
         {
             instance = this;
+        }
+
+        private void Start()
+        {
+            // Spawn Prefabs
+            GameObject newPlayer = GameObject.Instantiate(playerPrefab, characterFolder);
+            newPlayer.transform.position = playerSpawn.position;
+
+            GameObject newChicken = GameObject.Instantiate(chickenPrefab, characterFolder);
+            newChicken.transform.position = chickenSpawn.position;
+            newChicken.GetComponent<RunnerChicken>().eggFolder = clueFolder;
         }
 
 
@@ -58,6 +85,23 @@ namespace ChickenGameplay.GameManager
             }
 
         }
+
+        private void NewGame()
+        {
+            // Set Up State
+            ChangeState(GAME_STATE.WAIT);
+
+            // Spawn Prefabs
+            GameObject newPlayer = GameObject.Instantiate(playerPrefab, characterFolder);
+            newPlayer.transform.position = playerSpawn.position;
+
+            GameObject newChicken = GameObject.Instantiate(chickenPrefab, characterFolder);
+            newChicken.transform.position = chickenSpawn.position;
+            newChicken.GetComponent<RunnerChicken>().eggFolder = clueFolder;
+
+            // Set up Delay
+            StartCoroutine(BeginingDelay());
+        }
         
         private void GameOver(GAME_STATE result)
         {
@@ -73,10 +117,16 @@ namespace ChickenGameplay.GameManager
 
         }
 
+        IEnumerator BeginingDelay()
+        {
+            yield return new WaitForSecondsRealtime(startGameDelay);
+            Time.timeScale = 1;
+            ChangeState(GAME_STATE.UPDATE);
+        }
 
         IEnumerator ResetDelay()
         {
-            yield return new WaitForSecondsRealtime(endgameDelay);
+            yield return new WaitForSecondsRealtime(endGameDelay);
             Time.timeScale = 1;
             ResetCurrentLevel();
         }
