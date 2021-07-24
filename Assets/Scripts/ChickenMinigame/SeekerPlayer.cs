@@ -139,7 +139,7 @@ namespace ChickenGameplay.Player
             if (collision.collider.GetComponent<RunnerChicken>())
             {
                 // Set Result
-                ChickenLevelManager.GAME_RESULT gameResult = ChickenLevelManager.GAME_RESULT.VICTORY;
+                ChickenLevelManager.GAME_STATE gameResult = ChickenLevelManager.GAME_STATE.VICTORY;
 
                 // Set Result in Manager
                 ChickenLevelManager.current.GameOver(gameResult);

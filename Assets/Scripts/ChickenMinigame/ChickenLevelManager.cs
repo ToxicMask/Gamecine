@@ -10,7 +10,7 @@ namespace ChickenGameplay.GameManager
     public class ChickenLevelManager : MonoBehaviour
     {
 
-        public enum GAME_RESULT {FAILURE, VICTORY}
+        public enum GAME_STATE {WAIT, UPDATE, FAILURE, VICTORY}
 
 
         // Static Singletone
@@ -35,9 +35,9 @@ namespace ChickenGameplay.GameManager
 
         // General Level Manager
         
-        public void GameOver(GAME_RESULT gr)
+        public void GameOver(GAME_STATE gr)
         {
-            if (gr == GAME_RESULT.VICTORY) print("PEGOU A GALINHA!");
+            if (gr == GAME_STATE.VICTORY) print("PEGOU A GALINHA!");
             else print("FUGIU!");
 
             Time.timeScale = 0;
