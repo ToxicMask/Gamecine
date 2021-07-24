@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ChickenGameplay.Chicken;
 using UnityEngine.SceneManagement;
+using ChickenGameplay.UI;
 
 
 // Game Manager
@@ -19,8 +20,8 @@ namespace ChickenGameplay.GameManager
         [Header("State Machine")]
         public GAME_STATE currentState = GAME_STATE.WAIT;
 
-        [Header("Current Score")]
-        public int playerScore = 0;
+        [Header("Score")]
+        [SerializeField] int playerScore = 0;
 
         // Time Variables
         [Header("Level Time")]
@@ -42,6 +43,7 @@ namespace ChickenGameplay.GameManager
         public Transform chickenSpawn = null;
 
         [Header("UI")]
+        public GameHUD gameHUD = null;
         public Canvas pauseCanvas = null;
 
 
@@ -84,10 +86,25 @@ namespace ChickenGameplay.GameManager
 
         }
 
+        public void AddScore (int addValue)
+        {
+            playerScore += addValue;
+            gameHUD.UpdateScore(playerScore);
+        }
+
+        public void SetScore(int newValue)
+        {
+            playerScore = newValue;
+            gameHUD.UpdateScore(playerScore);
+        }
+
         private void NewGame()
         {
             // Set Up State
             ChangeState(GAME_STATE.WAIT);
+
+            // Set Up Points
+            SetScore(0);
 
             // Spawn Prefabs
             GameObject newPlayer = GameObject.Instantiate(playerPrefab, characterFolder);

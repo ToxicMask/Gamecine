@@ -12,7 +12,7 @@ namespace ChickenGameplay.PickUp
 
         public void PickUp()
         {
-            ChickenLevelManager.instance.playerScore += pointsValue;
+            ChickenLevelManager.instance.AddScore(pointsValue);
 
             Destroy(gameObject);
         }
