@@ -614,6 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370402794}
   - component: {fileID: 370402795}
+  - component: {fileID: 370402796}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -648,7 +649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  playerScore: 0
   startGameDelay: 1.8
   endGameDelay: 2.1
   playerPrefab: {fileID: 2210780753959746847, guid: 9c5f382c62f42074fa65e454f61fb88c,
@@ -661,6 +661,20 @@ MonoBehaviour:
   chickenSpawn: {fileID: 2027475276}
   gameHUD: {fileID: 1103155231}
   pauseCanvas: {fileID: 1982156101}
+--- !u!114 &370402796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370402793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e3fa148112ef14e99326d0b8836c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
+  gameHUD: {fileID: 1103155231}
 --- !u!4 &371579751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1095778825911998114, guid: cb6a217c91372d74a801d5ac5211ce2f,

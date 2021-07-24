@@ -4,6 +4,7 @@ using UnityEngine;
 using ChickenGameplay.Chicken;
 using UnityEngine.SceneManagement;
 using ChickenGameplay.UI;
+using ChickenGameplay.Score;
 
 
 // Game Manager
@@ -19,9 +20,6 @@ namespace ChickenGameplay.GameManager
         public static ChickenLevelManager instance = null;
         [Header("State Machine")]
         public GAME_STATE currentState = GAME_STATE.WAIT;
-
-        [Header("Score")]
-        [SerializeField] int playerScore = 0;
 
         // Time Variables
         [Header("Level Time")]
@@ -47,18 +45,15 @@ namespace ChickenGameplay.GameManager
         public Canvas pauseCanvas = null;
 
 
-
+        // Unity Methods
         private void Awake()
         {
             instance = this;
         }
-
         private void Start()
         {
             NewGame();
         }
-
-
         private void OnDestroy()
         {
             if (instance == this) instance = null;
@@ -85,26 +80,13 @@ namespace ChickenGameplay.GameManager
             }
 
         }
-
-        public void AddScore (int addValue)
-        {
-            playerScore += addValue;
-            gameHUD.UpdateScore(playerScore);
-        }
-
-        public void SetScore(int newValue)
-        {
-            playerScore = newValue;
-            gameHUD.UpdateScore(playerScore);
-        }
-
         private void NewGame()
         {
             // Set Up State
             ChangeState(GAME_STATE.WAIT);
 
             // Set Up Points
-            SetScore(0);
+            ScoreManager.instance.SetScore(0);
 
             // Spawn Prefabs
             GameObject newPlayer = GameObject.Instantiate(playerPrefab, characterFolder);
@@ -117,7 +99,6 @@ namespace ChickenGameplay.GameManager
             // Set up Delay
             StartCoroutine(BeginingDelay());
         }
-        
         private void GameOver(GAME_STATE result)
         {
             if (result == GAME_STATE.VICTORY) print("PEGOU A GALINHA!");
@@ -135,7 +116,6 @@ namespace ChickenGameplay.GameManager
             yield return new WaitForSecondsRealtime(startGameDelay);
             ChangeState(GAME_STATE.UPDATE);
         }
-
         IEnumerator ResetDelay()
         {
             yield return new WaitForSecondsRealtime(endGameDelay);
@@ -147,7 +127,6 @@ namespace ChickenGameplay.GameManager
         {
             SceneManager.LoadScene((int)AllScenes.MainMenu);
         }
-
         public void ResetCurrentLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

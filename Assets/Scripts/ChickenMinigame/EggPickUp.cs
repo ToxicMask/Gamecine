@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ChickenGameplay.GameManager;
+using ChickenGameplay.Score;
 
 namespace ChickenGameplay.PickUp
 {
@@ -12,7 +12,7 @@ namespace ChickenGameplay.PickUp
 
         public void PickUp()
         {
-            ChickenLevelManager.instance.AddScore(pointsValue);
+            ScoreManager.instance.AddScore(pointsValue);
 
             Destroy(gameObject);
         }
