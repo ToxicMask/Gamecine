@@ -9,7 +9,6 @@ namespace ChickenGameplay.Chicken
 {
     public class RunnerChicken : MonoBehaviour
     {
-        //float snapFactor = .125f; // Adjust position to grid
 
         public static RunnerChicken current = null;
 
@@ -30,32 +29,30 @@ namespace ChickenGameplay.Chicken
         public GameObject eggPrefab;
         public Transform eggFolder;
 
-        // Timer Values
-        public float timerValue = 10f;
-        public float timerLeft = 10f;
+        // Timers
+        public float eggTimerValue = 1.0f;
+        private Timer eggTimer;
+        private Timer stunTimer;
 
 
         // Stun
         public bool stuned = false;
 
-
-        // Start is called before the first frame update
         void Start()
         {
-
             // Set current static reference
             current = this;
 
-
             // Set Timer
-            timerLeft = timerValue;
+            eggTimer = new Timer(eggTimerValue);
+            eggTimer.OnComplete += SpawnEgg;
+            stunTimer = new Timer(1f);
+            stunTimer.OnComplete += EndStun;
 
             // Auto-Get from the same GameObject
             if (!rb2D) rb2D = GetComponent<Rigidbody2D>();
 
         }
-
-        // Update is called once per frame
         void Update()
         {
 
@@ -63,31 +60,15 @@ namespace ChickenGameplay.Chicken
             if (ChickenLevelManager.instance.currentState != GAME_STATE.UPDATE) return;
 
 
-            //Update Timer
-            timerLeft -= Time.deltaTime;
-
-            if (timerLeft < 0)
-            {
-
-
-                if (eggPrefab)
-                {
-                    if (eggFolder) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero), eggFolder);
-                    else GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
-                }
-                stuned = false;
-                timerLeft = timerValue;
-            }
-
+            //Update Timers
+            eggTimer.Update();
+            if (stuned) stunTimer.Update();
+            
             // Return if stunned
             if (stuned) return;
 
-
-
-
             // Check each Direction
             RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
-
             if (hitWall)
             {
                 if (hitWall.collider.GetComponent<Wall>())
@@ -97,16 +78,13 @@ namespace ChickenGameplay.Chicken
                 }
             }
 
-
             // Execute Movement
             RunMovement();
 
         }
-
-        // Check New Direction Chenge to horizontal to vertical and vice-versa
         private void OnTriggerStay2D(Collider2D collision)
-        { 
-
+        {
+            // Check New Direction Chenge to horizontal to vertical and vice-versa
             DirectionGuide dg = collision.GetComponent<DirectionGuide>();
 
             if ((dg) && dg != lastDirectionGuide )
@@ -131,19 +109,9 @@ namespace ChickenGameplay.Chicken
             }
 
         }
-
-
-
-        Vector2 GetRandomDirection(Vector2 excepition)
+        private void OnDestroy()
         {
-            Vector2[] allDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.right, Vector2.left };
-
-            int newIndex = Random.Range(1, 1000000) % 4;
-            
-            // Go to Next if it is exception
-            if ( excepition == allDirections[newIndex]) newIndex = (newIndex+1)%4;
-
-            return allDirections[newIndex];
+            current = null;
         }
 
         /**  
@@ -166,9 +134,31 @@ namespace ChickenGameplay.Chicken
             rb2D.position += runDirection * runSpeed * Time.deltaTime;
         }
 
-        private void OnDestroy()
+        /**
+        *   Signals
+        **/
+
+        // Spawn Egg and Reset Timer
+        void SpawnEgg()
         {
-            current = null;
+            if (eggPrefab)
+            {
+                if (eggFolder) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero), eggFolder);
+                else GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+            }
+
+            eggTimer.Reset();
+        }
+        public void SetStunTime(float stunTime )
+        {
+            stuned = true;
+            stunTimer.setTime = stunTime;
+        }
+        // End Stunned Condition
+        void EndStun()
+        {
+            stuned = false;
+            stunTimer.Reset();
         }
     }
 }

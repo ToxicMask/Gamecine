@@ -6,6 +6,6 @@ namespace ChickenGameplay.PickUp
 {
     public class BulletPickUp : MonoBehaviour
     {
-        public static float stunTime = 5f;
+        public float stunTime = 5f;
     }
 }

@@ -161,6 +161,5 @@ MonoBehaviour:
   eggPrefab: {fileID: 1327358274264346036, guid: c07de2913d7396e419bce8b640fa4f73,
     type: 3}
   eggFolder: {fileID: 0}
-  timerValue: 1.4
-  timerLeft: 10
+  eggTimerValue: 7
   stuned: 0

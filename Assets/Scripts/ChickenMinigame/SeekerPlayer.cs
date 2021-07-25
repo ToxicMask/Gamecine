@@ -148,10 +148,10 @@ namespace ChickenGameplay.Player
         //Pick Bullet
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.GetComponent<BulletPickUp>())
+            BulletPickUp bullet = collision.GetComponent<BulletPickUp>();
+            if (bullet)
             {
-                RunnerChicken.current.stuned = true;
-                RunnerChicken.current.timerLeft = BulletPickUp.stunTime;
+                RunnerChicken.current.SetStunTime(bullet.stunTime);
                 Destroy(collision.gameObject);
             }
 
