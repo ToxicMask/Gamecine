@@ -11,7 +11,7 @@ namespace GameComponents
 
         string currentState = "";
 
-        void Start()
+        void Awake()
         {
            animator = GetComponent<Animator>();
         }
