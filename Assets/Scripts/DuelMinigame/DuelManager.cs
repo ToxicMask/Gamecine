@@ -86,7 +86,9 @@ namespace Duel.Manager{
             if(isGameEnd){
                 SoundController.Instance.SetSfx(fimDaPartida);
                 yield return new WaitForSeconds(endGameWaitTime);
-                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+                DuelEndgame.winner = WinnerName();
+                DuelEndgame.winnerPoints = WinnerPlayer();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(6);
             }else{
                 SoundController.Instance.SetSfx(fimDeTurno);
                 yield return new WaitForSeconds(endWaitTime);
@@ -110,6 +112,20 @@ namespace Duel.Manager{
             turnosJogado++;
             timer.Reset();
             GameTurnBegin();
+        }
+        string WinnerName(){
+            if(firstPlayerScore > secondPlayerScore){
+                return "Antonio das mortes";
+            }else{
+                return "Corisco";
+            }
+        }
+        int WinnerPlayer(){
+            if(firstPlayerScore > secondPlayerScore){
+                return firstPlayerScore;
+            }else{
+                return secondPlayerScore;
+            }
         }
         bool CheckForEndGame(){
             if(turnosJogado >= turnosMax){
