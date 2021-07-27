@@ -61,8 +61,10 @@ namespace MainMenu.GameManager
 
         void DisplaySelectionScreen()
         {
+            Invoke("Display", 2.5f);
+        }
+        void Display(){
             selectionScreen.gameObject.SetActive(true);
-            selectionScreen.ScrolScreenIn();
         }
     }
 }

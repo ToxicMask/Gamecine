@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Duel/DuelGameplay.unity
     guid: acaed9facc255914e9bfb69a95b19f1d
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Duel/DuelFimDeJogo.unity
+    guid: 49934d9732f27984cbd7b6081506e747
   m_configObjects: {}

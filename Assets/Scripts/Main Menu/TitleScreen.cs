@@ -74,7 +74,7 @@ namespace MainMenu.Title
 
         public void ScrolScreenOut()
         {
-            LeanTween.move(current.gameObject, outFrame, 4.5f).setOnComplete(HideScreen);
+            LeanTween.move(current.gameObject, outFrame, 2.5f).setOnComplete(HideScreen);
             StartButtonDisable();
         }
 
