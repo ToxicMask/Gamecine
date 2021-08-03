@@ -5,9 +5,17 @@ using UnityEngine;
 
 namespace ChickenGameplay.Navigate
 {
+    [ExecuteAlways]
     public class PositionSnap : MonoBehaviour
     {
         public static float snapFactor = .125f; // Adjust position to grid
+
+
+        // Update Onlu in editor
+        private void Update()
+        {
+            if (!Application.IsPlaying(gameObject)) Snap();
+        }
 
 
         /*
