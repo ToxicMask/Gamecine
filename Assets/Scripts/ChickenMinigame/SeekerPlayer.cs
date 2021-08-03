@@ -151,13 +151,13 @@ namespace ChickenGameplay.Player
             BulletPickUp bullet = collision.GetComponent<BulletPickUp>();
             if (bullet)
             {
-                RunnerChicken.current.SetStunTime(bullet.stunTime);
-                Destroy(collision.gameObject);
+                bullet.PickUp();
             }
 
-            if (collision.GetComponent<EggPickUp>())
+            EggPickUp egg = collision.GetComponent<EggPickUp>();
+            if (egg)
             {
-                collision.GetComponent<EggPickUp>().PickUp();
+                egg.PickUp();
             }
 
         }
