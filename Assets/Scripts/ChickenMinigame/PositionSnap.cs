@@ -9,6 +9,7 @@ namespace ChickenGameplay.Navigate
     {
         public static float snapFactor = .125f; // Adjust position to grid
 
+
         /*
          * Snap position acording to snapFactor
          */
@@ -29,7 +30,7 @@ namespace ChickenGameplay.Navigate
 
         private void OnValidate()
         {
-            Snap();
+           Snap();
         }
     }
 
