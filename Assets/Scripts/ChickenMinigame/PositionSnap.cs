@@ -30,7 +30,7 @@ namespace ChickenGameplay.Navigate
                 (
                 Mathf.Round(tp.x / snapFactor) * snapFactor ,
                 Mathf.Round(tp.y / snapFactor) * snapFactor ,
-                0
+                tp.z
                 );
 
             transform.position = tp;
