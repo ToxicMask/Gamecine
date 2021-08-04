@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using GameComponents;
+
 using ChickenGameplay.GameManager;
 using ChickenGameplay.Navigate;
 
@@ -13,7 +16,8 @@ namespace ChickenGameplay.Chicken
         public static RunnerChicken current = null;
 
         // Components
-        [SerializeField] Rigidbody2D rb2D;
+        private AnimationControl2D animControl = null;
+        private Rigidbody2D rb2D;
 
         // Movement Variables -> Auto Walk
         Vector2 runDirection = Vector2.right;
@@ -50,7 +54,8 @@ namespace ChickenGameplay.Chicken
             stunTimer.OnComplete += EndStun;
 
             // Auto-Get from the same GameObject
-            if (!rb2D) rb2D = GetComponent<Rigidbody2D>();
+            rb2D = GetComponent<Rigidbody2D>();
+            animControl = GetComponent<AnimationControl2D>();
 
         }
         void Update()
@@ -61,9 +66,12 @@ namespace ChickenGameplay.Chicken
 
 
             //Update Timers
-            eggTimer.Update();
-            if (stuned) stunTimer.Update();
-            
+            if (!stuned) eggTimer.Update();
+            if (stuned)  stunTimer.Update();
+
+            // Play Stunned Animation
+            if (stuned) animControl.ChangeState("Stun");
+
             // Return if stunned
             if (stuned) return;
 
@@ -132,6 +140,13 @@ namespace ChickenGameplay.Chicken
         {
             // Update position -> Auto Walk
             rb2D.position += runDirection * runSpeed * Time.deltaTime;
+
+            // Update Animation 
+            if (runDirection == Vector2.up) animControl.ChangeState("WalkUp");
+            else if (runDirection == Vector2.down) animControl.ChangeState("WalkDown");
+            else if (runDirection == Vector2.left) animControl.ChangeState("WalkLeft");
+            else if (runDirection == Vector2.right) animControl.ChangeState("WalkRight");
+            else if (runDirection == Vector2.zero) animControl.ChangeState("Idle");
         }
 
         /**
