@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class DuelEndgame : MonoBehaviour
 {
-    [SerializeField]Text winnerName;
+    [SerializeField]Text winnerName = null;
     public static string winner;
     public static int winnerPoints;
     private void Start() {
