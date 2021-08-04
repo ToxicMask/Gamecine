@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using GameComponents;
+
 using ChickenGameplay.GameManager;
 using ChickenGameplay.Chicken;
 using ChickenGameplay.Navigate;
@@ -25,6 +27,7 @@ namespace ChickenGameplay.Player
     public class SeekerPlayer : MonoBehaviour
     {
         // Position Control Variables
+        [SerializeField] AnimationControl2D animControl = null;
         [SerializeField] Rigidbody2D rb2D;
         [SerializeField] PositionSnap pSnap;
 
@@ -45,6 +48,10 @@ namespace ChickenGameplay.Player
             // Auto-Get from the same GameObject
             rb2D = GetComponent<Rigidbody2D>();
             pSnap = GetComponent<PositionSnap>();
+            animControl = GetComponent<AnimationControl2D>();
+
+            // Set Start Animation
+            animControl.ChangeState("WalkRight");
 
         }
 
@@ -61,8 +68,8 @@ namespace ChickenGameplay.Player
                     Mathf.Round(Input.GetAxis("Horizontal")),
                     Mathf.Round(Input.GetAxis("Vertical"))
                 );
-            bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
-            bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
+            //bool pButton = Input.GetButtonDown("Action Primary");   // Primary Button Pressed
+            //bool sButton = Input.GetButtonDown("Action Secondary"); // Secondary Button Pressed
 
 
             //Process Input - Movement
@@ -82,7 +89,7 @@ namespace ChickenGameplay.Player
             {
                 if (hitWall.collider.GetComponent<Wall>())
                 {
-                    runDirection = Vector2.zero;//Stop
+                    runDirection = Vector2.zero;
 
                     if (pSnap) pSnap.Snap();
                 }
@@ -123,6 +130,13 @@ namespace ChickenGameplay.Player
         {
             // Update position -> Auto Walk
             rb2D.position += runDirection * runSpeed * Time.deltaTime;
+
+            // Update Animation 
+            if      (runDirection == Vector2.up) animControl.ChangeState("WalkUp");
+            else if (runDirection == Vector2.down) animControl.ChangeState("WalkDown");
+            else if (runDirection == Vector2.left) animControl.ChangeState("WalkLeft");
+            else if (runDirection == Vector2.right) animControl.ChangeState("WalkRight");
+            else if (runDirection == Vector2.zero) animControl.ChangeState("Idle");
         }
 
 

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2210780753959746842}
+  - component: {fileID: 6379813924667201592}
   - component: {fileID: 2210780753959746843}
   - component: {fileID: 2210780753959746836}
   - component: {fileID: 2210780753959746841}
@@ -36,6 +37,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6379813924667201592
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210780753959746847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eac9a067029a72c44870a8e373597b13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &2210780753959746843
 Rigidbody2D:
   serializedVersion: 4
@@ -158,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1d2290d646da147adeae7ddd4666ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animControl: {fileID: 0}
   rb2D: {fileID: 2210780753959746843}
   pSnap: {fileID: 0}
   runSpeed: 1.4
