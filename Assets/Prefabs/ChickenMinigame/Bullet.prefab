@@ -74,6 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7056869d400f53242871af0d52435122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootSFX: {fileID: 8300000, guid: 41146cd316d05e44a98a859fc125db4d, type: 3}
+  stunTime: 2.1
+  pointsValue: 50
 --- !u!1 &3905679953130433840
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,12 @@ namespace ChickenGameplay.GameManager
         public Canvas pauseCanvas = null;
 
 
+        [Header("SFX")]
+        [SerializeField] AudioClip startClip = null;
+        [SerializeField] AudioClip victoryClip = null;
+        [SerializeField] AudioClip defeatClip = null;
+
+
         // Unity Methods
         private void Awake()
         {
@@ -88,6 +94,12 @@ namespace ChickenGameplay.GameManager
             // Set Up Points
             ScoreManager.instance.SetScore(0);
 
+            // Stop Ost
+            SoundController.Instance.StopOst();
+
+            // Play Start Sfx
+            SoundController.Instance.SetSfx(startClip);
+
             // Spawn Prefabs
             GameObject newPlayer = GameObject.Instantiate(playerPrefab, characterFolder);
             newPlayer.transform.position = playerSpawn.position;
@@ -101,8 +113,20 @@ namespace ChickenGameplay.GameManager
         }
         private void GameOver(GAME_STATE result)
         {
-            if (result == GAME_STATE.VICTORY) print("PEGOU A GALINHA!");
-            else print("FUGIU!");
+            // Discriminate Result
+            if (result == GAME_STATE.VICTORY)
+            {
+                print("PEGOU A GALINHA!");
+                SoundController.Instance.SetSfx(victoryClip);
+            }
+            else
+            {
+                print("FUGIU!");
+                SoundController.Instance.SetSfx(defeatClip);
+            }
+
+            // Deactivate Ost
+            SoundController.Instance.StopOst();
 
             //Deactivate Pause Canvas
             if (pauseCanvas) pauseCanvas.gameObject.SetActive(false);
@@ -115,6 +139,7 @@ namespace ChickenGameplay.GameManager
         {
             yield return new WaitForSecondsRealtime(startGameDelay);
             ChangeState(GAME_STATE.UPDATE);
+            SoundController.Instance.PlayOst();
         }
         IEnumerator ResetDelay()
         {

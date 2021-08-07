@@ -31,7 +31,7 @@ public class SoundController : MonoBehaviour
         OstSource.clip = clip;
         OstSource.Play();
     }
-    private void Start() {
+    private void Awake() {
         SetOst(ostClip);
     }
     public void PlayOst() {
