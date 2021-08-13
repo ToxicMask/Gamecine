@@ -21,6 +21,8 @@ namespace Duel.Manager{
         public float beginWaitTime = 5f;
         public float endWaitTime = 5f;
         public float endGameWaitTime = 5f;
+        [Tooltip("If TRUE, match will end if one player reached minimal points for Victory.")]
+        public bool scoreEndsMatch = true;
         [Header("Positions")]
         [SerializeField] Vector2 firstPlayerPos = Vector2.zero;
         [SerializeField] Vector2 secondPlayerPos = Vector2.zero;
@@ -128,10 +130,22 @@ namespace Duel.Manager{
             }
         }
         bool CheckForEndGame(){
-            if(turnosJogado >= turnosMax){
-                SoundController.Instance.SetSfx(fimDaPartida);
-                SoundController.Instance.StopOst();
-                return true;
+
+            if (scoreEndsMatch){
+                int minWins = (int)Mathf.Ceil(turnosMax / 2f); // Minimal Points Necessary for Victory
+                bool scoreReached = (firstPlayerScore >= minWins || secondPlayerScore >= minWins);
+                if (turnosJogado >= turnosMax || scoreReached){
+                    SoundController.Instance.SetSfx(fimDaPartida);
+                    SoundController.Instance.StopOst();
+                    return true;
+                }
+            }
+            else{
+                if (turnosJogado >= turnosMax){
+                    SoundController.Instance.SetSfx(fimDaPartida);
+                    SoundController.Instance.StopOst();
+                    return true;
+                }
             }
             return false;
         }
