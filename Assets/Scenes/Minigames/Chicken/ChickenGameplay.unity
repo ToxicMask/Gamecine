@@ -957,7 +957,7 @@ MonoBehaviour:
   chickenSpawn: {fileID: 2027475276}
   gameHUD: {fileID: 1103155231}
   pauseCanvas: {fileID: 1982156101}
-  startClip: {fileID: 8300000, guid: 5eac0c9071ec2ed4c8fb74b0e6b71ff4, type: 3}
+  startClip: {fileID: 8300000, guid: 4c34994759bfec84aa97b21b1a41f0a2, type: 3}
   victoryClip: {fileID: 8300000, guid: 60ba31518807d4a41aac219a0ffb5768, type: 3}
   defeatClip: {fileID: 8300000, guid: f4ab59fdbc5855849af465630a037ec8, type: 3}
 --- !u!114 &370402796
