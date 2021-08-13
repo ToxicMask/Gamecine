@@ -34,6 +34,7 @@ namespace ChickenGameplay.Player
         // Movement Variables -> Auto Walk
         Vector2 runDirection = Vector2.right;
         [SerializeField] float runSpeed = 1.5f;
+        private bool isShooting = false;
 
         // Check Hit Wall Variables
         float hitWallReach = .15f;
@@ -61,6 +62,8 @@ namespace ChickenGameplay.Player
             // End Update If not In Update
             if (ChickenLevelManager.instance.currentState != GAME_STATE.UPDATE) return;
 
+            // End Update if Character is in shooting animation
+            if (isShooting) return;
 
             // Control Standard
             Vector2 moveInput = new Vector2
@@ -99,6 +102,12 @@ namespace ChickenGameplay.Player
             // Execute Movement
             RunMovement();
 
+        }
+
+        private void ResumeMovement()
+        {
+            isShooting = false;
+            RunMovement();
         }
 
         /**  
@@ -166,6 +175,11 @@ namespace ChickenGameplay.Player
             if (bullet)
             {
                 bullet.PickUp();
+
+                // Update Animation and State / Delay Movement
+                animControl.ChangeState("Shoot");
+                isShooting = true;
+                Invoke("ResumeMovement", animControl.GetStateLenght());
             }
 
             EggPickUp egg = collision.GetComponent<EggPickUp>();
