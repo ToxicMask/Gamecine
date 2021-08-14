@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5486918c9fad9428fad3b557240d12, type: 3}
+  m_Name: Corisco
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: 0682d25d1175bf34f879445365dc08c8, type: 3}
+  talkingSound: {fileID: 8300000, guid: c961ba93155385749b7110cbd9f97082, type: 3}
+  talkingTime: 0.065
+  lines:
+  - "Com a morte de Ant\xF4nio das Mortes, n\xE3o h\xE1 o que os latif\xFAndios fazerem
+    a n\xE3o ser suas retalia\xE7\xF5es. Assim, h\xE1 espa\xE7o para todo e qualquer
+    homem e mulher do Sert\xE3o."
+  - " Todos ter\xE3o suas terras e o sonho de um mundo repartido ser\xE1 conclu\xEDdo.
+    Por\xE9m, ainda h\xE1 muito que fazer pela frente: Manuel e Rosa s\xE3o o come\xE7o
+    de uma gera\xE7\xE3o com menos mis\xE9ria ao povo sertanejo."

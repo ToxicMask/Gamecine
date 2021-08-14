@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5486918c9fad9428fad3b557240d12, type: 3}
+  m_Name: Antonio
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: e44cf5a9e000d4542b0fce9c9c8e3602, type: 3}
+  talkingSound: {fileID: 8300000, guid: c961ba93155385749b7110cbd9f97082, type: 3}
+  talkingTime: 0.065
+  lines:
+  - "Agora, sem Corisco no caminho, a revolu\xE7\xE3o foi fracassada. Ant\xF4nio
+    das Mortes seguir\xE1 sua trajet\xF3ria para enfim tomar consci\xEAncia de quem
+    \xE9, mas esse \xE9 um cap\xEDtulo de um novo livro. "
+  - "Manuel e Rosa caminham para o mar, concluindo a previs\xE3o que S\xE3o Sebasti\xE3o
+    havia dito: o mar foi de encontro ao sert\xE3o, e o sert\xE3o foi de encontro
+    ao mar."

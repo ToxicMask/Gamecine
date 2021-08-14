@@ -71,7 +71,7 @@ namespace Duel.Manager{
             Instantiate(npcsObj[1], npcPos[1], Quaternion.identity, npcs);
         }
         public void GameEndTurn(){
-            StartCoroutine("WaitForEnd");
+            StartCoroutine(WaitForEnd());
         }
         IEnumerator WaitForBegin(){
             StateController.Instance.ChangeState(States.GAME_WAIT);
@@ -90,7 +90,11 @@ namespace Duel.Manager{
                 yield return new WaitForSeconds(endGameWaitTime);
                 DuelEndgame.winner = WinnerName();
                 DuelEndgame.winnerPoints = WinnerPlayer();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(6);
+                if(WinnerName() == "Corisco"){
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(7);
+                }else{
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(8);
+                }
             }else{
                 SoundController.Instance.SetSfx(fimDeTurno);
                 yield return new WaitForSeconds(endWaitTime);
