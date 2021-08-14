@@ -6,6 +6,7 @@ using GameComponents;
 
 using ChickenGameplay.GameManager;
 using ChickenGameplay.Navigate;
+using ChickenGameplay.Score;
 
 
 namespace ChickenGameplay.Chicken
@@ -38,6 +39,13 @@ namespace ChickenGameplay.Chicken
         private Timer eggTimer;
         private Timer stunTimer;
 
+        // Score
+        [Header("Score")]
+        public float currentPickScore = 0;
+        public float maxScore = 5000;
+        public float minScore = 1000;
+        public float dropScoreRate = 15.0f;
+
 
         // Stun
         public bool stuned = false;
@@ -52,6 +60,9 @@ namespace ChickenGameplay.Chicken
             eggTimer.OnComplete += SpawnEgg;
             stunTimer = new Timer(1f);
             stunTimer.OnComplete += EndStun;
+
+            // Set Score
+            currentPickScore = maxScore;
 
             // Auto-Get from the same GameObject
             rb2D = GetComponent<Rigidbody2D>();
@@ -74,6 +85,9 @@ namespace ChickenGameplay.Chicken
 
             // Return if stunned
             if (stuned) return;
+
+            // Drop Score
+            if (minScore < currentPickScore) UpdatePickScore(); 
 
             // Check each Direction
             RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
@@ -122,6 +136,14 @@ namespace ChickenGameplay.Chicken
             current = null;
         }
 
+
+        // Update Score
+        void UpdatePickScore()
+        {
+            float newScore = currentPickScore - (dropScoreRate * Time.deltaTime);
+            currentPickScore = Mathf.Clamp(newScore, minScore, maxScore);
+        }
+
         /**  
          * Changes Current Direction
          * Only Moves in Vertical or Horizontal
@@ -152,6 +174,18 @@ namespace ChickenGameplay.Chicken
         /**
         *   Signals
         **/
+
+        // Pick
+        public void PickUp()
+        {
+            animControl.ChangeState("Idle");
+
+            ScoreManager.instance.AddScore((int)currentPickScore);
+
+            // DEBUG
+            //print( "Plus:"+ currentPickScore.ToString());
+            //print("Total:" + ScoreManager.instance.GetScore().ToString());
+        }
 
         // Spawn Egg and Reset Timer
         void SpawnEgg()

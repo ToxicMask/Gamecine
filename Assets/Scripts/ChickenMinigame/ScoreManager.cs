@@ -27,6 +27,11 @@ namespace ChickenGameplay.Score
             if (instance == this) instance = null;
         }
 
+        public int GetScore()
+        {
+            return playerScore;
+        }
+
         public void AddScore(int addValue)
         {
             playerScore += addValue;

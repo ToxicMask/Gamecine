@@ -8,6 +8,7 @@ using ChickenGameplay.GameManager;
 using ChickenGameplay.Chicken;
 using ChickenGameplay.Navigate;
 using ChickenGameplay.PickUp;
+using ChickenGameplay.Score;
 
 
 namespace ChickenGameplay.Player
@@ -154,10 +155,15 @@ namespace ChickenGameplay.Player
          *
          **/
         private void OnCollisionEnter2D(Collision2D collision)
-        { 
+        {
             // Objective
-            if (collision.collider.GetComponent<RunnerChicken>())
+            RunnerChicken chicken = collision.collider.GetComponent<RunnerChicken>();
+            if (chicken)
             {
+
+                // Chicken Pick
+                chicken.PickUp();
+
                 // Set Result
                 GAME_STATE gameResult = GAME_STATE.VICTORY;
 
