@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ChickenGameplay.Navigate
 {
-
+    [SelectionBase]
 
     public class DirectionGuide : MonoBehaviour
     {
