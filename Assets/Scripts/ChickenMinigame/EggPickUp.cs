@@ -7,7 +7,7 @@ namespace ChickenGameplay.PickUp
 {
     public class EggPickUp : MonoBehaviour
     {
-        public int pointsValue = 100;
+        [SerializeField] int pointsValue = 100;
 
 
         public void PickUp()
