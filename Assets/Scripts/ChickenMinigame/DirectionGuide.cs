@@ -48,6 +48,10 @@ namespace ChickenGameplay.Navigate
 
         private void OnDrawGizmos()
         {
+            float pivotSize = .075f;
+
+            Gizmos.DrawWireCube((transform.position), Vector3.one * pivotSize);
+
             foreach (Vector2 dir in directionPointer)
             {
                 Gizmos.color = Color.green;
