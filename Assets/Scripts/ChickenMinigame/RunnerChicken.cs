@@ -30,6 +30,10 @@ namespace ChickenGameplay.Chicken
         public float runSpeed = 1.2f;
         float hitWallReach = .15f;
 
+        // Sounds
+        [Header("Status")]
+        [SerializeField] AudioClip pickSFX = null;
+
         // Stun
         [Header("Status")]
         public bool stuned = false;
@@ -183,6 +187,7 @@ namespace ChickenGameplay.Chicken
         {
             animControl.ChangeState("Idle");
 
+            SoundController.Instance.SetSfx(pickSFX);
             ScoreManager.instance.AddScore((int)currentPickScore);
 
             // DEBUG
