@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.25, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 1542017559
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9ebd2e2dd15f3ee49bf365959916d447, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff60da38b85ab874586e3a4369205245, type: 3}
   m_Color: {r: 0.25729796, g: 0.4544237, b: 0.9245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
   failedShootSound: {fileID: 8300000, guid: e65a6afac08eb5c4fa69bdd32dda11e0, type: 3}
   passos: {fileID: 0}
   playerNumber: 2
+  stopToShoot: 0
   spawnPoint: {fileID: 2226146807916094434}
   bulletFolder: {fileID: 0}
   bulletPrefab: {fileID: 4467014849926553300, guid: eb8ffea570c63294590fc659bd3af32a,

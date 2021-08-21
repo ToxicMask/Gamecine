@@ -72,6 +72,7 @@ namespace DuelProto.Duelist
         // Controller
         public int playerNumber = -1;
         private bool readyToShoot = true;
+        [SerializeField] bool stopToShoot = false;
 
         // Gun
         public DuelGun mainGun;
@@ -154,7 +155,7 @@ namespace DuelProto.Duelist
         private void MoveCharacter(Rigidbody2D mainBody, InputData currentInput , Transform duelistPos)
         {
             // Stop Movement if Shooting
-            if (!readyToShoot)
+            if (!readyToShoot && stopToShoot)
             {
                 mainBody.velocity = Vector2.zero;
                 return;
