@@ -706,7 +706,7 @@ MonoBehaviour:
   textDisplay: {fileID: 2003877087}
   dialogues:
   - {fileID: 11400000, guid: 6925e3f3b254f344fb4dc50cc25ebbcd, type: 2}
-  music: {fileID: 0}
+  music: {fileID: 8300000, guid: 6d2e502da3bc930418e3c664989e194b, type: 3}
   musicSource: {fileID: 1009797834}
   soundSource: {fileID: 1594677278}
 --- !u!114 &1460237189
