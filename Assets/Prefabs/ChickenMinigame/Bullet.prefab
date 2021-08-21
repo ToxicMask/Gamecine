@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootSFX: {fileID: 8300000, guid: 41146cd316d05e44a98a859fc125db4d, type: 3}
   stunTime: 3.4
-  pointsValue: 50
+  pointsValue: 150
 --- !u!1 &3905679953130433840
 GameObject:
   m_ObjectHideFlags: 0

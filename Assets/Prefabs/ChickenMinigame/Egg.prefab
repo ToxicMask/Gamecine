@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb057ac7896e3f458a21ad8c2e5645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsValue: 100
+  pointsValue: 250
   pickSFX: {fileID: 8300000, guid: 16435889fc721794689c2969baf5aa5a, type: 3}
 --- !u!114 &7041819587018497089
 MonoBehaviour:
