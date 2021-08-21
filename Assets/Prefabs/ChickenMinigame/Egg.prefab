@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsValue: 100
+  pickSFX: {fileID: 8300000, guid: 16435889fc721794689c2969baf5aa5a, type: 3}
 --- !u!114 &7041819587018497089
 MonoBehaviour:
   m_ObjectHideFlags: 0

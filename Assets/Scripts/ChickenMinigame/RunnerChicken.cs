@@ -30,7 +30,12 @@ namespace ChickenGameplay.Chicken
         public float runSpeed = 1.2f;
         float hitWallReach = .15f;
 
+        // Stun
+        [Header("Status")]
+        public bool stuned = false;
+
         // Egg
+        [Header("Egg")]
         public GameObject eggPrefab;
         public Transform eggFolder;
 
@@ -46,9 +51,6 @@ namespace ChickenGameplay.Chicken
         public float minScore = 1000;
         public float dropScoreRate = 15.0f;
 
-
-        // Stun
-        public bool stuned = false;
 
         void Start()
         {
