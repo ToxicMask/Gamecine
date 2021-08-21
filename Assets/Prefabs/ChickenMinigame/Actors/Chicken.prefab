@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4d442966a1e5f40bf8f37b758441f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1.5
+  runSpeed: 1.53
   pickSFX: {fileID: 8300000, guid: 15b0b097acbe03249a5a1a4119361a8f, type: 3}
   stuned: 0
   eggPrefab: {fileID: 1327358274264346036, guid: c07de2913d7396e419bce8b640fa4f73,

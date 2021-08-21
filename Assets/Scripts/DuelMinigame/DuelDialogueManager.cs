@@ -5,15 +5,15 @@ using UnityEngine.UI;
 public class DuelDialogueManager : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] GameObject textObject;
-    [SerializeField] GameObject imagePortrait;
-    [SerializeField] Text textDisplay;
+    [SerializeField] GameObject textObject = null;
+    [SerializeField] GameObject imagePortrait = null;
+    [SerializeField] Text textDisplay = null;
     [Header("Parameters")]
-    [SerializeField] DuelDialogue[] dialogues;
-    [SerializeField] AudioClip music;
+    [SerializeField] DuelDialogue[] dialogues = null;
+    [SerializeField] AudioClip music = null;
     [Header("Misc")]
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource soundSource;
+    [SerializeField] AudioSource musicSource = null;
+    [SerializeField] AudioSource soundSource = null;
     Dictionary<int, string[]> dialoguesList;
     Coroutine moving;
     ParseScene sceneParse;
