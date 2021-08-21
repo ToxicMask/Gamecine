@@ -36,8 +36,9 @@ namespace ChickenGameplay.Chicken
 
         // Egg
         [Header("Egg")]
-        public GameObject eggPrefab;
-        public Transform eggFolder;
+        [SerializeField] GameObject eggPrefab = null;
+        public Transform eggFolder = null;
+        [SerializeField] AudioClip eggSFX = null;
 
         // Timers
         public float eggTimerValue = 1.0f;
@@ -196,6 +197,7 @@ namespace ChickenGameplay.Chicken
             {
                 if (eggFolder) GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero), eggFolder);
                 else GameObject.Instantiate(eggPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+                if (eggSFX) SoundController.Instance.SetSfx(eggSFX);
             }
 
             eggTimer.Reset();
@@ -203,7 +205,8 @@ namespace ChickenGameplay.Chicken
         public void SetStunTime(float stunTime )
         {
             stuned = true;
-            stunTimer.setTime = stunTime;
+            stunTimer = new Timer(stunTime);
+            stunTimer.OnComplete += EndStun;
         }
         // End Stunned Condition
         void EndStun()

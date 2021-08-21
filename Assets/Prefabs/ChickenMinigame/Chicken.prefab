@@ -171,16 +171,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4d442966a1e5f40bf8f37b758441f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1.65
+  runSpeed: 1.55
+  stuned: 0
   eggPrefab: {fileID: 1327358274264346036, guid: c07de2913d7396e419bce8b640fa4f73,
     type: 3}
   eggFolder: {fileID: 0}
+  eggSFX: {fileID: 0}
   eggTimerValue: 7
   currentPickScore: 0
   maxScore: 5000
   minScore: 1000
   dropScoreRate: 15
-  stuned: 0
 --- !u!95 &7277841061247605244
 Animator:
   serializedVersion: 3
