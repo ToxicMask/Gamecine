@@ -21,6 +21,7 @@ namespace Duel.Manager{
         public float beginWaitTime = 5f;
         public float endWaitTime = 5f;
         public float endGameWaitTime = 5f;
+        [SerializeField] AllScenes cutsceneAntonio, cutsceneCorisco;
         [Tooltip("If TRUE, match will end if one player reached minimal points for Victory.")]
         public bool scoreEndsMatch = true;
         [Header("Positions")]
@@ -91,9 +92,9 @@ namespace Duel.Manager{
                 DuelEndgame.winner = WinnerName();
                 DuelEndgame.winnerPoints = WinnerPlayer();
                 if(WinnerName() == "Corisco"){
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(7);
+                    Core.ChangeScene.MainMenu.LoadByName(cutsceneCorisco.ToString());
                 }else{
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(8);
+                    Core.ChangeScene.MainMenu.LoadByName(cutsceneAntonio.ToString());
                 }
             }else{
                 SoundController.Instance.SetSfx(fimDeTurno);

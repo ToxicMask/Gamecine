@@ -34,7 +34,7 @@ namespace MainMenu.Selection
             // Set as Disabled
             current.gameObject.SetActive(false);
             foreach(var m in minigames){
-                m.onSelect += () => StartMinigame(m.sceneNumber);
+                m.onSelect += () => StartMinigame(m.sceneName);
                 m.AddListener();
             }
             minigames[0].OnSelect();
@@ -88,10 +88,10 @@ namespace MainMenu.Selection
         {
             Core.ChangeScene.MainMenu.StartMinigame(current.currentMinigameID);
         }*/
-        public void StartMinigame(int id)
+        public void StartMinigame(AllScenes scene)
         {
             LeanTween.pauseAll();
-            Core.ChangeScene.MainMenu.StartMinigame(id);
+            Core.ChangeScene.MainMenu.LoadByName(scene.ToString());
             
         }
     }
@@ -99,12 +99,12 @@ namespace MainMenu.Selection
     public class MinigameInfo{
         public Image minigameImage;
         public Button minigameButton;
-        public int sceneNumber;
+        public AllScenes sceneName;
         public event Action onSelect = delegate{};
-        public MinigameInfo(Image image, Button button, int number){
+        public MinigameInfo(Image image, Button button, AllScenes scene){
             minigameImage = image;
             minigameButton = button;
-            sceneNumber = number;
+            sceneName = scene;
         }
         public void OnSelect(){
             minigameImage.gameObject.LeanScale(new Vector3(1.35f, 1.35f, 1.35f), .15f);

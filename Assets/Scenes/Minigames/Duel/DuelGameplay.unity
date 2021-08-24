@@ -2938,6 +2938,8 @@ MonoBehaviour:
   beginWaitTime: 3
   endWaitTime: 3
   endGameWaitTime: 4
+  cutsceneAntonio: 8
+  cutsceneCorisco: 7
   scoreEndsMatch: 1
   firstPlayerPos: {x: 1.4, y: 0.65}
   secondPlayerPos: {x: -1.4, y: -1.15}

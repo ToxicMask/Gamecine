@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeOnKey: 1
-  id: 6
+  sceneToChange: 6
 --- !u!1 &1684767502
 GameObject:
   m_ObjectHideFlags: 0

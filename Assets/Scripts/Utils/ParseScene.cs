@@ -5,14 +5,14 @@ using UnityEngine;
 public class ParseScene : MonoBehaviour
 {
     [SerializeField] bool changeOnKey = false;
-    public int id;
-    public void ChangeScene(int id){
-        Core.ChangeScene.MainMenu.StartMinigame(id);
+    public AllScenes sceneToChange;
+    public void ChangeScene(AllScenes scene){
+        Core.ChangeScene.MainMenu.LoadByName(scene.ToString());
     }
     private void Update() {
         if(!changeOnKey) return;
         if(Input.anyKeyDown){
-            ChangeScene(id);
+            ChangeScene(sceneToChange);
         }
     }
 }

@@ -125,7 +125,7 @@ namespace GuideCharacter
             yield return new WaitWhile(() => !InputKeyPress);
 
             // Next Level if victory, else Reload Level
-            if (isVictory) SceneManager.LoadScene((int)AllScenes.MainMenu);
+            if (isVictory) SceneManager.LoadScene((int)AllScenes.Main_Menu);
 
             else ResetCurrentLevel();
 
