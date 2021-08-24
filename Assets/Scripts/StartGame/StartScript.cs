@@ -10,7 +10,7 @@ namespace Cinematic.Intro
 
         public void StartIntro()
         {
-            SceneManager.LoadScene((int)AllScenes.IntroCutscene);
+            SceneManager.LoadScene((int)AllScenes.Animated_Intro);
         }
     }
 }

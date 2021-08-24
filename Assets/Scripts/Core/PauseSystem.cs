@@ -19,7 +19,7 @@ public class PauseSystem : MonoBehaviour
     // Main Menu ID
     [Header("Quit to Scene")]
     [Tooltip("Changes to this Scene when quits minigame.")]
-    [SerializeField] AllScenes quitToSceneID = AllScenes.MainMenu;
+    [SerializeField] AllScenes quitToSceneID = AllScenes.Main_Menu;
 
     private void Start()
     {

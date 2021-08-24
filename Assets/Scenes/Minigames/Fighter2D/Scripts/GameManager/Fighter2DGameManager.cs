@@ -297,7 +297,7 @@ namespace Sidescroller.StateMachine
 
         public void ChangeToMainMenuScene()
         {
-            SceneManager.LoadScene( (int) AllScenes.MainMenu);
+            SceneManager.LoadScene( (int) AllScenes.Main_Menu);
         }
 
         public void ResetCurrentLevel()

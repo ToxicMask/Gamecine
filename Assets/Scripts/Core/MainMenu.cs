@@ -11,5 +11,16 @@ namespace Core.ChangeScene
         {
             SceneManager.LoadScene(sceneNumber);
         }
+        public static void LoadByName(string name){
+            var str = "";
+            char bannedChar = '_';
+            for(int i = 0; i < name.Length; i++){
+                if(name[i] == bannedChar){
+                    continue;
+                }
+                str += name[i];
+            }
+            SceneManager.LoadScene(str);
+        }
     }
 }

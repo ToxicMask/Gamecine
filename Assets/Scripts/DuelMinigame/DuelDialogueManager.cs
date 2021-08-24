@@ -60,7 +60,7 @@ public class DuelDialogueManager : MonoBehaviour
         if(GetNextLine(index, line) == 99){
             Debug.Log("Fim de dialogo");
             yield return new WaitForSeconds(.25f);
-            sceneParse.ChangeScene(sceneParse.id);
+            sceneParse.ChangeScene(sceneParse.sceneToChange);
         }else{
             textDisplay.text = " ";
             StartCoroutine(Type(index, GetNextLine(index, line)));
