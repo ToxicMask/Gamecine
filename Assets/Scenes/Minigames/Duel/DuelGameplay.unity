@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SfxSource: {fileID: 64698817}
   OstSource: {fileID: 1381771831}
-  ostClip: {fileID: 8300000, guid: ed0b65e83bc56fc48aa9e0bca73e4e33, type: 3}
+  ostClip: {fileID: 8300000, guid: 6d2e502da3bc930418e3c664989e194b, type: 3}
 --- !u!1 &523618441
 GameObject:
   m_ObjectHideFlags: 0
