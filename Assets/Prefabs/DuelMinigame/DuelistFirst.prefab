@@ -184,9 +184,10 @@ MonoBehaviour:
   failedShootSound: {fileID: 8300000, guid: e65a6afac08eb5c4fa69bdd32dda11e0, type: 3}
   passos: {fileID: 8300000, guid: 6d7329e44fff2c04282a5709b7372d82, type: 3}
   playerNumber: -1
+  stopToShoot: 0
   spawnPoint: {fileID: 5311733759261250851}
   bulletFolder: {fileID: 0}
-  bulletPrefab: {fileID: 3111643898931142733, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+  bulletPrefab: {fileID: 8362699393973339705, guid: 9f95eb9451c5372409bcc6177afb8afb,
     type: 3}
 --- !u!114 &4309623442773980921
 MonoBehaviour:

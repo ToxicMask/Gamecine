@@ -17,10 +17,91 @@ PrefabInstance:
       propertyPath: hitSound
       value: 
       objectReference: {fileID: 8300000, guid: 926fb7a5ec3a8654f8303efa856f4aea, type: 3}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492343443474170710, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 3111643898931142733, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
         type: 3}
       propertyPath: m_Name
       value: Bullet Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398746399397764737, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8092430098967794038, guid: 5077a71654e3d9244888579469568ee2,
+        type: 3}
+    - target: {fileID: 4398746399397764737, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398746399397764737, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398746399397764737, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235128300979937205, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235128300979937205, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235128300979937205, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6329673720062587143, guid: 25f5ee1d41d9d84428b29f7fb93fd064,
         type: 3}
