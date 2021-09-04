@@ -28,12 +28,12 @@ namespace DuelProto.Scenary{
                 if(current >= positions.Count){
                     current = 0;
                 }
-                if (animControl) FlipAnimation();
+                if (animControl) FlipWalkAnimation();
             }
             transform.position = Vector2.MoveTowards(transform.position, positions[current], Time.deltaTime * speed);
         }
 
-        private void FlipAnimation()
+        private void FlipWalkAnimation()
         {
             int currentAnimation = current % 2;
 
