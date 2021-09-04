@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameComponents;
 
 namespace DuelProto.Scenary{
     public class Npc : MonoBehaviour
@@ -11,10 +12,12 @@ namespace DuelProto.Scenary{
         public Vector2 endPos;
         List<Vector2> positions;
         int current;
+        private AnimationControl2D animControl;
         private void Start() {
             positions = new List<Vector2>();
             positions.Add(firstPos);
             positions.Add(endPos);
+            if (!animControl) animControl = GetComponent<AnimationControl2D>();
         }
         private void Update() {
 
@@ -25,8 +28,18 @@ namespace DuelProto.Scenary{
                 if(current >= positions.Count){
                     current = 0;
                 }
+                if (animControl) FlipAnimation();
             }
             transform.position = Vector2.MoveTowards(transform.position, positions[current], Time.deltaTime * speed);
+        }
+
+        private void FlipAnimation()
+        {
+            int currentAnimation = current % 2;
+
+            string[] animStates = { "Walk_Left", "Walk_Right" };
+
+            animControl.ChangeState(animStates[currentAnimation]);
         }
 
     }
