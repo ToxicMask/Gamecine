@@ -2262,7 +2262,7 @@ Transform:
   m_GameObject: {fileID: 1269073830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1346074946}
   m_RootOrder: 4
@@ -3027,10 +3027,10 @@ MonoBehaviour:
   firstPlayerPos: {x: 1.4, y: 0.9}
   secondPlayerPos: {x: -1.4, y: -1.4}
   wallPos:
-  - {x: 1.2, y: 0.165}
-  - {x: -2, y: 0.165}
-  - {x: 2.39, y: -0.765}
-  - {x: -2.14, y: -0.765}
+  - {x: 1.2, y: 0.55}
+  - {x: -2, y: 0.55}
+  - {x: 2.39, y: -1.05}
+  - {x: -2.14, y: -1.05}
   npcPos:
   - {x: -3, y: -0.6}
   - {x: 3, y: 0.005}

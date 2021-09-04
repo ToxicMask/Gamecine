@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &396027374855219272
 Transform:
   m_ObjectHideFlags: 0
@@ -156,15 +156,16 @@ SpriteRenderer:
   m_SortingLayerID: -1945512527
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 5098632601052952556, guid: 89878e509d2608943b97ae4efb3b7666,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.1875, y: 0.265625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7663946491990091391
@@ -183,10 +184,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.1875, y: 0.265625}
+    newSize: {x: 0.1875, y: 0.265625}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -240,6 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Rosa
-  speed: 2
-  firstPos: {x: -3.5, y: -0.6}
-  endPos: {x: 3.5, y: -0.6}
+  speed: 1.6
+  firstPos: {x: -3, y: -0.6}
+  endPos: {x: 3, y: -0.6}
