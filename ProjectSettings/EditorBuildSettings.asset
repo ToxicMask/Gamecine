@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro/AnimatedIntro.unity
     guid: 295745a7db6456a449dc60150d853611
-  - enabled: 1
-    path: Assets/Scenes/MainMenu/MainMenu.unity
-    guid: 6145cb0f17f830b45a5c850583cd16be
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Minigames/Fighter2D/Scenes/Fighter2D.unity
     guid: 2106072305548694699f88d71a21097b
@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Chicken/ChickenGameplay.unity
     guid: 948c12fd5aded5d4d9df8edba05d5c82
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Chicken/ChickenCutscene.unity
+    guid: 5569619a621dcd641ba305ec2112642e
   m_configObjects: {}

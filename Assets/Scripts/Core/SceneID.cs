@@ -14,5 +14,6 @@ public enum AllScenes
     Duel_Cutscene_Corisco,
     Duel_Cutscene_Antonio,
     Duel_FimDeJogo,
+    Chicken_Cutscene,
     Chicken_Gameplay
 }
