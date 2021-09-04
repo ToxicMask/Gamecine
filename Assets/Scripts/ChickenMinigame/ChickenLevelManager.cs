@@ -21,6 +21,9 @@ namespace ChickenGameplay.GameManager
         [Header("State Machine")]
         public GAME_STATE currentState = GAME_STATE.WAIT;
 
+        [Header("Next Level")]
+        public AllScenes nextScene = AllScenes.Main_Menu;
+
         // Time Variables
         [Header("Level Time")]
         public float startGameDelay = 1.0f;
@@ -113,17 +116,7 @@ namespace ChickenGameplay.GameManager
         }
         private void GameOver(GAME_STATE result)
         {
-            // Discriminate Result
-            if (result == GAME_STATE.VICTORY)
-            {
-                print("PEGOU A GALINHA!");
-                SoundController.Instance.SetSfx(victoryClip);
-            }
-            else
-            {
-                print("FUGIU!");
-                SoundController.Instance.SetSfx(defeatClip);
-            }
+
 
             // Deactivate Ost
             SoundController.Instance.StopOst();
@@ -131,8 +124,20 @@ namespace ChickenGameplay.GameManager
             //Deactivate Pause Canvas
             if (pauseCanvas) pauseCanvas.gameObject.SetActive(false);
 
-            StartCoroutine(ResetDelay());
 
+            // Discriminate Result
+            if (result == GAME_STATE.VICTORY)
+            {
+                print("PEGOU A GALINHA!");
+                SoundController.Instance.SetSfx(victoryClip);
+                StartCoroutine(EndDelay());
+            }
+            else
+            {
+                print("FUGIU!");
+                SoundController.Instance.SetSfx(defeatClip);
+                StartCoroutine(ResetDelay());
+            }
         }
 
         IEnumerator BeginingDelay()
@@ -147,10 +152,21 @@ namespace ChickenGameplay.GameManager
             ResetCurrentLevel();
         }
 
+        IEnumerator EndDelay()
+        {
+            yield return new WaitForSecondsRealtime(endGameDelay);
+            NextLevel();
+        }
+
 
         public void ChangeToMainMenuScene()
         {
             SceneManager.LoadScene((int)AllScenes.Main_Menu);
+        }
+
+        public void NextLevel()
+        {
+            SceneManager.LoadScene((int)nextScene);
         }
         public void ResetCurrentLevel()
         {

@@ -1323,7 +1323,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ed0b65e83bc56fc48aa9e0bca73e4e33, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 080007a916a97654f898dc179a64967d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 1
@@ -3193,7 +3193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SfxSource: {fileID: 646802584}
   OstSource: {fileID: 378638841}
-  ostClip: {fileID: 8300000, guid: ed0b65e83bc56fc48aa9e0bca73e4e33, type: 3}
+  ostClip: {fileID: 8300000, guid: 080007a916a97654f898dc179a64967d, type: 3}
 --- !u!81 &851170564
 AudioListener:
   m_ObjectHideFlags: 0
