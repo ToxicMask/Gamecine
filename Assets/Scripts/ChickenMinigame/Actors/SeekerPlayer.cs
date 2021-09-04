@@ -43,6 +43,9 @@ namespace ChickenGameplay.Player
         //Controller
         Vector2 prevMove = Vector2.zero;
 
+        // Expressions
+        Vector2 center => transform.position + new Vector3(0, -0.2f);
+
 
         // Start is called before the first frame update
         void Start()
@@ -87,7 +90,7 @@ namespace ChickenGameplay.Player
             prevMove = moveInput;
 
             // Check each Direction
-            RaycastHit2D hitWall = Physics2D.Raycast(transform.position, runDirection, hitWallReach);
+            RaycastHit2D hitWall = Physics2D.Raycast(center, runDirection, hitWallReach);
 
             if (hitWall)
             {
