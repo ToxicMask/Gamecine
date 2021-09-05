@@ -185,7 +185,7 @@ namespace ChickenGameplay.Chicken
         // Pick
         public void PickUp()
         {
-            animControl.ChangeState("Idle");
+            animControl.ChangeState("Stun");
 
             SoundController.Instance.SetSfx(pickSFX);
             ScoreManager.instance.AddScore((int)currentPickScore);

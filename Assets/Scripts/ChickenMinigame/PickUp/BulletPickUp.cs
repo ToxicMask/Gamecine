@@ -6,6 +6,7 @@ using ChickenGameplay.Chicken;
 
 namespace ChickenGameplay.PickUp
 {
+    [SelectionBase]
     public class BulletPickUp : MonoBehaviour
     {
 

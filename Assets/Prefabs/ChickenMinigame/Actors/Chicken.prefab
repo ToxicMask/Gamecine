@@ -75,7 +75,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
     type: 3}
   eggFolder: {fileID: 0}
   eggSFX: {fileID: 0}
-  eggTimerValue: 7
+  eggTimerValue: 3.5
   currentPickScore: 0
   maxScore: 2000
   minScore: 1000
