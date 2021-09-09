@@ -23,6 +23,8 @@ namespace ChickenGameplay.GameManager
 
         [Header("Next Level")]
         public AllScenes nextScene = AllScenes.Main_Menu;
+        [SerializeField] ParseScene parseScene = null;
+        [SerializeField] ScoreManager scoreManager = null;
 
         // Time Variables
         [Header("Level Time")]
@@ -130,6 +132,7 @@ namespace ChickenGameplay.GameManager
             {
                 print("PEGOU A GALINHA!");
                 SoundController.Instance.SetSfx(victoryClip);
+                ChickenEndgame.playerPoints = scoreManager.GetScore();
                 StartCoroutine(EndDelay());
             }
             else
@@ -166,7 +169,8 @@ namespace ChickenGameplay.GameManager
 
         public void NextLevel()
         {
-            SceneManager.LoadScene((int)nextScene);
+            //SceneManager.LoadScene((int)nextScene);
+            parseScene.ChangeScene(AllScenes.Chicken_FimDeJogo);
         }
         public void ResetCurrentLevel()
         {

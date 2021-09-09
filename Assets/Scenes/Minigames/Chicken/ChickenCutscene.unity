@@ -225,7 +225,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b5059f300e6fcd94c9c143de602a2438, type: 3}
+    m_Font: {fileID: 12800000, guid: 0d92776de42c1ae4980b961001f00b44, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 1114930107}
   - component: {fileID: 1114930109}
   - component: {fileID: 1114930108}
+  - component: {fileID: 1114930110}
   m_Layer: 0
   m_Name: ORapa
   m_TagString: Untagged
@@ -377,7 +378,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0d92776de42c1ae4980b961001f00b44, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
@@ -390,7 +391,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\xD4 rap\xE1, voc\xEA a\xED, meu irm\xE3o, pega a galinha a\xED, segura
-    a galinha a\xED, rap\xE1!\u201D"
+    a galinha a\xED, rap\xE1!"
 --- !u!222 &1114930109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -399,6 +400,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114930106}
   m_CullTransparentMesh: 0
+--- !u!114 &1114930110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114930106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1115528498
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b5059f300e6fcd94c9c143de602a2438, type: 3}
+    m_Font: {fileID: 12800000, guid: 0d92776de42c1ae4980b961001f00b44, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
