@@ -13,6 +13,9 @@ public class ParseScene : MonoBehaviour
     public void ChangeScene(AllScenes scene){
         Core.ChangeScene.MainMenu.LoadByName(scene.ToString());
     }
+    public void ChangeSceneByDefault(){
+        Core.ChangeScene.MainMenu.LoadByName(sceneToChange.ToString());
+    }
     private void Update() {
         if(!changeOnKey) return;
         if(Input.anyKeyDown){
