@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Antonio
   m_EditorClassIdentifier: 
   portrait: {fileID: 21300000, guid: e44cf5a9e000d4542b0fce9c9c8e3602, type: 3}
-  talkingSound: {fileID: 8300000, guid: c961ba93155385749b7110cbd9f97082, type: 3}
+  talkingSound: {fileID: 8300000, guid: 14bd69a3b30995343990709875e85743, type: 3}
   talkingTime: 0.065
   lines:
   - "Agora, sem Corisco no caminho, a revolu\xE7\xE3o foi fracassada. Ant\xF4nio

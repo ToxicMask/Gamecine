@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Corisco
   m_EditorClassIdentifier: 
   portrait: {fileID: 21300000, guid: 0682d25d1175bf34f879445365dc08c8, type: 3}
-  talkingSound: {fileID: 8300000, guid: c961ba93155385749b7110cbd9f97082, type: 3}
+  talkingSound: {fileID: 8300000, guid: 90558e1a74b5f5e4dacf82dd627ecff5, type: 3}
   talkingTime: 0.065
   lines:
   - "Com a morte de Ant\xF4nio das Mortes, n\xE3o h\xE1 o que os latif\xFAndios fazerem

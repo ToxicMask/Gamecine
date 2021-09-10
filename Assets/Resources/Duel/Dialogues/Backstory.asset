@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Backstory
   m_EditorClassIdentifier: 
   portrait: {fileID: 0}
-  talkingSound: {fileID: 8300000, guid: c961ba93155385749b7110cbd9f97082, type: 3}
+  talkingSound: {fileID: 8300000, guid: 14bd69a3b30995343990709875e85743, type: 3}
   talkingTime: 0.065
   lines:
   - "Ant\xF4nio das Mortes \xE9 matador de cangaceiro. Temido por todos, se encontra
